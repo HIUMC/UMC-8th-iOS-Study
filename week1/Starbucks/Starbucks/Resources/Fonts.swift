@@ -59,6 +59,10 @@ extension Font {
         return .pretend(type: .regular, size: 13)
     }
     
+    static var mainTextRegular12: Font {
+        return .pretend(type: .regular, size: 12)
+    }
+    
     //피그마에선 mainText18_Regular로 나와있지만 내가 임의로 바꿈..
     static var mainTextRegular18: Font {
         return .pretend(type: .regular, size: 18)
