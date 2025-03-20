@@ -103,6 +103,5 @@ struct SwiftUIView_Preview: PreviewProvider {
                     .previewDisplayName(device)
             }
         }
-
 }
 
