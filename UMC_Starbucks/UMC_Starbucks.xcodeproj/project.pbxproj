@@ -15,6 +15,16 @@
 		619836782D8ECEF1003B049C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619836772D8ECEF1003B049C /* LoginViewModel.swift */; };
 		6198367B2D8ECF0D003B049C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6198367A2D8ECF0D003B049C /* LoginView.swift */; };
 		6198367D2D8ECF1E003B049C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6198367C2D8ECF1E003B049C /* SplashView.swift */; };
+		619836812D8EDBF4003B049C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619836802D8EDBF4003B049C /* Fonts.swift */; };
+		6198368B2D8F199A003B049C /* Pretendard-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 619836822D8F1999003B049C /* Pretendard-Thin.ttf */; };
+		6198368C2D8F199A003B049C /* Pretendard-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 619836832D8F1999003B049C /* Pretendard-Black.ttf */; };
+		6198368D2D8F199A003B049C /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 619836842D8F1999003B049C /* Pretendard-SemiBold.ttf */; };
+		6198368E2D8F199A003B049C /* Pretendard-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 619836852D8F1999003B049C /* Pretendard-ExtraLight.ttf */; };
+		6198368F2D8F199A003B049C /* Pretendard-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 619836862D8F199A003B049C /* Pretendard-Light.ttf */; };
+		619836902D8F199A003B049C /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 619836872D8F199A003B049C /* Pretendard-Regular.ttf */; };
+		619836912D8F199A003B049C /* Pretendard-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 619836882D8F199A003B049C /* Pretendard-ExtraBold.ttf */; };
+		619836922D8F199A003B049C /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 619836892D8F199A003B049C /* Pretendard-Bold.ttf */; };
+		619836932D8F199A003B049C /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6198368A2D8F199A003B049C /* Pretendard-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +37,17 @@
 		619836772D8ECEF1003B049C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6198367A2D8ECF0D003B049C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6198367C2D8ECF1E003B049C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		6198367E2D8ED6FB003B049C /* UMC-Starbucks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "UMC-Starbucks-Info.plist"; sourceTree = SOURCE_ROOT; };
+		619836802D8EDBF4003B049C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		619836822D8F1999003B049C /* Pretendard-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.ttf"; sourceTree = "<group>"; };
+		619836832D8F1999003B049C /* Pretendard-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.ttf"; sourceTree = "<group>"; };
+		619836842D8F1999003B049C /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
+		619836852D8F1999003B049C /* Pretendard-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.ttf"; sourceTree = "<group>"; };
+		619836862D8F199A003B049C /* Pretendard-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.ttf"; sourceTree = "<group>"; };
+		619836872D8F199A003B049C /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.ttf"; sourceTree = "<group>"; };
+		619836882D8F199A003B049C /* Pretendard-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.ttf"; sourceTree = "<group>"; };
+		619836892D8F199A003B049C /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.ttf"; sourceTree = "<group>"; };
+		6198368A2D8F199A003B049C /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +80,8 @@
 		619836622D8EC5B3003B049C /* UMC_Starbucks */ = {
 			isa = PBXGroup;
 			children = (
+				6198367F2D8EDBDC003B049C /* Resources */,
+				6198367E2D8ED6FB003B049C /* UMC-Starbucks-Info.plist */,
 				619836792D8ECEFB003B049C /* Views */,
 				619836742D8ECEB2003B049C /* ViewModels */,
 				619836712D8ECE4D003B049C /* Models */,
@@ -101,6 +124,23 @@
 				6198367C2D8ECF1E003B049C /* SplashView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6198367F2D8EDBDC003B049C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				619836832D8F1999003B049C /* Pretendard-Black.ttf */,
+				619836892D8F199A003B049C /* Pretendard-Bold.ttf */,
+				619836882D8F199A003B049C /* Pretendard-ExtraBold.ttf */,
+				619836852D8F1999003B049C /* Pretendard-ExtraLight.ttf */,
+				619836862D8F199A003B049C /* Pretendard-Light.ttf */,
+				6198368A2D8F199A003B049C /* Pretendard-Medium.ttf */,
+				619836872D8F199A003B049C /* Pretendard-Regular.ttf */,
+				619836842D8F1999003B049C /* Pretendard-SemiBold.ttf */,
+				619836822D8F1999003B049C /* Pretendard-Thin.ttf */,
+				619836802D8EDBF4003B049C /* Fonts.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,8 +201,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				619836912D8F199A003B049C /* Pretendard-ExtraBold.ttf in Resources */,
+				6198368B2D8F199A003B049C /* Pretendard-Thin.ttf in Resources */,
 				6198366B2D8EC5B6003B049C /* Preview Assets.xcassets in Resources */,
+				619836902D8F199A003B049C /* Pretendard-Regular.ttf in Resources */,
+				6198368D2D8F199A003B049C /* Pretendard-SemiBold.ttf in Resources */,
+				6198368E2D8F199A003B049C /* Pretendard-ExtraLight.ttf in Resources */,
+				619836922D8F199A003B049C /* Pretendard-Bold.ttf in Resources */,
 				619836682D8EC5B6003B049C /* Assets.xcassets in Resources */,
+				619836932D8F199A003B049C /* Pretendard-Medium.ttf in Resources */,
+				6198368C2D8F199A003B049C /* Pretendard-Black.ttf in Resources */,
+				6198368F2D8F199A003B049C /* Pretendard-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				619836812D8EDBF4003B049C /* Fonts.swift in Sources */,
 				619836782D8ECEF1003B049C /* LoginViewModel.swift in Sources */,
 				619836662D8EC5B3003B049C /* ContentView.swift in Sources */,
 				619836732D8ECEA4003B049C /* LoginModel.swift in Sources */,
@@ -314,6 +364,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"UMC_Starbucks/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "UMC-Starbucks-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -342,6 +393,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"UMC_Starbucks/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "UMC-Starbucks-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
