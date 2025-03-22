@@ -18,6 +18,9 @@ private var mainTitleGroup: some View {
         Text("회원 서비스 이용을 위해 로그인 해주세요")
             .font(.PretendardMedium16)
             .foregroundStyle(Color.loginGray)
+        
+        
+        
     }
     
 }
