@@ -3,17 +3,29 @@ import SwiftUI
 
 struct LoginView: View {
     var body: some View {
-        mainTitleGroup
-        Spacer().frame(height: 104)
-        idPwdGroup
-        Spacer().frame(height: 47)
-        loginGroup
+        VStack(alignment: .leading) {
+
+            mainTitleGroup
+            Spacer().frame(height: 104)
+            idPwdGroup
+            Spacer().frame(height: 47)
+            loginGroup
+        }
+
     }
 }
 
 //상단 title
 private var mainTitleGroup: some View {
     VStack(alignment: .leading) {
+        Image("Starbucks")
+            .resizable()
+            .frame(width: 97, height: 95)
+            .aspectRatio(contentMode: .fit)
+        
+        Spacer().frame(height: 28)
+        
+        
         Text("안녕하세요.")
             .font(.PretendardExtraBold24)
             .kerning(1.2)
@@ -69,7 +81,29 @@ private var loginGroup: some View {
                 .cornerRadius(20)
                 
         })
+        
+        Spacer().frame(height: 104)
 
+        Text("이메일로 회원가입하기")
+            .font(.PretendardRegular12)
+            .foregroundColor(Color.emailLoginGray)
+            .underline()
+            .multilineTextAlignment(.center) //필요한가?
+        
+        Spacer().frame(height: 19)
+        
+        Image("KakaoLogin")
+            .resizable() // 필요한가?
+            .frame(width: 306, height: 45)
+            .aspectRatio(contentMode: .fit)
+        
+        Spacer().frame(height: 19)
+        
+        Image("AppleLogin")
+            .resizable()
+            .frame(width: 306, height: 45)
+            .aspectRatio(contentMode: .fit)
+        
     }
 }
 
