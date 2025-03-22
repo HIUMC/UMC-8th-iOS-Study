@@ -8,7 +8,7 @@ struct SplashView: View {
                 .fill(Color.starbucksGreen)
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
             
-            Image(.starbucksPng)
+            Image(.starbucks)
         }
     }
 }
