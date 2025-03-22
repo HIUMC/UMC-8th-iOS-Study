@@ -1,18 +1,20 @@
-//
-//  SplashView.swift
-//  UMC_Starbucks
-//
-//  Created by 이서현 on 3/22/25.
-//
 
 import SwiftUI
 
 struct SplashView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .center) {
+            Rectangle()
+                .fill(Color.starbucksGreen)
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+            
+            Image(.starbucksPng)
+        }
     }
 }
 
+    
+    
 #Preview {
     SplashView()
 }

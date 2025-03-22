@@ -25,6 +25,7 @@
 		619836912D8F199A003B049C /* Pretendard-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 619836882D8F199A003B049C /* Pretendard-ExtraBold.ttf */; };
 		619836922D8F199A003B049C /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 619836892D8F199A003B049C /* Pretendard-Bold.ttf */; };
 		619836932D8F199A003B049C /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6198368A2D8F199A003B049C /* Pretendard-Medium.ttf */; };
+		619836992D8F1BF0003B049C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 619836982D8F1BF0003B049C /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		619836882D8F199A003B049C /* Pretendard-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.ttf"; sourceTree = "<group>"; };
 		619836892D8F199A003B049C /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.ttf"; sourceTree = "<group>"; };
 		6198368A2D8F199A003B049C /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
+		619836982D8F1BF0003B049C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				619836842D8F1999003B049C /* Pretendard-SemiBold.ttf */,
 				619836822D8F1999003B049C /* Pretendard-Thin.ttf */,
 				619836802D8EDBF4003B049C /* Fonts.swift */,
+				619836982D8F1BF0003B049C /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				619836922D8F199A003B049C /* Pretendard-Bold.ttf in Resources */,
 				619836682D8EC5B6003B049C /* Assets.xcassets in Resources */,
 				619836932D8F199A003B049C /* Pretendard-Medium.ttf in Resources */,
+				619836992D8F1BF0003B049C /* Colors.xcassets in Resources */,
 				6198368C2D8F199A003B049C /* Pretendard-Black.ttf in Resources */,
 				6198368F2D8F199A003B049C /* Pretendard-Light.ttf in Resources */,
 			);
