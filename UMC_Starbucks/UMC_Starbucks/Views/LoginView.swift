@@ -3,15 +3,17 @@ import SwiftUI
 
 struct LoginView: View {
     var body: some View {
-        VStack(alignment: .leading) {
+            VStack(alignment: .leading) {
+                Spacer().frame(height: 104)
+                mainTitleGroup
+                Spacer()
+                idPwdGroup
+                Spacer()
+                loginGroup
 
-            mainTitleGroup
-            Spacer().frame(height: 104)
-            idPwdGroup
-            Spacer().frame(height: 47)
-            loginGroup
         }
-
+        .padding(.horizontal, 19)
+        
     }
 }
 
@@ -25,19 +27,22 @@ private var mainTitleGroup: some View {
         
         Spacer().frame(height: 28)
         
-        
-        Text("안녕하세요.")
+        Group {
+            Text("안녕하세요.")
+            Text("스타벅스입니다.")
+        }
             .font(.PretendardExtraBold24)
+            .foregroundStyle(Color.black)
             .kerning(1.2)
-        Text("스타벅스입니다.")
-            .font(.PretendardExtraBold24)
-            .kerning(1.2)
+
         
         Spacer().frame(height: 19)
         
         Text("회원 서비스 이용을 위해 로그인 해주세요")
             .font(.PretendardMedium16)
             .foregroundStyle(Color.loginGray)
+            .kerning(-0.8)
+        
         
         
     }
@@ -49,66 +54,79 @@ private var idPwdGroup: some View {
         Text("아이디")
             .font(.PretendardRegular13)
             .foregroundStyle(Color.idPwdBlack)
+            .kerning(-0.65)
         
         Spacer().frame(height: 1.98)
         
         Divider()
-            .frame(width: 402)
         
-        Spacer().frame(height: 49.04)
+        Spacer().frame(height: 47)
         
         Text("비밀번호")
             .font(.PretendardRegular13)
             .foregroundStyle(Color.idPwdBlack)
+            .kerning(-0.65)
         
         Spacer().frame(height: 1.98)
         
         Divider()
-            .frame(width: 402)
+        
+        Spacer().frame(height: 47)
+        
+        Button(action: {}, label: {
+            Text("로그인하기")
+                .font(.PretendardMedium16)
+                .frame(maxWidth: .infinity, minHeight: 46) //크기 정하고 배경 정하고 코너 깎기
+                .background(Color.loginButtonGreen)
+                .foregroundStyle(.white)
+                .cornerRadius(20)
+            
+                
+        })
+        
     }
+    
     
 }
 
 //로그인 부분
 private var loginGroup: some View {
     VStack(alignment: .center) {
-        Button(action: {}, label: {
-            Text("로그인하기")
-                .font(.PretendardMedium16)
-                .frame(width: 402, height: 46)
-                .background(Color.loginButtonGreen)
-                .foregroundColor(.white)
-                .cornerRadius(20)
-                
-        })
         
         Spacer().frame(height: 104)
-
+        
         Text("이메일로 회원가입하기")
             .font(.PretendardRegular12)
-            .foregroundColor(Color.emailLoginGray)
+            .foregroundStyle(Color.emailLoginGray)
             .underline()
+            .frame(maxWidth:.infinity)
             .multilineTextAlignment(.center) //필요한가?
         
         Spacer().frame(height: 19)
         
-        Image("KakaoLogin")
-            .resizable() // 필요한가?
-            .frame(width: 306, height: 45)
-            .aspectRatio(contentMode: .fit)
+        HStack {
+            Spacer()
+            Image("KakaoLogin")
+                .resizable()
+                .frame(width: 306, height: 45)
+                .aspectRatio(contentMode: .fit)
+            Spacer()
+        }
         
         Spacer().frame(height: 19)
         
-        Image("AppleLogin")
-            .resizable()
-            .frame(width: 306, height: 45)
-            .aspectRatio(contentMode: .fit)
+        HStack {
+            Spacer()
+            Image("AppleLogin")
+                .resizable()
+                .frame(width: 306, height: 45)
+                .aspectRatio(contentMode: .fit)
+            Spacer()
+        }
         
     }
+
 }
-
-
-
 
 
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		619836642D8EC5B3003B049C /* UMC_StarbucksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619836632D8EC5B3003B049C /* UMC_StarbucksApp.swift */; };
-		619836662D8EC5B3003B049C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619836652D8EC5B3003B049C /* ContentView.swift */; };
 		619836682D8EC5B6003B049C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 619836672D8EC5B6003B049C /* Assets.xcassets */; };
 		6198366B2D8EC5B6003B049C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6198366A2D8EC5B6003B049C /* Preview Assets.xcassets */; };
 		619836732D8ECEA4003B049C /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619836722D8ECEA4003B049C /* LoginModel.swift */; };
@@ -31,7 +30,6 @@
 /* Begin PBXFileReference section */
 		619836602D8EC5B3003B049C /* UMC_Starbucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMC_Starbucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		619836632D8EC5B3003B049C /* UMC_StarbucksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMC_StarbucksApp.swift; sourceTree = "<group>"; };
-		619836652D8EC5B3003B049C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		619836672D8EC5B6003B049C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6198366A2D8EC5B6003B049C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		619836722D8ECEA4003B049C /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 				619836742D8ECEB2003B049C /* ViewModels */,
 				619836712D8ECE4D003B049C /* Models */,
 				619836632D8EC5B3003B049C /* UMC_StarbucksApp.swift */,
-				619836652D8EC5B3003B049C /* ContentView.swift */,
 				619836672D8EC5B6003B049C /* Assets.xcassets */,
 				619836692D8EC5B6003B049C /* Preview Content */,
 			);
@@ -228,7 +225,6 @@
 			files = (
 				619836812D8EDBF4003B049C /* Fonts.swift in Sources */,
 				619836782D8ECEF1003B049C /* LoginViewModel.swift in Sources */,
-				619836662D8EC5B3003B049C /* ContentView.swift in Sources */,
 				619836732D8ECEA4003B049C /* LoginModel.swift in Sources */,
 				6198367B2D8ECF0D003B049C /* LoginView.swift in Sources */,
 				619836642D8EC5B3003B049C /* UMC_StarbucksApp.swift in Sources */,

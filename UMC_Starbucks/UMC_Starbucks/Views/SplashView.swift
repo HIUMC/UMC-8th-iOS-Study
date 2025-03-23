@@ -10,6 +10,7 @@ struct SplashView: View {
             
             Image(.starbucks)
         }
+        .ignoresSafeArea() // 배경 꽉 채우기!!
     }
 }
 
