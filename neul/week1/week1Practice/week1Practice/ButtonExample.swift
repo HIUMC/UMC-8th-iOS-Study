@@ -12,6 +12,7 @@ struct ButtonExample: View {
         Button("나를 클릭해보세요!") {
             print("하하하하호호호호")
         }
+        Spacer(minLength: 30)
         //커스텀용
         Button(action: {
             print("버튼. 눌렸다.")
@@ -23,7 +24,16 @@ struct ButtonExample: View {
                 .cornerRadius(10)
                 .font(.title)
         }
+        
 
+        // 이런 것도 됨(voiceover용)
+        Button("Sign In", systemImage: "arrow.up", action: signIn)
+            .labelStyle(.iconOnly)
+
+    }
+    
+    func signIn() {
+        print("signin")
     }
 }
 

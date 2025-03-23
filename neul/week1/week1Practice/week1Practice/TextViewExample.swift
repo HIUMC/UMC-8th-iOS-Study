@@ -23,7 +23,7 @@ struct TextViewExample: View {
                     .fill(Color.yellow)
                     .stroke(Color.brown, style: .init(lineWidth:5))
                     .opacity(0.2)
-            } // 이 위를 덮는듯...
+            } // 이 텍스트 위를 덮는듯...
             .dynamicTypeSize(.xxxLarge) // 텍스트 뷰의 크기 자체가 바뀜
         Image(systemName: "sun.min")
     }
