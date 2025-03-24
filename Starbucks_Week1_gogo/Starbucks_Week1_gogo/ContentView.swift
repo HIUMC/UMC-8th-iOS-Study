@@ -13,12 +13,16 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Hello, worldasd!")
         }
         .padding()
     }
 }
 
-#Preview {
+#Preview("iPhone 11") {
+    ContentView()
+}
+
+#Preview("iPhone 16 Pro") {
     ContentView()
 }
