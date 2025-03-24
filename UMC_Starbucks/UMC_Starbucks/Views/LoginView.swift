@@ -13,6 +13,7 @@ struct LoginView: View {
 
         }
         .padding(.horizontal, 19)
+        //.ignoresSafeArea(edges: .top)
         
     }
 }
@@ -24,7 +25,7 @@ private var mainTitleGroup: some View {
             .resizable()
             .frame(width: 97, height: 95)
             .aspectRatio(contentMode: .fit)
-        
+            //.padding(.bottom, 28)
         Spacer().frame(height: 28)
         
         Group {
@@ -34,7 +35,7 @@ private var mainTitleGroup: some View {
             .font(.PretendardExtraBold24)
             .foregroundStyle(Color.black)
             .kerning(1.2)
-
+            
         
         Spacer().frame(height: 19)
         
@@ -55,11 +56,12 @@ private var idPwdGroup: some View {
             .font(.PretendardRegular13)
             .foregroundStyle(Color.idPwdBlack)
             .kerning(-0.65)
+            //.padding(.bottom, 1.98)
         
         Spacer().frame(height: 1.98)
         
         Divider()
-        
+            //.padding(.bottom, 47)
         Spacer().frame(height: 47)
         
         Text("비밀번호")
@@ -72,6 +74,7 @@ private var idPwdGroup: some View {
         Divider()
         
         Spacer().frame(height: 47)
+            //.padding(.bottom, 47)
         
         Button(action: {}, label: {
             Text("로그인하기")
@@ -93,7 +96,6 @@ private var idPwdGroup: some View {
 private var loginGroup: some View {
     VStack(alignment: .center) {
         
-        Spacer().frame(height: 104)
         
         Text("이메일로 회원가입하기")
             .font(.PretendardRegular12)
@@ -101,8 +103,8 @@ private var loginGroup: some View {
             .underline()
             .frame(maxWidth:.infinity)
             .multilineTextAlignment(.center) //필요한가?
-        
-        Spacer().frame(height: 19)
+            .padding(.bottom, 19)
+        //Spacer().frame(height: 19)
         
         HStack {
             Spacer()
@@ -112,8 +114,8 @@ private var loginGroup: some View {
                 .aspectRatio(contentMode: .fit)
             Spacer()
         }
-        
-        Spacer().frame(height: 19)
+        .padding(.bottom, 19)
+        //Spacer().frame(height: 19)
         
         HStack {
             Spacer()
