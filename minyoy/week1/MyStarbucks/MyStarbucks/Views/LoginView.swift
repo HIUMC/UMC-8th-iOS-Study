@@ -11,9 +11,13 @@ struct LoginView: View {
     var body: some View {
         VStack {
             topGroup
+            
             Spacer()
+            
             middleGroup
+            
             Spacer()
+            
             bottomGroup
         }
         .padding(.horizontal, 19)
@@ -97,13 +101,13 @@ struct LoginView: View {
             
             Image(.kakaoLogin)
                 .resizable()
-                .frame(width: 300, height: 45)
                 .aspectRatio(contentMode: .fit)
+                .frame(width: 300, height: 45)
             
             Image(.appleLogin)
                 .resizable()
-                .frame(width: 300, height: 45)
                 .aspectRatio(contentMode: .fit)
+                .frame(width: 300, height: 45)
         }
     }
 }
