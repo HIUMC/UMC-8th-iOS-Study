@@ -76,7 +76,7 @@ private var idPwdGroup: some View {
         Spacer().frame(height: 47)
             //.padding(.bottom, 47)
         
-        Button(action: {}, label: {
+        Button(action: {}) {
             Text("로그인하기")
                 .font(.PretendardMedium16)
                 .frame(maxWidth: .infinity, minHeight: 46) //크기 정하고 배경 정하고 코너 깎기
@@ -85,7 +85,7 @@ private var idPwdGroup: some View {
                 .cornerRadius(20)
             
                 
-        })
+        }
         
     }
     
@@ -96,15 +96,15 @@ private var idPwdGroup: some View {
 private var loginGroup: some View {
     VStack(alignment: .center) {
         
-        
+  
         Text("이메일로 회원가입하기")
             .font(.PretendardRegular12)
             .foregroundStyle(Color.emailLoginGray)
             .underline()
             .frame(maxWidth:.infinity)
             .multilineTextAlignment(.center) //필요한가?
-            .padding(.bottom, 19)
-        //Spacer().frame(height: 19)
+            .padding(.bottom, 16)
+        //Spacer().frame(height: 16)
         
         HStack {
             Spacer()
@@ -114,8 +114,8 @@ private var loginGroup: some View {
                 .aspectRatio(contentMode: .fit)
             Spacer()
         }
-        .padding(.bottom, 19)
-        //Spacer().frame(height: 19)
+        .padding(.bottom, 16)
+        //Spacer().frame(height: 16)
         
         HStack {
             Spacer()
@@ -125,6 +125,7 @@ private var loginGroup: some View {
                 .aspectRatio(contentMode: .fit)
             Spacer()
         }
+        //Spacer().frame(height: 68)
         
     }
 
