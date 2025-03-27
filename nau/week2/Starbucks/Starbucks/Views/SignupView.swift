@@ -47,10 +47,8 @@ struct SignupView: View {
         Button(action: {
             viewModel.createAccount(from: SignupModel(nickname: nickname, email: email, pwd: pwd))
         }, label: {
-            Image(.createBtn)
-                .resizable()
-                .scaledToFit()
-        })
+            Text("생성하기")
+        }).buttonStyle(mainBtnStyle())
     }
 }
 

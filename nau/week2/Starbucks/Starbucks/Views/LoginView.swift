@@ -72,11 +72,8 @@ struct LoginView: View {
             Button(action: {
                 print("login")
             }, label: {
-                Image(.login)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: geometry.size.width - 38, height: 46)
-            })
+                Text("로그인하기")
+            }).buttonStyle(mainBtnStyle())
         })
     }
     
