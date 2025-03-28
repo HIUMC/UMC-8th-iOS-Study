@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CustomButton: View {
-    
     @Binding var isClicked: Bool
     
     init(isClicked: Binding<Bool>) {
