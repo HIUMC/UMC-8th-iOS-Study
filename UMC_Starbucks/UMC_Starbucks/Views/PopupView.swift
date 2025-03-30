@@ -16,8 +16,8 @@ struct PopupView: View {
             //.frame(maxWidth: .infinity, maxHeight: 720)
             Image("PopupImage")
                 .resizable()
-                .frame(width: 438, height: 720)
                 .aspectRatio(contentMode: .fit)
+                .frame(width: 438, height: 720)
                 .clipped() //?
             
             Spacer()

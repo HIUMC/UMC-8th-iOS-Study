@@ -84,7 +84,7 @@ struct TabBarView: View {
                 }
                 .tag(3)
             
-            Text("")
+            OtherView()
                 .tabItem {
                     Image(selectedTab == 4 ? "icon5" : "icon5gray")
                 }

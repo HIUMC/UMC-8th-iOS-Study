@@ -71,10 +71,9 @@ struct SignupView: View {
                     .frame(maxWidth: .infinity, minHeight: 46) //크기 정하고 배경 정하고 코너 깎기
                     .background(Color.loginButtonGreen)
                     .foregroundStyle(.white)
-                //.cornerRadius(20) => 🚨 clipshape로 ! deprecated
+
                     .clipShape(RoundedRectangle(cornerRadius: 20))
-                // 🐱 clipShape 쓰면 다른 도형으로 바꾸기도 쉽고 테두리도 넣고 좋아용
-                
+
             }// 버튼 뷰
             Spacer().frame(height: 72)
             

@@ -105,5 +105,9 @@ extension Font {
         return .pretend(type: .semibold, size: 13)
     }
     
+    static var PretendardSemiBold18: Font {
+        return .pretend(type: .semibold, size: 18)
+    }
+    
     
 }
