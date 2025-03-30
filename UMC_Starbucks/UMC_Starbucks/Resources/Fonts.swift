@@ -69,6 +69,10 @@ extension Font {
         return .pretend(type: .medium, size: 16)
     }
     
+    static var PretendardMedium18: Font {
+        return .pretend(type: .medium, size: 18) //생성하기 버튼
+    }
+    
     static var PretendardRegular18: Font {
         return .pretend(type: .regular, size: 18)
     }
