@@ -8,7 +8,7 @@
 import Foundation
 
 struct SignUpModel: Codable {
-    let nickname: String
-    let email: String
-    let pwd: String
+    var nickname: String
+    var email: String
+    var pwd: String
 }

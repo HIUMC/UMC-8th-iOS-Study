@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @Bindable var viewModel: SignUpViewModel = .init()
+    @StateObject var viewModel: SignUpViewModel = .init()
     
     var body: some View {
         VStack {
@@ -31,7 +31,7 @@ struct SignUpView: View {
     }
     
     private var textFieldView: some View {
-        let fields: [(label: String, binding: Binding<String>)] = [("닉네임", $viewModel.nickname), ("이메일", $viewModel.email), ("비밀번호", $viewModel.pwd)]
+        let fields: [(label: String, binding: Binding<String>)] = [("닉네임", $viewModel.signUpModel.nickname), ("이메일", $viewModel.signUpModel.email), ("비밀번호", $viewModel.signUpModel.pwd)]
         return VStack(alignment: .center, spacing: 47) {
             ForEach(fields, id: \.label) { field in
                 CustomUnderlineTextField(placeholder: field.label, text: field.binding)

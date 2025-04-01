@@ -74,7 +74,11 @@ struct LoginView: View {
     private var bottomView: some View {
         VStack {
             Button(action: {
-                print("이메일로 회원가입하기 눌림")
+                NavigationStack {
+                    NavigationLink("") {
+                        SignUpView()
+                    }
+                }
             }, label: {
                 Text("이메일로 회원가입하기")
                     .font(.MainTextRegular12)
