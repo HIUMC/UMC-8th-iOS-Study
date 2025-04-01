@@ -18,7 +18,8 @@ import SwiftUI
     }
 }*/
 
-struct CounterView: View {
+//MARK: @ObservedObject
+/*struct CounterView: View {
     @ObservedObject var viewModel: CounterViewModel = .init()
     var body: some View {
         VStack {
@@ -37,8 +38,24 @@ struct CounterView: View {
             .padding()
         }
     }
+}*/
+
+//MARK: @StateObject
+struct CounterView: View {
+    @StateObject var viewModel: CounterViewModel = .init()
+    var body: some View {
+        VStack {
+            Text("\(viewModel.count)")
+            Button(action: {
+                viewModel.count += 1
+            }, label: {
+                Text("카운트 증가 버튼")
+            })
+        }
+    }
 }
 
 #Preview {
     CounterView()
 }
+
