@@ -35,10 +35,22 @@ class SignUpViewModel: ObservableObject {
     @Published var signUpModel: SignUpModel = SignUpModel(nickname: "", email: "", pwd: "")
     
     public func saveToAppStorage() {
-        print("saveToAppStorage : \(signUpModel.nickname)")
-        nickname = signUpModel.nickname
-        email = signUpModel.email
-        pwd = signUpModel.pwd
+        if checkValidation() {
+            nickname = signUpModel.nickname
+            email = signUpModel.email
+            pwd = signUpModel.pwd
+            print("saveToAppStorage : \(signUpModel)")
+        } else {
+            print("저장 실패")
+        }
+        
     }
+    
+    private func checkValidation() -> Bool {
+        return !signUpModel.nickname.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+               !signUpModel.email.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+               !signUpModel.pwd.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
     
 }

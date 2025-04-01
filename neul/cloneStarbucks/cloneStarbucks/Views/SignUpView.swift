@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @StateObject var viewModel: SignUpViewModel = .init()
+    @StateObject var viewModel = SignUpViewModel()
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
@@ -16,6 +17,7 @@ struct SignUpView: View {
             Spacer()
             Button(action:  {
                 viewModel.saveToAppStorage()
+                dismiss()
             }, label: {
                 Text("생성하기")
                     .foregroundStyle(.white)
@@ -28,7 +30,16 @@ struct SignUpView: View {
         .padding(.horizontal, 20)
         .padding(.top, 210)
         .padding(.bottom, 72)
+        .navigationTitle("가입하기")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                CustomNavBackButton()
+            }
+        }
     }
+    
     
     private var textFieldView: some View {
         let fields: [(label: String, binding: Binding<String>)] = [("닉네임", $viewModel.signUpModel.nickname), ("이메일", $viewModel.signUpModel.email), ("비밀번호", $viewModel.signUpModel.pwd)]

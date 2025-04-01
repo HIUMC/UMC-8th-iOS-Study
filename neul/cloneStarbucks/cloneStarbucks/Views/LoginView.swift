@@ -10,18 +10,27 @@ import SwiftUI
 struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel = .init()
     @FocusState private var isFocused: Bool
+    @State private var router = NavigationRouter()
     
     var body: some View {
-        VStack {
-            topView
-                .padding(.top, 100)
-            Spacer()
-            middleView
-                .frame(height: 180)
-            Spacer()
-            bottomView
-                .frame(height: 144)
-                .padding(.bottom, 60)
+        NavigationStack(path: $router.path) {
+            VStack {
+                topView
+                    .padding(.top, 100)
+                Spacer()
+                middleView
+                    .frame(height: 180)
+                Spacer()
+                bottomView
+                    .frame(height: 144)
+                    .padding(.bottom, 60)
+            }
+            .navigationDestination(for: Route.self) { route in
+                switch route {
+                case .signUp:
+                    SignUpView()
+                }
+            }
         }
     }
     
@@ -72,63 +81,57 @@ struct LoginView: View {
     }
 
     private var bottomView: some View {
-        VStack {
-            Button(action: {
-                NavigationStack {
-                    NavigationLink("") {
-                        SignUpView()
+            VStack {
+                Button(action: {
+                    router.push(.signUp)
+                }, label: {
+                    Text("이메일로 회원가입하기")
+                        .font(.MainTextRegular12)
+                        .foregroundStyle(.gray04)
+                        .underline(true, color: .gray04)
+                })
+                
+                Spacer()
+                
+                Button(action: {
+                    print("카카오 로그인 클릭됨")
+                }) {
+                    HStack {
+                        Image("kakaoLogo")
+                            .padding(.leading, 20)
+                        Spacer()
                     }
+                    .overlay(alignment: .center, content: {
+                        Text("카카오 로그인")
+                            .foregroundStyle(.black.opacity(0.85))
+                            .font(.MainTextMedium16)
+                    })
+                    .frame(width: 306, height: 45)
+                    .background(Color(hex: "FEE500"))
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
                 }
-            }, label: {
-                Text("이메일로 회원가입하기")
-                    .font(.MainTextRegular12)
-                    .foregroundStyle(.gray04)
-                    .underline(true, color: .gray04)
-            })
-            
-            Spacer()
-            
-            Button(action: {
-                print("카카오 로그인 클릭됨")
-            }) {
-                HStack {
-                    Image("kakaoLogo")
-                        .padding(.leading, 20)
-                    Spacer()
+                
+                Spacer()
+                
+                Button(action: {
+                    print("애플 로그인 클릭됨")
+                }) {
+                    HStack {
+                        Image("appleLogo")
+                            .padding(.leading, 20)
+                        Spacer()
+                    }
+                    .overlay(alignment: .center, content: {
+                        Text("Apple로 로그인")
+                            .foregroundStyle(.white)
+                            .font(.MainTextMedium16)
+                    })
+                    .frame(width: 306, height: 45)
+                    .background(.black)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
                 }
-                .overlay(alignment: .center, content: {
-                    Text("카카오 로그인")
-                        .foregroundStyle(.black.opacity(0.85))
-                        .font(.MainTextMedium16)
-                })
-                .frame(width: 306, height: 45)
-                .background(Color(hex: "FEE500"))
-                .clipShape(RoundedRectangle(cornerRadius: 5))
-            }
-            
-            Spacer()
-            
-            Button(action: {
-                print("애플 로그인 클릭됨")
-            }) {
-                HStack {
-                    Image("appleLogo")
-                        .padding(.leading, 20)
-                    Spacer()
-                }
-                .overlay(alignment: .center, content: {
-                    Text("Apple로 로그인")
-                        .foregroundStyle(.white)
-                        .font(.MainTextMedium16)
-                })
-                .frame(width: 306, height: 45)
-                .background(.black)
-                .clipShape(RoundedRectangle(cornerRadius: 5))
-            }
         }
-        
     }
-
 }
 
 
