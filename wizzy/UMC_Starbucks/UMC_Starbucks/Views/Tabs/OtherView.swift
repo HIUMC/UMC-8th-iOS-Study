@@ -65,19 +65,19 @@ struct OtherView: View {
                 
                 VStack { //v5 [payView]
                     HStack {
-                        PayView(imageName: "cardicon", title: "스타벅스 카드 등록")
+                        PayAreaView(imageName: "cardicon", title: "스타벅스 카드 등록")
                             
                         Spacer()
-                        PayView(imageName: "cardChangeicon", title: "카드 교환권 등록")
+                        PayAreaView(imageName: "cardChangeicon", title: "카드 교환권 등록")
                             
                     } //h
                     .padding(.vertical, 16)
                     
                     HStack {
-                        PayView(imageName: "couponicon", title: "쿠폰 등록")
+                        PayAreaView(imageName: "couponicon", title: "쿠폰 등록")
                             
                         Spacer()
-                        PayView(imageName: "couponHistoryicon", title: "쿠폰 히스토리")
+                        PayAreaView(imageName: "couponHistoryicon", title: "쿠폰 히스토리")
                             
                     } //h
                     .padding(.vertical, 16)
@@ -103,25 +103,25 @@ struct OtherView: View {
                 
                 VStack(alignment: .leading) { //v7 [고객지원View]
                     HStack {
-                        PayView(imageName: "storeCareicon", title: "스토어 케어")
+                        PayAreaView(imageName: "storeCareicon", title: "스토어 케어")
                             
                         Spacer()
-                        PayView(imageName: "soundicon", title: "고객의 소리")
+                        PayAreaView(imageName: "soundicon", title: "고객의 소리")
                             
                     } //h
                     .padding(.vertical, 16)
                     
                     HStack {
-                        PayView(imageName: "locationicon", title: "매장 정보")
+                        PayAreaView(imageName: "locationicon", title: "매장 정보")
                             
                         Spacer()
-                        PayView(imageName: "returnicon", title: "반납기 정보")
+                        PayAreaView(imageName: "returnicon", title: "반납기 정보")
                             
                     } //h
                     .padding(.vertical, 16)
                     
                     HStack {
-                        PayView(imageName: "reviewicon", title: "마이 스타벅스 리뷰")
+                        PayAreaView(imageName: "reviewicon", title: "마이 스타벅스 리뷰")
                             .frame(width: 157, alignment: .leading)
                         Spacer()
                             .padding(.leading, 19)
@@ -136,13 +136,6 @@ struct OtherView: View {
                 
             } //v6 [고객지원]
             
-            
-            
-            
-            
-            
-            
-            
  //----------------------------
         } //v1
         .padding(.horizontal, 19)
@@ -150,68 +143,10 @@ struct OtherView: View {
     }
 }
 
-struct OtherButtonView: View {
-    let title: String
-    let imageName: String
-
-    var body: some View { // 🆘 init으로..
-        Button(action: {
-            print(title) // ✅ 버튼 누르면 해당 텍스트 출력
-        }) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(Color.white)
-                    .frame(width: 102, height: 108)
-                    .shadow(color: .black.opacity(0.1), radius: 3)
-
-                VStack {
-                    Image(imageName)
-                        //.resizable() ❔❔같은 frame 크기로 해도 사진 크기가 다른지 모르겠음!
-                        .scaledToFit()
-                        .frame(width: 48, height: 48)
-                        .padding(.top, 19)
-                        .padding(.bottom, 4)
-
-                    Text(title)
-                        .font(.PretendardSemiBold16)
-                        .foregroundStyle(Color.black03)
-                        .padding(.bottom, 19)
-                }
-            }
-        }
-    }
-}
-
-
-struct PayView: View {
-    let imageName: String
-    let title: String
-    
-    var body: some View {
-        Button(action: {
-        }) {
-            HStack {
-                Image(imageName)
-                    .padding(.trailing, 4)
-                Text(title)
-                    .lineLimit(1)
-                    .fixedSize() //내용이 줄바꿈 없이 한 줄로 유지되도록 강제
-                    .font(.PretendardSemiBold16)
-                    .foregroundStyle(Color.black02)
-                
-            }
-            .frame(width: 157, alignment: .leading)
-            
-            
-        }
-    }
-}
-
-
-
 
 
         
 #Preview {
     OtherView()
 }
+

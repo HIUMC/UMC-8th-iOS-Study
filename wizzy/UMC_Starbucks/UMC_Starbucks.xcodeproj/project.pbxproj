@@ -33,6 +33,14 @@
 		61AD1E132D99A8330047DF1B /* OtherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1E122D99A8330047DF1B /* OtherView.swift */; };
 		61AD1E152D99A8430047DF1B /* OtherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1E142D99A8430047DF1B /* OtherViewModel.swift */; };
 		61AD1E3E2D9BDA510047DF1B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 61AD1E3D2D9BDA510047DF1B /* Kingfisher */; };
+		61AD1E532D9D66240047DF1B /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1E522D9D66240047DF1B /* HomeModel.swift */; };
+		61AD1E552D9D663B0047DF1B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1E542D9D663B0047DF1B /* HomeViewModel.swift */; };
+		61AD1E582D9D66520047DF1B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1E572D9D66520047DF1B /* HomeView.swift */; };
+		61AD1E5A2D9D66630047DF1B /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1E592D9D66630047DF1B /* OrderView.swift */; };
+		61AD1E5C2D9D666D0047DF1B /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1E5B2D9D666D0047DF1B /* ShopView.swift */; };
+		61AD1E5E2D9D66770047DF1B /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1E5D2D9D66770047DF1B /* PayView.swift */; };
+		61AD1E602D9D66AE0047DF1B /* PayAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1E5F2D9D66AE0047DF1B /* PayAreaView.swift */; };
+		61AD1E622D9D66BA0047DF1B /* OtherButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1E612D9D66BA0047DF1B /* OtherButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +71,14 @@
 		61AD1E102D9976CB0047DF1B /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		61AD1E122D99A8330047DF1B /* OtherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherView.swift; sourceTree = "<group>"; };
 		61AD1E142D99A8430047DF1B /* OtherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewModel.swift; sourceTree = "<group>"; };
+		61AD1E522D9D66240047DF1B /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		61AD1E542D9D663B0047DF1B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		61AD1E572D9D66520047DF1B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		61AD1E592D9D66630047DF1B /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		61AD1E5B2D9D666D0047DF1B /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		61AD1E5D2D9D66770047DF1B /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
+		61AD1E5F2D9D66AE0047DF1B /* PayAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAreaView.swift; sourceTree = "<group>"; };
+		61AD1E612D9D66BA0047DF1B /* OtherButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +136,10 @@
 		61AD1DE42D992B580047DF1B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				61AD1E562D9D66410047DF1B /* Tabs */,
 				61AD1DEB2D992BE70047DF1B /* LoginView.swift */,
-				61AD1E122D99A8330047DF1B /* OtherView.swift */,
+				61AD1E5F2D9D66AE0047DF1B /* PayAreaView.swift */,
+				61AD1E612D9D66BA0047DF1B /* OtherButtonView.swift */,
 				61AD1E102D9976CB0047DF1B /* TabBarView.swift */,
 				61AD1E0E2D995F750047DF1B /* PopupView.swift */,
 				61AD1DED2D992BF70047DF1B /* SplashView.swift */,
@@ -136,6 +154,7 @@
 				61AD1DE92D992BC20047DF1B /* LoginViewModel.swift */,
 				61AD1E0A2D9946530047DF1B /* SignupViewModel.swift */,
 				61AD1E142D99A8430047DF1B /* OtherViewModel.swift */,
+				61AD1E542D9D663B0047DF1B /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -144,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				61AD1DE72D992BA90047DF1B /* LoginModel.swift */,
+				61AD1E522D9D66240047DF1B /* HomeModel.swift */,
 				61AD1E082D9946410047DF1B /* SignupModel.swift */,
 			);
 			path = Models;
@@ -164,6 +184,18 @@
 				61AD1E062D99355B0047DF1B /* Fonts.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		61AD1E562D9D66410047DF1B /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				61AD1E572D9D66520047DF1B /* HomeView.swift */,
+				61AD1E5B2D9D666D0047DF1B /* ShopView.swift */,
+				61AD1E5D2D9D66770047DF1B /* PayView.swift */,
+				61AD1E592D9D66630047DF1B /* OrderView.swift */,
+				61AD1E122D99A8330047DF1B /* OtherView.swift */,
+			);
+			path = Tabs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +287,8 @@
 				61AD1E0D2D99467B0047DF1B /* SignupView.swift in Sources */,
 				61AD1E112D9976CB0047DF1B /* TabBarView.swift in Sources */,
 				61AD1E152D99A8430047DF1B /* OtherViewModel.swift in Sources */,
+				61AD1E5A2D9D66630047DF1B /* OrderView.swift in Sources */,
+				61AD1E5E2D9D66770047DF1B /* PayView.swift in Sources */,
 				61AD1E072D99355B0047DF1B /* Fonts.swift in Sources */,
 				61AD1DEA2D992BC20047DF1B /* LoginViewModel.swift in Sources */,
 				61AD1E0F2D995F750047DF1B /* PopupView.swift in Sources */,
@@ -262,8 +296,14 @@
 				61AD1DE82D992BA90047DF1B /* LoginModel.swift in Sources */,
 				61AD1DEC2D992BE70047DF1B /* LoginView.swift in Sources */,
 				61AD1DD72D992AD20047DF1B /* UMC_StarbucksApp.swift in Sources */,
+				61AD1E532D9D66240047DF1B /* HomeModel.swift in Sources */,
+				61AD1E5C2D9D666D0047DF1B /* ShopView.swift in Sources */,
+				61AD1E622D9D66BA0047DF1B /* OtherButtonView.swift in Sources */,
 				61AD1E092D9946410047DF1B /* SignupModel.swift in Sources */,
 				61AD1DEE2D992BF80047DF1B /* SplashView.swift in Sources */,
+				61AD1E582D9D66520047DF1B /* HomeView.swift in Sources */,
+				61AD1E552D9D663B0047DF1B /* HomeViewModel.swift in Sources */,
+				61AD1E602D9D66AE0047DF1B /* PayAreaView.swift in Sources */,
 				61AD1E132D99A8330047DF1B /* OtherView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
