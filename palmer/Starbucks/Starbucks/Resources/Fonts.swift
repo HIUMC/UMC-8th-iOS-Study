@@ -37,6 +37,22 @@ extension Font {
             }
         }
     }
+    
+    static func pretendardSemiBold(_ size: CGFloat) -> Font {
+        return .custom("Pretendard-SemiBold", size: size)
+    }
+    
+    static func pretendardLight(_ size: CGFloat) -> Font {
+        return .custom("Pretendard-Light", size: size)
+    }
+    
+    static func pretendardRegular(_ size: CGFloat) -> Font {
+        return .custom("Pretendard-Regular", size: size)
+    }
+    
+    static func pretendardBold(_ size: CGFloat) -> Font {
+        return .custom("Pretendard-Bold", size: size)
+    }
  
     static func pretend(type: Pretend, size: CGFloat) -> Font {
         return .custom(type.value, size: size)
@@ -102,7 +118,4 @@ extension Font {
         return .pretend(type: .semibold, size: 13)
     }
     
-    static var makeMedium18: Font {
-        return .pretend(type: .medium, size: 18)
-    }
 }

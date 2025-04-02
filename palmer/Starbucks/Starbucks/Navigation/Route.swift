@@ -5,9 +5,8 @@
 //  Created by 박정환 on 4/1/25.
 //
 
-import SwiftUI
+import Foundation
 
 enum Route: Hashable {
-    case login
     case signup
 }
