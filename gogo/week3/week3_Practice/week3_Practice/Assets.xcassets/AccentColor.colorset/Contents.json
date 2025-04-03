@@ -1,7 +1,6 @@
 {
-  "images" : [
+  "colors" : [
     {
-      "filename" : "receipt.pdf",
       "idiom" : "universal"
     }
   ],
