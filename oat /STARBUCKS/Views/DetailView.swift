@@ -31,7 +31,8 @@ struct DetailView: View {
                         Image(.shar)
                         
                     }
-                }.offset(y:-29)
+                } .ignoresSafeArea()
+               // }.offset(y:-29)
                     .padding()
             }
             //.offset(y:-78)

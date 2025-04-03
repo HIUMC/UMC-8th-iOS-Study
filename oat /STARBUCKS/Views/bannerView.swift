@@ -11,15 +11,18 @@ struct bannerView: View {
     var body: some View {
         ZStack() {
             Image(.banner)
+                .edgesIgnoringSafeArea(.top)
+                //.resizable()
+                .ignoresSafeArea()
+//                .edgesIgnoringSafeArea(.top)
             VStack(alignment: .leading ) {
-                Spacer().frame(height:120)
+                Spacer().frame(height:110)
                 ( Text("골든 미모사 그린 티와 함께")
                   +
                   Text("\n행복한 새해의 축배를 들어요!"))
                 .lineSpacing(5)
                 .font(.mainTextBold24)
-                .padding()
-                
+//                .padding(.horizontal)
                 HStack() {
                     VStack(alignment: .leading) {
                         Text("11★ until next Reward")
@@ -47,6 +50,7 @@ struct bannerView: View {
                 
                 
             }
+            .padding(.horizontal,30)
                 
         }
     }
