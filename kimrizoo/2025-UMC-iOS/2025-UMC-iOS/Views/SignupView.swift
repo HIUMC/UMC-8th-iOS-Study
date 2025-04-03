@@ -7,22 +7,26 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct SignupView: View {
-    
-    /// 변수 선언
-    @State private var nickname = ""
-    @State private var email = ""
-    @State private var password = ""
+    @AppStorage("nickname") private var nickname = ""
+    @AppStorage("email") private var email = ""
+    @AppStorage("password") private var password = ""
     
     @FocusState private var focusField: Field?
+    @Environment(\.dismiss) private var dismiss
     
-    /// 포커스를 관리하는 FocusState Enum
     enum Field: Hashable {
         case nickname, email, password
     }
     
     var body: some View {
         VStack {
+            CustomNavigationBar(title: "가입하기", onBack: {
+                dismiss()
+            })
+
             VStack {
                 CustomTextField(placeholder: "닉네임", text: $nickname)
                     .focused($focusField, equals: .nickname)
@@ -48,26 +52,25 @@ struct SignupView: View {
                 } else if password.isEmpty {
                     focusField = .password
                 } else {
-                    print("생성하기 버튼 클릭")
-                    focusField = nil
+                    print("회원가입 성공! 저장 완료.")
+                    dismiss()
                 }
             }) {
                 HStack {
                     Spacer()
-                    
                     Text("생성하기")
                         .foregroundStyle(.white)
-                    
                     Spacer()
                 }
                 .frame(height: 46)
-                .background(Color.mainGreen)
+                .background(Color.green)
                 .cornerRadius(20)
             }
         }
         .padding(.horizontal, 19)
     }
 }
+
 
 #Preview {
     SignupView()
