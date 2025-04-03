@@ -88,10 +88,10 @@
 		D7D384002D9D153A0066E5D8 = {
 			isa = PBXGroup;
 			children = (
+				D7D3840A2D9D153A0066E5D8 /* Products */,
 				D7D3840B2D9D153A0066E5D8 /* StarbucksApp */,
 				D7D3841D2D9D153B0066E5D8 /* StarbucksAppTests */,
 				D7D384272D9D153B0066E5D8 /* StarbucksAppUITests */,
-				D7D3840A2D9D153A0066E5D8 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
