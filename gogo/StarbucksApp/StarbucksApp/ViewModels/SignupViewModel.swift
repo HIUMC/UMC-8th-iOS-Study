@@ -18,6 +18,7 @@ class SignupViewModel: ObservableObject {
     
     @Published var signupModel: SignupModel = .init(nickname: "", email: "", password: "")
     
+    //SignupViewModel 이라는 클래스의 메소드 속성 함수 선언. 객체의 닉네임,이메일,비밀번호를 받음. 
     public func saveStorage(){
         self.nickname = signupModel.nickname
         self.email = signupModel.email

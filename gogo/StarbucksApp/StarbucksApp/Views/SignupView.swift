@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignupView: View {
     @StateObject var viewModel :SignupViewModel = .init()
-    //SignupViewModel에서 클래스 가져와서 초기화 객체 viewModel이라는 놈 생성. @StateObject로 객체 주기 관리~ viewModel 은 SignupViewModel 클래스의 객체니까 관련된 프로퍼티 및 메소드 이용 가능.
+    //SignupViewModel에서 클래스 가져와서 초기화 객체 viewModel이라는 놈 생성. @StateObject로 객체 주기 관리~ 변경 사항 렌더링 후 유지. viewModel 은 SignupViewModel 클래스의 객체니까 관련된 프로퍼티 및 메소드 이용 가능.
     
 
     
