@@ -10,6 +10,9 @@ import SwiftUI
 struct LoginView: View {
     
     @State var viewModel = LoginViewModel()
+    @FocusState private var isIdFocused: Bool // 포커스 상태 추적이라네..
+    @FocusState private var isPwdFocused: Bool
+    
     
     var body: some View {
         NavigationStack {
@@ -78,10 +81,18 @@ struct LoginView: View {
                     .foregroundStyle(Color.idPwdBlack)
                     .kerning(-0.65)
             )
+            .focused($isIdFocused)
+            //.foregroundStyle(Color.green00)
+            Spacer().frame(height: 1.98)
             
-            
+            Rectangle()
+                .frame(height: 0.7)
+                .foregroundStyle(isIdFocused ? Color.loginButtonGreen : Color.gray00)
+                
+            /*
             Divider()
                 .frame(height: 0.7) //🚨 왜 height 건드리는데 간격이 넓어짐?
+             */
             
             /*
              Divider 틀의 높이를 0.7로 설정해서 위 텍스트(아이디)와 간격이 벌어짐
@@ -98,13 +109,15 @@ struct LoginView: View {
                     .font(.PretendardRegular13)
                     .foregroundStyle(Color.idPwdBlack)
             )
+            .focused($isPwdFocused)
             
             Spacer().frame(height: 1.98)
-            
-            Divider()
+            Rectangle()
+                .frame(height: 0.7)
+                .foregroundStyle(isPwdFocused ? Color.loginButtonGreen : Color.gray00)
+            //Divider()는 색 추가가 어려워서 Rectangle 크기 조절하는 걸로
             
             Spacer().frame(height: 47)
-            //.padding(.bottom, 47)
             
             Button(action: {}) {
                 Text("로그인하기")
@@ -140,7 +153,7 @@ struct LoginView: View {
             
             HStack {
                 Spacer()
-                Image("KakaoLogin")
+                Image("kakaoLogin")
                     .resizable()
                     .frame(width: 306, height: 45)
                     .aspectRatio(contentMode: .fit)
@@ -177,3 +190,4 @@ struct SwiftUIView_Preview: PreviewProvider {
         }
     }
 }
+

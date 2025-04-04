@@ -44,6 +44,19 @@ extension Font {
     }
     
     /* 여기에 더 추가해주세요 */
+    
+    static var PretendardBold15: Font {
+        return .pretend(type: .bold, size: 15)
+    }
+    
+    static var PretendardBold22: Font {
+        return .pretend(type: .bold, size: 22)
+    }
+    
+    static var PretendardBold16: Font {
+        return .pretend(type: .bold, size: 16)
+    }
+    
     static var PretendardBold20: Font {
         return .pretend(type: .bold, size: 20)
     }
@@ -105,9 +118,20 @@ extension Font {
         return .pretend(type: .semibold, size: 13)
     }
     
+    static var PretendardSemiBold12: Font {
+        return .pretend(type: .semibold, size: 12)
+    }
+    
     static var PretendardSemiBold18: Font {
         return .pretend(type: .semibold, size: 18)
     }
+    
+    
+    static var PretendardLight24: Font {
+        return .pretend(type: .light, size: 24)
+    }
+    
+    
     
     
 }
