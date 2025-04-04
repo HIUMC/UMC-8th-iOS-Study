@@ -7,8 +7,11 @@
 
 import SwiftUI
 struct OtherView: View {
-    
+    @AppStorage("isLoginOK") private var isLoginOK: Bool = true
     @AppStorage("nickname") private var storedNickname: String = ""
+    @AppStorage("email") var storedEmailAccount: String = ""
+    @AppStorage("pwd") var storedPassword: String = ""
+    
     var body: some View {
         NavigationStack {
             VStack { //v1
@@ -144,7 +147,23 @@ struct OtherView: View {
         }
     }
     
+    private var logoutButton: some View {
+        Button {
+            isLoginOK = false
+        } label: {
+            Image("logout")
+                .resizable()
+                .frame(width: 35, height: 35)
+        }
+        
+        
+    }
+    
 }
+
+
+
+
 
         
 #Preview {
