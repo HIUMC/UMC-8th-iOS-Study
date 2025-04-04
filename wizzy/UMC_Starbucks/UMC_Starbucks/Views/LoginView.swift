@@ -10,8 +10,17 @@ import SwiftUI
 struct LoginView: View {
     
     @State var viewModel = LoginViewModel()
+    @State private var isLoginOK: Bool = false
+    
     @FocusState private var isIdFocused: Bool // 포커스 상태 추적이라네..
     @FocusState private var isPwdFocused: Bool
+    
+    
+    
+    @AppStorage("email") private var storedEmail: String = ""
+    @AppStorage("pwd") private var storedPassword: String = ""
+    
+    
     
     
     var body: some View {
@@ -119,7 +128,16 @@ struct LoginView: View {
             
             Spacer().frame(height: 47)
             
-            Button(action: {}) {
+            Button(action: {
+                
+                if viewModel.id == storedEmail && viewModel.pwd == storedPassword {
+                        isLoginOK = true
+                    } else {
+                        print("아이디 또는 비밀번호가 틀렸습니다")
+                    }
+                
+                
+            }) {
                 Text("로그인하기")
                     .font(.PretendardMedium16)
                     .frame(maxWidth: .infinity, minHeight: 46) //크기 정하고 배경 정하고 코너 깎기

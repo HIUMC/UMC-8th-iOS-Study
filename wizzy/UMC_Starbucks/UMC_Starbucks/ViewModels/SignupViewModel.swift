@@ -33,7 +33,7 @@ class SignupViewModel {
 class SignupViewModel: ObservableObject {
     @Published var signupModel = SignupModel(nickname: "", emailAccount: "", password: "")
     
-    @AppStorage("name") var storedNickname: String = ""
+    @AppStorage("nickname") var storedNickname: String = ""
     @AppStorage("email") var storedEmailAccount: String = ""
     @AppStorage("pwd") var storedPassword: String = ""
 

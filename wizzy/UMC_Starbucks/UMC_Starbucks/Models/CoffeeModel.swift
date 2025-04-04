@@ -36,20 +36,22 @@ enum CoffeeType: String {
         case .both:
             return "HOT / ICED"
         }
-        
-        
-        var color: Color {
-            switch self {
-            case .hot:
-                return .red01
-            case .iced:
-                return .blue01
-            case .both:
-                return .black03
-            }
-        }
-        
-        
     }
+        
+        
+    var color: Color {
+        switch self {
+        case .hot:
+            return .red01
+        case .iced:
+            return .blue01
+        case .both:
+            return .black03
+        }
+    }
+        
+        
+
+    
     
 }
