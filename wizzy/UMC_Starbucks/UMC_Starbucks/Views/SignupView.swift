@@ -19,7 +19,7 @@ struct SignupView: View {
         VStack {
             Spacer()
             VStack {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading) { //v3
                   
                     makeNickname
                     Rectangle()
@@ -40,7 +40,7 @@ struct SignupView: View {
                         .padding(.bottom, 47)
                     
                     
-                }
+                } // v3
                 Spacer()
                 
                 

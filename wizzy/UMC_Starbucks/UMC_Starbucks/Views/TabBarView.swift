@@ -100,9 +100,11 @@ struct TabBarView: View {
     
     
     var body: some View {
+        
+        
         TabView {
             Tab("Home", image: "home") {
-                HomeView()
+                    HomeView()
             }
             Tab("Pay", image: "pay") {
                 PayView()

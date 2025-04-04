@@ -87,7 +87,7 @@ struct LoginView: View {
             
             Rectangle()
                 .frame(height: 0.7)
-                .foregroundStyle(isIdFocused ? Color.loginButtonGreen : Color.black00)
+                .foregroundStyle(isIdFocused ? Color.loginButtonGreen : Color.gray00)
                 
             /*
             Divider()
@@ -114,7 +114,7 @@ struct LoginView: View {
             Spacer().frame(height: 1.98)
             Rectangle()
                 .frame(height: 0.7)
-                .foregroundStyle(isPwdFocused ? Color.loginButtonGreen : Color.black00)
+                .foregroundStyle(isPwdFocused ? Color.loginButtonGreen : Color.gray00)
             //Divider()는 색 추가가 어려워서 Rectangle 크기 조절하는 걸로
             
             Spacer().frame(height: 47)
@@ -153,7 +153,7 @@ struct LoginView: View {
             
             HStack {
                 Spacer()
-                Image("KakaoLogin")
+                Image("kakaoLogin")
                     .resizable()
                     .frame(width: 306, height: 45)
                     .aspectRatio(contentMode: .fit)

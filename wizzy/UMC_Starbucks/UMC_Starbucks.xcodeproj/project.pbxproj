@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,6 +41,21 @@
 		61AD1E5E2D9D66770047DF1B /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1E5D2D9D66770047DF1B /* PayView.swift */; };
 		61AD1E602D9D66AE0047DF1B /* PayAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1E5F2D9D66AE0047DF1B /* PayAreaView.swift */; };
 		61AD1E622D9D66BA0047DF1B /* OtherButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1E612D9D66BA0047DF1B /* OtherButtonView.swift */; };
+		61E6BF3A2D9DB256008CF8D8 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF392D9DB256008CF8D8 /* ProgressBarView.swift */; };
+		61E6BF3C2D9DB30E008CF8D8 /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF3B2D9DB30E008CF8D8 /* RecommendView.swift */; };
+		61E6BF432D9DB7E1008CF8D8 /* CoffeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF422D9DB7E1008CF8D8 /* CoffeeViewModel.swift */; };
+		61E6BF452D9DC915008CF8D8 /* CircleImageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF442D9DC915008CF8D8 /* CircleImageCard.swift */; };
+		61E6BF472D9DD3EB008CF8D8 /* WhatsNewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF462D9DD3EB008CF8D8 /* WhatsNewModel.swift */; };
+		61E6BF492D9E043B008CF8D8 /* WhatsnewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF482D9E043B008CF8D8 /* WhatsnewViewModel.swift */; };
+		61E6BF4B2D9E0534008CF8D8 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF4A2D9E0534008CF8D8 /* WhatsNewView.swift */; };
+		61E6BF4D2D9E0680008CF8D8 /* WhatsNewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF4C2D9E0680008CF8D8 /* WhatsNewCard.swift */; };
+		61E6BF4F2D9E0E1A008CF8D8 /* ThreeBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF4E2D9E0E1A008CF8D8 /* ThreeBannerView.swift */; };
+		61E6BF552D9E12EF008CF8D8 /* DessertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF542D9E12EF008CF8D8 /* DessertModel.swift */; };
+		61E6BF572D9E1359008CF8D8 /* DessertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF562D9E1359008CF8D8 /* DessertView.swift */; };
+		61E6BF592D9E139C008CF8D8 /* DessertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF582D9E139C008CF8D8 /* DessertViewModel.swift */; };
+		61E6BF5B2D9E1657008CF8D8 /* UnderBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF5A2D9E1657008CF8D8 /* UnderBannerView.swift */; };
+		61E6BF5D2D9E1D08008CF8D8 /* CoffeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF5C2D9E1D08008CF8D8 /* CoffeeModel.swift */; };
+		61E6BF5F2D9E429C008CF8D8 /* CoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF5E2D9E429C008CF8D8 /* CoffeeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +94,21 @@
 		61AD1E5D2D9D66770047DF1B /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
 		61AD1E5F2D9D66AE0047DF1B /* PayAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAreaView.swift; sourceTree = "<group>"; };
 		61AD1E612D9D66BA0047DF1B /* OtherButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherButtonView.swift; sourceTree = "<group>"; };
+		61E6BF392D9DB256008CF8D8 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		61E6BF3B2D9DB30E008CF8D8 /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
+		61E6BF422D9DB7E1008CF8D8 /* CoffeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeViewModel.swift; sourceTree = "<group>"; };
+		61E6BF442D9DC915008CF8D8 /* CircleImageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageCard.swift; sourceTree = "<group>"; };
+		61E6BF462D9DD3EB008CF8D8 /* WhatsNewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewModel.swift; sourceTree = "<group>"; };
+		61E6BF482D9E043B008CF8D8 /* WhatsnewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsnewViewModel.swift; sourceTree = "<group>"; };
+		61E6BF4A2D9E0534008CF8D8 /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
+		61E6BF4C2D9E0680008CF8D8 /* WhatsNewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewCard.swift; sourceTree = "<group>"; };
+		61E6BF4E2D9E0E1A008CF8D8 /* ThreeBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeBannerView.swift; sourceTree = "<group>"; };
+		61E6BF542D9E12EF008CF8D8 /* DessertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertModel.swift; sourceTree = "<group>"; };
+		61E6BF562D9E1359008CF8D8 /* DessertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertView.swift; sourceTree = "<group>"; };
+		61E6BF582D9E139C008CF8D8 /* DessertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertViewModel.swift; sourceTree = "<group>"; };
+		61E6BF5A2D9E1657008CF8D8 /* UnderBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderBannerView.swift; sourceTree = "<group>"; };
+		61E6BF5C2D9E1D08008CF8D8 /* CoffeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeModel.swift; sourceTree = "<group>"; };
+		61E6BF5E2D9E429C008CF8D8 /* CoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +183,11 @@
 			children = (
 				61AD1DE92D992BC20047DF1B /* LoginViewModel.swift */,
 				61AD1E0A2D9946530047DF1B /* SignupViewModel.swift */,
+				61E6BF582D9E139C008CF8D8 /* DessertViewModel.swift */,
 				61AD1E142D99A8430047DF1B /* OtherViewModel.swift */,
+				61E6BF482D9E043B008CF8D8 /* WhatsnewViewModel.swift */,
 				61AD1E542D9D663B0047DF1B /* HomeViewModel.swift */,
+				61E6BF422D9DB7E1008CF8D8 /* CoffeeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -163,8 +196,11 @@
 			isa = PBXGroup;
 			children = (
 				61AD1DE72D992BA90047DF1B /* LoginModel.swift */,
+				61E6BF5C2D9E1D08008CF8D8 /* CoffeeModel.swift */,
+				61E6BF462D9DD3EB008CF8D8 /* WhatsNewModel.swift */,
 				61AD1E522D9D66240047DF1B /* HomeModel.swift */,
 				61AD1E082D9946410047DF1B /* SignupModel.swift */,
+				61E6BF542D9E12EF008CF8D8 /* DessertModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,13 +225,30 @@
 		61AD1E562D9D66410047DF1B /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				61AD1E572D9D66520047DF1B /* HomeView.swift */,
+				61E6BF3D2D9DB319008CF8D8 /* Home */,
 				61AD1E5B2D9D666D0047DF1B /* ShopView.swift */,
 				61AD1E5D2D9D66770047DF1B /* PayView.swift */,
 				61AD1E592D9D66630047DF1B /* OrderView.swift */,
 				61AD1E122D99A8330047DF1B /* OtherView.swift */,
 			);
 			path = Tabs;
+			sourceTree = "<group>";
+		};
+		61E6BF3D2D9DB319008CF8D8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				61AD1E572D9D66520047DF1B /* HomeView.swift */,
+				61E6BF392D9DB256008CF8D8 /* ProgressBarView.swift */,
+				61E6BF5E2D9E429C008CF8D8 /* CoffeeView.swift */,
+				61E6BF3B2D9DB30E008CF8D8 /* RecommendView.swift */,
+				61E6BF4A2D9E0534008CF8D8 /* WhatsNewView.swift */,
+				61E6BF4C2D9E0680008CF8D8 /* WhatsNewCard.swift */,
+				61E6BF442D9DC915008CF8D8 /* CircleImageCard.swift */,
+				61E6BF562D9E1359008CF8D8 /* DessertView.swift */,
+				61E6BF4E2D9E0E1A008CF8D8 /* ThreeBannerView.swift */,
+				61E6BF5A2D9E1657008CF8D8 /* UnderBannerView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,7 +290,6 @@
 				};
 			};
 			buildConfigurationList = 61AD1DCE2D992AD20047DF1B /* Build configuration list for PBXProject "UMC_Starbucks" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -248,6 +300,7 @@
 			packageReferences = (
 				61AD1E3C2D9BDA510047DF1B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 61AD1DD42D992AD20047DF1B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -286,10 +339,18 @@
 			files = (
 				61AD1E0D2D99467B0047DF1B /* SignupView.swift in Sources */,
 				61AD1E112D9976CB0047DF1B /* TabBarView.swift in Sources */,
+				61E6BF5F2D9E429C008CF8D8 /* CoffeeView.swift in Sources */,
+				61E6BF4D2D9E0680008CF8D8 /* WhatsNewCard.swift in Sources */,
 				61AD1E152D99A8430047DF1B /* OtherViewModel.swift in Sources */,
+				61E6BF432D9DB7E1008CF8D8 /* CoffeeViewModel.swift in Sources */,
+				61E6BF5D2D9E1D08008CF8D8 /* CoffeeModel.swift in Sources */,
 				61AD1E5A2D9D66630047DF1B /* OrderView.swift in Sources */,
 				61AD1E5E2D9D66770047DF1B /* PayView.swift in Sources */,
+				61E6BF4B2D9E0534008CF8D8 /* WhatsNewView.swift in Sources */,
+				61E6BF3A2D9DB256008CF8D8 /* ProgressBarView.swift in Sources */,
+				61E6BF3C2D9DB30E008CF8D8 /* RecommendView.swift in Sources */,
 				61AD1E072D99355B0047DF1B /* Fonts.swift in Sources */,
+				61E6BF472D9DD3EB008CF8D8 /* WhatsNewModel.swift in Sources */,
 				61AD1DEA2D992BC20047DF1B /* LoginViewModel.swift in Sources */,
 				61AD1E0F2D995F750047DF1B /* PopupView.swift in Sources */,
 				61AD1E0B2D9946530047DF1B /* SignupViewModel.swift in Sources */,
@@ -298,11 +359,18 @@
 				61AD1DD72D992AD20047DF1B /* UMC_StarbucksApp.swift in Sources */,
 				61AD1E532D9D66240047DF1B /* HomeModel.swift in Sources */,
 				61AD1E5C2D9D666D0047DF1B /* ShopView.swift in Sources */,
+				61E6BF592D9E139C008CF8D8 /* DessertViewModel.swift in Sources */,
+				61E6BF4F2D9E0E1A008CF8D8 /* ThreeBannerView.swift in Sources */,
+				61E6BF5B2D9E1657008CF8D8 /* UnderBannerView.swift in Sources */,
+				61E6BF492D9E043B008CF8D8 /* WhatsnewViewModel.swift in Sources */,
+				61E6BF572D9E1359008CF8D8 /* DessertView.swift in Sources */,
 				61AD1E622D9D66BA0047DF1B /* OtherButtonView.swift in Sources */,
+				61E6BF552D9E12EF008CF8D8 /* DessertModel.swift in Sources */,
 				61AD1E092D9946410047DF1B /* SignupModel.swift in Sources */,
 				61AD1DEE2D992BF80047DF1B /* SplashView.swift in Sources */,
 				61AD1E582D9D66520047DF1B /* HomeView.swift in Sources */,
 				61AD1E552D9D663B0047DF1B /* HomeViewModel.swift in Sources */,
+				61E6BF452D9DC915008CF8D8 /* CircleImageCard.swift in Sources */,
 				61AD1E602D9D66AE0047DF1B /* PayAreaView.swift in Sources */,
 				61AD1E132D99A8330047DF1B /* OtherView.swift in Sources */,
 			);
@@ -446,6 +514,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -475,6 +544,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
