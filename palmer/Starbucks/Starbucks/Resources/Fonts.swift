@@ -118,4 +118,8 @@ extension Font {
         return .pretend(type: .semibold, size: 13)
     }
     
+    static var makeMedium18: Font {
+        return .pretend(type: .medium, size: 18)
+    }
+    
 }

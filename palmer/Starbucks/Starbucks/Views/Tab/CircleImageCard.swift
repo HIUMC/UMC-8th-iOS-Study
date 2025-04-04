@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct CircleImageCard : View {
     var imageName: String
     var body: some View {

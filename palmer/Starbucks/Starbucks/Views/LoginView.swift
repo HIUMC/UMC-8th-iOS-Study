@@ -11,9 +11,12 @@ import Foundation
 
 struct LoginView: View {
     @FocusState private var focusedField: LoginField?
-    //@Environment(NavigationRouter.self) private var router
     @State private var router = NavigationRouter()
-    @Bindable var viewModel : LoginViewModel
+    @Bindable var loginViewModel : LoginViewModel
+    
+    @AppStorage("storedEmail") private var storedEmail: String = ""
+    @AppStorage("storedPassword") private var storedPassword: String = ""
+    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
     
     enum LoginField {
         case id
@@ -38,6 +41,12 @@ struct LoginView: View {
                 switch route {
                 case .signup:
                     SignupView(signupViewModel: SignupViewModel())
+                case .tabBar:
+                    TabBarView()
+                case .login:
+                    LoginView(loginViewModel: LoginViewModel())
+                case .coffeeDetail:
+                    CoffeeDetailView(viewModel: HomeViewModel())
                 }
             }
         }
@@ -62,12 +71,11 @@ struct LoginView: View {
             .padding(.leading, 20)
             Spacer()
         }
-        
     }
     
     var idpassword: some View {
         VStack(alignment: .leading) {
-            TextField("아이디", text: $viewModel.id)
+            TextField("아이디", text: $loginViewModel.id)
                 .focused($focusedField, equals: .id)
             
             Divider()
@@ -75,7 +83,7 @@ struct LoginView: View {
                 .background(focusedField == .id ? Color("green01") : Color("gray00"))
                 .padding(.bottom, 47)
             
-            SecureField("비밀번호", text: $viewModel.password)
+            SecureField("비밀번호", text: $loginViewModel.password)
                 .focused($focusedField, equals: .password)
             
             Divider()
@@ -84,7 +92,15 @@ struct LoginView: View {
                 .padding(.bottom, 47)
             
             Button(action: {
-                print("로그인 버튼 클릭")
+                print("로그인 버튼")
+                if loginViewModel.id == storedEmail && loginViewModel.password == storedPassword {
+                    
+                    print("성공적으로 로그인되었습니다!")
+                    
+                    router.push(.tabBar)
+                } else {
+                    print("이메일과 패스워드가 다릅니다.")
+                }
             }, label: {
                 Text("로그인하기")
                     .font(.mainTextMedium16)
@@ -101,8 +117,7 @@ struct LoginView: View {
     
     private var loginSelection: some View {
         VStack {
-            Button(action: {
-                router.push(.signup)
+            Button(action: {                router.push(.signup)
             }, label: {
                 Text("이메일로 회원가입하기")
                     .foregroundColor(Color("black01"))
@@ -119,15 +134,15 @@ struct LoginView: View {
     }
 }
     
-    struct LoginView_Preview: PreviewProvider {
-        static var devices = ["iPhone 11", "iPhone 16 Pro Max"]
-        
-        static var previews: some View {
-            ForEach(devices, id: \.self) { device in
-                LoginView(viewModel: LoginViewModel()) // viewModel 초기화 추가
-                    .previewDevice(PreviewDevice(rawValue: device))
-                    .previewDisplayName(device)
-            }
+struct LoginView_Preview: PreviewProvider {
+    static var devices = ["iPhone 11", "iPhone 16 Pro Max"]
+    
+    static var previews: some View {
+        ForEach(devices, id: \.self) { device in
+            LoginView(loginViewModel: LoginViewModel()) // viewModel 초기화 추가
+                .previewDevice(PreviewDevice(rawValue: device))
+                .previewDisplayName(device)
         }
     }
+}
 
