@@ -8,22 +8,34 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var viewModel: HomeViewModel = .init()
+    
+    // 네비게이션 할지말지 결정하는 변수
+    @State private var navigationTrue: Bool = false
+    
     var body: some View {
-        ScrollView {
-            VStack (spacing: 20) {
-                topBanner
-                Image(.homeAd)
-                recommand
-                Image(.homeEvent)
-                Image(.homeService)
-                new
-                banners
+            ScrollView {
+                VStack (spacing: 20) {
+                    topBanner
+                    Image(.homeAd)
+                    recommand
+                    Image(.homeEvent)
+                    Image(.homeService)
+                    new
+                    banners01
+                    desert
+                    banners02
+                }
             }
-        }
-        .ignoresSafeArea()
-        .foregroundStyle(Color("white00"))
+            .toolbarVisibility(.hidden)
+            .ignoresSafeArea()
+            .foregroundStyle(Color("white00"))
+            .navigationDestination(isPresented: $navigationTrue, destination: {
+                CoffeeDetailView(viewModel: viewModel)
+            })
     }
     
+    private var star: Int = 1
     private var topBanner: some View {
         VStack {
             ZStack(alignment: .leading) {
@@ -57,7 +69,7 @@ struct HomeView: View {
             
             HStack {
                 VStack(alignment: .leading) {
-                    Text("11★ until next Reward")
+                    Text("\(12 - star)★ until next Reward")
                         .font(.mainTextSemiBold16)
                         .foregroundStyle(Color("brown02"))
                     ProgressView(value: 1, total: 12)
@@ -68,7 +80,7 @@ struct HomeView: View {
                 Spacer()
                 
                 HStack(spacing: 5) {
-                    Text("1")
+                    Text("\(star)")
                         .font(.mainTextSemiBold38)
                         .foregroundStyle(Color("black03"))
                     Text("/")
@@ -97,25 +109,51 @@ struct HomeView: View {
             }
             .font(.mainTextMedium24)
             .padding(.leading, 10)
-                
+            
             ScrollView(.horizontal) {
                 LazyHGrid(rows: Array(repeating: GridItem(.fixed(130), spacing: 16), count: 1), content: {
-                    ForEach(CoffeeModel.allCases, id: \.self, content: {
-                        coffee in coffeeCard(coffee)
-                    })
+                    ForEach(viewModel.coffees) {
+                        coffee in foodCard(img: coffee.img, name: coffee.name)
+                            .onTapGesture {
+                                // 선택한 커피 정보 넘기기
+                                // viewModel.selectedCoffee = coffee
+                                 if let detailCoffee = CoffeeDetailModel.from(coffee: coffee) {
+                                 viewModel.selectedCoffee = detailCoffee
+                                 }
+                                 self.navigationTrue.toggle()
+                            }
+                    }
                 })
             }
             .padding(.horizontal, 10)
         }
     }
     
-    private func coffeeCard(_ model: CoffeeModel) -> some View {
+    private var desert: some View {
+        VStack(alignment: .leading, spacing: 25) {
+            Text("하루를 달콤하게 할 디저트")
+                .foregroundStyle(Color("black03"))
+                .font(.mainTextMedium24)
+                .padding(.leading, 10)
+            
+            ScrollView(.horizontal) {
+                LazyHGrid(rows: Array(repeating: GridItem(.fixed(130), spacing: 16), count: 1), content: {
+                    ForEach(viewModel.deserts) {
+                        desert in foodCard(img: desert.img, name: desert.name)
+                    }
+                })
+            }
+            .padding(.horizontal, 10)
+        }
+    }
+    
+    private func foodCard(img: String, name: String) -> some View {
         VStack(spacing: 10) {
-            Image(model.returnCoffeeImg())
+            Image(img)
                 .resizable()
                 .frame(width: 130, height: 130)
             
-            Text(model.returnCoffeeName())
+            Text(name)
                 .font(.mainTextSemiBold14)
                 .foregroundStyle(Color("black02"))
         }
@@ -130,27 +168,27 @@ struct HomeView: View {
             
             ScrollView(.horizontal) {
                 LazyHGrid(rows: Array(repeating: GridItem(.fixed(160), spacing: 16), count: 1), content: {
-                    ForEach(WhatsNewModel.allCases, id: \.self, content: {
-                        new in newCard(new)
-                    })
+                    ForEach(viewModel.whatsNews) {
+                        whatsnew in newCard(img: whatsnew.img, title: whatsnew.title, detail: whatsnew.detail)
+                    }
                 })
             }
             .padding(.horizontal, 10)
         }
     }
     
-    private func newCard(_ model: WhatsNewModel) -> some View {
+    private func newCard(img: String, title: String, detail: String) -> some View {
         VStack(alignment: .leading, spacing: 16) {
-            Image(model.returnNewImg())
+            Image(img)
                 .resizable()
                 .frame(width: 242, height: 160)
             
             VStack(alignment: .leading, spacing: 9) {
-                Text(model.returnNewName())
+                Text(title)
                     .font(.mainTextSemiBold18)
                     .foregroundStyle(Color("black02"))
                 
-                Text(model.returnNewDetail())
+                Text(detail)
                     .font(.mainTextSemiBold13)
                     .foregroundStyle(Color("gray03"))
             }
@@ -158,11 +196,19 @@ struct HomeView: View {
         .frame(width: 242)
     }
     
-    private var banners: some View {
+    private var banners01: some View {
         VStack(spacing: 14) {
             Image(.homeBanner01)
             Image(.homeBanner02)
             Image(.homeBanner03)
+        }
+    }
+    
+    private var banners02: some View {
+        VStack(spacing: 14) {
+            Image(.homeBanner04)
+            Image(.homeBanner05)
+            Image(.homeBanner06)
         }
     }
 }

@@ -30,9 +30,12 @@
 		AF8A39072D9BE25A001AA523 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8A39062D9BE25A001AA523 /* HomeViewModel.swift */; };
 		AF8A39092D9BE264001AA523 /* CoffeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8A39082D9BE25F001AA523 /* CoffeeModel.swift */; };
 		AF8A390B2D9BE972001AA523 /* WhatsNewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8A390A2D9BE972001AA523 /* WhatsNewModel.swift */; };
+		AF8A390D2D9DA680001AA523 /* DesertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8A390C2D9DA678001AA523 /* DesertModel.swift */; };
+		AF8A39432D9DB425001AA523 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8A39422D9DB425001AA523 /* SignupView.swift */; };
+		AF8A39E12D9E6454001AA523 /* CoffeeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8A39E02D9E6454001AA523 /* CoffeeDetailView.swift */; };
+		AF8A39E32D9E64AF001AA523 /* CoffeeDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8A39E22D9E64AB001AA523 /* CoffeeDetailModel.swift */; };
 		AFAF5C662D9A60A100D0F5B8 /* OtherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF5C652D9A60A100D0F5B8 /* OtherView.swift */; };
 		AFAF5C682D9A60AF00D0F5B8 /* OtherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF5C672D9A60AF00D0F5B8 /* OtherViewModel.swift */; };
-		AFC920A32D996CE10076A5AA /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC920A22D996CE10076A5AA /* SignupView.swift */; };
 		AFC920A52D996CED0076A5AA /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC920A42D996CED0076A5AA /* SignupViewModel.swift */; };
 		AFC920A72D996CFB0076A5AA /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC920A62D996CFB0076A5AA /* SignupModel.swift */; };
 		AFC920A92D998C000076A5AA /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC920A82D998C000076A5AA /* AdView.swift */; };
@@ -66,9 +69,12 @@
 		AF8A39062D9BE25A001AA523 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		AF8A39082D9BE25F001AA523 /* CoffeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeModel.swift; sourceTree = "<group>"; };
 		AF8A390A2D9BE972001AA523 /* WhatsNewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewModel.swift; sourceTree = "<group>"; };
+		AF8A390C2D9DA678001AA523 /* DesertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesertModel.swift; sourceTree = "<group>"; };
+		AF8A39422D9DB425001AA523 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		AF8A39E02D9E6454001AA523 /* CoffeeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeDetailView.swift; sourceTree = "<group>"; };
+		AF8A39E22D9E64AB001AA523 /* CoffeeDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeDetailModel.swift; sourceTree = "<group>"; };
 		AFAF5C652D9A60A100D0F5B8 /* OtherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherView.swift; sourceTree = "<group>"; };
 		AFAF5C672D9A60AF00D0F5B8 /* OtherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewModel.swift; sourceTree = "<group>"; };
-		AFC920A22D996CE10076A5AA /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		AFC920A42D996CED0076A5AA /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		AFC920A62D996CFB0076A5AA /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		AFC920A82D998C000076A5AA /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
@@ -130,6 +136,8 @@
 		AF7D073E2D99040C00E175BC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AF8A39E22D9E64AB001AA523 /* CoffeeDetailModel.swift */,
+				AF8A390C2D9DA678001AA523 /* DesertModel.swift */,
 				AF8A39082D9BE25F001AA523 /* CoffeeModel.swift */,
 				AF7D07472D99045600E175BC /* LoginModel.swift */,
 				AFC920A62D996CFB0076A5AA /* SignupModel.swift */,
@@ -156,10 +164,11 @@
 				AF7D07412D99043100E175BC /* LoginView.swift */,
 				AF8A38982D9BADAC001AA523 /* NavigationRouter.swift */,
 				AFC920A82D998C000076A5AA /* AdView.swift */,
-				AFC920A22D996CE10076A5AA /* SignupView.swift */,
 				AF7D07432D99043C00E175BC /* SplashView.swift */,
 				AFC920AA2D999C180076A5AA /* TabBarView.swift */,
 				AF8A389C2D9BB4E3001AA523 /* HomeView.swift */,
+				AF8A39422D9DB425001AA523 /* SignupView.swift */,
+				AF8A39E02D9E6454001AA523 /* CoffeeDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,13 +270,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF8A39432D9DB425001AA523 /* SignupView.swift in Sources */,
 				AF8A390B2D9BE972001AA523 /* WhatsNewModel.swift in Sources */,
-				AFC920A32D996CE10076A5AA /* SignupView.swift in Sources */,
+				AF8A39E32D9E64AF001AA523 /* CoffeeDetailModel.swift in Sources */,
 				AF7D075D2D990A2200E175BC /* Fonts.swift in Sources */,
 				AFAF5C682D9A60AF00D0F5B8 /* OtherViewModel.swift in Sources */,
 				AF8A39072D9BE25A001AA523 /* HomeViewModel.swift in Sources */,
 				AF8A389D2D9BB4E3001AA523 /* HomeView.swift in Sources */,
 				AFC920A52D996CED0076A5AA /* SignupViewModel.swift in Sources */,
+				AF8A39E12D9E6454001AA523 /* CoffeeDetailView.swift in Sources */,
 				AF7D07422D99043100E175BC /* LoginView.swift in Sources */,
 				AF7D07482D99045600E175BC /* LoginModel.swift in Sources */,
 				AFC920A92D998C000076A5AA /* AdView.swift in Sources */,
@@ -276,6 +287,7 @@
 				AF7D07462D99044E00E175BC /* LoginViewModel.swift in Sources */,
 				AFC920AB2D999C180076A5AA /* TabBarView.swift in Sources */,
 				AFC920A72D996CFB0076A5AA /* SignupModel.swift in Sources */,
+				AF8A390D2D9DA680001AA523 /* DesertModel.swift in Sources */,
 				AF8A39092D9BE264001AA523 /* CoffeeModel.swift in Sources */,
 				AF7D07302D9903E100E175BC /* UMC_iOS_StarbucksApp.swift in Sources */,
 				AFAF5C662D9A60A100D0F5B8 /* OtherView.swift in Sources */,

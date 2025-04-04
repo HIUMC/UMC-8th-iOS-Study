@@ -15,7 +15,8 @@ struct SignupView: View {
     
     @StateObject private var signupViewModel: SignupViewModel = .init()
     
-    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject private var router: NavigationRouter
+//    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
@@ -28,7 +29,8 @@ struct SignupView: View {
         .toolbar(content: {
             ToolbarItem(placement: .topBarLeading) {
                 Button(action: {
-                    dismiss()
+//                    dismiss()
+                    router.pop()
                 }) {
                     Image(systemName: "chevron.left")
                 }
@@ -49,15 +51,26 @@ struct SignupView: View {
             customTextField(placeholder: "이메일", text: $signupViewModel.email, focus: $emailFocused)
             customTextField(placeholder: "비밀번호", text: $signupViewModel.password, focus: $passwordFocused)
         }
+        /*
+         문제점: name만 변경하고 싶어도 화면에 들어오면 email, password = ""이 된다.
+         회원가입 화면이라서 화면이 나타날 때마다 초기화해도 괜찮을 것 같아서 냅둠.
+         */
+        .onAppear {
+            signupViewModel.nickname = ""
+            signupViewModel.email = ""
+            signupViewModel.password = ""
+        }
     }
     
     private func customTextField(placeholder: String, text: Binding<String>, focus: FocusState<Bool>.Binding) -> some View {
         VStack(spacing: 2) {
-            TextField(placeholder, text: text, prompt: Text(placeholder))
-                .foregroundStyle(focus.wrappedValue ? Color("gray06") : Color("gray02"))
+            TextField(placeholder, text: text, prompt: Text(placeholder)
+                .foregroundStyle(Color("gray02")))
             .font(.mainTextRegular18)
             .foregroundStyle(Color("black01"))
             .focused(focus)
+            .autocorrectionDisabled(true)
+            .textInputAutocapitalization(.never)
             
             Divider()
                 .background(focus.wrappedValue ? Color("green01") : Color("gray02"))
@@ -66,8 +79,13 @@ struct SignupView: View {
     
     private var createButton: some View {
         Button(action: {
-            signupViewModel.createUser(nickname: signupViewModel.nickname, email: signupViewModel.email, password: signupViewModel.password)
-            dismiss()
+            if signupViewModel.nickname.isEmpty || signupViewModel.email.isEmpty || signupViewModel.password.isEmpty {
+                print("채우지 않은 필드가 있습니다")
+            } else {
+                signupViewModel.createUser(nickname: signupViewModel.nickname, email: signupViewModel.email, password: signupViewModel.password)
+//                dismiss()
+                router.pop()
+            }
         }, label: {
             Text("생성하기")
                 .font(.mainTextMedium16)

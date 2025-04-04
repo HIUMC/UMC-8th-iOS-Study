@@ -9,27 +9,22 @@ import SwiftUI
 
 struct LoginView: View {
     @State private var viewModel: LoginViewModel = .init()
-    @State private var router = NavigationRouter()
+    @EnvironmentObject private var router: NavigationRouter
     
     var body: some View {
-        NavigationStack(path: $router.path) {
-            VStack {
-                title
-                
-                Spacer()
-                
-                login
-                
-                Spacer()
-                
-                socialLogin
-                    .navigationDestination(for: Route.self) {
-                        value in
-                        SignupView()
-                    }
-            }
-            .padding(EdgeInsets(top: 104, leading: 19, bottom: 62.95, trailing: 19))
+        VStack {
+            title
+            
+            Spacer()
+            
+            login
+            
+            Spacer()
+            
+            socialLogin
         }
+        .navigationBarBackButtonHidden(true)
+        .padding(EdgeInsets(top: 104, leading: 19, bottom: 62.95, trailing: 19))
     }
     
     private var title: some View {
@@ -51,7 +46,6 @@ struct LoginView: View {
                         .foregroundStyle(Color("gray01"))
                 }
             }
-            
             Spacer()
         }
     }
@@ -61,36 +55,23 @@ struct LoginView: View {
     @State private var pwd: String = ""
     @FocusState private var pwFieldIsFocused: Bool
     
+    @AppStorage("email") var email: String = ""
+    @AppStorage("password") var password: String = ""
+    
     private var login: some View {
         VStack(spacing: 47) {
-            VStack(alignment: .leading, spacing: 2) {
-                TextField("아이디", text: $id, prompt: Text("아이디")
-                    .foregroundColor(Color("black01"))
-                    .font(.mainTextRegular13))
-                .foregroundColor(Color("black01"))
-                .font(.mainTextRegular13)
-                .focused($idFieldIsFocused)
-                
-                Divider()
-                    .background(idFieldIsFocused ? Color("green01") : Color("black01"))
-            }
-            
-            VStack(alignment: .leading, spacing: 2) {
-                TextField("비밀번호", text: $pwd, prompt: Text("비밀번호").foregroundColor(Color("black01"))
-                    .font(.mainTextRegular13))
-                .foregroundColor(Color("black01"))
-                .font(.mainTextRegular13)
-                .focused($pwFieldIsFocused)
-                
-                Divider()
-                    .background(idFieldIsFocused ? Color("green01") : Color("black01"))
-            }
+            customTextField(placeholder: "아이디", text: $id, focus: $idFieldIsFocused)
+            customTextField(placeholder: "비밀번호", text: $pwd, focus: $pwFieldIsFocused)
             
             Button(action: {
-                print("로그인하기")
-                // viewModel의 id, pwd와 textField에 입력한 값이 같은지 검사
-                // -> viewModel에서 함수를 정의해야 할 듯
-                // viewModel.login(id, pwd)
+                print(email, id)
+                print(password, pwd)
+                if email == id && password == pwd {
+                    router.push(.tab)
+                    print("로그인 성공")
+                } else {
+                    print("로그인 실패")
+                }
             }, label: {
                 Text("로그인하기")
                     .font(.mainTextMedium16)
@@ -102,6 +83,25 @@ struct LoginView: View {
                             .frame(height: 46)
                     }
             })
+        }
+        .onAppear {
+            viewModel.id = ""
+            viewModel.pwd = ""
+        }
+    }
+    
+    private func customTextField(placeholder: String, text: Binding<String>, focus: FocusState<Bool>.Binding) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            TextField(placeholder, text: text, prompt: Text(placeholder)
+                .foregroundStyle(Color("gray02")))
+            .font(.mainTextRegular13)
+            .foregroundStyle(Color("black01"))
+            .focused(focus)
+            .autocorrectionDisabled(true)
+            .textInputAutocapitalization(.never)
+            
+            Divider()
+                .background(focus.wrappedValue ? Color("green01") : Color("gray02"))
         }
     }
     
@@ -123,10 +123,6 @@ struct LoginView: View {
     }
 }
 
-#Preview("iPhone 16 Pro Max") {
-    LoginView()
-}
-
-#Preview("iPhone 11") {
+#Preview() {
     LoginView()
 }
