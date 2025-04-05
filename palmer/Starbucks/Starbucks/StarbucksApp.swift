@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct StarbucksApp: App {
+    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false  // 로그인 상태 확인
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isLoggedIn {
+                TabBarView()  // 로그인 상태면 TabBarView로 이동
+            } else {
+                LoginView(loginViewModel: LoginViewModel())  //로그아웃 상태면 LoginView로 이동
+            }
         }
     }
 }

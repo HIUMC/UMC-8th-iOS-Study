@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Observation
+import Foundation
 
 @Observable
 class NavigationRouter {

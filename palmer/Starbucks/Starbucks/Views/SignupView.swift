@@ -18,12 +18,13 @@ struct SignupView: View {
     @AppStorage("password") private var storedPassword = ""
     
     var body: some View {
-        VStack(alignment: .leading) {
-            CustomNav(title: "가입하기", onBack: {
-                router.pop()
-            })
+        NavigationStack(path: $router.path){
+            VStack(alignment: .leading) {
+                CustomNav(title: "가입하기", onBack: {
+                    router.pop()  // router.pop()으로 뒤로가기
+                })
                 
-            VStack(spacing:9){
+                VStack(spacing:9){
                     TextField("닉네임", text: $signupViewModel.nickname)
                         .font(.mainTextRegular13)
                         .foregroundStyle(Color("black01"))
@@ -50,7 +51,6 @@ struct SignupView: View {
                 //생성 버튼
                 Button(action: {
                     print("버튼 눌림")
-                    router.pop()
                     if signupViewModel.nickname.count > 0 &&
                         signupViewModel.email.count > 0 &&
                         signupViewModel.password.count > 0 {
@@ -59,25 +59,39 @@ struct SignupView: View {
                         storedEmail = signupViewModel.email
                         storedPassword = signupViewModel.password
                         
+                        router.pop()  // router.pop()으로 뒤로가기
+                    } else {
+                        print("모든 값을 한 글자 이상 입력해주세요!")
                     }
-                }) {
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(Color("green01"))
-                        .frame(height: 58)
-                        .overlay(
-                            Text("생성하기")
-                                .font(.makeMedium18)
-                                .foregroundStyle(Color.white)
+                }, label: {
+                    Text("생성하기")
+                        .font(.makeMedium18)
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: 402, maxHeight: 58)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(.green01)
                         )
-                        .padding(.horizontal)
-                        .padding(.bottom, 72)
-                }
-                .navigationTitle("가입하기")
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarBackButtonHidden()
+                })
+                .padding(.horizontal)
+                .padding(.bottom, 72)
             }
+            .navigationDestination(for: Route.self) { route in
+                switch route {
+                case .signup:
+                    SignupView(signupViewModel: SignupViewModel())
+                case .tabBar:
+                    TabBarView()
+                case .login:
+                    LoginView(loginViewModel: LoginViewModel())
+                case .coffeeDetail:
+                    CoffeeDetailView(viewModel: HomeViewModel())
+                }
+            }
+        }
     }
 }
+
 
 #Preview {
     SignupView(signupViewModel: SignupViewModel())

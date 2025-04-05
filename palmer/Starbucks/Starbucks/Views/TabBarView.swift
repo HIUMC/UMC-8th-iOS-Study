@@ -8,6 +8,8 @@ import Foundation
 import SwiftUI
 
 struct TabBarView: View {
+    @State private var router = NavigationRouter()
+
     var body: some View {
         TabView{
             Tab("Home", image: "Home") {
