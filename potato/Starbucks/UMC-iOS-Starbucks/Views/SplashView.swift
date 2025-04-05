@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SplashView: View {
+    @EnvironmentObject private var router: NavigationRouter
+    
     var body: some View {
         ZStack(alignment: .center) {
             Color("green01")
@@ -17,6 +19,11 @@ struct SplashView: View {
                 .resizable()
                 .frame(maxWidth: 168, maxHeight: 168)
                 .aspectRatio(contentMode: .fit)
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                router.push(.login)
+            }
         }
     }
 }

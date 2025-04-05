@@ -10,6 +10,7 @@ import SwiftUI
 struct OtherView: View {
     @AppStorage("nickname") private var nickname
     : String?
+    @State private var router = NavigationRouter()
     
     var body: some View {
         VStack {
@@ -22,6 +23,7 @@ struct OtherView: View {
             support
             Spacer(minLength: 41)
         }
+        .navigationBarBackButtonHidden(true)
         .background(Color("white01"))
     }
     
@@ -31,8 +33,17 @@ struct OtherView: View {
                 .font(.mainTextBold24)
                 .foregroundStyle(Color("black00"))
             Spacer()
+            NavigationLink(destination: LoginView()) {
+                Image(.logout)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 35, height: 35)
+                    .foregroundStyle(Color("black00"))
+            }
+            /*
             Button(action: {
                 print("로그아웃")
+                router.push(.login)
             }, label: {
                 Image(.logout)
                     .resizable()
@@ -40,6 +51,7 @@ struct OtherView: View {
                     .frame(width: 35, height: 35)
                     .foregroundStyle(Color("black00"))
             })
+             */
         }
         .padding(.horizontal, 23.5)
         .padding(.vertical, 16)

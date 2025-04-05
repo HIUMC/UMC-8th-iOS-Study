@@ -9,12 +9,12 @@ import SwiftUI
 
 struct TabBarView: View {
     @State private var selectedTab = 0
+    @EnvironmentObject private var router: NavigationRouter
     
     var body: some View {
         TabView(selection: $selectedTab) {
             Tab(value: 0, content: {
-                // HomeView()
-                Text("Home")
+                 HomeView()
             }, label: {
                 VStack {
                     Image(.home)

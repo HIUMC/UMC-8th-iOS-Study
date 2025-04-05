@@ -9,9 +9,30 @@ import SwiftUI
 
 @main
 struct UMC_iOS_StarbucksApp: App {
+    @StateObject private var router = NavigationRouter()
+    
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            NavigationStack(path: $router.path) {
+                SplashView()
+                    .environmentObject(router)
+                    .navigationDestination(for: Route.self) { route in
+                        switch route {
+                        case .home:
+                            HomeView()
+                                .environmentObject(router)
+                        case .login:
+                            LoginView()
+                                .environmentObject(router)
+                        case .signup:
+                            SignupView()
+                                .environmentObject(router)
+                        case .tab:
+                            TabBarView()
+                                .environmentObject(router)
+                        }
+                    }
+            }
         }
     }
 }
