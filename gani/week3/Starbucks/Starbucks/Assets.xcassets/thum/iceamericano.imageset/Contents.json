@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "iceamericano.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
