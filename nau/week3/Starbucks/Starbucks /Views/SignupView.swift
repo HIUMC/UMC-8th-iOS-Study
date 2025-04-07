@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SignupView: View {
+    @Environment(NavigationRouter.self) private var router
+    
     @ObservedObject var viewModel: SignupViewModel = .init()
     
     //TextField에 값 입력하면 이 지역 변수 값이 바뀌고 생성하기 버튼을 누르면 뷰모델의 nickname, email, pwd에 이 지역 변수의 값이 주입된다.
@@ -22,7 +24,9 @@ struct SignupView: View {
             Spacer().frame(maxHeight: 400)
             
             Btn
-        }.padding(.horizontal, 19)
+        }
+        .navigationBarBackButtonHidden()
+        .padding(.horizontal, 19)
             .offset(y: 30)
     }
     
@@ -45,7 +49,14 @@ struct SignupView: View {
     
     private var Btn: some View {
         Button(action: {
+            guard !nickname.isEmpty, !email.isEmpty, !pwd.isEmpty else {
+                return
+            }
+            
             viewModel.createAccount(from: SignupModel(nickname: nickname, email: email, pwd: pwd))
+            
+            router.pop()
+            
         }, label: {
             Text("생성하기")
         }).buttonStyle(mainBtnStyle())

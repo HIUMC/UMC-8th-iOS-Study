@@ -9,9 +9,11 @@ import SwiftUI
 import Observation
 
 @Observable
-class NavigationRouter {
+class NavigationRouter{
     var path = NavigationPath()  // 네비게이션 경로를 저장하는 변수
 
+    var isLoggedIn: Bool = false
+    
     /// 특정 화면을 추가 (Push 기능)
     func push(_ route: Route) {
         path.append(route)
@@ -27,5 +29,18 @@ class NavigationRouter {
     /// 네비게이션 초기화 (전체 Pop)
     func reset() {
         path = NavigationPath()
+    }
+    
+    ///로그인
+    func login() {
+        isLoggedIn = true
+        path = NavigationPath()
+        push(.tab)
+    }
+    
+    ///로그아웃
+    func logout() {
+        isLoggedIn = false
+        reset()
     }
 }

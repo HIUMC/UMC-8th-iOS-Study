@@ -9,5 +9,8 @@ import SwiftUI
 import Foundation
 
 enum Route: Hashable {
-    case sign
+    case login
+    case signup
+    case tab
+    case detail(DetailMenuModel)
 }

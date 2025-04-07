@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OtherView: View {
     @StateObject var viewModel = SignupViewModel()
+    @Environment(NavigationRouter.self) var router
+    @AppStorage("isLoggedIn") var isLoggedIn: Bool = true
     
     var body: some View {
         VStack {
@@ -40,6 +42,7 @@ struct OtherView: View {
             
             Button(action: {
                 print("로그아웃")
+                router.logout()
             }, label: {
                 Image(.logout)
             })
@@ -61,7 +64,7 @@ struct OtherView: View {
     
     private var topText: some View {
         HStack {
-            Text("\(viewModel.nickname)")
+            Text(viewModel.nickname == "" ? "(작성한 닉네임)" : "\(viewModel.nickname)" )
                 .foregroundStyle(Color(.green01))
             Text("님")
         }

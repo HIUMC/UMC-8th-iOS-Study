@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Buttons: View {
+    @State private var selectedTemp: CoffeeTemperature = .hot
+    
     var body: some View {
         VStack(spacing: 10) {
             Button(action: {
@@ -21,6 +23,8 @@ struct Buttons: View {
             }, label: {
                 Text("")
             }).buttonStyle(otherTopBtnStyle())
+            
+            temperatureToggleBtn(selected: $selectedTemp, availableTemps: [.hot, .iced])
         }
     }
 }
@@ -53,6 +57,50 @@ struct otherTopBtnStyle: ButtonStyle {
                 .font(.mainTextSemibold16)
                 .foregroundColor(Color(.black03))
     
+        }
+    }
+}
+
+struct temperatureToggleBtn: View {
+    @Binding var selected: CoffeeTemperature
+    let availableTemps: [CoffeeTemperature] // [.hot, .iced] 등
+
+    var body: some View {
+        ZStack {
+            // 바탕 라운드 배경
+            RoundedRectangle(cornerRadius: 18)
+                .fill(Color.gray07)
+                .frame(height: 40)
+
+            // 선택된 쪽 강조 배경 (슬라이더 느낌)
+            HStack {
+                if selected == .iced { Spacer() }
+
+                RoundedRectangle(cornerRadius: 18)
+                    .fill(Color.white)
+                    .frame(width: UIScreen.main.bounds.width / 2 , height: 40)
+                    .shadow(radius: 3)
+
+                if selected == .hot { Spacer() }
+            }
+            .animation(.easeInOut(duration: 0.25), value: selected)
+
+            // HOT / ICED 버튼
+            HStack {
+                ForEach(availableTemps, id: \.self) { temp in
+                    Button {
+                        withAnimation {
+                            selected = temp
+                        }
+                    } label: {
+                        Text(temp.rawValue)
+                            .font(.mainTextSemibold18)
+                            .foregroundColor(selected == temp ? (temp == .hot ? .red : .blue) : .gray02)
+                            .frame(maxWidth: .infinity)
+                    }
+                }
+            }
+            .frame(height: 40)
         }
     }
 }

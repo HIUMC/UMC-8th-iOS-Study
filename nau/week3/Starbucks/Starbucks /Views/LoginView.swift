@@ -9,9 +9,18 @@ import SwiftUI
 import Foundation
 
 struct LoginView: View {
-    @State private var router = NavigationRouter() // 라우터 인스턴스 생성
+    @Environment(NavigationRouter.self) private var router
+    
+    //@State private var router = NavigationRouter() // 라우터 인스턴스 생성
    
     @Bindable var viewModel : LoginViewModel = .init()
+    
+    @AppStorage("nickname") var nickname = ""
+    @AppStorage("email") var email = ""
+    @AppStorage("pwd") var pwd = ""
+    
+    @State private var inputEmail = ""
+    @State private var inputPwd = ""
 
     enum Field {
         case id
@@ -21,25 +30,19 @@ struct LoginView: View {
     @FocusState private var isFocused: Field?
     
     var body: some View {
-        NavigationStack(path: $router.path) {
-            //GeometryReader를 이용해 화면 뷰 width값을 받아온다.
-            //피그마를 보면 수평edge에서 19씩 떨어져있으니 요소들의 width를 geometry.size.width - 38로 잡고 가운데 정렬해주면 된다.
-            //가운데 정렬은 postion(x,y)를 이용했다.
-            GeometryReader { geometry in
-                VStack(spacing: geometry.size.height/9.5) {
-                    topView
-                    middleView
-                    bottomView
-                }.frame(width: UIScreen.screenSize.width - 38)
-                    .position(x: geometry.size.width/2, y: geometry.size.height/2)
-            }
-        }.navigationDestination(for: Route.self) { route in
-            switch route {
-            case .sign:
-                SignupView()
-            }
-        }.navigationTitle("")
+        //GeometryReader를 이용해 화면 뷰 width값을 받아온다.
+        //피그마를 보면 수평edge에서 19씩 떨어져있으니 요소들의 width를 geometry.size.width - 38로 잡고 가운데 정렬해주면 된다.
+        //가운데 정렬은 postion(x,y)를 이용했다.
+        GeometryReader { geometry in
+            VStack(spacing: geometry.size.height/9.5) {
+                topView
+                middleView
+                bottomView
+            }.frame(width: UIScreen.screenSize.width - 38)
+                .position(x: geometry.size.width/2, y: geometry.size.height/2)
+        }
     }
+    
     
     private var topView : some View {
         VStack(alignment: .leading) {
@@ -63,7 +66,7 @@ struct LoginView: View {
             Text("아이디")
                 .font(.mainTextRegular13)
                 .foregroundStyle(Color(.black01))
-            TextField("아이디를 입력해주세요", text: $viewModel.id)
+            TextField("아이디를 입력해주세요", text: $inputEmail)
                 .focused($isFocused, equals: .id) //포커스 연결
             Divider()
                 .frame(height: 1)
@@ -72,14 +75,18 @@ struct LoginView: View {
             Text("비밀번호")
                 .font(.mainTextRegular13)
                 .foregroundStyle(Color(.black01))
-            TextField("비밀번호를 입력해주세요", text: $viewModel.pwd)
+            TextField("비밀번호를 입력해주세요", text: $inputPwd)
                 .focused($isFocused, equals: .pwd)
             Divider()
                 .frame(height: 1)
                 .background(isFocused == .pwd ? Color(.green01) : Color(.gray00))
             Spacer().frame(maxHeight: 47)
             Button(action: {
-                print("login")
+                if inputEmail == email && inputPwd == pwd {
+                    inputEmail = ""
+                    inputPwd = ""
+                    router.push(.tab)
+                }
             }, label: {
                 Text("로그인하기")
             }).buttonStyle(mainBtnStyle())
@@ -89,7 +96,7 @@ struct LoginView: View {
     private var bottomView : some View {
         VStack(spacing: 19) {
             Button(action: {
-                router.push(.sign)
+                router.push(.signup)
             }, label: {
                 Text("이메일로 회원가입하기")
                     .font(.mainTextRegular12)
