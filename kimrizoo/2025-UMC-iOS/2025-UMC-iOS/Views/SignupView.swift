@@ -4,16 +4,10 @@
 //
 //  Created by 이효주 on 3/25/25.
 //
-
-import SwiftUI
-
 import SwiftUI
 
 struct SignupView: View {
-    @AppStorage("nickname") private var nickname = ""
-    @AppStorage("email") private var email = ""
-    @AppStorage("password") private var password = ""
-    
+    @State private var viewModel = SignupViewModel()
     @FocusState private var focusField: Field?
     @Environment(\.dismiss) private var dismiss
     
@@ -22,36 +16,35 @@ struct SignupView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             CustomNavigationBar(title: "가입하기", onBack: {
                 dismiss()
             })
-
-            VStack {
-                CustomTextField(placeholder: "닉네임", text: $nickname)
-                    .focused($focusField, equals: .nickname)
-                
-                Spacer().frame(height: 49)
-                
-                CustomTextField(placeholder: "이메일", text: $email)
-                    .focused($focusField, equals: .email)
-                
-                Spacer().frame(height: 49)
-                
-                CustomTextField(placeholder: "비밀번호", text: $password)
-                    .focused($focusField, equals: .password)
+            
+            Spacer().frame(height: 134)
+            
+            ScrollView {
+                VStack(spacing: 49) {
+                    CustomTextField(placeholder: "닉네임", text: $viewModel.nickname)
+                        .focused($focusField, equals: .nickname)
+                    
+                    CustomTextField(placeholder: "이메일", text: $viewModel.email)
+                        .focused($focusField, equals: .email)
+                    
+                    CustomTextField(placeholder: "비밀번호", text: $viewModel.password)
+                        .focused($focusField, equals: .password)
+                }
             }
-            
-            Spacer().frame(height: 428)
-            
+
             Button(action: {
-                if nickname.isEmpty {
+                if viewModel.nickname.isEmpty {
                     focusField = .nickname
-                } else if email.isEmpty {
+                } else if viewModel.email.isEmpty {
                     focusField = .email
-                } else if password.isEmpty {
+                } else if viewModel.password.isEmpty {
                     focusField = .password
                 } else {
+                    viewModel.signup()
                     print("회원가입 성공! 저장 완료.")
                     dismiss()
                 }
@@ -66,8 +59,12 @@ struct SignupView: View {
                 .background(Color.green)
                 .cornerRadius(20)
             }
+            .padding(.top, 24)
         }
         .padding(.horizontal, 19)
+        .padding(.bottom, 20)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

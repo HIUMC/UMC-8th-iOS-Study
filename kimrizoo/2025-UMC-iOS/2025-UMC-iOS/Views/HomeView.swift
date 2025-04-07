@@ -54,7 +54,7 @@ struct HomeView: View {
                                     
                                     // ProgressView로 게이지 바 구현
                                     ProgressView(value: Double(currentStars), total: Double(totalStars))
-                                        .progressViewStyle(LinearProgressViewStyle(tint: .yellow))
+                                        .progressViewStyle(LinearProgressViewStyle(tint: .brown))
                                         .frame(width: 255, height: 8)
                                 }
                                 // VStack 끝
@@ -77,10 +77,12 @@ struct HomeView: View {
                     Spacer().frame(height: 23)
                     
                     // 곰돌이 배너
-                    Image("banner")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.horizontal, 10)
+                    ZStack{
+                        Image("banner")
+                            .resizable()
+                            .scaledToFit()
+                            .padding(.horizontal, 10)
+                    }
                     // 곰돌이 배너 끝
                     
                     Spacer().frame(height: 20)
@@ -169,11 +171,11 @@ struct HomeView: View {
 struct RecommendMenuView: View {
     @State private var viewModel = RecommendViewModel()
     @AppStorage("nickname") private var nickname: String = "(설정 닉네임)"
-    
+    @EnvironmentObject private var detailViewModel: MenuDetailViewModel
+
     var body: some View {
         VStack(alignment: .leading) {
-            
-            HStack{
+            HStack {
                 Text("\(nickname)")
                     .font(.customPretend(.regular, size: 24))
                     .foregroundStyle(Color.customYellow)
@@ -182,12 +184,13 @@ struct RecommendMenuView: View {
                     .foregroundColor(.black)
             }
             .padding(.leading, 20)
+
             Spacer().frame(height: 25)
-            
+
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
                     ForEach(viewModel.coffeeItems) { coffee in
-                        CircleImageCard(coffee: coffee)
+                        CircleImageCard(menu: coffee, detailViewModel: detailViewModel)
                     }
                 }
                 .padding(.horizontal, 16)
@@ -195,6 +198,7 @@ struct RecommendMenuView: View {
         }
     }
 }
+
 //---------------------------------------------
 // 왓츠뉴 섹션
 //---------------------------------------------
@@ -225,21 +229,23 @@ struct WhatsNewView: View {
 // 추천 메뉴 섹션
 struct RecommendDessertView: View {
     @State private var viewModel = RecommendViewModel()
-    
+    @StateObject private var detailViewModel = MenuDetailViewModel()
+    @EnvironmentObject private var router: NavigationRouter
+
     var body: some View {
         VStack(alignment: .leading) {
-            
-            HStack{
+            HStack {
                 Text("하루가 달콤해지는 디저트")
                     .font(.customPretend(.semiBold, size: 24))
             }
             .padding(.leading, 20)
+            
             Spacer().frame(height: 25)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
                     ForEach(viewModel.dessertItems) { dessert in
-                        CircleImageCard(coffee: dessert)
+                        CircleImageCard(menu: dessert, detailViewModel: detailViewModel)
                     }
                 }
                 .padding(.horizontal, 16)
@@ -247,9 +253,12 @@ struct RecommendDessertView: View {
         }
     }
 }
+
 //---------------------------------------------
 
 
 #Preview {
     HomeView()
+        .environmentObject(NavigationRouter())
+        .environmentObject(MenuDetailViewModel())
 }

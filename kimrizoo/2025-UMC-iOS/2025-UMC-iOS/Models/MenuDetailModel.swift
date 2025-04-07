@@ -1,7 +1,7 @@
 import SwiftUI
 
 // 커피 온도 배열
-enum CoffeeTemperature: String, CaseIterable {
+enum CoffeeTemperature: String, CaseIterable,Hashable {
     case hot = "HOT"
     case iced = "ICED"
     case hotOnly = "HOT ONLY"
@@ -9,7 +9,7 @@ enum CoffeeTemperature: String, CaseIterable {
 }
 
 // 메뉴 상세 모델
-struct MenuDetailModel: Identifiable {
+struct MenuDetailModel: Identifiable, Hashable, Equatable {
     let id = UUID()
     var name: String
     var englishName: String
@@ -18,3 +18,4 @@ struct MenuDetailModel: Identifiable {
     var imageName: String // 피그마 정사각형 이미지 파일명
     var availableTemperatures: [CoffeeTemperature]
 }
+
