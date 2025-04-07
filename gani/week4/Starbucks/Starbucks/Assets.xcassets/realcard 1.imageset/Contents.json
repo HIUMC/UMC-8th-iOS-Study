@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "realcard.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
