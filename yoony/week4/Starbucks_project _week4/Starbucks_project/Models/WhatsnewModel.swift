@@ -13,3 +13,4 @@ struct WhatsnewModel: Identifiable {
     let id = UUID()
     let image: String
 }
+

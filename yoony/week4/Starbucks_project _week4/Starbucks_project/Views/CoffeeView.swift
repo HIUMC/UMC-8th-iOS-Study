@@ -47,3 +47,4 @@ struct CoffeeListView: View {
 #Preview {
     CoffeeListView()
 }
+

@@ -87,6 +87,7 @@ struct HomeView: View {
                         .frame(width: 420, height: 451)
                         
                     
+                    
                     Image("serviceSubscribe")
                         .resizable()
                         .scaledToFit()

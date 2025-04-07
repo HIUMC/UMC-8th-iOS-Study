@@ -125,6 +125,7 @@ struct CoffeeInfoView: View {
         }
         
         
+    
 
         //vstack
     }//var body

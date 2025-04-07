@@ -26,6 +26,7 @@ struct BreadAssetView: View {
        
     }
 }
+
 struct BreadListView: View {
     @StateObject var viewModel = BreadAssetViewModel()
     

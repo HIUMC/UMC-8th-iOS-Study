@@ -44,3 +44,4 @@ struct WhatsnewListView: View {
 #Preview {
     WhatsnewListView()
 }
+

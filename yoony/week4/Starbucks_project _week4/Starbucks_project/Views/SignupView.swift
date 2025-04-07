@@ -15,6 +15,7 @@ struct SignupView: View {
     @FocusState private var isEmailFocused: Bool
     @FocusState private var isPasswordFocused: Bool
     
+    
     @AppStorage("savedEmail") var savedEmail: String = ""
     @AppStorage("savedPassword") var savedPassword: String = ""
     

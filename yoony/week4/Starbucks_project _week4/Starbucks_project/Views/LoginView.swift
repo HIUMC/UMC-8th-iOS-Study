@@ -70,6 +70,7 @@ struct LoginView: View {
                 
                 
                 
+                
             }.padding(.horizontal, 19)
             
             Button(action: {

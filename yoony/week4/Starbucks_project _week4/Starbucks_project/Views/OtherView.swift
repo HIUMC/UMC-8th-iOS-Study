@@ -37,6 +37,7 @@ struct OtherView: View {
                 + Text("님 \n     환영합니다!")
                     .font(.mainTextSemiBold24)
                 
+                
                 Spacer().frame(height: 24)
                 
                 
