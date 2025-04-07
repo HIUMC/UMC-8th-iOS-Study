@@ -9,7 +9,6 @@ import SwiftUI
 
 enum Route: Hashable { //Hashable을 채택해야 NavPath에서 이용 가능
     case signUp
-    case login
-    case coffeeDetail(CoffeeDetailModel)
-    case goToTab
+    //case detail(title: String)
+    //case profile(userId: Int)
 }

@@ -33,7 +33,6 @@ class SignUpViewModel: ObservableObject {
     @AppStorage("pwd") var pwd: String = ""
     
     @Published var signUpModel: SignUpModel = SignUpModel(nickname: "", email: "", pwd: "")
-    @Published var hasLoggedIn: Bool = false
     
     public func saveToAppStorage() {
         if checkValidation() {
@@ -41,7 +40,6 @@ class SignUpViewModel: ObservableObject {
             email = signUpModel.email
             pwd = signUpModel.pwd
             print("saveToAppStorage : \(signUpModel)")
-            hasLoggedIn = true
         } else {
             print("저장 실패")
         }

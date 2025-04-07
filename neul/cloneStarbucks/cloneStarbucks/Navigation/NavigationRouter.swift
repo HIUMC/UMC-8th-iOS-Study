@@ -8,8 +8,9 @@
 import SwiftUI
 import Observation
 
-class NavigationRouter: ObservableObject {
-    @Published var path = NavigationPath()
+@Observable
+class NavigationRouter {
+    var path = NavigationPath()
     
     func push(_ route: Route) {
         path.append(route)

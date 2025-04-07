@@ -7,27 +7,25 @@
 
 import SwiftUI
 
-struct CoffeeDetailModel: Hashable {
+struct CoffeeDetailModel {
     let title: String
     let englishName: String
-    let imageName: String
     let descrip: String
     let price: Int
-    let temp: [Temp]
+    let temp: Temp
     
-    enum Temp: String {
-        case ice = "ICED ONLY"
-        case hot = "HOT ONLY"
+    
+    enum Temp: String, CaseIterable {
+        case ice = "ICED"
+        case hot = "HOT"
         
-        
-        func returnColor() -> Color {
+        var color: Color {
             switch self {
             case .ice:
-                return .blue01
-            case .hot:
                 return .red01
+            case .hot:
+                return Color.blue.opacity(0.63)
             }
         }
     }
-    
 }

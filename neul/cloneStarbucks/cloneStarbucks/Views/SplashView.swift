@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct SplashView: View {
-    @EnvironmentObject var router: NavigationRouter
-    
     var body: some View {
         ZStack(alignment: .center) {
             Color.green01.ignoresSafeArea(.all)
@@ -19,11 +17,6 @@ struct SplashView: View {
                 .frame(width: 168, height: 168)
                 .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
         }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                router.push(.login)
-            }
-        }
     }
 }
 
@@ -31,13 +24,11 @@ struct SplashView: View {
 struct SplashView_Preview: PreviewProvider {
     static var devices = ["iPhone 11", "iPhone 16 Pro Max"]
     
-    
     static var previews: some View {
         ForEach(devices, id: \.self) { device in
             SplashView()
-                .environmentObject(NavigationRouter())
-            .previewDevice(PreviewDevice(rawValue: device))
-            .previewDisplayName(device)
+                .previewDevice(PreviewDevice(rawValue: device))
+                .previewDisplayName(device)
         }
     }
 }

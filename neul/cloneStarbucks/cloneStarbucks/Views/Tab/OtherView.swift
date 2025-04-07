@@ -10,7 +10,6 @@ import SwiftUI
 struct OtherView: View {
     @AppStorage("nickname") private var nickname: String = "(작성한 닉네임)"
     private var viewModel: SignUpViewModel = .init()
-    @EnvironmentObject var router: NavigationRouter
     
     var body: some View {
         ZStack {
@@ -53,7 +52,7 @@ struct OtherView: View {
                         .padding(.bottom, 16)
                     Spacer()
                     Button(action: {
-                        router.reset()
+                        print("로그아웃")
                     }, label: {
                         Image(.logout)
                             .resizable()

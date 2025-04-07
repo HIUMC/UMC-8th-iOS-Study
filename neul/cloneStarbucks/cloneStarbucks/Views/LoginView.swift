@@ -10,21 +10,28 @@ import SwiftUI
 struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel = .init()
     @FocusState private var isFocused: Bool
-    @EnvironmentObject var router: NavigationRouter
+    @State private var router = NavigationRouter()
     
     var body: some View {
-        VStack {
-            topView
-                .padding(.top, 100)
-            Spacer()
-            middleView
-                .frame(height: 180)
-            Spacer()
-            bottomView
-                .frame(height: 144)
-                .padding(.bottom, 60)
+        NavigationStack(path: $router.path) {
+            VStack {
+                topView
+                    .padding(.top, 100)
+                Spacer()
+                middleView
+                    .frame(height: 180)
+                Spacer()
+                bottomView
+                    .frame(height: 144)
+                    .padding(.bottom, 60)
+            }
+            .navigationDestination(for: Route.self) { route in
+                switch route {
+                case .signUp:
+                    SignUpView()
+                }
+            }
         }
-        .toolbar(.hidden, for: .navigationBar)
     }
     
     private var topView: some View {
@@ -59,11 +66,7 @@ struct LoginView: View {
                 CustomUnderlineTextField(placeholder: field.label, text: field.binding)
             }
             Button(action:  {
-                if viewModel.login() {
-                    router.push(.goToTab)
-                } else {
-                    print("다시 로그인하세요.")
-                }
+                print("로그인 버튼 클릭됨")
             }, label: {
                 Text("로그인하기")
                     .foregroundStyle(.white)
@@ -133,13 +136,13 @@ struct LoginView: View {
 
 
 
+
 struct LoginView_Preview: PreviewProvider {
     static var devices = ["iPhone 11", "iPhone 16 Pro Max"]
     
     static var previews: some View {
         ForEach(devices, id: \.self) { device in
             LoginView()
-                .environmentObject(NavigationRouter())
                 .previewDevice(PreviewDevice(rawValue: device))
                 .previewDisplayName(device)
         }

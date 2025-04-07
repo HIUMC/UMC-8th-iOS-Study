@@ -10,8 +10,6 @@ import SwiftUI
 struct CoffeeDetailView: View {
     @State var isIce: Bool = false
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var viewModel: CoffeeDetailViewModel
-    let coffee: CoffeeDetailModel
     
     var body: some View {
         VStack {
@@ -29,7 +27,6 @@ struct CoffeeDetailView: View {
                 } label: {
                     Image(.back)
                         .resizable()
-                        .renderingMode(.original)
                         .frame(width: 32, height: 32)
                 }
 
@@ -40,7 +37,6 @@ struct CoffeeDetailView: View {
                 } label: {
                     Image(.share)
                         .resizable()
-                        .renderingMode(.original)
                         .frame(width: 32, height: 32)
                 }
 
@@ -54,22 +50,21 @@ struct CoffeeDetailView: View {
             HStack {
                 VStack(alignment: .leading) {
                     HStack(alignment: .center, spacing: 5) {
-                        Text(coffee.title)
+                        Text("title")
                             .foregroundStyle(.black03)
                             .font(.MainTextSemiBold24)
                         Image(.new)
                     }
                     .padding(.top, 20)
-                    Text(coffee.englishName)
+                    Text("english")
                         .foregroundStyle(.gray01)
                         .font(.MainTextSemiBold14)
-                    Spacer().frame(height: 20)
-                    Text (coffee.descrip)
+                    Spacer().frame(height: 50)
+                    Text ("description")
                         .foregroundStyle(.gray06)
                         .font(.MainTextSemiBold14)
-                        .fixedSize(horizontal: false, vertical: true)
                     Spacer().frame(height: 20)
-                    Text("\(coffee.price)원")
+                    Text("price")
                         .foregroundStyle(.black)
                         .font(.MainTextBold24)
                 }
@@ -78,14 +73,7 @@ struct CoffeeDetailView: View {
                 Spacer()
             }
             Spacer()
-            
-            switch coffee.temp.count {
-            case 1:
-                SingleTempView(coffee: coffee)
-            default:
-                PickTempView(isIce: $isIce)
-            }
-            
+            pickerView
         }
         .frame(height: 256)
         
@@ -97,19 +85,14 @@ struct CoffeeDetailView: View {
             Color.white
                 .shadow(color: .black.opacity(0.04), radius: 5, x: 0, y: -3)
                 .frame(maxWidth: .infinity, minHeight: 73)
-            Button(action: {
-                print("주문하기")
-            }, label:  {
-                RoundedRectangle(cornerRadius: 999)
-                    .fill(.green00)
-                    .frame(width: 383, height: 43)
-                    .overlay {
-                        Text("주문하기")
-                            .foregroundStyle(.white)
-                            .font(.MainTextMedium16)
-                    }
-            })
-            
+            RoundedRectangle(cornerRadius: 999)
+                .fill(.green00)
+                .frame(width: 383, height: 43)
+                .overlay {
+                    Text("주문하기")
+                        .foregroundStyle(.white)
+                        .font(.MainTextMedium16)
+                }
                 
         }
         .frame(maxWidth: .infinity, maxHeight: 78)
@@ -118,24 +101,48 @@ struct CoffeeDetailView: View {
     
             
     
-    
-    
-        
+    private var pickerView: some View {
+        GeometryReader { geometry in
+            let barWidth = geometry.size.width
+            ZStack(alignment: .leading) {
+                // 배경 바
+                RoundedRectangle(cornerRadius: 999)
+                    .fill(.gray07)
+                    .frame(height: 36)
+                    .onTapGesture {
+                        isIce.toggle()
+                    }
+
+                // 채워진 부분
+                RoundedRectangle(cornerRadius: 999)
+                    .fill(Color.white)
+                    .frame(width: geometry.size.width * (1/2), height: 36)
+                    .offset(x: isIce ? barWidth - barWidth/2 : 0)
+                    .animation(.easeInOut, value: 1)
+                    .shadow(color: .black.opacity(0.25), radius: 8, x: 0, y: 1)
+                
+                HStack(alignment: .center) {
+                    Text("HOT")
+                        .foregroundStyle(isIce ? .gray02: .red01)
+                        .font(.MainTextSemiBold18)
+                    Spacer()
+                    Text("ICED")
+                        .foregroundStyle(isIce ? Color(hex: "0021FB").opacity(0.63): .gray02)
+                        .font(.MainTextSemiBold18)
+                    
+                }
+                .padding(.horizontal, 70)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: 36)
+        .padding(.horizontal, 20)
+    }
 }
 
 
 
 
 
-
-struct CoffeeDetailView_Preview: PreviewProvider {
-    static var devices = ["iPhone 11", "iPhone 16 Pro Max"]
-    
-    static var previews: some View {
-        ForEach(devices, id: \.self) { device in
-            CoffeeDetailView(coffee: CoffeeDetailViewModel().coffees[0])
-                .previewDevice(PreviewDevice(rawValue: device))
-                .previewDisplayName(device)
-        }
-    }
+#Preview {
+    CoffeeDetailView()
 }
