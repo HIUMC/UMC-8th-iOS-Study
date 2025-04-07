@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @Bindable var viewModel: ContentViewModel = .init()
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(viewModel.getImages(), id: \.self) { image in
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                    }
+                }
+            }
+
+            Button("앨범에서 사진 선택") {
+                viewModel.isImagePickerPresented.toggle()
+            }
         }
-        .padding()
+        .sheet(isPresented: $viewModel.isImagePickerPresented) {
+            ImagePicker(imageHandler: viewModel, selectedLimit: 5)
+        }
     }
 }
 
