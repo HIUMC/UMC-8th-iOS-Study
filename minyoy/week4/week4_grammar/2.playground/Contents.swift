@@ -1,12 +1,15 @@
-// 1. 과일 목록 세트 선언
-var fruits: Set<String> = ["Apple", "Banana", "Orange"]
-
-// 2. “Banana”가 이미 존재하는지 확인하고, 존재하면 “Mango”를 추가하세요
-if (fruits.contains("Banana")) {
-    fruits.insert("Mango")
+// 1. Int 변수를 파라미터로 받는 addValue 클로저를 선언하고 출력해주세요! 값은 임의로 넣어주세요.
+let addValue1 = { (num: Int) -> Int in
+    var sum = 0
+    for i in 1...num {
+        sum += i
+    }
+    return sum
 }
+print(addValue1(10))
 
-// 3. 세트에 있는 모든 과일을 반복문으로 출력하세요
-for fruit in fruits {
-    print(fruit)
+// 2. 1번에서 선언한 addValue 클로저를 $를 이용해 경량화 시킨 코드를 아래 넣어주세요!
+let addValue2: (Int) -> Int = {
+    (1...$0).reduce(0, +)
 }
+print(addValue2(10))
