@@ -60,7 +60,7 @@ struct LoginView: View {
             }
             Button(action:  {
                 if viewModel.login() {
-                    router.push(.goToTab)
+                    router.push(.ad)
                 } else {
                     print("다시 로그인하세요.")
                 }

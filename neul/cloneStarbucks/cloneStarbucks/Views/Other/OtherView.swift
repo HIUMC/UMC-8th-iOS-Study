@@ -87,9 +87,15 @@ struct OtherView: View {
     
     private var userMenu: some View {
         HStack(spacing: 10.5) {
-            UserButton(image: "starHistory", title: "별 히스토리")
-            UserButton(image: "receipt", title: "전자영수증")
-            UserButton(image: "myMenu", title: "나만의 메뉴")
+            UserButton(image: "starHistory", title: "별 히스토리", action: {
+                print("별 히스토리")
+            })
+            UserButton(image: "receipt", title: "전자영수증", action: {
+                router.push(.addReceipt)
+            })
+            UserButton(image: "myMenu", title: "나만의 메뉴", action: {
+                print("나만의 메뉴")
+            })
         }
     }
     

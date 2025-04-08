@@ -12,4 +12,7 @@ enum Route: Hashable { //Hashable을 채택해야 NavPath에서 이용 가능
     case login
     case coffeeDetail(CoffeeDetailModel)
     case goToTab
+    case ad
+    
+    case addReceipt
 }
