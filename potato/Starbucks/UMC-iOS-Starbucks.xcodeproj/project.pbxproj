@@ -16,6 +16,19 @@
 		AF17024E2D994C8500B65C66 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AF1702452D994C8500B65C66 /* Pretendard-Regular.otf */; };
 		AF17024F2D994C8500B65C66 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AF1702462D994C8500B65C66 /* Pretendard-SemiBold.otf */; };
 		AF1702502D994C8500B65C66 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = AF1702472D994C8500B65C66 /* Pretendard-Thin.otf */; };
+		AF43E81A2DA4105E00D8EAA8 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E8192DA4105E00D8EAA8 /* WelcomeView.swift */; };
+		AF43E81C2DA4106300D8EAA8 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E81B2DA4106300D8EAA8 /* MenuItemView.swift */; };
+		AF43E84B2DA44C8200D8EAA8 /* ReceiptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E84A2DA44C8200D8EAA8 /* ReceiptsView.swift */; };
+		AF43E84E2DA44F1A00D8EAA8 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E84D2DA44F1A00D8EAA8 /* ShopView.swift */; };
+		AF43E8852DA453E300D8EAA8 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E8842DA453E300D8EAA8 /* ShopViewModel.swift */; };
+		AF43E8892DA4543200D8EAA8 /* ShopBannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E8882DA4543200D8EAA8 /* ShopBannerModel.swift */; };
+		AF43E88B2DA457FC00D8EAA8 /* AllProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E88A2DA457FC00D8EAA8 /* AllProductsModel.swift */; };
+		AF43E88D2DA4581A00D8EAA8 /* BestItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E88C2DA4581A00D8EAA8 /* BestItemsModel.swift */; };
+		AF43E88F2DA4587100D8EAA8 /* NewProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E88E2DA4587100D8EAA8 /* NewProductsModel.swift */; };
+		AF43E8F32DA4E8FC00D8EAA8 /* OCRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E8F22DA4E8FC00D8EAA8 /* OCRViewModel.swift */; };
+		AF43E8F52DA4ECD800D8EAA8 /* ReceiptsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E8F42DA4ECD800D8EAA8 /* ReceiptsModel.swift */; };
+		AF43E8F72DA50A4400D8EAA8 /* OCRCameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E8F62DA50A4400D8EAA8 /* OCRCameraPicker.swift */; };
+		AF43E8F92DA5208400D8EAA8 /* ReceiptInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E8F82DA5208400D8EAA8 /* ReceiptInfoView.swift */; };
 		AF7D07302D9903E100E175BC /* UMC_iOS_StarbucksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7D072F2D9903E100E175BC /* UMC_iOS_StarbucksApp.swift */; };
 		AF7D07342D9903E200E175BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF7D07332D9903E200E175BC /* Assets.xcassets */; };
 		AF7D07382D9903E200E175BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF7D07372D9903E200E175BC /* Preview Assets.xcassets */; };
@@ -52,6 +65,19 @@
 		AF1702452D994C8500B65C66 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		AF1702462D994C8500B65C66 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		AF1702472D994C8500B65C66 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		AF43E8192DA4105E00D8EAA8 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		AF43E81B2DA4106300D8EAA8 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		AF43E84A2DA44C8200D8EAA8 /* ReceiptsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsView.swift; sourceTree = "<group>"; };
+		AF43E84D2DA44F1A00D8EAA8 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		AF43E8842DA453E300D8EAA8 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
+		AF43E8882DA4543200D8EAA8 /* ShopBannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBannerModel.swift; sourceTree = "<group>"; };
+		AF43E88A2DA457FC00D8EAA8 /* AllProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProductsModel.swift; sourceTree = "<group>"; };
+		AF43E88C2DA4581A00D8EAA8 /* BestItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestItemsModel.swift; sourceTree = "<group>"; };
+		AF43E88E2DA4587100D8EAA8 /* NewProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductsModel.swift; sourceTree = "<group>"; };
+		AF43E8F22DA4E8FC00D8EAA8 /* OCRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRViewModel.swift; sourceTree = "<group>"; };
+		AF43E8F42DA4ECD800D8EAA8 /* ReceiptsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsModel.swift; sourceTree = "<group>"; };
+		AF43E8F62DA50A4400D8EAA8 /* OCRCameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRCameraPicker.swift; sourceTree = "<group>"; };
+		AF43E8F82DA5208400D8EAA8 /* ReceiptInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptInfoView.swift; sourceTree = "<group>"; };
 		AF7D072C2D9903E100E175BC /* UMC-iOS-Starbucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UMC-iOS-Starbucks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7D072F2D9903E100E175BC /* UMC_iOS_StarbucksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMC_iOS_StarbucksApp.swift; sourceTree = "<group>"; };
 		AF7D07332D9903E200E175BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +118,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF43E8172DA40FFE00D8EAA8 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				AFAF5C652D9A60A100D0F5B8 /* OtherView.swift */,
+				AF43E8192DA4105E00D8EAA8 /* WelcomeView.swift */,
+				AF43E81B2DA4106300D8EAA8 /* MenuItemView.swift */,
+				AF43E84A2DA44C8200D8EAA8 /* ReceiptsView.swift */,
+				AF43E8F82DA5208400D8EAA8 /* ReceiptInfoView.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		AF43E8182DA4100600D8EAA8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AF8A389C2D9BB4E3001AA523 /* HomeView.swift */,
+				AF8A39E02D9E6454001AA523 /* CoffeeDetailView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AF43E8492DA43D0B00D8EAA8 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				AFC920A82D998C000076A5AA /* AdView.swift */,
+				AF7D07412D99043100E175BC /* LoginView.swift */,
+				AF7D07432D99043C00E175BC /* SplashView.swift */,
+				AFC920AA2D999C180076A5AA /* TabBarView.swift */,
+				AF8A39422D9DB425001AA523 /* SignupView.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		AF43E84C2DA44F1000D8EAA8 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				AF43E84D2DA44F1A00D8EAA8 /* ShopView.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		AF43E8862DA4541400D8EAA8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AF8A39E22D9E64AB001AA523 /* CoffeeDetailModel.swift */,
+				AF8A390C2D9DA678001AA523 /* DesertModel.swift */,
+				AF8A39082D9BE25F001AA523 /* CoffeeModel.swift */,
+				AF8A390A2D9BE972001AA523 /* WhatsNewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AF43E8872DA4541800D8EAA8 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				AF43E8882DA4543200D8EAA8 /* ShopBannerModel.swift */,
+				AF43E88A2DA457FC00D8EAA8 /* AllProductsModel.swift */,
+				AF43E88C2DA4581A00D8EAA8 /* BestItemsModel.swift */,
+				AF43E88E2DA4587100D8EAA8 /* NewProductsModel.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
 		AF7D07232D9903E100E175BC = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +210,7 @@
 				AF7D07612D99133400E175BC /* Colors.xcassets */,
 				AF7D07352D9903E200E175BC /* UMC_iOS_Starbucks.entitlements */,
 				AF7D07362D9903E200E175BC /* Preview Content */,
+				AF43E8F62DA50A4400D8EAA8 /* OCRCameraPicker.swift */,
 			);
 			path = "UMC-iOS-Starbucks";
 			sourceTree = "<group>";
@@ -136,12 +226,11 @@
 		AF7D073E2D99040C00E175BC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AF8A39E22D9E64AB001AA523 /* CoffeeDetailModel.swift */,
-				AF8A390C2D9DA678001AA523 /* DesertModel.swift */,
-				AF8A39082D9BE25F001AA523 /* CoffeeModel.swift */,
+				AF43E8872DA4541800D8EAA8 /* Shop */,
+				AF43E8862DA4541400D8EAA8 /* Home */,
 				AF7D07472D99045600E175BC /* LoginModel.swift */,
 				AFC920A62D996CFB0076A5AA /* SignupModel.swift */,
-				AF8A390A2D9BE972001AA523 /* WhatsNewModel.swift */,
+				AF43E8F42DA4ECD800D8EAA8 /* ReceiptsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,8 +240,10 @@
 			children = (
 				AF7D07452D99044E00E175BC /* LoginViewModel.swift */,
 				AFAF5C672D9A60AF00D0F5B8 /* OtherViewModel.swift */,
+				AF43E8F22DA4E8FC00D8EAA8 /* OCRViewModel.swift */,
 				AFC920A42D996CED0076A5AA /* SignupViewModel.swift */,
 				AF8A39062D9BE25A001AA523 /* HomeViewModel.swift */,
+				AF43E8842DA453E300D8EAA8 /* ShopViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -160,15 +251,11 @@
 		AF7D07402D99042100E175BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AFAF5C652D9A60A100D0F5B8 /* OtherView.swift */,
-				AF7D07412D99043100E175BC /* LoginView.swift */,
+				AF43E84C2DA44F1000D8EAA8 /* Shop */,
+				AF43E8492DA43D0B00D8EAA8 /* Start */,
+				AF43E8182DA4100600D8EAA8 /* Home */,
+				AF43E8172DA40FFE00D8EAA8 /* Other */,
 				AF8A38982D9BADAC001AA523 /* NavigationRouter.swift */,
-				AFC920A82D998C000076A5AA /* AdView.swift */,
-				AF7D07432D99043C00E175BC /* SplashView.swift */,
-				AFC920AA2D999C180076A5AA /* TabBarView.swift */,
-				AF8A389C2D9BB4E3001AA523 /* HomeView.swift */,
-				AF8A39422D9DB425001AA523 /* SignupView.swift */,
-				AF8A39E02D9E6454001AA523 /* CoffeeDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,24 +360,37 @@
 				AF8A39432D9DB425001AA523 /* SignupView.swift in Sources */,
 				AF8A390B2D9BE972001AA523 /* WhatsNewModel.swift in Sources */,
 				AF8A39E32D9E64AF001AA523 /* CoffeeDetailModel.swift in Sources */,
+				AF43E8F92DA5208400D8EAA8 /* ReceiptInfoView.swift in Sources */,
+				AF43E8F72DA50A4400D8EAA8 /* OCRCameraPicker.swift in Sources */,
+				AF43E88B2DA457FC00D8EAA8 /* AllProductsModel.swift in Sources */,
+				AF43E8F32DA4E8FC00D8EAA8 /* OCRViewModel.swift in Sources */,
 				AF7D075D2D990A2200E175BC /* Fonts.swift in Sources */,
 				AFAF5C682D9A60AF00D0F5B8 /* OtherViewModel.swift in Sources */,
 				AF8A39072D9BE25A001AA523 /* HomeViewModel.swift in Sources */,
 				AF8A389D2D9BB4E3001AA523 /* HomeView.swift in Sources */,
+				AF43E84B2DA44C8200D8EAA8 /* ReceiptsView.swift in Sources */,
 				AFC920A52D996CED0076A5AA /* SignupViewModel.swift in Sources */,
+				AF43E88F2DA4587100D8EAA8 /* NewProductsModel.swift in Sources */,
 				AF8A39E12D9E6454001AA523 /* CoffeeDetailView.swift in Sources */,
 				AF7D07422D99043100E175BC /* LoginView.swift in Sources */,
 				AF7D07482D99045600E175BC /* LoginModel.swift in Sources */,
 				AFC920A92D998C000076A5AA /* AdView.swift in Sources */,
 				AF7D07442D99043C00E175BC /* SplashView.swift in Sources */,
+				AF43E8892DA4543200D8EAA8 /* ShopBannerModel.swift in Sources */,
 				AF8A38992D9BADAC001AA523 /* NavigationRouter.swift in Sources */,
 				AF7D07462D99044E00E175BC /* LoginViewModel.swift in Sources */,
+				AF43E88D2DA4581A00D8EAA8 /* BestItemsModel.swift in Sources */,
+				AF43E81C2DA4106300D8EAA8 /* MenuItemView.swift in Sources */,
 				AFC920AB2D999C180076A5AA /* TabBarView.swift in Sources */,
 				AFC920A72D996CFB0076A5AA /* SignupModel.swift in Sources */,
+				AF43E81A2DA4105E00D8EAA8 /* WelcomeView.swift in Sources */,
+				AF43E8852DA453E300D8EAA8 /* ShopViewModel.swift in Sources */,
 				AF8A390D2D9DA680001AA523 /* DesertModel.swift in Sources */,
 				AF8A39092D9BE264001AA523 /* CoffeeModel.swift in Sources */,
 				AF7D07302D9903E100E175BC /* UMC_iOS_StarbucksApp.swift in Sources */,
 				AFAF5C662D9A60A100D0F5B8 /* OtherView.swift in Sources */,
+				AF43E8F52DA4ECD800D8EAA8 /* ReceiptsModel.swift in Sources */,
+				AF43E84E2DA44F1A00D8EAA8 /* ShopView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +520,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UMC-iOS-Starbucks/Preview Content\"";
+				DEVELOPMENT_TEAM = L26UL7M6Y9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UMC-iOS-Starbucks/Info.plist";
@@ -439,6 +540,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.potato.UMC-iOS-Starbucks";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = umc.com.potatoStarbuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -457,6 +559,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UMC-iOS-Starbucks/Preview Content\"";
+				DEVELOPMENT_TEAM = L26UL7M6Y9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UMC-iOS-Starbucks/Info.plist";
@@ -476,6 +579,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.potato.UMC-iOS-Starbucks";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = umc.com.potatoStarbuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";

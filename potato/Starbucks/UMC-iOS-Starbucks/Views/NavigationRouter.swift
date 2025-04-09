@@ -34,6 +34,6 @@ enum Route: Hashable {
     case signup
     case login
     case tab
-    
-//    case coffee
+    case ad
+    case receipts
 }

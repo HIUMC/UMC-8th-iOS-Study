@@ -30,6 +30,12 @@ struct UMC_iOS_StarbucksApp: App {
                         case .tab:
                             TabBarView()
                                 .environmentObject(router)
+                        case .ad:
+                            AdView()
+                                .environmentObject(router)
+                        case .receipts:
+                            ReceiptsView()
+                                .environmentObject(router)
                         }
                     }
             }
