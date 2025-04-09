@@ -5,7 +5,7 @@
 //  Created by 박병선 on 3/24/25.
 //
 
-import SwiftUI
+/*import SwiftUI
 
 /*@main
 struct StarbuckAppApp: App {
@@ -23,10 +23,30 @@ struct YourAppNameApp: App {
     var body: some Scene {
         WindowGroup {
             if isLoggedIn {
-                MyTabView() // 홈 탭이 포함된 메인 화면
-            } else {
-                LoginView(userInfo: LoginViewModel())
-            }
+                           MyTabView()
+                               .modelContainer(for: Receipt.self)
+                       } else {
+                           LoginView(userInfo: LoginViewModel())
+                       }
         }
+    }
+}*/
+import SwiftUI
+import SwiftData
+
+@main
+struct MyApp: App {
+    @AppStorage("isLoggedIn") var isLoggedIn: Bool = false
+    var body: some Scene {
+        WindowGroup {
+            if isLoggedIn {
+                        MyTabView()
+                      } else {
+                          LoginView(userInfo: LoginViewModel())
+                      }
+            //LoginView()
+            //MyTabView()
+        }
+        //.modelContainer(for: Receipt.self)
     }
 }

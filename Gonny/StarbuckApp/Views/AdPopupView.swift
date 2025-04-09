@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AdPopupView: View {
     @Environment(\.dismiss) private var dismiss //  닫기 버튼에 사용!
+    var onClose: () -> Void
     
     var body: some View {
         VStack {
@@ -66,5 +67,5 @@ struct AdPopupView: View {
 
 
 #Preview {
-    AdPopupView()
+    AdPopupView(onClose: {})
 }

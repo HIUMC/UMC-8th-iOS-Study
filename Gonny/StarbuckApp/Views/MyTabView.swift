@@ -28,6 +28,7 @@ struct MyTabView: View {
             }
             
         }
+        
         .tint(Color("green02"))
     }
     

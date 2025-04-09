@@ -41,11 +41,15 @@ extension Font {
     static func pretend(type: Pretend, size: CGFloat) -> Font {
         return .custom(type.value, size: size)
     }
-    
+    static var mainTextBold16: Font {
+        return .pretend(type: .bold, size: 16)
+    }
     static var mainTextBold20: Font {
         return .pretend(type: .bold, size: 20)
     }
-    
+    static var mainTextBold22: Font {
+        return .pretend(type: .bold, size: 22)
+    }
     static var mainTextBold24: Font {
         return .pretend(type: .bold, size: 24)
     }
@@ -56,6 +60,10 @@ extension Font {
     
     static var mainTextSemiBold24: Font {
       return .pretend(type: .semibold, size: 24)
+  }
+    
+    static var mainTextSemiBold22: Font {
+      return .pretend(type: .semibold, size: 22)
   }
     
     static var mainTextSemiBold18: Font {
@@ -105,7 +113,9 @@ extension Font {
     static var mainTextLight14: Font {
         return .pretend(type: .light, size: 14)
     }
-    
+    static var mainTextLight24: Font {
+        return .pretend(type: .light, size: 24)
+    }
     static var mainTextExtraBold24: Font {
         return .pretend(type: .extraBold, size: 24)
   }
