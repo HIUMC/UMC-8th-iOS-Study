@@ -9,18 +9,16 @@ import SwiftUI
 struct UserButton: View {
     private var image: String
     private var title: String
-    private var action: () -> Void
     
-    init(image: String, title: String, action: @escaping () -> Void) {
+    init(image: String, title: String) {
         self.image = image
         self.title = title
-        self.action = action
     }
     
     
     var body: some View {
         Button(action: {
-            action()
+            print("userButton: \(title) 버튼 눌림")
         }, label: {
             VStack(spacing: 4) {
                 Image(image)
@@ -39,4 +37,6 @@ struct UserButton: View {
     }
 }
 
-
+#Preview {
+    UserButton(image: "starHistory", title: "별 히스토리")
+}

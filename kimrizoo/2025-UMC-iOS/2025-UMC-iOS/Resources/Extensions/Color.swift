@@ -16,7 +16,4 @@ extension Color {
     static let advertisementColor = Color("advertisementBlack")
     static let otherBlackColor = Color("otherBlack")
     static let otherBackgroundColor = Color("otherBackground")
-    
-    static let brown2Color = Color("brown2")
-    static let customYellowColor = Color("customYellow")
     }

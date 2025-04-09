@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AdvertiseView: View {
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var router: NavigationRouter
     
     var body: some View {
         GeometryReader { geometry in
@@ -51,7 +50,7 @@ struct AdvertiseView: View {
             
             Button(action:  {
                 print("닫기 버튼 클릭")
-                router.push(.goToTab)
+                dismiss()
             }, label: {
                 Text("X 닫기")
                     .foregroundStyle(.gray05)

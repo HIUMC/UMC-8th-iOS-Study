@@ -5,30 +5,37 @@
 //  Created by 이효주 on 3/25/25.
 //
 
+import Foundation
 import SwiftUI
 
-@Observable
-class SignupViewModel {
-    @ObservationIgnored @AppStorage("nickname") private var storedNickname: String = ""
-    @ObservationIgnored @AppStorage("email") private var storedEmail: String = ""
-    @ObservationIgnored @AppStorage("password") private var storedPassword: String = ""
+class SignupViewModel: ObservableObject {
     
-    var nickname: String {
-        get { storedNickname }
-        set { storedNickname = newValue }
+    @AppStorage("nickname") private var storedNickname: String = ""
+    @AppStorage("email") private var storedEmail: String = ""
+    @AppStorage("password") private var storedPassword: String = ""
+
+    // @Published 추가 → 뷰에서 자동으로 변경 감지 가능
+    @Published var nickname: String = ""
+    @Published var email: String = ""
+    @Published var password: String = ""
+
+    init() {
+        loadSignupInfo()
     }
-    
-    var email: String {
-        get { storedEmail }
-        set { storedEmail = newValue }
+
+    public func signup() {
+        saveSignupInfo()
     }
-    
-    var password: String {
-        get { storedPassword }
-        set { storedPassword = newValue }
+
+    private func saveSignupInfo() {
+        storedNickname = nickname
+        storedEmail = email
+        storedPassword = password
     }
-    
-    func signup() {
-        // 저장 로직은 속성의 setter에서 자동으로 처리됨
+
+    private func loadSignupInfo() {
+        nickname = storedNickname
+        email = storedEmail
+        password = storedPassword
     }
 }

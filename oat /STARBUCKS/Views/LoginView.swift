@@ -8,10 +8,6 @@
 import SwiftUI
 
 struct LoginView: View {
-    @AppStorage("email") var storedEmail: String = ""
-    @AppStorage("pwd") var storedPwd: String = ""
-    @State private var isLoggedIn = false
-    @StateObject private var loginViewModel = LoginViewModel()
     var body: some View {
         NavigationStack{
             VStack() {
@@ -25,11 +21,6 @@ struct LoginView: View {
                 mainBottomGroup
                     .frame(maxWidth: .infinity)
                 Spacer()
-                
-                NavigationLink(destination: iconView(), isActive: $isLoggedIn) {
-                    EmptyView()
-                    
-                }
             }
         }
     }
@@ -54,30 +45,27 @@ struct LoginView: View {
     
     
     private var mainMiddleGroup: some View {
-            VStack(alignment: .leading) {
-                LoginTextView(loginViewModel: loginViewModel)
-                
-                Button(action: {
-                    isLoggedIn = true
-                }) {
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.green01)
-                        .frame(height: 46)
-                        .overlay(
-                            Text("로그인하기")
-                                .font(.mainTextMedium16)
-                                .foregroundStyle(Color.white)
-                        )
-                }
-            }
-            .padding(.horizontal)
+        VStack(alignment: .leading) {
+            
+            LoginTextView()
+           
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color.green01)
+                .frame(height: 46)
+                .overlay(
+                    Text("로그인하기")
+                        .font(.mainTextMedium16)
+                        .foregroundStyle(Color.white)
+                )
         }
+        .padding(.horizontal)
+    }
     
     
     private var mainBottomGroup: some View {
                     VStack(alignment: .center){
                 Group {
-                    NavigationLink(destination: SignupView()) {
+                    NavigationLink(destination: SignupView(signupViewModel: SignupViewModel())) {
                         Text("이메일로 회원가입하기")
                             .underline()
                             .font(.mainTextRegular12)
@@ -97,10 +85,7 @@ struct LoginView: View {
                         
                     }
             }
-                    .navigationBarBackButtonHidden(true)
-                    
     }
-    
     
 }
 
@@ -111,13 +96,12 @@ struct LoginView: View {
 }
 
 struct LoginTextView: View {
-    @ObservedObject var loginViewModel: LoginViewModel
+    @StateObject var loginViewModel = LoginViewModel()
     @FocusState private var isID: Bool
     @FocusState private var isPwd: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
-            
             
                 ZStack(alignment: .leading) {
                 if loginViewModel.id.isEmpty {

@@ -8,18 +8,12 @@
 import Foundation
 import SwiftUI
 
-import SwiftUI
-
-class SignupViewModel: ObservableObject {
-    @AppStorage("nickname") var storedNickname: String = ""
-    @AppStorage("email") var storedEmail: String = ""
-    @AppStorage("pwd") var storedPwd: String = ""
-
-    @Published var nickname: String = ""
-    @Published var email: String = ""
-    @Published var pwd: String = ""
+@Observable
+class SignupViewModel  {
+    var nickname = ""
+    var email = ""
+    var pwd = ""
     
-
 }
 
 
