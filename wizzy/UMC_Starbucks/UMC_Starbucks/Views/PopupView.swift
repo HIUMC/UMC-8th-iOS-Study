@@ -9,34 +9,59 @@ import SwiftUI
 
 struct PopupView: View {
     @State private var showSheet = false
-    @Environment(\.dismiss) private var dismiss
+    @Binding var showPopup: Bool
+    //@Environment(\.dismiss) private var dismiss
     
     var body: some View {
         GeometryReader { geometry in
-            VStack() {
-                //.frame(maxWidth: .infinity, maxHeight: 720)
-                Image("PopupImage")
+            /*
+             VStack() {
+             //.frame(maxWidth: .infinity, maxHeight: 720)
+             Image("PopupImage")
+             .resizable()
+             //.padding(.bottom, 106)
+             .aspectRatio(contentMode: .fill)
+             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 720)
+             .ignoresSafeArea()
+             //.padding(.bottom, 40)
+             //Spacer().frame(height: 100)
+             
+             //Spacer()
+             detailButton
+             //Spacer()
+             closeButton
+             //Spacer()
+             }
+             .frame(width: geometry.size.width, height: geometry.size.height)
+             
+             } //v
+             .ignoresSafeArea()
+             */
+            VStack(spacing: 0) {
+                Image("PopupImage") // 위쪽 이미지
                     .resizable()
-                //.padding(.bottom, 106)
                     .aspectRatio(contentMode: .fill)
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 720)
                     .ignoresSafeArea()
-                //.padding(.bottom, 40)
-                //Spacer().frame(height: 100)
                 
-                //Spacer()
-                detailButton
-                //Spacer()
-                closeButton
-                //Spacer()
+                // 아래 흰색 박스 영역
+                VStack(spacing: 0) {
+                    Spacer()
+                    detailButton
+                        //.padding(.top, 106)
+                    Spacer()
+                    closeButton
+                        //.padding(.top, 72)
+                        .padding(.bottom, 36)
+                }
+                //.frame(maxWidth: .infinity)
+                .background(Color.white)
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
             
-        } //v
-        .ignoresSafeArea()
-        
+        }
+        .ignoresSafeArea(edges: .vertical)
     }
-    
     
     
     private var detailButton: some View {
@@ -59,7 +84,8 @@ struct PopupView: View {
             Spacer()
             Button(action: {
                 print("닫기")
-                dismiss()
+                //dismiss()
+                showPopup = false
                 
             }) {
                 Text("X 닫기")
@@ -72,9 +98,25 @@ struct PopupView: View {
     
 
 } // struct
+struct PopupView_Previews: PreviewProvider {
+    static var previews: some View {
+        StatefulPreviewWrapper(true) { binding in
+            PopupView(showPopup: binding)
+        }
+    }
+}
 
+struct StatefulPreviewWrapper<Value, Content: View>: View {
+    @State var value: Value
+    var content: (Binding<Value>) -> Content
 
-#Preview {
-    PopupView()
+    init(_ value: Value, content: @escaping (Binding<Value>) -> Content) {
+        _value = State(initialValue: value)
+        self.content = content
+    }
+
+    var body: some View {
+        content($value)
+    }
 }
 
