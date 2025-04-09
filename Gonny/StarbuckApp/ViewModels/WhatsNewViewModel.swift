@@ -4,7 +4,8 @@
 //
 //  Created by 박병선 on 4/3/25.
 //
-/*import SwiftUI
+//WhatsNewViewModel
+import SwiftUI
 
     class WhatsNewViewModel: ObservableObject {
         @Published var adItems: [AdItem] = [
@@ -13,4 +14,4 @@
             AdItem(imageName: "ad3")
         ]
     }
-*/
+
