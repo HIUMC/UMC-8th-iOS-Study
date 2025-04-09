@@ -9,37 +9,54 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        NavigationStack{
             ScrollView {
                 VStack(spacing:0) {
                     bannerView()
+                        .padding(.top,-20)
+                        .ignoresSafeArea(.all)
+                        //.padding(.horizontal)
                     Image(.bear)
                     RecommendView()
+                        .padding(.horizontal)
                     Image(.event)
                     Text("What's New")
                         .foregroundStyle(Color.black03)
                         .font(.mainTextBold24)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding([.top, .leading])
+                        .padding(.horizontal)
                     
                     WhatsNewView()
+                        .padding(.horizontal)
                     VStack{
                         Image(.mug)
+//                            .padding(.horizontal)
                         Image(.star1)
+                        
                         Image(.delivery)
                     }
+                    
                     DessertView()
+                        .padding(.horizontal)
                     
                     VStack{
                         Image(.down1)
                         Image(.down2)
                         Image(.down3)
+                       .padding(.bottom,80)
                     }
+                
                 }
-            }
+            
             
         }
-        //contentMargins(.top,-100)
+           .ignoresSafeArea()
+//           .padding(.top,-90)
+           .navigationBarBackButtonHidden(true)
+           .toolbar(.hidden, for: .navigationBar) 
+           
+        //.padding(.top, -100)
+            //.padding(.horizontal)
        
     }
 }
