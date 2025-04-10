@@ -10,12 +10,16 @@ import SwiftUI
 
 struct LoginView: View {
     @Bindable var viewModel: LoginViewModel
+    
+    @AppStorage("isLoggedIn") private var isLoggedIn = false 
+    
     @FocusState private var focusedField: Field?
         private enum Field {
             case id, pwd
         }
     
     var body: some View {
+        
             VStack(alignment: .leading) {
                 Spacer().frame(height: 100)
                 topSection
@@ -23,9 +27,16 @@ struct LoginView: View {
                 midSection
                 Spacer()
                 bottomSection
-
+//                NavigationLink(destination: TabBarView(), isActive: $isLoggedIn) {
+//                                   EmptyView()
+//                                   
+//                               }
+                
+                
+            
+          
         }
-        .padding(.horizontal, 19)
+            .padding(.horizontal, 19)
         
     }
     private var topSection: some View {
@@ -90,7 +101,8 @@ struct LoginView: View {
             
             Spacer().frame(height: 47)
             
-            Button(action: {}, label: {
+            Button(action:
+                    {isLoggedIn = true}, label: {
                 Text("로그인하기")
                     .font(.PretendardMedium16)
                     .frame(maxWidth: .infinity, minHeight: 46)
@@ -107,15 +119,20 @@ struct LoginView: View {
     }
     private var bottomSection: some View {
         VStack(alignment: .center) {
-            
-            Spacer().frame(height: 100)
-            
-            Text("이메일로 회원가입하기")
-                .font(.PretendardRegular12)
-                .foregroundStyle(.gray01)
-                .underline()
-                .frame(maxWidth:.infinity)
+            Group {
                 
+                Spacer().frame(height: 100)
+                
+                NavigationLink(destination: SignupView()){
+                    Text("이메일로 회원가입하기")
+                        .font(.PretendardRegular12)
+                        .foregroundStyle(.gray01)
+                        .underline()
+                        .frame(maxWidth:.infinity)
+                        
+                }
+                
+            }
             
             Spacer().frame(height: 19)
             
@@ -154,6 +171,6 @@ struct LoginView: View {
 
 
 
-#Preview{
+#Preview {
     LoginView(viewModel: LoginViewModel())
 }

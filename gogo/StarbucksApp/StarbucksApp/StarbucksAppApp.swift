@@ -8,10 +8,13 @@
 import SwiftUI
 
 @main
-struct StarbucksAppApp: App {
+struct StarbucksApp: App {
+    @StateObject private var navigationRouter = NavigationRouter() // NavigationRouter 초기화
+
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            TabBarView()
+                .environmentObject(navigationRouter) // environmentObject로 전달
         }
     }
 }

@@ -28,9 +28,12 @@ import SwiftUI
 
 struct OtherView: View {
     @AppStorage("nickname") var nickname : String = "(작성한 닉네임)"
+    
+    
     private var ViewModel : OtherViewModel = .init()
     
     var body: some View {
+        
         ZStack {
             Color.white
                 .ignoresSafeArea()
@@ -53,6 +56,8 @@ struct OtherView: View {
               
             }
         }
+       
+        
     }
     private var topSection: some View {
         HStack {
@@ -68,6 +73,7 @@ struct OtherView: View {
                     .resizable()
                     .frame(width:35,height:35)
             })
+            
             
         }
     }
@@ -98,7 +104,7 @@ struct OtherView: View {
            VStack {
                VStack(spacing: 5) {
                    HStack {
-                       Text("\(nickname)")
+                       Text(nickname)
                            .foregroundStyle(.green01)
                            .font(.PretendardSemiBold24)
                        Text("님")
@@ -197,3 +203,5 @@ struct OtherView_Preview: PreviewProvider {
         }
     }
 }
+
+
