@@ -25,7 +25,7 @@
 		AF43E88B2DA457FC00D8EAA8 /* AllProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E88A2DA457FC00D8EAA8 /* AllProductsModel.swift */; };
 		AF43E88D2DA4581A00D8EAA8 /* BestItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E88C2DA4581A00D8EAA8 /* BestItemsModel.swift */; };
 		AF43E88F2DA4587100D8EAA8 /* NewProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E88E2DA4587100D8EAA8 /* NewProductsModel.swift */; };
-		AF43E8F32DA4E8FC00D8EAA8 /* OCRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E8F22DA4E8FC00D8EAA8 /* OCRViewModel.swift */; };
+		AF43E8F32DA4E8FC00D8EAA8 /* ReceiptsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E8F22DA4E8FC00D8EAA8 /* ReceiptsViewModel.swift */; };
 		AF43E8F52DA4ECD800D8EAA8 /* ReceiptsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E8F42DA4ECD800D8EAA8 /* ReceiptsModel.swift */; };
 		AF43E8F72DA50A4400D8EAA8 /* OCRCameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E8F62DA50A4400D8EAA8 /* OCRCameraPicker.swift */; };
 		AF43E8F92DA5208400D8EAA8 /* ReceiptInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43E8F82DA5208400D8EAA8 /* ReceiptInfoView.swift */; };
@@ -74,7 +74,7 @@
 		AF43E88A2DA457FC00D8EAA8 /* AllProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProductsModel.swift; sourceTree = "<group>"; };
 		AF43E88C2DA4581A00D8EAA8 /* BestItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestItemsModel.swift; sourceTree = "<group>"; };
 		AF43E88E2DA4587100D8EAA8 /* NewProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductsModel.swift; sourceTree = "<group>"; };
-		AF43E8F22DA4E8FC00D8EAA8 /* OCRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRViewModel.swift; sourceTree = "<group>"; };
+		AF43E8F22DA4E8FC00D8EAA8 /* ReceiptsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsViewModel.swift; sourceTree = "<group>"; };
 		AF43E8F42DA4ECD800D8EAA8 /* ReceiptsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsModel.swift; sourceTree = "<group>"; };
 		AF43E8F62DA50A4400D8EAA8 /* OCRCameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRCameraPicker.swift; sourceTree = "<group>"; };
 		AF43E8F82DA5208400D8EAA8 /* ReceiptInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptInfoView.swift; sourceTree = "<group>"; };
@@ -240,7 +240,7 @@
 			children = (
 				AF7D07452D99044E00E175BC /* LoginViewModel.swift */,
 				AFAF5C672D9A60AF00D0F5B8 /* OtherViewModel.swift */,
-				AF43E8F22DA4E8FC00D8EAA8 /* OCRViewModel.swift */,
+				AF43E8F22DA4E8FC00D8EAA8 /* ReceiptsViewModel.swift */,
 				AFC920A42D996CED0076A5AA /* SignupViewModel.swift */,
 				AF8A39062D9BE25A001AA523 /* HomeViewModel.swift */,
 				AF43E8842DA453E300D8EAA8 /* ShopViewModel.swift */,
@@ -363,7 +363,7 @@
 				AF43E8F92DA5208400D8EAA8 /* ReceiptInfoView.swift in Sources */,
 				AF43E8F72DA50A4400D8EAA8 /* OCRCameraPicker.swift in Sources */,
 				AF43E88B2DA457FC00D8EAA8 /* AllProductsModel.swift in Sources */,
-				AF43E8F32DA4E8FC00D8EAA8 /* OCRViewModel.swift in Sources */,
+				AF43E8F32DA4E8FC00D8EAA8 /* ReceiptsViewModel.swift in Sources */,
 				AF7D075D2D990A2200E175BC /* Fonts.swift in Sources */,
 				AFAF5C682D9A60AF00D0F5B8 /* OtherViewModel.swift in Sources */,
 				AF8A39072D9BE25A001AA523 /* HomeViewModel.swift in Sources */,
@@ -539,8 +539,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.potato.UMC-iOS-Starbucks";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = umc.com.potatoStarbuck;
+				PRODUCT_BUNDLE_IDENTIFIER = umc.com.potatoStarbuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -578,8 +577,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.potato.UMC-iOS-Starbucks";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = umc.com.potatoStarbuck;
+				PRODUCT_BUNDLE_IDENTIFIER = umc.com.potatoStarbuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";

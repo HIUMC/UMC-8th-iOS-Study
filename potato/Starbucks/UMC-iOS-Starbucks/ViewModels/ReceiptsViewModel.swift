@@ -10,27 +10,28 @@ import UIKit
 import Vision
 
 @Observable
-class OCRViewModel {
+class ReceiptsViewModel {
     var images: [UIImage] = []
 //    var recognizedText: String = ""
     var currentReceipt: ReceiptsModel?
     
-    // 이미지 추가할 필요 없으니 viewmodel 수정 필요
-    func addImage(_ image: UIImage) {
-        images.append(image)
-        performOCR(on: image)
-    }
+//    // 이미지 추가할 필요 없으니 viewmodel 수정 필요
+//    func addImage(_ image: UIImage) {
+////        images.append(image)
+////        currentReceipt?.image = image.pngData()
+//        performOCR(on: image)
+//    }
+//
+//    func removeImage(at index: Int) {
+//        guard images.indices.contains(index) else { return }
+//        images.remove(at: index)
+//    }
+//
+//    func getImages() -> [UIImage] {
+//        images
+//    }
 
-    func removeImage(at index: Int) {
-        guard images.indices.contains(index) else { return }
-        images.remove(at: index)
-    }
-
-    func getImages() -> [UIImage] {
-        images
-    }
-
-    private func performOCR(on uiImage: UIImage) {
+    func performOCR(on uiImage: UIImage) {
         guard let cgImage = uiImage.cgImage else {
             self.currentReceipt = nil
             return
@@ -47,6 +48,8 @@ class OCRViewModel {
             let recognizedString = observations.compactMap { $0.topCandidates(1).first?.string}
             let fullText = recognizedString.joined(separator: "\n")
             let parsed = self.parseWithoutRegex(from: fullText)
+            
+            parsed.image = uiImage.pngData()
             
             DispatchQueue.main.async {
                 self.currentReceipt = parsed

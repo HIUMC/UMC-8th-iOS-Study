@@ -15,6 +15,7 @@ class ReceiptsModel {
     var store: String
     var totalAmount: Int
     var date: String
+    var image: Data?
     var createdAt: Date
 
     init(store: String, totalAmount: Int, date: String, createdAt: Date = Date()) {
