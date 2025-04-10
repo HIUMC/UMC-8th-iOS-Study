@@ -18,17 +18,38 @@ struct ReceiptsView: View {
     
     @Bindable var viewModel: ReceiptsViewModel = .init()
     
-    // 총 금액은 query로
-    
-    
-    // 왼쪽 누르면 삭제: scrollview말고 list와 ondelete
-    
     var body: some View {
         VStack {
             topNav
             
-            if let receipt = viewModel.currentReceipt {
-                ReceiptInfoView(receipt: receipt)
+            //            if let receipt = viewModel.currentReceipt {
+            //                ReceiptInfoView(receipt: receipt)
+            //            }
+            
+            HStack {
+                Text("총 ")
+                    .font(.mainTextRegular18)
+                    .foregroundStyle(Color("black00"))
+                + Text("\(viewModel.receiptCount)건")
+                    .font(.mainTextSemiBold18)
+                    .foregroundStyle(Color("brown01"))
+                Spacer()
+                Text("사용합계 ")
+                    .font(.mainTextRegular18)
+                    .foregroundStyle(Color("black00"))
+                + Text("\(viewModel.receiptsTotalAmount)원")
+                    .font(.mainTextSemiBold18)
+                    .foregroundStyle(Color("brown01"))
+            }
+            .padding(.horizontal, 20)
+            .padding(.vertical, 16)
+            
+            ScrollView {
+                VStack(spacing: 0) {
+                    ForEach(viewModel.receipts, id: \.id) { receipt in
+                        ReceiptInfoView(receipt: receipt)
+                    }
+                }
             }
             
             Spacer()
@@ -74,7 +95,7 @@ struct ReceiptsView: View {
             .frame(height: 56)
             .sheet(isPresented: $showCamera) {
                 OCRCameraPicker { image in
-                    viewModel.performOCR(on: image)
+                    viewModel.addReceipt(from: image)
                 }
             }
             .photosPicker(isPresented: $showPhotosPicker, selection: $selectedItem, matching: .images)
@@ -83,7 +104,7 @@ struct ReceiptsView: View {
                     Task {
                         if let data = try? await item.loadTransferable(type: Data.self),
                            let image = UIImage(data: data) {
-                            viewModel.performOCR(on: image)
+                            viewModel.addReceipt(from: image)
                         }
                     }
                 }

@@ -77,5 +77,6 @@ struct ReceiptInfoView: View {
                 .foregroundStyle(Color("gray01"))
         }
         .padding(.horizontal, 20)
+        .padding(.vertical, 8)
     }
 }

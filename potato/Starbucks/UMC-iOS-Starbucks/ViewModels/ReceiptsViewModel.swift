@@ -11,31 +11,29 @@ import Vision
 
 @Observable
 class ReceiptsViewModel {
-    var currentReceipt: ReceiptsModel?
+    var receipts: [ReceiptsModel] = []
+    
+    func addReceipt(from image: UIImage) {
+        performOCR(on: image)
+    }
 
     func performOCR(on uiImage: UIImage) {
-        guard let cgImage = uiImage.cgImage else {
-            self.currentReceipt = nil
-            return
-        }
+        guard let cgImage = uiImage.cgImage else { return }
 
         let request = VNRecognizeTextRequest { [weak self] request, error in
             guard let self = self,
                   let observations = request.results as? [VNRecognizedTextObservation],
-                  error == nil else {
-                self?.currentReceipt = nil
-                return
-            }
+                  error == nil else { return }
             
             let recognizedString = observations.compactMap { $0.topCandidates(1).first?.string}
             let fullText = recognizedString.joined(separator: "\n")
             let parsed = self.parseWithoutRegex(from: fullText)
             
-            // ReceiptModel 생성할 때 이미지도 같이 저장 -> 이래야 dollar 표시 눌렀을 때 영수증 이미지를 불러올 수 있다
-            parsed.image = uiImage.pngData()
-            
             DispatchQueue.main.async {
-                self.currentReceipt = parsed
+                // ReceiptModel 생성할 때 이미지도 같이 저장 -> 이래야 dollar 표시 눌렀을 때 영수증 이미지를 불러올 수 있다
+                parsed.image = uiImage.pngData()
+                // 새 영수증 제일 앞에 추가
+                self.receipts.insert(parsed, at: 0)
             }
         }
 
@@ -92,5 +90,13 @@ class ReceiptsViewModel {
         print("🗓️ 날짜: \(date)")
         
         return ReceiptsModel(store: store, totalAmount: totalAmount, date: date)
+    }
+    
+    var receiptsTotalAmount: Int {
+        receipts.map { $0.totalAmount }.reduce(0, +)
+    }
+    
+    var receiptCount: Int {
+        receipts.count
     }
 }
