@@ -5,40 +5,74 @@
 //  Created by 고석현 on 4/1/25.
 //
 
+//커피 이미지 tapgesutUre로 DetailCoffeeView로 이동 안돼요ㅠㅠ
+//지피티도 돌려보고 코드 계속 봐도 어떻게 로직 구상해야할지 막힙니다
 
 import SwiftUI
 
-//큰 틀.  ScrollView 안에 LazyHStack 안에 하위뷰들 (필요한 렌더링만 함).
+//큰 틀 --->  ScrollView 안에 LazyHStack 안에 하위뷰들 (필요한 렌더링만 해서 일반 HStack 보다 성능 effenciency 낫대..)
 
 struct HomeView: View {
     @AppStorage("nickname") var nickname: String = "(작성한 닉네임)"
+    
+    //전역적 관리..하고싶은데
+//    @EnvironmentObject var navigationRouter: NavigationRouter // NavigationRouter 주입
+    @State var viewModel: HomeViewModel = .init()
+    
+
+
+    
+    
     var body: some View {
-        ScrollView(.vertical) {
-            LazyVStack(spacing:20) {
-                topBanner //골든미모사 블라 ~ z스택 기본
-                topBanner2 //게이지바 & 주변 텍스트!게이지바 익히자
-                
-                Image(.iceChallenge)   // 아이스 챌린지 이미지 pdf
-                    .resizable()
-                    .padding(.horizontal, 10)
-                
-                RecommendedMenu // 커피 추천 메뉴 및 Navigation
-                
-                Image(.eventBanner)//이벤트 배너 이미지 pdf
-                    .resizable()
-                    .padding(.horizontal, 10)
-                
-                Image(.subscribe)//구독 배너 이미지 pdf
-                    .resizable()
-                    .padding(.horizontal, 10)
-                whatsNew
-                midSection //중간광고
-                dessertMenu
-                
+        
+        NavigationStack {
+            ScrollView(.vertical) {
+                LazyVStack(spacing:20) {
+                    topBanner //골든미모사 블라 ~ z스택 기본
+                    topBanner2 //게이지바 & 주변 텍스트!게이지바 익히자..복습.
+                    
+                    Image(.iceChallenge)   // 아이스 챌린지 이미지 pdf
+                        .resizable()
+                        .padding(.horizontal, 10)
+                    
+                    RecommendedMenu //커피 추천 메뉴 가로스크롤뷰(네비게이션)
+                    
+                    Image(.eventBanner)//이벤트 배너 이미지 pdf
+                        .resizable()
+                        .padding(.horizontal, 10)
+                    
+                    Image(.subscribe)//구독 배너 이미지 pdf
+                        .resizable()
+                        .padding(.horizontal, 10)
+                    whatsNew
+                    midBanner //중간광고
+                    dessertMenu //빵 디저트 horizontal ScrollView
+                    bottomBanner //하단 배너 광고
+                    
+                    
+                }
             }
+            .scrollIndicators(.hidden) //스크롤바 없애기 showIndicatofs:False 는 depecrated 이래
+            //navigationDestination
+            .navigationDestination(for: Route.self) { route in
+                            switch route {
+                            case .signUp:
+                                SignupView()
+                            case .tabBarView:
+                                TabBarView()
+                            case .login:
+                                LoginView(viewModel: LoginViewModel())
+                            case .detailCoffee:
+                                DetailCoffeeView(viewModel: HomeViewModel())
+                            case .ad:
+                                AdView()
+                            }
+                        }
         }
-        .ignoresSafeArea(.all)
     }
+    
+    
+    //------------------------------------------------------------//
     private var topBanner: some View {
         ZStack {
             Image(.topImg)
@@ -139,28 +173,30 @@ struct HomeView: View {
         VStack(alignment: .leading) {
             HStack {
                 Group {
-                  Text("\(nickname)님")
+                    Text("\(nickname)님")
                         .foregroundStyle(.brown01)
                         .padding(.leading,19)
-                  Text("을 위한 추천 메뉴")
+                    Text("을 위한 추천 메뉴")
                         .foregroundStyle(.black03)
                 }
                 .font(.PretendardBold24)
                 Spacer()
             }
-            ScrollView(.horizontal, showsIndicators: false) {
+            ScrollView(.horizontal) {
                 LazyHStack(spacing: 16) {
                     ForEach(RecommendModel.dummy) { menu in
                         CircleImageView(imageName: menu.imageName, title: menu.title)
                     }
-            }
+                }
                 .padding(.horizontal, 19)
+//                .onTapGesture {navigationRouter.push(.detailCoffee) // Push to DetailCoffeeView
+//                                        }
                 
+                .scrollIndicators(.hidden)
             }
+            
         }
-        
     }
-    
     
     
     
@@ -177,7 +213,7 @@ struct HomeView: View {
                     Spacer()
                 }
                 
-                ScrollView(.horizontal, showsIndicators: false) {
+                ScrollView(.horizontal) {
                     LazyHStack(spacing: 16) {
                         ForEach(WhatsNewModel.dummy, id: \.self) { newcard in
                             NewCardView(imageName: newcard.imageName, title: newcard.title, text: newcard.text)
@@ -185,11 +221,12 @@ struct HomeView: View {
                     }
                     
                 }
+                .scrollIndicators(.hidden)
             }
             .frame(maxWidth: .infinity,maxHeight: .infinity)
         }
     
-    private var midSection: some View {
+    private var midBanner: some View {
         VStack {
             Image(.image1)
                 .resizable()
@@ -213,7 +250,7 @@ struct HomeView: View {
                        .padding(.leading, 20)
                    Spacer()
                }
-               ScrollView(.horizontal, showsIndicators: false) {
+               ScrollView(.horizontal) {
                    LazyHStack(spacing: 16) {
                        ForEach(DessertModel.dummy, id: \.self) { dessert in
                            VStack {
@@ -224,8 +261,24 @@ struct HomeView: View {
                        }
                    }
                }
+               .scrollIndicators(.hidden)
            }
        }
+    private var bottomBanner: some View {
+        VStack{
+            Image(.bottom1)
+                .resizable()
+                .padding(.horizontal, 10)
+            Image(.bottom2)
+                .resizable()
+                .padding(.horizontal, 10)
+            Image(.bottom3)
+                .resizable()
+                .padding(.horizontal, 10)
+            
+        }
+    }
+    
 
     
     
@@ -245,4 +298,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+           .environmentObject(NavigationRouter()) // NavigationRouter를 Preview에 전달
 }

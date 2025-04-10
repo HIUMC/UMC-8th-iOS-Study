@@ -12,6 +12,9 @@ import SwiftUI
 import Foundation
 
 struct TabBarView: View {
+    @EnvironmentObject var navigationRouter: NavigationRouter
+    // NavigationRouter 주입
+    
     init() {
         UITabBar.appearance().backgroundColor = .white
     }
@@ -19,12 +22,13 @@ struct TabBarView: View {
     var body: some View {
         TabView {
             HomeView()
+                .padding(.bottom,10) //이거 줘야 HomeView 안 잘려..
                 .tabItem {
                     Label {
                         Text("Home")
                     } icon: {
                         Image("home")
-                            .renderingMode(.template) // 중요!!
+                            .renderingMode(.template) //초록틴트적용
                     }
                 }
 
@@ -80,6 +84,7 @@ struct TabBarView_Preview: PreviewProvider {
     static var previews: some View {
         ForEach(devices, id: \.self) { device in
             TabBarView()
+                .environmentObject(NavigationRouter())
                 .previewDevice(PreviewDevice(rawValue: device))
                 .previewDisplayName(device)
         }

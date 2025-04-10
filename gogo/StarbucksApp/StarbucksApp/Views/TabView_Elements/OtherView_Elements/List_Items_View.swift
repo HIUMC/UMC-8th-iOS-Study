@@ -7,7 +7,10 @@
 //
 //  Created by 고석현 on 4/3/25.
 //
-//
+
+//재사용 가능한 양식
+//이미지 , spacing : 6 , 텍스트
+
 
 import SwiftUI
 
