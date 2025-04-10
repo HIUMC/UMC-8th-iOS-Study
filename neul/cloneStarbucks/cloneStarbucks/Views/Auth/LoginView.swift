@@ -48,6 +48,13 @@ struct LoginView: View {
             .padding(.leading, 20)
             Spacer()
         }
+        .onAppear {
+            if let font = UIFont(name: "Pretendard-Regular", size: 18) {
+                print("✅ 폰트 로드 성공: \(font)")
+            } else {
+                print("❌ 폰트 로드 실패 — 이름 또는 설정 문제")
+            }
+        }
         
     }
 
