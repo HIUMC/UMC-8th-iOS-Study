@@ -9,10 +9,7 @@ import SwiftUI
 
 struct ReceiptInfoView: View {
     let receipt: ReceiptsModel
-    
     @State private var isPresenting = false
-    @State private var selectedReceipt: ReceiptsModel? = nil
-//    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
@@ -33,24 +30,44 @@ struct ReceiptInfoView: View {
                 
                 Image(.dollar)
                     .onTapGesture {
-//                        selectedReceipt = receipt
                         isPresenting.toggle()
                     }
-                    .fullScreenCover(item: $selectedReceipt) { selectedReceipt in
+                    .fullScreenCover(isPresented: $isPresenting) {
                         ZStack {
-                            if let data = selectedReceipt.image,
+                            Color.black.opacity(0.6)
+                                .ignoresSafeArea()
+                            
+                            if let data = receipt.image,
                                let image = UIImage(data: data) {
                                 Image(uiImage: image)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .overlay(alignment: .topTrailing) {
+                                        Button(action: {
+                                            isPresenting.toggle()
+                                        }) {
+                                            Image(systemName: "xmark")
+                                                .resizable()
+                                                .frame(width: 18, height: 18)
+                                                .foregroundStyle(Color("gray04"))
+                                                .padding(16)
+                                        }
+                                    }
                             } else {
                                 Text("이미지가 없습니다")
                                     .font(.mainTextSemiBold16)
                                     .foregroundStyle(Color("black02"))
-                            }
-                            
-                            Button(action: {
-                                self.selectedReceipt = nil
-                            }) {
-                                Image(systemName: "xmark")
+                                
+                                HStack {
+                                    Spacer()
+                                    Button(action: {
+                                        isPresenting.toggle()
+                                    }) {
+                                        Image(systemName: "xmark")
+                                            .resizable()
+                                            .frame(width: 18, height: 18)
+                                    }
+                                }
                             }
                         }
                     }

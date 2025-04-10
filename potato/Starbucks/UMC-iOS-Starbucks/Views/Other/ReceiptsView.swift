@@ -23,12 +23,9 @@ struct ReceiptsView: View {
     
     // 왼쪽 누르면 삭제: scrollview말고 list와 ondelete
     
-    // 영수증 화면 띄우는 건 fullscreencover
-    
     var body: some View {
         VStack {
             topNav
-                .padding(.horizontal, 20)
             
             if let receipt = viewModel.currentReceipt {
                 ReceiptInfoView(receipt: receipt)
@@ -36,6 +33,7 @@ struct ReceiptsView: View {
             
             Spacer()
         }
+        .background(Color("white01"))
         .toolbarVisibility(.hidden)
     }
     
@@ -73,6 +71,7 @@ struct ReceiptsView: View {
                 
                 Button("취소", role: .cancel) {}
             }
+            .frame(height: 56)
             .sheet(isPresented: $showCamera) {
                 OCRCameraPicker { image in
                     viewModel.performOCR(on: image)
@@ -90,6 +89,8 @@ struct ReceiptsView: View {
                 }
             }
         }
+        .padding(.horizontal, 20)
+        .background(Color("white00"))
     }
 }
 

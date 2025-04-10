@@ -11,25 +11,7 @@ import Vision
 
 @Observable
 class ReceiptsViewModel {
-    var images: [UIImage] = []
-//    var recognizedText: String = ""
     var currentReceipt: ReceiptsModel?
-    
-//    // 이미지 추가할 필요 없으니 viewmodel 수정 필요
-//    func addImage(_ image: UIImage) {
-////        images.append(image)
-////        currentReceipt?.image = image.pngData()
-//        performOCR(on: image)
-//    }
-//
-//    func removeImage(at index: Int) {
-//        guard images.indices.contains(index) else { return }
-//        images.remove(at: index)
-//    }
-//
-//    func getImages() -> [UIImage] {
-//        images
-//    }
 
     func performOCR(on uiImage: UIImage) {
         guard let cgImage = uiImage.cgImage else {
@@ -49,6 +31,7 @@ class ReceiptsViewModel {
             let fullText = recognizedString.joined(separator: "\n")
             let parsed = self.parseWithoutRegex(from: fullText)
             
+            // ReceiptModel 생성할 때 이미지도 같이 저장 -> 이래야 dollar 표시 눌렀을 때 영수증 이미지를 불러올 수 있다
             parsed.image = uiImage.pngData()
             
             DispatchQueue.main.async {
