@@ -11,8 +11,8 @@ import Foundation
 
 struct LoginView: View {
     @FocusState private var focusedField: LoginField?
-    @State private var router = NavigationRouter()
-    @Bindable var loginViewModel : LoginViewModel
+    @EnvironmentObject var router: NavigationRouter
+    @Bindable var viewModel: LoginViewModel
     
     @AppStorage("storedEmail") private var storedEmail: String = ""
     @AppStorage("storedPassword") private var storedPassword: String = ""
@@ -25,30 +25,16 @@ struct LoginView: View {
     
     
     var body: some View {
-        NavigationStack(path: $router.path) {
-            VStack(alignment: .leading) {
-                topTitle
-                    .padding(.top, 100)
-                Spacer()
-                idpassword
-                    .frame(height: 180)
-                Spacer()
-                loginSelection
-                    .frame(height: 144)
-                    .padding(.bottom, 60)
-            }
-            .navigationDestination(for: Route.self) { route in
-                switch route {
-                case .signup:
-                    SignupView(signupViewModel: SignupViewModel())
-                case .tabBar:
-                    TabBarView()
-                case .login:
-                    LoginView(loginViewModel: LoginViewModel())
-                case .coffeeDetail:
-                    CoffeeDetailView(viewModel: HomeViewModel())
-                }
-            }
+        VStack(alignment: .leading) {
+            topTitle
+                .padding(.top, 100)
+            Spacer()
+            idpassword
+                .frame(height: 180)
+            Spacer()
+            loginSelection
+                .frame(height: 144)
+                .padding(.bottom, 60)
         }
     }
     
@@ -75,7 +61,7 @@ struct LoginView: View {
     
     var idpassword: some View {
         VStack(alignment: .leading) {
-            TextField("아이디", text: $loginViewModel.id)
+            TextField("아이디", text: $viewModel.id)
                 .focused($focusedField, equals: .id)
             
             Divider()
@@ -83,7 +69,7 @@ struct LoginView: View {
                 .background(focusedField == .id ? Color("green01") : Color("gray00"))
                 .padding(.bottom, 47)
             
-            SecureField("비밀번호", text: $loginViewModel.password)
+            SecureField("비밀번호", text: $viewModel.password)
                 .focused($focusedField, equals: .password)
             
             Divider()
@@ -93,15 +79,13 @@ struct LoginView: View {
             
             Button(action: {
                 print("로그인 버튼")
-                if loginViewModel.id == storedEmail && loginViewModel.password == storedPassword {
-                    
+                if viewModel.id == storedEmail && viewModel.password == storedPassword {
                     print("성공적으로 로그인되었습니다!")
-                    
                     router.push(.tabBar)
                 } else {
                     print("이메일과 패스워드가 다릅니다.")
                 }
-            }, label: {
+            }) {
                 Text("로그인하기")
                     .font(.mainTextMedium16)
                     .foregroundStyle(.white)
@@ -110,14 +94,16 @@ struct LoginView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .fill(Color("green01"))
                     )
-            })
+                    .contentShape(Rectangle())
+                    .background(Color.clear)
+            }
         }
         .padding(.horizontal, 20)
     }
     
     private var loginSelection: some View {
         VStack {
-            Button(action: {                router.push(.signup)
+            Button(action: { router.push(.signup)
             }, label: {
                 Text("이메일로 회원가입하기")
                     .foregroundColor(Color("black01"))
@@ -136,13 +122,13 @@ struct LoginView: View {
     
 struct LoginView_Preview: PreviewProvider {
     static var devices = ["iPhone 11", "iPhone 16 Pro Max"]
-    
+
     static var previews: some View {
         ForEach(devices, id: \.self) { device in
-            LoginView(loginViewModel: LoginViewModel()) // viewModel 초기화 추가
+            LoginView(viewModel: LoginViewModel())
+                .environmentObject(NavigationRouter())
                 .previewDevice(PreviewDevice(rawValue: device))
                 .previewDisplayName(device)
         }
     }
 }
-

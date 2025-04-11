@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import Observation
 import SwiftUI
 
 struct OtherView: View {
     @AppStorage("nickname") private var nickname: String = "(작성한 닉네임)"
+    @EnvironmentObject var router: NavigationRouter
     
     var body: some View {
         VStack {
@@ -73,9 +75,9 @@ struct OtherView: View {
             }
             
             HStack(spacing: 10.5) {
-                InfoButton(icon: Image("star"), title: "별 히스토리")
-                InfoButton(icon: Image("receipt"), title: "전자영수증")
-                InfoButton(icon: Image("myCup"), title: "나만의 메뉴")
+                InfoButton(icon: Image("star"), title: "별 히스토리", action: {print("별 히스토리")})
+                InfoButton(icon: Image("receipt"), title: "전자영수증", action: {router.push(.receipts)})
+                InfoButton(icon: Image("myCup"), title: "나만의 메뉴", action: {print("나만의 메뉴")})
             }
             .padding(.top, 24)
         }
@@ -148,15 +150,17 @@ struct OtherView: View {
     struct InfoButton: View {
         let icon: Image
         let title: String
+        private var action: () -> Void
         
-        init(icon: Image, title: String) {
+        init(icon: Image, title: String, action: @escaping () -> Void) {
             self.icon = icon
             self.title = title
+            self.action = action
         }
-        
+
         var body: some View {
             Button(action: {
-                print(title)
+                action()
             }, label: {
                 RoundedRectangle(cornerRadius: 15)
                     .fill(.white)

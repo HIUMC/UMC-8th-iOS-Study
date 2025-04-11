@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SplashView: View {
+    @EnvironmentObject var router: NavigationRouter
+
     var body: some View {
         ZStack(alignment: .center) {
             Color(.green01)
@@ -15,7 +17,12 @@ struct SplashView: View {
             Image(.logo)
                 .resizable()
                 .frame(width:168, height:168)
-                //명암 넣어야됨
+                .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 4)
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                router.push(.login)
+            }
         }
     }
 }
