@@ -4,7 +4,7 @@
 //
 //  Created by 신민정 on 4/3/25.
 //
-
+// 첫번째, 두번재 영수증을 보이도록하기 위해 
 import Foundation
 
 enum ReceiptSegment: Int, CaseIterable, Identifiable {

@@ -19,7 +19,10 @@ struct MyApp: App {
             } else {
                 LoginView()
             }
+            
         }
+        .modelContainer(for: [ReceiptsModel.self, ReceiptsImageModel.self])
+
     }
 }
 

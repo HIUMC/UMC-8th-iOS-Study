@@ -4,6 +4,7 @@
 //
 //  Created by 신민정 on 4/3/25.
 //
+//영수증에서 추출해서 얻어올 데이터 정의
 
 import Foundation
 import SwiftData
@@ -20,12 +21,12 @@ class ReceiptsModel {
     var createdAt: Date          // 저장된 시점
     
     init(
-            orderer: String,
-            store: String,
-            menuItems: [String],
-            totalAmount: Int,
-            orderNumber: String,
-            createdAt: Date = Date()
+            orderer: String, // 주문 닉네임
+            store: String, //매장정보
+            menuItems: [String],//메뉴리스트
+            totalAmount: Int, // 결제금액
+            orderNumber: String, //주문번호
+            createdAt: Date = Date() //생성일
         ) {
             self.id = UUID()
             self.orderer = orderer
@@ -34,5 +35,6 @@ class ReceiptsModel {
             self.totalAmount = totalAmount
             self.orderNumber = orderNumber
             self.createdAt = createdAt
+            //이건 클래스 객체 만들때 넣어줄겡 이뜻 
         }
 }
