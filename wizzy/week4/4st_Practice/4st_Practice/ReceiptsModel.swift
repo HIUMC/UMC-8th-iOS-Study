@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 class ReceiptsModel {
-    @Attribute(.unique) var id: UUID // 고유 식별자 ( 데이터베이스의 기본키처럼 동작합니다 )
+    @Attribute(.unique) var id: UUID // 고유 식별자 ( 데이터베이스의 기본키처럼 동작합니다 ) @Attribute 가 뭐지? .unique??
     
     var orderer: String // 주문자
     var store: String // 장소

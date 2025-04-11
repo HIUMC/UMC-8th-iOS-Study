@@ -11,7 +11,7 @@ import SwiftUI
 struct _st_PracticeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ReceiptsView()
         }
     }
 }

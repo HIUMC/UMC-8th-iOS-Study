@@ -54,7 +54,9 @@ struct OtherView: View {
                     
                     HStack(spacing: 12) {
                         OtherButtonView(title: "별 히스토리", imageName: "Star", destination: AnyView(ReceiptView()))
+                        
                         OtherButtonView(title: "전자 영수증", imageName: "receipt", destination: AnyView(ReceiptView()))
+                        
                         OtherButtonView(title: "나만의 메뉴", imageName: "myMenu", destination: AnyView(ReceiptView()))
                     } // h
                 }//v2 [Other~나만의 메뉴]

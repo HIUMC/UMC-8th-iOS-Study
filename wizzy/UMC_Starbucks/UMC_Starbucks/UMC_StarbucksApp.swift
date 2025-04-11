@@ -12,7 +12,7 @@ struct UMC_StarbucksApp: App {
     @AppStorage("isLoginOK") var isLoginOK: Bool = true
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            OtherView()
             /*
             if isLoginOK {
                 TabBarView()

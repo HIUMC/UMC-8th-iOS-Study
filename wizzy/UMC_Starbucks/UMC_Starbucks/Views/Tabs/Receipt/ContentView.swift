@@ -15,7 +15,7 @@ struct ContentView: View {
     @State private var showActionSheet = false
     @State private var showPhotosPicker = false
 
-    private var viewModel: ContentViewModel = .init()
+    private var viewModel: ReceiptViewModel = .init()
 
     var body: some View {
         VStack(spacing: 20) {
@@ -35,7 +35,7 @@ struct ContentView: View {
                 }
             }
 
-            /*
+            
             if !viewModel.recognizedText.isEmpty {
                 Divider()
                 Text("📝 OCR 결과")
@@ -50,7 +50,7 @@ struct ContentView: View {
             } else {
                 Text("추출 결과 값 없음")
             }
-             */
+             
         }
         
         .confirmationDialog("사진을 어떻게 추가할까요?", isPresented: $showActionSheet, titleVisibility: .visible) {
@@ -83,6 +83,7 @@ struct ContentView: View {
         
     }
 }
+
 #Preview {
     ContentView()
 }
