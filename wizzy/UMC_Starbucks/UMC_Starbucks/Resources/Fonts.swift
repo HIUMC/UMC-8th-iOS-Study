@@ -110,8 +110,13 @@ extension Font {
         return .pretend(type: .extraBold, size: 24)
     }
     
+    
     static var PretendardSemiBold38: Font {
         return .pretend(type: .semibold, size: 38)
+    }
+    
+    static var PretendardSemiBold22: Font {
+        return .pretend(type: .semibold, size: 22)
     }
     
     static var PretendardSemiBold13: Font {

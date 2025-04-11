@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		618FA5E72DA434F200F87301 /* ReceiptsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FA5E62DA434F200F87301 /* ReceiptsModel.swift */; };
+		618FA5E92DA435A700F87301 /* ReceiptsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FA5E82DA435A700F87301 /* ReceiptsViewModel.swift */; };
+		618FA5EB2DA435D400F87301 /* ReceiptSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FA5EA2DA435D400F87301 /* ReceiptSegment.swift */; };
+		618FA5ED2DA4367400F87301 /* ReceiptSegmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FA5EC2DA4367400F87301 /* ReceiptSegmentViewModel.swift */; };
+		618FA5EF2DA4DA3400F87301 /* OCRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FA5EE2DA4DA3400F87301 /* OCRViewModel.swift */; };
+		618FA5F12DA4DAE100F87301 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FA5F02DA4DAE100F87301 /* Protocols.swift */; };
+		618FA5F32DA4DB4D00F87301 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FA5F22DA4DB4D00F87301 /* CameraPicker.swift */; };
+		618FA5F52DA4DB7B00F87301 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FA5F42DA4DB7B00F87301 /* ContentView.swift */; };
+		618FA5F72DA4DCCD00F87301 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FA5F62DA4DCCD00F87301 /* ContentViewModel.swift */; };
+		619C69252DA618E50096713E /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C69242DA618E50096713E /* Route.swift */; };
+		619C69272DA619020096713E /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C69262DA619020096713E /* NavigationRouter.swift */; };
 		61AD1DD72D992AD20047DF1B /* UMC_StarbucksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1DD62D992AD20047DF1B /* UMC_StarbucksApp.swift */; };
 		61AD1DDB2D992AD40047DF1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61AD1DDA2D992AD40047DF1B /* Assets.xcassets */; };
 		61AD1DDE2D992AD40047DF1B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61AD1DDD2D992AD40047DF1B /* Preview Assets.xcassets */; };
@@ -56,9 +67,32 @@
 		61E6BF5B2D9E1657008CF8D8 /* UnderBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF5A2D9E1657008CF8D8 /* UnderBannerView.swift */; };
 		61E6BF5D2D9E1D08008CF8D8 /* CoffeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF5C2D9E1D08008CF8D8 /* CoffeeModel.swift */; };
 		61E6BF5F2D9E429C008CF8D8 /* CoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BF5E2D9E429C008CF8D8 /* CoffeeView.swift */; };
+		61E6BFA52DA26F23008CF8D8 /* shopAllprodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BFA42DA26F23008CF8D8 /* shopAllprodModel.swift */; };
+		61E6BFA72DA26F4F008CF8D8 /* shopAllprodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BFA62DA26F4F008CF8D8 /* shopAllprodViewModel.swift */; };
+		61E6BFAA2DA27223008CF8D8 /* CircleShopImageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BFA92DA27223008CF8D8 /* CircleShopImageCard.swift */; };
+		61E6BFAC2DA2A1CB008CF8D8 /* BestItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BFAB2DA2A1CB008CF8D8 /* BestItemsView.swift */; };
+		61E6BFAE2DA2D7F7008CF8D8 /* BestItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BFAD2DA2D7F7008CF8D8 /* BestItemModel.swift */; };
+		61E6BFB02DA2D83C008CF8D8 /* BestItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BFAF2DA2D83C008CF8D8 /* BestItemViewModel.swift */; };
+		61E6BFB22DA36D51008CF8D8 /* NewProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BFB12DA36D51008CF8D8 /* NewProductsView.swift */; };
+		61E6BFB42DA3E5AE008CF8D8 /* ReceiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E6BFB32DA3E5AE008CF8D8 /* ReceiptView.swift */; };
+		61EF3C052DA61F9300605790 /* ReceiptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EF3C042DA61F9300605790 /* ReceiptViewModel.swift */; };
+		61EF3C092DA622D400605790 /* ReceiptInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EF3C082DA622D400605790 /* ReceiptInfoView.swift */; };
+		61EF3C212DA7470500605790 /* NavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EF3C202DA7470500605790 /* NavBarView.swift */; };
+		61EF3C232DA7549800605790 /* OCRResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EF3C222DA7549800605790 /* OCRResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		618FA5E62DA434F200F87301 /* ReceiptsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsModel.swift; sourceTree = "<group>"; };
+		618FA5E82DA435A700F87301 /* ReceiptsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsViewModel.swift; sourceTree = "<group>"; };
+		618FA5EA2DA435D400F87301 /* ReceiptSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptSegment.swift; sourceTree = "<group>"; };
+		618FA5EC2DA4367400F87301 /* ReceiptSegmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptSegmentViewModel.swift; sourceTree = "<group>"; };
+		618FA5EE2DA4DA3400F87301 /* OCRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRViewModel.swift; sourceTree = "<group>"; };
+		618FA5F02DA4DAE100F87301 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		618FA5F22DA4DB4D00F87301 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
+		618FA5F42DA4DB7B00F87301 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		618FA5F62DA4DCCD00F87301 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		619C69242DA618E50096713E /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		619C69262DA619020096713E /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		61AD1DD32D992AD20047DF1B /* UMC_Starbucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UMC_Starbucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61AD1DD62D992AD20047DF1B /* UMC_StarbucksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMC_StarbucksApp.swift; sourceTree = "<group>"; };
 		61AD1DDA2D992AD40047DF1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,6 +143,18 @@
 		61E6BF5A2D9E1657008CF8D8 /* UnderBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderBannerView.swift; sourceTree = "<group>"; };
 		61E6BF5C2D9E1D08008CF8D8 /* CoffeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeModel.swift; sourceTree = "<group>"; };
 		61E6BF5E2D9E429C008CF8D8 /* CoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeView.swift; sourceTree = "<group>"; };
+		61E6BFA42DA26F23008CF8D8 /* shopAllprodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopAllprodModel.swift; sourceTree = "<group>"; };
+		61E6BFA62DA26F4F008CF8D8 /* shopAllprodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shopAllprodViewModel.swift; sourceTree = "<group>"; };
+		61E6BFA92DA27223008CF8D8 /* CircleShopImageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleShopImageCard.swift; sourceTree = "<group>"; };
+		61E6BFAB2DA2A1CB008CF8D8 /* BestItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestItemsView.swift; sourceTree = "<group>"; };
+		61E6BFAD2DA2D7F7008CF8D8 /* BestItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestItemModel.swift; sourceTree = "<group>"; };
+		61E6BFAF2DA2D83C008CF8D8 /* BestItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestItemViewModel.swift; sourceTree = "<group>"; };
+		61E6BFB12DA36D51008CF8D8 /* NewProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProductsView.swift; sourceTree = "<group>"; };
+		61E6BFB32DA3E5AE008CF8D8 /* ReceiptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptView.swift; sourceTree = "<group>"; };
+		61EF3C042DA61F9300605790 /* ReceiptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewModel.swift; sourceTree = "<group>"; };
+		61EF3C082DA622D400605790 /* ReceiptInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptInfoView.swift; sourceTree = "<group>"; };
+		61EF3C202DA7470500605790 /* NavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarView.swift; sourceTree = "<group>"; };
+		61EF3C222DA7549800605790 /* OCRResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +169,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		618FA5E52DA4347B00F87301 /* Receipt */ = {
+			isa = PBXGroup;
+			children = (
+				61E6BFB32DA3E5AE008CF8D8 /* ReceiptView.swift */,
+				61EF3C202DA7470500605790 /* NavBarView.swift */,
+				61EF3C082DA622D400605790 /* ReceiptInfoView.swift */,
+				618FA5F42DA4DB7B00F87301 /* ContentView.swift */,
+				618FA5F22DA4DB4D00F87301 /* CameraPicker.swift */,
+			);
+			path = Receipt;
+			sourceTree = "<group>";
+		};
+		619C69232DA618C50096713E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				619C69242DA618E50096713E /* Route.swift */,
+				619C69262DA619020096713E /* NavigationRouter.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		61AD1DCA2D992AD20047DF1B = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +212,7 @@
 				61AD1DF12D9931FB0047DF1B /* UMC-Starbucks-Info.plist */,
 				61AD1DD62D992AD20047DF1B /* UMC_StarbucksApp.swift */,
 				61AD1DF32D99324A0047DF1B /* Resources */,
+				619C69232DA618C50096713E /* Navigation */,
 				61AD1DE62D992B730047DF1B /* Models */,
 				61AD1DE52D992B640047DF1B /* ViewModels */,
 				61AD1DE42D992B580047DF1B /* Views */,
@@ -169,7 +237,6 @@
 				61AD1E562D9D66410047DF1B /* Tabs */,
 				61AD1DEB2D992BE70047DF1B /* LoginView.swift */,
 				61AD1E5F2D9D66AE0047DF1B /* PayAreaView.swift */,
-				61AD1E612D9D66BA0047DF1B /* OtherButtonView.swift */,
 				61AD1E102D9976CB0047DF1B /* TabBarView.swift */,
 				61AD1E0E2D995F750047DF1B /* PopupView.swift */,
 				61AD1DED2D992BF70047DF1B /* SplashView.swift */,
@@ -184,9 +251,16 @@
 				61AD1DE92D992BC20047DF1B /* LoginViewModel.swift */,
 				61AD1E0A2D9946530047DF1B /* SignupViewModel.swift */,
 				61E6BF582D9E139C008CF8D8 /* DessertViewModel.swift */,
+				618FA5EC2DA4367400F87301 /* ReceiptSegmentViewModel.swift */,
+				61E6BFA62DA26F4F008CF8D8 /* shopAllprodViewModel.swift */,
+				618FA5EE2DA4DA3400F87301 /* OCRViewModel.swift */,
+				618FA5F62DA4DCCD00F87301 /* ContentViewModel.swift */,
+				61EF3C042DA61F9300605790 /* ReceiptViewModel.swift */,
+				618FA5E82DA435A700F87301 /* ReceiptsViewModel.swift */,
 				61AD1E142D99A8430047DF1B /* OtherViewModel.swift */,
 				61E6BF482D9E043B008CF8D8 /* WhatsnewViewModel.swift */,
 				61AD1E542D9D663B0047DF1B /* HomeViewModel.swift */,
+				61E6BFAF2DA2D83C008CF8D8 /* BestItemViewModel.swift */,
 				61E6BF422D9DB7E1008CF8D8 /* CoffeeViewModel.swift */,
 			);
 			path = ViewModels;
@@ -200,7 +274,13 @@
 				61E6BF462D9DD3EB008CF8D8 /* WhatsNewModel.swift */,
 				61AD1E522D9D66240047DF1B /* HomeModel.swift */,
 				61AD1E082D9946410047DF1B /* SignupModel.swift */,
+				618FA5E62DA434F200F87301 /* ReceiptsModel.swift */,
+				618FA5EA2DA435D400F87301 /* ReceiptSegment.swift */,
+				61EF3C222DA7549800605790 /* OCRResult.swift */,
+				618FA5F02DA4DAE100F87301 /* Protocols.swift */,
+				61E6BFAD2DA2D7F7008CF8D8 /* BestItemModel.swift */,
 				61E6BF542D9E12EF008CF8D8 /* DessertModel.swift */,
+				61E6BFA42DA26F23008CF8D8 /* shopAllprodModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -225,11 +305,13 @@
 		61AD1E562D9D66410047DF1B /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				61E6BFA82DA271E0008CF8D8 /* Shop */,
 				61E6BF3D2D9DB319008CF8D8 /* Home */,
-				61AD1E5B2D9D666D0047DF1B /* ShopView.swift */,
 				61AD1E5D2D9D66770047DF1B /* PayView.swift */,
 				61AD1E592D9D66630047DF1B /* OrderView.swift */,
 				61AD1E122D99A8330047DF1B /* OtherView.swift */,
+				618FA5E52DA4347B00F87301 /* Receipt */,
+				61AD1E612D9D66BA0047DF1B /* OtherButtonView.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -249,6 +331,17 @@
 				61E6BF5A2D9E1657008CF8D8 /* UnderBannerView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		61E6BFA82DA271E0008CF8D8 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				61AD1E5B2D9D666D0047DF1B /* ShopView.swift */,
+				61E6BFB12DA36D51008CF8D8 /* NewProductsView.swift */,
+				61E6BFAB2DA2A1CB008CF8D8 /* BestItemsView.swift */,
+				61E6BFA92DA27223008CF8D8 /* CircleShopImageCard.swift */,
+			);
+			path = Shop;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,7 +375,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1510;
-				LastUpgradeCheck = 1510;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					61AD1DD22D992AD20047DF1B = {
 						CreatedOnToolsVersion = 15.1;
@@ -338,19 +431,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				61AD1E0D2D99467B0047DF1B /* SignupView.swift in Sources */,
+				61EF3C052DA61F9300605790 /* ReceiptViewModel.swift in Sources */,
+				618FA5F32DA4DB4D00F87301 /* CameraPicker.swift in Sources */,
 				61AD1E112D9976CB0047DF1B /* TabBarView.swift in Sources */,
 				61E6BF5F2D9E429C008CF8D8 /* CoffeeView.swift in Sources */,
+				61EF3C092DA622D400605790 /* ReceiptInfoView.swift in Sources */,
+				61E6BFA72DA26F4F008CF8D8 /* shopAllprodViewModel.swift in Sources */,
+				618FA5EF2DA4DA3400F87301 /* OCRViewModel.swift in Sources */,
+				618FA5F12DA4DAE100F87301 /* Protocols.swift in Sources */,
 				61E6BF4D2D9E0680008CF8D8 /* WhatsNewCard.swift in Sources */,
+				61E6BFB02DA2D83C008CF8D8 /* BestItemViewModel.swift in Sources */,
 				61AD1E152D99A8430047DF1B /* OtherViewModel.swift in Sources */,
+				618FA5F52DA4DB7B00F87301 /* ContentView.swift in Sources */,
+				618FA5E72DA434F200F87301 /* ReceiptsModel.swift in Sources */,
 				61E6BF432D9DB7E1008CF8D8 /* CoffeeViewModel.swift in Sources */,
 				61E6BF5D2D9E1D08008CF8D8 /* CoffeeModel.swift in Sources */,
 				61AD1E5A2D9D66630047DF1B /* OrderView.swift in Sources */,
+				61E6BFAC2DA2A1CB008CF8D8 /* BestItemsView.swift in Sources */,
 				61AD1E5E2D9D66770047DF1B /* PayView.swift in Sources */,
 				61E6BF4B2D9E0534008CF8D8 /* WhatsNewView.swift in Sources */,
 				61E6BF3A2D9DB256008CF8D8 /* ProgressBarView.swift in Sources */,
 				61E6BF3C2D9DB30E008CF8D8 /* RecommendView.swift in Sources */,
+				61E6BFB42DA3E5AE008CF8D8 /* ReceiptView.swift in Sources */,
 				61AD1E072D99355B0047DF1B /* Fonts.swift in Sources */,
 				61E6BF472D9DD3EB008CF8D8 /* WhatsNewModel.swift in Sources */,
+				618FA5ED2DA4367400F87301 /* ReceiptSegmentViewModel.swift in Sources */,
 				61AD1DEA2D992BC20047DF1B /* LoginViewModel.swift in Sources */,
 				61AD1E0F2D995F750047DF1B /* PopupView.swift in Sources */,
 				61AD1E0B2D9946530047DF1B /* SignupViewModel.swift in Sources */,
@@ -361,18 +466,29 @@
 				61AD1E5C2D9D666D0047DF1B /* ShopView.swift in Sources */,
 				61E6BF592D9E139C008CF8D8 /* DessertViewModel.swift in Sources */,
 				61E6BF4F2D9E0E1A008CF8D8 /* ThreeBannerView.swift in Sources */,
+				618FA5E92DA435A700F87301 /* ReceiptsViewModel.swift in Sources */,
 				61E6BF5B2D9E1657008CF8D8 /* UnderBannerView.swift in Sources */,
 				61E6BF492D9E043B008CF8D8 /* WhatsnewViewModel.swift in Sources */,
 				61E6BF572D9E1359008CF8D8 /* DessertView.swift in Sources */,
+				61EF3C212DA7470500605790 /* NavBarView.swift in Sources */,
+				619C69272DA619020096713E /* NavigationRouter.swift in Sources */,
+				61E6BFA52DA26F23008CF8D8 /* shopAllprodModel.swift in Sources */,
 				61AD1E622D9D66BA0047DF1B /* OtherButtonView.swift in Sources */,
+				618FA5EB2DA435D400F87301 /* ReceiptSegment.swift in Sources */,
 				61E6BF552D9E12EF008CF8D8 /* DessertModel.swift in Sources */,
+				61E6BFAE2DA2D7F7008CF8D8 /* BestItemModel.swift in Sources */,
+				61EF3C232DA7549800605790 /* OCRResult.swift in Sources */,
+				61E6BFAA2DA27223008CF8D8 /* CircleShopImageCard.swift in Sources */,
 				61AD1E092D9946410047DF1B /* SignupModel.swift in Sources */,
+				619C69252DA618E50096713E /* Route.swift in Sources */,
+				61E6BFB22DA36D51008CF8D8 /* NewProductsView.swift in Sources */,
 				61AD1DEE2D992BF80047DF1B /* SplashView.swift in Sources */,
 				61AD1E582D9D66520047DF1B /* HomeView.swift in Sources */,
 				61AD1E552D9D663B0047DF1B /* HomeViewModel.swift in Sources */,
 				61E6BF452D9DC915008CF8D8 /* CircleImageCard.swift in Sources */,
 				61AD1E602D9D66AE0047DF1B /* PayAreaView.swift in Sources */,
 				61AD1E132D99A8330047DF1B /* OtherView.swift in Sources */,
+				618FA5F72DA4DCCD00F87301 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,9 +622,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UMC_Starbucks/Preview Content\"";
+				DEVELOPMENT_TEAM = XRY42MG75P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UMC-Starbucks-Info.plist";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 앨범 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -520,7 +638,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wizzy.UMC-Starbucks";
+				PRODUCT_BUNDLE_IDENTIFIER = umc.com.wizzyStarbuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -536,9 +654,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UMC_Starbucks/Preview Content\"";
+				DEVELOPMENT_TEAM = XRY42MG75P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UMC-Starbucks-Info.plist";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 앨범 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -550,7 +670,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wizzy.UMC-Starbucks";
+				PRODUCT_BUNDLE_IDENTIFIER = umc.com.wizzyStarbuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
