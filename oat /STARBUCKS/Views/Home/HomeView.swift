@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var show: Bool = true
     var body: some View {
             ScrollView {
                 VStack(spacing:0) {
@@ -47,13 +48,17 @@ struct HomeView: View {
                     }
                 
                 }
+                
             
             
         }
            .ignoresSafeArea()
 //           .padding(.top,-90)
            .navigationBarBackButtonHidden(true)
-           .toolbar(.hidden, for: .navigationBar) 
+           .toolbar(.hidden, for: .navigationBar)
+//           .fullScreenCover(isPresented: $show) {
+ //              AdvertiseView()
+  //         }
            
         //.padding(.top, -100)
             //.padding(.horizontal)

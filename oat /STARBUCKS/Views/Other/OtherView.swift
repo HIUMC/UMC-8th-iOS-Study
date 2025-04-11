@@ -14,7 +14,7 @@ struct OtherView: View {
     var body: some View {
         VStack {
             // 상단 헤더 영역
-            Spacer().frame(height: 28)
+            Spacer().frame(height: 40)
             HStack {
                 Text("Other")
                     .font(.mainTextBold24)
@@ -43,7 +43,7 @@ struct OtherView: View {
                 
                 HStack {
                     boxView(text: "별 히스토리")
-                    boxView(text: "전자영수증")
+                    boxView(text: "전자영수증", destination: AnyView(ReceiptScreen()))
                     boxView(text: "나만의 메뉴")
                 }
                 
@@ -110,22 +110,36 @@ struct OtherView: View {
 
 struct boxView: View {
     var text: String
+    var destination: AnyView? = nil
+    
     var body: some View {
-        Button(action: {
-            print(text)
-        }) {
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.white)
-                .frame(width: 102, height: 108)
-                .overlay(
-                    VStack {
-                        Image(pickImage(text))
-                        Text(text)
-                            .font(.mainTextSemibold16)
-                            .foregroundStyle(Color.black03)
-                    }
-                )
+        Group {
+            if let destination = destination {
+                NavigationLink(destination: destination) {
+                    boxContent
+                }
+            } else {
+                Button(action: {
+                    print(text)
+                }) {
+                    boxContent
+                }
+            }
         }
+    }
+    
+    var boxContent: some View {
+        RoundedRectangle(cornerRadius: 20)
+            .fill(Color.white)
+            .frame(width: 102, height: 108)
+            .overlay(
+                VStack {
+                    Image(pickImage(text))
+                    Text(text)
+                        .font(.mainTextSemibold16)
+                        .foregroundStyle(Color.black03)
+                }
+            )
     }
     
     func pickImage(_ text: String) -> String {

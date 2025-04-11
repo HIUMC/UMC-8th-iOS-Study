@@ -92,5 +92,11 @@ extension Font{
     static var mainTextBold15: Font {
         return .pretend(type: .bold, size: 15)
     }
+    static var mainTextSemibold22: Font {
+        return .pretend(type: .semibold, size: 22)
+    }
+    static var mainTextSemibold14: Font {
+        return .pretend(type: .semibold, size: 14)
+    }
+    
 }
-

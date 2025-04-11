@@ -13,24 +13,26 @@ struct AdvertiseView: View {
             Image(.advertise)
                 .resizable()
 
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill)
                 .frame(maxWidth: .infinity)
                 .frame(height: 720)
                 //.padding(.bottom,106)
-            Spacer().frame(height:106)
+//            Spacer().frame(height:60)
             
             Group{middleButton
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal)
                 //.padding(.bottom,72)
-
+                
                 EndButton()
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal)
                 Spacer().frame(height:32)
-            }.padding(.top)
+            }
+//            }.padding(.top)
             
         }
+        .ignoresSafeArea()
     }
     private var middleButton: some View {
         Button(action:{
@@ -38,13 +40,14 @@ struct AdvertiseView: View {
         {
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color.green01)
-                .frame(height: 58)
+                .frame(height: 50)
                 .overlay(
                     Text("자세히 보기")
                         .font(.mainTextMedium16)
                         .foregroundStyle(Color.white)
                 )
         }
+//        .padding(.horizontal, 20)
     }
         
 }
@@ -59,7 +62,10 @@ struct EndButton: View {
             }
             .foregroundStyle(Color(red: 0.42, green: 0.42, blue: 0.42))
             .font(.mainTextLight14)
+            .padding(.horizontal)
         }
+        .padding(.top)
+        .padding(.leading,30)
     }
 }
 
