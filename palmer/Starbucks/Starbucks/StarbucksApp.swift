@@ -6,18 +6,38 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct StarbucksApp: App {
-    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false  // 로그인 상태 확인
-
+    @StateObject private var router = NavigationRouter()
+    
     var body: some Scene {
         WindowGroup {
-            if isLoggedIn {
-                TabBarView()  // 로그인 상태면 TabBarView로 이동
-            } else {
-                LoginView(loginViewModel: LoginViewModel())  //로그아웃 상태면 LoginView로 이동
+            NavigationStack(path: $router.path) {
+                SplashView()
+                    .navigationDestination(for: Route.self) { route in
+                        switch route {
+                        case .login:
+                            LoginView(viewModel: LoginViewModel())
+                                .navigationBarBackButtonHidden(true)
+                        case .signup:
+                            SignupView(signupViewModel: SignupViewModel())
+                                .navigationBarBackButtonHidden(true)
+                        case .tabBar:
+                            TabBarView()
+                                .navigationBarBackButtonHidden(true)
+                        case .coffeeDetail:
+                            CoffeeDetailView(viewModel: HomeViewModel())
+                                .navigationBarBackButtonHidden(true)
+                        case .receipts:
+                            ReceiptsView()
+                                .navigationBarBackButtonHidden(true)
+                        }
+                    }
             }
+            .environmentObject(router)
+            .modelContainer(for: ReceiptsModel.self)
         }
     }
 }
