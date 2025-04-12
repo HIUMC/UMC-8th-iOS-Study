@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BannerView: View {
+struct PopupView: View {
     @Environment(\.dismiss) var dismiss  // @Environment의 dismiss 사용
         
     var body: some View {
@@ -61,5 +61,5 @@ struct BannerView: View {
     }
 
 #Preview {
-    BannerView()
+    PopupView()
 }

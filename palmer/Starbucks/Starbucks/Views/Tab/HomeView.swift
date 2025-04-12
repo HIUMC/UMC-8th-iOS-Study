@@ -10,35 +10,28 @@ import SwiftUI
 struct HomeView: View {
     @AppStorage("nickname") private var nickname: String = "(작성한 닉네임)"
     @State private var router = NavigationRouter()
+    @State private var popup = false
     
     var body: some View {
-        NavigationStack(path: $router.path) {
-            ScrollView(.vertical) {
-                LazyVStack(spacing: 10) {
-                    topBanner
-                    Image("adbanner")
-                    recommendMenu
-                    Image("eventBanner")
-                    Image("serviceSuscibe")
-                    newMenu
-                    middleBanner
-                    dessertMenu
-                    bottomBanner
-                }
+        ScrollView(.vertical) {
+            LazyVStack(spacing: 10) {
+                topBanner
+                Image("adbanner")
+                recommendMenu
+                Image("eventBanner")
+                Image("serviceSuscibe")
+                newMenu
+                middleBanner
+                dessertMenu
+                bottomBanner
             }
-            .navigationDestination(for: Route.self) { route in
-                switch route {
-                case .signup:
-                    SignupView(signupViewModel: SignupViewModel())
-                case .tabBar:
-                    TabBarView()
-                case .login:
-                    LoginView(loginViewModel: LoginViewModel())
-                case .coffeeDetail:
-                    CoffeeDetailView(viewModel: HomeViewModel())
-                }
-            }
-            .ignoresSafeArea()
+        }
+        .ignoresSafeArea()
+        .onAppear {
+            popup = true
+        }
+        .fullScreenCover(isPresented: $popup) {
+            PopupView()
         }
     }
     

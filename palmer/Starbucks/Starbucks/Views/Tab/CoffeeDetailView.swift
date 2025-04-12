@@ -8,37 +8,23 @@
 import SwiftUI
 
 struct CoffeeDetailView: View {
-    @State private var router = NavigationRouter()
     @Bindable var viewModel : HomeViewModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        NavigationStack(path: $router.path) {
-            if let selectedCoffee = viewModel.selectedCoffeeModel {
-                VStack{
-                    ZStack {
-                        selectedCoffee.image
-                            .ignoresSafeArea(edges: .top)
-                        navBar
-                    }
-                    .frame(height: 355)
-                    contentView(coffee: selectedCoffee)
-                    
-                    Spacer()
-                    
-                    orderButton
+        if let selectedCoffee = viewModel.selectedCoffeeModel {
+            VStack{
+                ZStack {
+                    selectedCoffee.image
+                        .ignoresSafeArea(edges: .top)
+                    navBar
                 }
-                .navigationDestination(for: Route.self) { route in
-                    switch route {
-                    case .signup:
-                        SignupView(signupViewModel: SignupViewModel())
-                    case .tabBar:
-                        TabBarView()
-                    case .login:
-                        LoginView(loginViewModel: LoginViewModel())
-                    case .coffeeDetail:
-                        CoffeeDetailView(viewModel: HomeViewModel())
-                    }
-                }
+                .frame(height: 355)
+                contentView(coffee: selectedCoffee)
+                
+                Spacer()
+                
+                orderButton
             }
         }
     }
@@ -47,7 +33,7 @@ struct CoffeeDetailView: View {
         VStack {
             HStack {
                 Button(action : {
-                    router.pop()
+                    dismiss()
                 }) {
                     Circle()
                         .frame(width: 32, height: 32)
