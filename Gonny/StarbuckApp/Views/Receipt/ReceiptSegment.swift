@@ -2,7 +2,7 @@
 //  ReceiptSegment.swift
 //  StarbuckApp
 //
-//  Created by 박병선 on 4/8/25.
+//  Created by 박병선 on 4/12/25.
 //
 import Foundation
 
