@@ -131,3 +131,4 @@ struct ReceiptView: View {
         ReceiptView()
     }
 }
+

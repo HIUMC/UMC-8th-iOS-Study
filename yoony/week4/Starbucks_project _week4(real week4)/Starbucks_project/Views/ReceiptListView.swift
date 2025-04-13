@@ -72,6 +72,7 @@ struct ReceiptList: View {
                 Color.black.opacity(0.8)
                     .ignoresSafeArea()
                 
+                
                 HStack {
                     Spacer()
                     if let data = model.image?.photo,

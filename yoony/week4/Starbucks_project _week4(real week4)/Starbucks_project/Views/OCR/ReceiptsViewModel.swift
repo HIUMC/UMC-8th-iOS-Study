@@ -9,6 +9,7 @@ import SwiftUI
 import Vision
 import SwiftData
 
+
 @Observable
 class OCRViewModel: ImageHandling {
     var context: ModelContext?

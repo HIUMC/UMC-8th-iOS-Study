@@ -50,6 +50,7 @@ struct OtherView: View {
                     NavigationLink(destination: ReceiptView()){
                             Image("receipt")
                         }
+                
                     
                     
                     Button(action:{print("나만의 메뉴")}) {

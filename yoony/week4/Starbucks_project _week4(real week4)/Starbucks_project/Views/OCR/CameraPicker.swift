@@ -23,6 +23,7 @@ struct CameraPicker: UIViewControllerRepresentable {
         return picker
     }
 
+    
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
 
     class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
