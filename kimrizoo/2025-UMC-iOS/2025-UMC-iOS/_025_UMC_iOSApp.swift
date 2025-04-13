@@ -15,7 +15,7 @@ struct _025_UMC_iOSApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $router.path) {
-                HomeView()
+                OtherView()
                     .environmentObject(router)
                     .environmentObject(detailViewModel)
                     .navigationDestination(for: Route.self) { route in
@@ -27,6 +27,10 @@ struct _025_UMC_iOSApp: App {
                         case .cafeMenu(let menu):
                             MenuDetailView(menu: menu)
                                 .environmentObject(detailViewModel)
+                                .environmentObject(router)
+                            
+                        case .receipt:
+                            ReceiptView()
                                 .environmentObject(router)
                         }
                     }

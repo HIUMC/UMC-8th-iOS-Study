@@ -10,6 +10,7 @@ import SwiftUI
 struct OtherView: View {
     
     @AppStorage("nickname") private var storedNickname: String = ""
+    @EnvironmentObject var router: NavigationRouter
     
     var body: some View {
         VStack{
@@ -61,6 +62,7 @@ struct OtherView: View {
                             }
                             MenuItemView(imageName: "Receipt", title: "전자영수증") {
                                 print("📄 전자영수증 버튼 클릭됨!")
+                                router.push(.receipt)
                             }
                             MenuItemView(imageName: "My", title: "나만의 메뉴") {
                                 print("☕ 나만의 메뉴 버튼 클릭됨!")
