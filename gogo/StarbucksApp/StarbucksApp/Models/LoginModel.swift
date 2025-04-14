@@ -7,6 +7,7 @@
 
 import Foundation
 
+// 사용자 로그인 정보를 담당하는 모델
 struct LoginModel {
     var id: String
     var password: String

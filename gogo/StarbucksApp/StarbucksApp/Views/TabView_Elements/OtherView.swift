@@ -28,9 +28,11 @@ import SwiftUI
 
 struct OtherView: View {
     @AppStorage("nickname") var nickname : String = "(작성한 닉네임)"
+    @EnvironmentObject var router: NavigationRouter
     
     
-    private var ViewModel : OtherViewModel = .init()
+    
+   
     
     var body: some View {
         
@@ -68,6 +70,7 @@ struct OtherView: View {
                 
             Button(action: {
                 print("로그아웃")
+                router.reset()
             }, label: {
                 Image("logout")
                     .resizable()

@@ -31,9 +31,9 @@ struct DetailCoffeeView: View {
                 }
                 .navigationDestination(for: Route.self) { route in
                     switch route {
-                    case .signUp:
-                        SignupView()
-                    case .tabBarView:
+                    case .signup:
+                        SignupView(signupViewModel: SignupViewModel())
+                    case .tabBar:
                         TabBarView()
                     case .login:
                         LoginView(viewModel: LoginViewModel())

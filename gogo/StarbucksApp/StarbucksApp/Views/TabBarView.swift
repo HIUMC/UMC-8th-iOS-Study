@@ -30,6 +30,7 @@ struct TabBarView: View {
                         Image("home")
                             .renderingMode(.template) //초록틴트적용
                     }
+                    .border(.green)
                 }
 
             PayView()

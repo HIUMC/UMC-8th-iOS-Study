@@ -14,9 +14,9 @@ import SwiftUI
 
 
 enum Route: Hashable {
-    case signUp
+    case signup
     case login
     case detailCoffee
-    case tabBarView
+    case tabBar
     case ad
 }
