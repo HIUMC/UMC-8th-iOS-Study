@@ -6,7 +6,8 @@
 //
 
 //커피 이미지 tapgesutUre로 DetailCoffeeView로 이동 안돼요ㅠㅠ
-//지피티도 돌려보고 코드 계속 봐도 어떻게 로직 구상해야할지 막힙니다
+//---------> 시험 끝날때까지 수정해오겠습니다!!!
+//지피티도 돌려보고 코드 계속 봐도 어떻게 구상해야할지 막힙니다..일단 공부를..제대로!..
 
 import SwiftUI
 
@@ -18,6 +19,9 @@ struct HomeView: View {
     //전역적 관리..하고싶은데
 //    @EnvironmentObject var navigationRouter: NavigationRouter // NavigationRouter 주입
     @State var viewModel: HomeViewModel = .init()
+    
+    //광고 배너 광고
+    @State private var showAd = true
     
 
 
@@ -56,9 +60,9 @@ struct HomeView: View {
             //navigationDestination
             .navigationDestination(for: Route.self) { route in
                             switch route {
-                            case .signUp:
-                                SignupView()
-                            case .tabBarView:
+                            case .signup:
+                                SignupView(signupViewModel: SignupViewModel())
+                            case .tabBar:
                                 TabBarView()
                             case .login:
                                 LoginView(viewModel: LoginViewModel())
@@ -69,6 +73,9 @@ struct HomeView: View {
                             }
                         }
         }
+        .sheet(isPresented: $showAd) {
+                   AdView()
+               }
     }
     
     

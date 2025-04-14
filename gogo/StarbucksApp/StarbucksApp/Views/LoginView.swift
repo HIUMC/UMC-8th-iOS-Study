@@ -7,162 +7,132 @@
 
 
 import SwiftUI
+import Observation
+import Foundation
 
 struct LoginView: View {
+    @FocusState private var focusedField: LoginField?
+    @EnvironmentObject var router: NavigationRouter
     @Bindable var viewModel: LoginViewModel
     
-    @AppStorage("isLoggedIn") private var isLoggedIn = false 
+    @AppStorage("storedEmail") private var storedEmail: String = ""
+    @AppStorage("storedPassword") private var storedPassword: String = ""
+    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
     
-    @FocusState private var focusedField: Field?
-        private enum Field {
-            case id, pwd
-        }
+    enum LoginField {
+        case id
+        case password
+    }
+    
     
     var body: some View {
-        
-            VStack(alignment: .leading) {
-                Spacer().frame(height: 100)
-                topSection
-                Spacer()
-                midSection
-                Spacer()
-                bottomSection
-//                NavigationLink(destination: TabBarView(), isActive: $isLoggedIn) {
-//                                   EmptyView()
-//                                   
-//                               }
-                
-                
-            
-          
-        }
-            .padding(.horizontal, 19)
-        
-    }
-    private var topSection: some View {
         VStack(alignment: .leading) {
-            Image("minilogo")
-                .resizable()
-                .frame(width: 97, height: 95)
-                .aspectRatio(contentMode: .fit)
-            
-            Spacer().frame(height: 28)
-            
-            
-                Text("안녕하세요.\n스타벅스입니다.")
-                
-            
-                .font(.PretendardExtraBold24)
-                .foregroundStyle(Color.black)
-                
-
-            
-            Spacer().frame(height: 19)
-            
-            Text("회원 서비스 이용을 위해 로그인 해주세요")
-                .font(.PretendardMedium16)
-                .foregroundStyle(Color.gray01)
-                
-            
-            
-            
+            topTitle
+                .padding(.top, 100)
+            Spacer()
+            idpassword
+                .frame(height: 180)
+            Spacer()
+            loginSelection
+                .frame(height: 144)
+                .padding(.bottom, 60)
         }
     }
-    private var midSection: some View {
+    
+    private var topTitle: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Image("minilogo")
+                    .resizable()
+                    .frame(width: 97, height: 95)
+                Spacer().frame(height: 28)
+                Text("안녕하세요. \n스타벅스입니다.")
+                    .foregroundStyle(.black)
+                    .font(.PretendardExtraBold24)
+                    .kerning(2)
+                    .padding(.bottom, 10)
+                Text("회원 서비스 이용을 위해 로그인 해주세요")
+                    .foregroundStyle(Color("gray01"))
+                    .font(.PretendardMedium16)
+            }
+            .padding(.leading, 20)
+            Spacer()
+        }
+    }
+    
+    var idpassword: some View {
         VStack(alignment: .leading) {
             TextField("아이디", text: $viewModel.id)
-                .font(.PretendardRegular13)
-                .foregroundStyle(.black)
-                //포커스 상태 연결
                 .focused($focusedField, equals: .id)
             
-            Spacer().frame(height: 1.98)
+            Divider()
+                .frame(height: 0.7)
+                .background(focusedField == .id ? Color("green01") : Color("gray00"))
+                .padding(.bottom, 47)
+            
+            SecureField("비밀번호", text: $viewModel.password)
+                .focused($focusedField, equals: .password)
             
             Divider()
-                .frame(height: 1)
-                .overlay(focusedField == .id ? Color.green01 : Color.gray01)
+                .frame(height: 0.7)
+                .background(focusedField == .password ? Color("green01") : Color("gray00"))
+                .padding(.bottom, 47)
             
-            
-            Spacer().frame(height: 47)
-            
-            TextField("비밀번호", text: $viewModel.pwd)
-                .font(.PretendardRegular13)
-                .foregroundStyle(Color.black)
-                //포커스 상태 연결
-                .focused($focusedField, equals: .pwd)
-            
-                
-            
-            Spacer().frame(height: 1.98)
-            
-            Divider()
-                . frame(height:1)
-                . overlay(focusedField == .pwd ? Color.green01 : Color.gray01)
-            
-            Spacer().frame(height: 47)
-            
-            Button(action:
-                    {isLoggedIn = true}, label: {
+            Button(action: {
+                print("로그인 버튼")
+                if viewModel.id == storedEmail && viewModel.password == storedPassword {
+                    print("성공적으로 로그인되었습니다!")
+                    router.push(.tabBar)
+                } else {
+                    print("이메일과 패스워드가 다릅니다.")
+                }
+            }) {
                 Text("로그인하기")
                     .font(.PretendardMedium16)
-                    .frame(maxWidth: .infinity, minHeight: 46)
-                    .background(Color.green01)
                     .foregroundStyle(.white)
-                    .cornerRadius(20)
-                
-                    
+                    .frame(maxWidth: 402, minHeight: 46)
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(Color("green01"))
+                    )
+                    .contentShape(Rectangle())
+                    .background(Color.clear)
+            }
+        }
+        .padding(.horizontal, 20)
+    }
+    
+    private var loginSelection: some View {
+        VStack {
+            Button(action: { router.push(.signup)
+            }, label: {
+                Text("이메일로 회원가입하기")
+                    .foregroundColor(Color("black01"))
+                    .font(.PretendardRegular12)
+                    .underline()
             })
             
+            Image("kakao")
+                .padding(.bottom, 19)
+            
+            Image("apple")
         }
-        
-        
-    }
-    private var bottomSection: some View {
-        VStack(alignment: .center) {
-            Group {
-                
-                Spacer().frame(height: 100)
-                
-                NavigationLink(destination: SignupView()){
-                    Text("이메일로 회원가입하기")
-                        .font(.PretendardRegular12)
-                        .foregroundStyle(.gray01)
-                        .underline()
-                        .frame(maxWidth:.infinity)
-                        
-                }
-                
-            }
-            
-            Spacer().frame(height: 19)
-            
-            HStack {
-                Spacer()
-                Image(.kakao)
-                    .resizable()
-                    .frame(width: 306, height: 45)
-                    .aspectRatio(contentMode: .fit)
-                Spacer()
-            }
-            
-            Spacer().frame(height: 19)
-            
-            HStack {
-                Spacer()
-                Image(.apple)
-                    .resizable()
-                    .frame(width: 306, height: 45)
-                    .aspectRatio(contentMode: .fit)
-                Spacer()
-            }
-            
-        }
-
+        .frame(maxWidth: .infinity, alignment: .center)
     }
 }
+    
+struct LoginView_Preview: PreviewProvider {
+    static var devices = ["iPhone 11", "iPhone 16 Pro Max"]
 
-
-
+    static var previews: some View {
+        ForEach(devices, id: \.self) { device in
+            LoginView(viewModel: LoginViewModel())
+                .environmentObject(NavigationRouter())
+                .previewDevice(PreviewDevice(rawValue: device))
+                .previewDisplayName(device)
+        }
+    }
+}
 
 
 
