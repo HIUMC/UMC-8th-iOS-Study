@@ -16,7 +16,7 @@ class NavigationRouter: ObservableObject {
     }
     // 마지막 화면 제거 (Pop 기능)
     func pop() {
-        if !path.isEmpty { // 이거 확인 안해주면 crash난대
+        if !path.isEmpty { // 이거 확인 안해주면 crash
             path.removeLast()
         }
     }

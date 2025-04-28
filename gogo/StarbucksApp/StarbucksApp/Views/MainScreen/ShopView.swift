@@ -63,51 +63,57 @@ struct ShopView: View {
                 }
                 
             
-                VStack {
+                VStack(alignment:.leading) {
                             Text("Best Items")
                                 .font(.headline)
                                 .padding(.top, 30)
                                 .padding(.bottom, 8)
+                                .padding(.leading)
                             
                            
-                    SwiftUI.TabView(selection: $viewModel.currentBestPage) {
-                                ForEach(0..<viewModel.totalBestPages, id: \.self) { pageIndex in
-                                    // 2×2 Grid = 한 페이지 4개
-                                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())],
-                                              alignment: .center,
-                                              spacing: 20)
-                                    {
-                                        ForEach(viewModel.bestItemsForPage(pageIndex)) { item in
-                                            VStack(spacing: 4) {
-                                                Image(item.imageName)
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(width: 100, height: 100)
-                                                Text(item.name)
-                                                    .font(.subheadline)
-                                                    .multilineTextAlignment(.center)
-                                            }
-                                        }
+                    TabView(selection: $viewModel.currentBestPage) {
+                        ForEach(0..<viewModel.totalBestPages, id: \.self) { pageIndex in
+
+                            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())],
+                                      alignment: .center,
+                                      spacing: 20)
+                            {
+                                ForEach(viewModel.bestItemsForPage(pageIndex)) { item in
+                                    VStack(spacing: 4) {
+                                        Image(item.imageName)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 100, height: 100)
+                                        Text(item.name)
+                                            .font(.subheadline)
+                                            .multilineTextAlignment(.center)
                                     }
-                                    .tag(pageIndex)
                                 }
                             }
-                            .frame(height: 350)
-                            
-                            .tabViewStyle(DefaultTabViewStyle()) //흠 . .
-                            .gesture(DragGesture())
+                            .padding()
+                            .tag(pageIndex) // 꼭 있어야 함
+                        }
+                    }
+                    .frame(height: 350)
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always)) // 요걸로 바꿔줘야 swipe 가능
                             
                             // 점 표시..
                             HStack {
-                                ForEach(0..<viewModel.totalBestPages, id: \.self) { index in
+                                Spacer()
+                                ForEach(0..<2) { index in
                                     Circle()
                                         .fill(index == viewModel.currentBestPage ? Color.black : Color.gray)
                                         .frame(width: 8, height: 8)
-                                        .padding(.horizontal, 3)
+                                        .padding(.horizontal,3)
                                         .padding(.bottom, 30)
+                                        
+                                        
                                 }
+                                Spacer()
+
                             }
-                            .padding(.top, 4)
+                       
+                            
                         }
                     }
                 

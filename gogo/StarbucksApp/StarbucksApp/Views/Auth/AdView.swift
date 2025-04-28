@@ -53,6 +53,7 @@ struct AdView: View{
                         .font(.PretendardRegular13)
                         .foregroundStyle(Color.gray01)
                         .padding(.trailing, 37)
+                        .padding(.bottom,30)
                 })
             }
             

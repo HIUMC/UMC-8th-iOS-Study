@@ -68,14 +68,9 @@ struct OtherView: View {
                 .foregroundStyle(.black01)
             Spacer()
                 
-            Button(action: {
-                print("로그아웃")
-                router.reset()
-            }, label: {
-                Image("logout")
-                    .resizable()
-                    .frame(width:35,height:35)
-            })
+            NavigationLink(destination: LoginView(viewModel:LoginViewModel())) {
+                                Image("logout")
+                            }
             
             
         }
@@ -121,7 +116,9 @@ struct OtherView: View {
                
                HStack(spacing: 10.5) {
                    ButtonView(icon: Image("star_history"), title: "별 히스토리")
-                   ButtonView(icon: Image("receipt"), title: "전자영수증")
+                   ButtonView(icon: Image("receipt"), title: "전자영수증", action: {
+                       router.push(.goToReceipt)
+                   })
                    ButtonView(icon: Image("cup"), title: "나만의 메뉴")
                }
                .padding(.top, 24)
@@ -199,8 +196,10 @@ struct OtherView_Preview: PreviewProvider {
     static var devices = ["iPhone 11", "iPhone 16 Pro Max"]
     
     static var previews: some View {
-        ForEach(devices, id: \.self) { device in
+        let sharedRouter = NavigationRouter()
+        return ForEach(devices, id: \.self) { device in
             OtherView()
+                .environmentObject(sharedRouter)
                 .previewDevice(PreviewDevice(rawValue: device))
                 .previewDisplayName(device)
         }

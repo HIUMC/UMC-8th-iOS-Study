@@ -19,4 +19,6 @@ enum Route: Hashable {
     case detailCoffee
     case tabBar
     case ad
+    
+    case goToReceipt
 }

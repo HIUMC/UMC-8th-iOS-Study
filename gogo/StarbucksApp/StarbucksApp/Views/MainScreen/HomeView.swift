@@ -5,9 +5,7 @@
 //  Created by 고석현 on 4/1/25.
 //
 
-//커피 이미지 tapgesutUre로 DetailCoffeeView로 이동 안돼요ㅠㅠ
-//---------> 시험 끝날때까지 수정해오겠습니다!!!
-//지피티도 돌려보고 코드 계속 봐도 어떻게 구상해야할지 막힙니다..일단 공부를..제대로!..
+
 
 import SwiftUI
 
@@ -28,11 +26,15 @@ struct HomeView: View {
     
     
     var body: some View {
+       
         
         NavigationStack {
             ScrollView(.vertical) {
                 LazyVStack(spacing:20) {
+                
                     topBanner //골든미모사 블라 ~ z스택 기본
+                        .ignoresSafeArea(edges:.top)
+                        
                     topBanner2 //게이지바 & 주변 텍스트!게이지바 익히자..복습.
                     
                     Image(.iceChallenge)   // 아이스 챌린지 이미지 pdf
@@ -55,7 +57,9 @@ struct HomeView: View {
                     
                     
                 }
+                
             }
+            .ignoresSafeArea(edges:.top)
             .scrollIndicators(.hidden) //스크롤바 없애기 showIndicatofs:False 는 depecrated 이래
             //navigationDestination
             .navigationDestination(for: Route.self) { route in
@@ -70,34 +74,49 @@ struct HomeView: View {
                                 DetailCoffeeView(viewModel: HomeViewModel())
                             case .ad:
                                 AdView()
+                            case .goToReceipt:
+                                ReceiptView()
                             }
                         }
         }
+
+        //광고 팝업을 풀스크린으로 띄우기
         .sheet(isPresented: $showAd) {
-                   AdView()
-               }
+            AdView()
+                // AdView 안에서 SafeArea 무시해서 끝까지 채우기
+                .ignoresSafeArea(edges: .all)
+        }
+        
+       
     }
     
     
     //------------------------------------------------------------//
+
+
     private var topBanner: some View {
-        ZStack {
+        ZStack(alignment:.center) {
             Image(.topImg)
                 .resizable() //
                 .scaledToFill() // 비율 유지하며 화면 채우기
-                .frame(maxWidth: .infinity, minHeight: 226) // Figma 기준 높이 맞추기
+                .frame(maxWidth: .infinity, minHeight: 250) // Figma 기준 높이 맞추기
                 .clipped() // 넘치는 부분 자르기
+                .ignoresSafeArea(edges:.top)
+//
             
             
             
             
             
             VStack{
-                Text("골든 미모사 그린티와 함께 \n행복한 새해의 축배를 들어요!")
-                    .font(.custom("Pretendard-Bold", size: 24))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.top, 120)
-                    .padding(.leading, 28.16)
+                HStack {
+                    Text("골든 미모사 그린티와 함께 \n행복한 새해의 축배를 들어요!")
+                        .font(.custom("Pretendard-Bold", size: 24))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 120)
+                        .padding(.leading, 28.16)
+                }
+                .padding(.leading,45)
                 HStack{
                     Text("내용 보기")
                         .font(.custom("Pretendard-Regular", size: 13))
@@ -112,11 +131,11 @@ struct HomeView: View {
             }
         }
         
-        .scaledToFill() // ✅ 비율 유지하며 화면 채우기 여기에도 했어야함
+        .scaledToFill() //  비율 유지하며 화면 채우기 여기에도 했어야함
         .frame(maxWidth: .infinity, minHeight: 200)
         .ignoresSafeArea(.all)
     }
-    //게이지바 위와 옆 텍스트 & 게이지바
+    //게이지바 위와 옆 텍스트 & 게1이지바
     private var topBanner2: some View {
         HStack() {
             VStack(alignment: .leading, spacing: 6) {

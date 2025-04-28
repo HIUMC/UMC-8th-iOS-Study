@@ -41,6 +41,8 @@ struct DetailCoffeeView: View {
                         DetailCoffeeView(viewModel: HomeViewModel())
                     case .ad:
                         AdView()
+                    case.goToReceipt:
+                        ReceiptView()
                     }
                 }
             }

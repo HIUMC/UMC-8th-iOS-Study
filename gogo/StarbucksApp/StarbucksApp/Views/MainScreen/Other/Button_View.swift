@@ -18,10 +18,12 @@ import SwiftUI
 struct ButtonView: View {
     let icon: Image
     let title: String
+    var action: (() -> Void)? = nil
     
-    init(icon: Image, title: String) {
+    init(icon: Image, title: String,action: (() -> Void)? = nil) {
         self.icon = icon
         self.title = title
+        self.action = action
     }
     
     var body: some View {

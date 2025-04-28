@@ -13,3 +13,4 @@ struct ShopModel: Identifiable {
     let name: String
     let imageName: String
 }
+    
