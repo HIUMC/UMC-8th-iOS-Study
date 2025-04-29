@@ -10,6 +10,7 @@ import SwiftUI
 import Vision
 import UIKit
 
+//MARK: -ImageHandling 프로토콜(워크북 형식 그대로)
 protocol ImageHandling: AnyObject {
     func addImage(_ image: UIImage)
     func getImages() -> [UIImage]
@@ -17,12 +18,12 @@ protocol ImageHandling: AnyObject {
 }
 
 @Observable
-class OCRViewModel: ImageHandling {
+class ReceiptsViewModel: ImageHandling {
     
     var images: [UIImage] = []
     var recognizedText: String = ""
     
-    var currentReceipts: [ReceiptModel] = [] /// 영수증 배열로 받기
+    var currentReceipts: [ReceiptModel] = [] /// 영수증 배열 형식으로 받기.
     
     
     var selectedReceiptImage: UIImage?
@@ -34,12 +35,12 @@ class OCRViewModel: ImageHandling {
     var receiptCount: Int {
         return currentReceipts.count
     }
-    
+    //MARK: -이미지 추가
     func addImage(_ image: UIImage) {
         images.append(image)
         performOCR(on: image)
     }
-    
+    //MARK: -영수증 삭제..정의만 하고 구현 못함 (스와이프 해서 삭제하기 기능 )
     func removeImage(at index: Int) {
         guard images.indices.contains(index) else { return }
         images.remove(at: index)
@@ -49,6 +50,7 @@ class OCRViewModel: ImageHandling {
         images
     }
     
+    //MARK: -OCR수행 함수. 워크북 참고
     private func performOCR(on uiImage: UIImage) {
         guard let cgImage = uiImage.cgImage else { return }
         
@@ -77,6 +79,7 @@ class OCRViewModel: ImageHandling {
         }
     }
     
+    //MARK: -파싱함수. 워크북 형식 + 지피티 참고..
     private func parseWithoutRegex(from text: String) -> ReceiptModel {
         let lines = text.components(separatedBy: .newlines)
         
@@ -87,10 +90,10 @@ class OCRViewModel: ImageHandling {
         var i = 0
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd HH:mm:ss" //"2025.01.05 11:30 형식의 날짜 포맷"
+        dateFormatter.dateFormat = "yyyy.MM.dd HH:mm:ss" ///  날짜 포맷"
         
         let outDateFormatter = DateFormatter()
-        outDateFormatter.dateFormat = "yyyy.MM.dd HH:mm" //초를 뺀 날짜 형식
+        outDateFormatter.dateFormat = "yyyy.MM.dd HH:mm" ///초를 뺀 날짜 형식
         
         let dateRegex = "\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}"
         print("===== OCR 디버그 시작 =====")
@@ -107,7 +110,7 @@ class OCRViewModel: ImageHandling {
                 }
             }
             
-            // 결제 금액
+            /// 결제 금액
             if trimmed.contains("세") || trimmed.contains("Total") || trimmed.contains("주문번호"), i + 1 < lines.count {
                 let priceLine = lines[i + 1].trimmingCharacters(in: .whitespaces)
                 let numberOnly = priceLine.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
@@ -131,12 +134,12 @@ class OCRViewModel: ImageHandling {
         print(" 결제 금액: \(totalAmount)")
         print("주문 날짜: \(date)")
         
-        
+        ///파싱함수의 반환값!
         return ReceiptModel(
             store: store,
             totalAmount: totalAmount,
             date: date,
-            receiptImage: images.last! //이미지
+            receiptImage: images.last!
         )
     }
 }

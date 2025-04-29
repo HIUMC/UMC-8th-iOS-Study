@@ -19,10 +19,11 @@ struct ReceiptView: View {
     @State private var showActionSheet = false
     @State private var showPhotosPicker = false
 
-    @State var viewModel = OCRViewModel()
+    @State var viewModel = ReceiptsViewModel() ///viewModel이 receipt 객체!
     
     @State private var showReceiptImage = false //이미지 popup  변수
     
+    //MARK: -메인 뷰,상단부터 navigationView,totalPriceView,receiptListView순~
     var body: some View {
         ZStack {
             VStack {
@@ -37,7 +38,7 @@ struct ReceiptView: View {
                         
                         totalPriceView
                         
-                        receiptTableView
+                        receiptListView
                         
                     }.padding(.horizontal, 19)
                 }
@@ -48,7 +49,7 @@ struct ReceiptView: View {
             }
         
         }
-        //영수증 버튼 눌렀을 때 사진 시트로 보여주기
+        //눌렀을때 영수증 sheet로 보여주기
         .navigationBarBackButtonHidden(true)
         .confirmationDialog("사진을 어떻게 추가할까요?", isPresented: $showActionSheet, titleVisibility: .visible) {
             Button("앨범에서 가져오기") {
@@ -79,6 +80,7 @@ struct ReceiptView: View {
         }
     }
     
+//MARK: -상단 네비게이션 바
     private var navigationView: some View {
         HStack {
             Button(action: {
@@ -105,7 +107,7 @@ struct ReceiptView: View {
         .padding(.horizontal, 14)
         .frame(maxWidth: .infinity, maxHeight: 40)
     }
-    
+//MARK: -총 금액 나타냄. 사용합계.
     private var totalPriceView: some View {
         HStack {
             Group {
@@ -122,34 +124,21 @@ struct ReceiptView: View {
         }
     }
     
-    private var receiptTableView: some View {
+    //MARK: -영수증들 scrollView. 안에 렌더링시에만 보이게 LazyVStack
+    private var receiptListView: some View {
         ScrollView {
             LazyVStack {
                 ForEach(viewModel.currentReceipts) { receipt in
                     ReceiptInfoView(receipt: receipt)
-                        /*
-                        .swipeActions(edge: .leading, allowsFullSwipe: false) {
-                            Button(action: {
-                                if let index = viewModel.currentReceipts.firstIndex(where: { $0.id == receipt.id }) {
-                                    viewModel.currentReceipts.remove(at: index)
-                                    viewModel.sum -= receipt.totalAmount
-                                }
-                            }, label: {
-                                Text("삭제")
-                            }).tint(.red)
-                         
-                        }
-                         */
-                } /*else {
-                    ProgressView("OCR 처리 중...")
-                }*/
+                }
             }
         }
     }
     
+    //MARK: - 영수증 정보 뷰.
     private func ReceiptInfoView(receipt: ReceiptModel) -> some View {
         VStack(alignment: .leading, spacing: 6) {
-            Spacer().frame(height: 7)
+            Spacer().frame(height: 5)
             
             Text("\(receipt.store)")
                 .font(.PretendardSemiBold18)
@@ -181,6 +170,7 @@ struct ReceiptView: View {
         }
     }
     
+    //MARK: -영수증 image 누르면 영수증 View(우측 상단에 x)
     private func ImageView(image: UIImage, show: Binding<Bool>) -> some View {
         return ZStack {
             Color.black.opacity(0.8)
