@@ -37,7 +37,7 @@ struct StarbucksApp: App {
 //            
 //            /// 4주차 떄 배운, SwiftData. 영속성!
 //            .modelContainer(for: ReceiptsModel.self)
-            ReceiptView()
+           OrderView()
             
         }
     }

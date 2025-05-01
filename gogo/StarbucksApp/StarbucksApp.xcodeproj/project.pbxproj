@@ -37,6 +37,20 @@
 			);
 			target = D7D384082D9D153A0066E5D8 /* StarbucksApp */;
 		};
+		D7906E472DC3A0180078D7B3 /* Exceptions for "StarbucksApp" folder in "StarbucksAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Map/stores.geojson,
+			);
+			target = D7D384192D9D153B0066E5D8 /* StarbucksAppTests */;
+		};
+		D7906E482DC3A0180078D7B3 /* Exceptions for "StarbucksApp" folder in "StarbucksAppUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Map/stores.geojson,
+			);
+			target = D7D384232D9D153B0066E5D8 /* StarbucksAppUITests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -44,6 +58,8 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				D77C9B3A2D9D1A3C00B9F15A /* Exceptions for "StarbucksApp" folder in "StarbucksApp" target */,
+				D7906E472DC3A0180078D7B3 /* Exceptions for "StarbucksApp" folder in "StarbucksAppTests" target */,
+				D7906E482DC3A0180078D7B3 /* Exceptions for "StarbucksApp" folder in "StarbucksAppUITests" target */,
 			);
 			path = StarbucksApp;
 			sourceTree = "<group>";
@@ -412,6 +428,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarbucksApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "위치 정보 사용~";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보 사용";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -420,7 +438,6 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -452,6 +469,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarbucksApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "위치 정보 사용~";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보 사용";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -460,7 +479,6 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

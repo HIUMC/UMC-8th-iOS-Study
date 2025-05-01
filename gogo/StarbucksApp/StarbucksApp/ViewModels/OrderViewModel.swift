@@ -10,10 +10,12 @@
 import Foundation
 import Observation
 
+///Observable 매크로 이용 -> ObservableObject , Published 안 써도됌 .
 @Observable
 class OrderViewModel {
     var selectedTopTab: TopTab = .allMenu
     var selectedBottomTab: BottomTab = .drink
+    var showStoreSheet: Bool = false
     var orderList: [OrderModel] = []
     
     init() {
@@ -33,13 +35,13 @@ class OrderViewModel {
     }
 }
 
-//MARK: -enum 이용해서 상단탭바(열거형)
+//MARK: -enum 이용해서 상단탭바(열거형)!!
 enum TopTab: String, CaseIterable {
     case allMenu = "전체 메뉴"
     case myMenu = "나만의 메뉴"
     case cakeReservation = "홀케이크 예약"
 }
-//MARK: -enum 이용해서 하단탭바(열거형)
+//MARK: -enum 이용해서 하단탭바(열거형)!!
 enum BottomTab: String, CaseIterable {
     case drink = "음료"
     case food = "푸드"

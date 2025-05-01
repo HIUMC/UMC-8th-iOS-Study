@@ -31,9 +31,9 @@ struct OrderView: View {
                 .padding(.horizontal)
                 .padding(.bottom, 10)
         }
-        .sheet(isPresented: $showStoreSheet) {
-            Text("매장 선택 화면")
-                .font(.largeTitle)
+        .sheet(isPresented: $viewModel.showStoreSheet) {
+            OrderSheet(viewModel: JSONParsingViewModel())
+                .presentationDetents([.medium, .large])
         }
         .navigationTitle("Order")
         .navigationBarTitleDisplayMode(.inline)
@@ -42,7 +42,7 @@ struct OrderView: View {
 
 extension OrderView {
     
-    // MARK: - Top Tab View
+    // MARK: -상단 탭~~
     private var topTabView: some View {
         HStack(spacing: 0) {
             ForEach(TopTab.allCases, id: \.self) { tab in
@@ -87,38 +87,42 @@ extension OrderView {
         .padding(.bottom, 6)
     }
     
-    // MARK: - Bottom Tab View
-    // 하단 탭
+    // MARK: - 하단 탭!~
+   
     private var bottom: some View {
-        HStack(spacing: 16) { // 버튼들 간 간격
-            ForEach(BottomTab.allCases, id: \.self) { tab in
-                Button(action: {
-                    withAnimation {
-                        viewModel.selectedBottomTab = tab
-                    }
-                }) {
-                    HStack(spacing: 4) { // 텍스트와 이미지 간 간격
-                        Text(tab.rawValue)
+        HStack {
+            HStack(spacing: 16) { // 버튼들 간 간격
+                ForEach(BottomTab.allCases, id: \.self) { tab in
+                    Button(action: {
+                        withAnimation {
+                            viewModel.selectedBottomTab = tab
+                        }
+                    }) {
+                        HStack(spacing: 4) { // 텍스트와 이미지 간 간격
+                            Text(tab.rawValue)
                             
-                            .foregroundColor(viewModel.selectedBottomTab == tab ? .green01 : .gray)
-                            .font(.system(size: 16, weight: viewModel.selectedBottomTab == tab ? .bold : .regular))
-                            .multilineTextAlignment(.leading)
-                            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                            .frame(alignment: .leading)
-                        
-                        Image("new") //
-                            .resizable()
-                            .frame(width: 22, height:22)
-                            .offset(x: 0, y: -6) // 텍스트 오른쪽 위에 위치
-                        
+                                .foregroundColor(viewModel.selectedBottomTab == tab ? .green01 : .gray00)
+                                .font(.system(size: 16, weight: viewModel.selectedBottomTab == tab ? .bold : .regular))
+                                .multilineTextAlignment(.leading)
+//                            .padding(.all)
+                                .frame(alignment: .leading)
+                            
+                            Image("new") //
+                                .resizable()
+                                .frame(width: 22, height:22)
+                                .offset(x: -2, y: -3) // 텍스트 오른쪽 위에 위치
+                            
+                        }
                     }
                 }
             }
+            .padding(.leading, 16)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(.vertical, 10)
     }
     
-    // MARK: - Coffee List View
+    // MARK: -커피 스크롤뷰!~
     private var coffeeListView: some View {
         ScrollView {
             LazyVStack(spacing: 20) {
@@ -145,19 +149,29 @@ extension OrderView {
         }
     }
     
-    // MARK: - Store Select Button
+    // MARK: - 매장 선택버튼!!
     private var selectStoreButton: some View {
-        Button(action: {
-            showStoreSheet.toggle()
-        }) {
-            Text("주문할 매장을 선택해주세요")
-                .foregroundColor(.white)
-                .font(.headline)
-                .frame(maxWidth: .infinity)
+        
+        VStack(spacing: 0) { // 전체를 VStack으로 감쌈
+            Button(action: {
+                
+                viewModel.showStoreSheet.toggle()
+            }) {
+                HStack {
+                    Text("주문할 매장을 선택해 주세요")
+                        .foregroundColor(.white)
+                        .font(.PretendardSemiBold16)
+                    Spacer()
+                    Image(systemName: "chevron.down")
+                        .foregroundColor(.white)
+                }
                 .padding()
-                .background(Color.green)
-                .cornerRadius(10)
+            }
+            Divider() // 버튼 아래 Divider
+                .background(Color.gray.opacity(0.5)) // Divider 색상
         }
+        .background(Color.black)
+        .cornerRadius(8)
     }
 }
 
@@ -165,3 +179,4 @@ extension OrderView {
 #Preview {
     OrderView()
 }
+
