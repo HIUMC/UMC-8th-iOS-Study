@@ -10,10 +10,12 @@ import SwiftUI
 struct MenuItemView: View {
     var img: String
     var menuLabel: String
+    var action: (() -> Void)?
     
     var body: some View {
         Button(action: {
             print(menuLabel)
+            action?()
         }, label: {
             HStack(spacing: 4) {
                 Image(img)

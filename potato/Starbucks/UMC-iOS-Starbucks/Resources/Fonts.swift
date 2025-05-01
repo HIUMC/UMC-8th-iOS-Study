@@ -83,6 +83,14 @@ extension Font {
         return .pretend(type: .medium, size: 16)
     }
     
+    static var mainTextMedium12: Font {
+        return .pretend(type: .medium, size: 12)
+    }
+    
+    static var mainTextMedium10: Font {
+        return .pretend(type: .medium, size: 10)
+    }
+    
     static var mainTextRegular18: Font {
         return .pretend(type: .regular, size: 18)
     }

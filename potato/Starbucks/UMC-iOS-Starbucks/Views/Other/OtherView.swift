@@ -111,7 +111,9 @@ struct OtherView: View {
                     }
                     
                     HStack {
-                        MenuItemView(img: "support03", menuLabel: "매장 정보")
+                        MenuItemView(img: "support03", menuLabel: "매장 정보") {
+                                router.push(.findStore)
+                            }
                         Spacer()
                         MenuItemView(img: "support04", menuLabel: "반납기 정보")
                     }
