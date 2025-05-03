@@ -18,7 +18,6 @@ struct AdvertiseView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(maxWidth: .infinity, maxHeight: 720)
-                    .border(Color.red)
                 
                 Spacer()
                 
@@ -28,6 +27,7 @@ struct AdvertiseView: View {
             .frame(width: geometry.size.width, height: geometry.size.height)
         }
         .ignoresSafeArea(edges: .vertical)
+        .navigationBarBackButtonHidden()
         
     }
     

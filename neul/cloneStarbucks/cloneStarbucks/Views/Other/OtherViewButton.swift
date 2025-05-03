@@ -9,16 +9,18 @@ import SwiftUI
 struct OtherViewButton: View {
     private var image: String
     private var title: String
+    private var action: () -> Void
     
-    init(image: String, title: String) {
+    init(image: String, title: String, action: @escaping () -> Void) {
         self.image = image
         self.title = title
+        self.action = action
     }
     
     
     var body: some View {
         Button(action: {
-            print("otherViewButton: \(title) 버튼 눌림")
+            action()
         }, label: {
             HStack(spacing: 5) {
                 Image(image)
@@ -33,6 +35,4 @@ struct OtherViewButton: View {
     }
 }
 
-#Preview {
-    OtherViewButton(image: "card", title: "스타벅스 카드 등록")
-}
+

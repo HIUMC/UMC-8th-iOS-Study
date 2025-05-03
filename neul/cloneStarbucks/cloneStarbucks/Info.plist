@@ -2,18 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<key>CFBundleExecutable</key>
+	<string>cloneStarbucks</string>
 	<key>CFBundleIdentifier</key>
-	<string>umc.com.neul2Starbucks</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleName</key>
 	<string>cloneStarbucks</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>CFBundleExecutable</key>
-	<string>cloneStarbucks</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>지오펜스를 사용하려면 위치 권한이 필요합니다.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>이 앱은 현재 위치를 표시하기 위해 위치 정보가 필요합니다.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>이 앱은 현재 위치를 표시하기 위해 위치 정보가 필요합니다.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Pretendard-ExtraBold.otf</string>
@@ -25,5 +29,7 @@
 		<string>Pretendard-SemiBold.otf</string>
 		<string>Pretendard-Thin.otf</string>
 	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
 </dict>
 </plist>
