@@ -8,10 +8,11 @@ import SwiftUI
 
 
 class ShopViewModel: ObservableObject {
-    // Banner 이미지 리스트 (실제 프로젝트에서는 받아온 URL이나 로컬 이미지 이름 사용)
+   
     let bannerImages = ["variant1", "variant2", "variant3"]
     
     
+    //각각은 ShopModel 타입의 배열 . 즉 인스턴스 그자체임. 프로퍼티 호출 가능. 
     let allProducts: [ShopModel] = [
         ShopModel(name: "텀블러", imageName: "product1"),
         ShopModel(name: "커피 용품", imageName: "product2"),
@@ -36,6 +37,7 @@ class ShopViewModel: ObservableObject {
     
     @Published var currentBestPage: Int = 0
     
+    //계산 프로퍼티
     var totalBestPages: Int {
         let itemsPerPage = 4
         return Int(ceil(Double(bestItems.count) / Double(itemsPerPage)))
@@ -46,7 +48,7 @@ class ShopViewModel: ObservableObject {
         let end = min(start + 4, bestItems.count)
         return Array(bestItems[start..<end])
     }
-    // New Products 더미 데이터 (4개라고 가정)
+    
     let newProducts: [ShopModel] = [
         ShopModel(name: "그린 사이렌 도트 머그\n237ml", imageName: "new1"),
         ShopModel(name: "그린 사이렌 도트 머그\n355ml", imageName: "new2"),
