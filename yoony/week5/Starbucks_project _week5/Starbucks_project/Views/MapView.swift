@@ -4,7 +4,7 @@
 //
 //  Created by Yoonseo on 5/3/25.
 //
-/*import SwiftUI
+import SwiftUI
 import MapKit
 
 struct MapView: View {
@@ -92,7 +92,7 @@ struct MapView: View {
             }
         }
         .mapScope(mapScope)
-        .overlay(alignment: .top, content: {
+        /*.overlay(alignment: .top, content: {
             VStack(content: {
                 HStack(spacing: 10) {
                     Text("속도: \(locationManager.currentSpeed, specifier: "%.2f") m/s")
@@ -100,11 +100,11 @@ struct MapView: View {
                     Text("방향: \(locationManager.currentDirection, specifier: "%.0f")°")
                 }
             })
-        })
+        })*/
     }
 }
 
 #Preview {
     MapView()
 }
-*/
+
