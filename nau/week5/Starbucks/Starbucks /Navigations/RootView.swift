@@ -10,17 +10,25 @@ import SwiftUI
 struct RootView: View {
     @State private var router = NavigationRouter()
     @State private var viewModel = HomeViewModel()
-    
+    @State private var viewModel1 = DetailMenuViewModel(currentMenu: .placeholder, allMenus: [])
+    @State private var viewModel2 = OrderViewModel()
+    @State private var viewModel3 = MapListViewModel()
+    @State private var viewModel4 = MapViewModel()
+
     var body: some View {
         NavigationStack(path: $router.path) {
             // 초기 진입 뷰
-            /*ReceiptView()
-             .environment(router)
-             */
-            
-            LoginView()
+            TabBarView()
                 .environment(router)
+                .environment(viewModel)
+                .environment(viewModel1)
+                .environment(viewModel2)
+                .environment(viewModel3)
+             
             
+            /*LoginView()
+                .environment(router)
+            */
             
                 // Route enum에 따라 화면 전환
                 .navigationDestination(for: Route.self) { route in
@@ -38,21 +46,31 @@ struct RootView: View {
                         TabBarView()
                             .environment(router)
                             .environment(viewModel)
+                            .environment(viewModel1)
+                            .environment(viewModel2)
+                            .environment(viewModel3)
                         
                     case .detail(let menu):
                         DetailMenuView(menu: menu)
                             .environment(router)
-                            .environment(viewModel)
+                            .environment(viewModel1)
                         
                     case .receipt:
                         ReceiptView()
                             .environment(router)
+                        
+                    case .storeFind:
+                        StoreFindView()
+                            .environment(router)
+                            .environment(viewModel4)
                     }
                 }
         }
     }
 }
 
+/*
 #Preview {
     RootView()
 }
+*/

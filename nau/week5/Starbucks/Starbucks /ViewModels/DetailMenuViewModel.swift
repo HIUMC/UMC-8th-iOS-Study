@@ -9,8 +9,8 @@ import Foundation
 
 @Observable
 class DetailMenuViewModel {
-    let currentMenu: DetailMenuModel
-    let allMenus: [DetailMenuModel]
+    var currentMenu: DetailMenuModel = .placeholder
+    var allMenus: [DetailMenuModel] = []
     
     init(currentMenu: DetailMenuModel, allMenus: [DetailMenuModel]) {
         self.currentMenu = currentMenu
@@ -33,4 +33,16 @@ class DetailMenuViewModel {
         DetailMenuModel(image: .coffeeDetail5, menuName: "아이스 카라멜 마키아또", menuNameEn: "Iced Caramel Macchiato", menuDescription: "향긋한 바닐라 시럽과 시원한 우유에 어름을 넣고 점을 찍듯이 에스프레소를 부은 후 벌집 모양으로 카라멜 드리즐을 올린 달콤한 커피 음료", price: "6,100원", temperatures: [.iced]),
         DetailMenuModel(image: .coffeeDetail6, menuName: "카라멜 마키아또", menuNameEn: "Caramel Macchiato", menuDescription: "향긋한 바닐라 시럽과 따뜻한 스팀 밀크 위에 풍성한 우유 거품을 얹고 점을 찍듯이 에스프레소를 부은 후 벌집 모양으로 카라멜 드리즐을 올린 달콤한 커피 음료", price: "6,100원", temperatures: [.hot]),
     ]
+}
+
+
+extension DetailMenuModel {
+    static let placeholder = DetailMenuModel(
+        image: .coffeeDetail1,
+        menuName: "임시 메뉴",
+        menuNameEn: "Temporary Menu",
+        menuDescription: "임시 설명입니다.",
+        price: "0원",
+        temperatures: [.hot]
+    )
 }

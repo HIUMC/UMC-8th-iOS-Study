@@ -112,7 +112,7 @@ struct OtherView: View {
             HStack() {
                 VStack(alignment: .leading, spacing: UIScreen.screenSize.width/14) {
                     otherMenuBtn(image: .icon4, text: "스토어 케어", action: {print("스토어 케어")})
-                    otherMenuBtn(image: .icon5, text: "매장 정보", action: {print("매장 정보")})
+                    otherMenuBtn(image: .icon5, text: "매장 정보", action: { router.push(.storeFind) })
                     otherMenuBtn(image: .icon6, text: "마이 스타벅스 리뷰", action: {print("마이 스타벅스 리뷰")})
                     Spacer()
                 }

@@ -13,5 +13,5 @@ struct OrderDrinkModel : Identifiable {
     var image: ImageResource
     var name: String
     var enName: String
-    var circle: Bool
+    var showCircle: Bool = true
 }

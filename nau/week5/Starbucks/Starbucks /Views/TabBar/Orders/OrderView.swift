@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 enum SegmentOption: String, CaseIterable, Identifiable {
     case first = "전체 메뉴"
@@ -25,6 +26,11 @@ enum SegmentOption2: String, CaseIterable, Identifiable {
 
 struct OrderView: View {
     @Environment(NavigationRouter.self) var router
+    @Environment(MapListViewModel.self) var viewModel
+    
+    @State var showPopup: Bool = false
+    
+    @Bindable private var locationManager = LocationManager.shared
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -33,7 +39,53 @@ struct OrderView: View {
                 .padding(.horizontal, 23)
             
             topSegment()
+            
+            Spacer()
+            
+            bottomBar
+        }.sheet(isPresented: $showPopup) {
+            OrderSheetView()
         }
+    }
+    
+    
+    private var bottomBar: some View {
+        ZStack {
+            Color(.black02)
+            
+            VStack {
+                HStack {
+                    Button(action: {
+                        if let location = locationManager.currentLocation {
+                            viewModel.setUserLocation(location)
+                            viewModel.loadGeoJSON { result in
+                                switch result {
+                                case .success(_):
+                                    self.showPopup.toggle()
+                                case .failure(let error):
+                                    print("error: \(error)")
+                                }
+                            }
+                        }
+                    }, label: {
+                        HStack {
+                            Group {
+                                Text("주문할 매장을 선택해 주세요")
+                                    .font(.mainTextSemibold16)
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.down")
+                            }.foregroundStyle(Color.white)
+                        }
+                    })
+                }
+                
+                Divider()
+                    .background(Color.gray06)
+                
+            }.padding(.horizontal, 20)
+        }.frame(maxWidth: .infinity, maxHeight: 60)
     }
 }
 
@@ -87,25 +139,26 @@ struct topSegment: View {
 }
 
 struct allView: View {
+    @State private var segment: SegmentOption2 = .drink
     var body: some View {
         VStack {
-            bottomSegment()
+            bottomSegment
         }
     }
-}
-
-struct bottomSegment: View {
-    @State private var segment: SegmentOption2 = .drink
     
-    var body: some View {
+    private var bottomSegment: some View {
         VStack(alignment: .leading) {
-                content
+            content
                 .frame(maxWidth: UIScreen.screenSize.width/2.5)
                 .padding(.horizontal, 10)
-
-                selectedTab
-            }
+                .offset(y: 5)
+            
+            Divider()
+            
+            selectedTab
+                .offset(y: 8)
         }
+    }
     
     private var content: some View {
         HStack {
@@ -127,7 +180,7 @@ struct bottomSegment: View {
 
     private var selectedTab : some View {
         // 실제 탭에 따른 콘텐츠 영역
-        VStack {
+        VStack{
             switch segment {
             case .drink:
                 OrderDrinkView()
@@ -140,6 +193,7 @@ struct bottomSegment: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
+
 
 #Preview {
     OrderView()

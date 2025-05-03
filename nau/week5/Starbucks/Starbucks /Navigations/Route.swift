@@ -14,4 +14,5 @@ enum Route: Hashable {
     case tab
     case detail(DetailMenuModel)
     case receipt
+    case storeFind
 }
