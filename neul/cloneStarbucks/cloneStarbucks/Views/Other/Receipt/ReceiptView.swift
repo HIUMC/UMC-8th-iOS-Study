@@ -58,7 +58,7 @@ struct ReceiptView: View {
             .fullScreenCover(item: $selectedReceipt) { receipt in
                 ReceiptImageViewer(receipt: receipt)
             }
-            .onChange(of: selectedItem) { newItem in
+            .onChange(of: selectedItem) { _, newItem in
                 if let item = newItem {
                     Task {
                         if let data = try? await item.loadTransferable(type: Data.self) {

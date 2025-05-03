@@ -11,6 +11,7 @@ struct OtherView: View {
     @AppStorage("nickname") private var nickname: String = "(작성한 닉네임)"
     private var viewModel: SignUpViewModel = .init()
     @EnvironmentObject var router: NavigationRouter
+    @EnvironmentObject var parsingViewModel: JSONParsingViewModel
     
     var body: some View {
         ZStack {
@@ -111,18 +112,20 @@ struct OtherView: View {
             .padding(.bottom, 8)
             HStack {
                 VStack(alignment: .leading, spacing: 16) {
-                    OtherViewButton(image: "card", title: "스타벅스 카드 등록")
-                    OtherViewButton(image: "coupon", title: "쿠폰 등록")
+                    OtherViewButton(image: "card", title: "스타벅스 카드 등록", action: {print("")})
+                    OtherViewButton(image: "coupon", title: "쿠폰 등록", action: {print("")})
                 }
                 Spacer()
                 VStack(alignment: .leading, spacing: 16) {
-                    OtherViewButton(image: "cardChange", title: "카드 교환권 등록")
-                    OtherViewButton(image: "couponHistory", title: "쿠폰 히스토리")
+                    OtherViewButton(image: "cardChange", title: "카드 교환권 등록", action: {print("")})
+                    OtherViewButton(image: "couponHistory", title: "쿠폰 히스토리", action: {print("")})
                 }
             }
         }
         .padding(.horizontal, 20)
     }
+    
+
     
     private var customerMenu: some View {
         VStack {
@@ -136,14 +139,23 @@ struct OtherView: View {
             .padding(.bottom, 8)
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 16) {
-                    OtherViewButton(image: "storeCare", title: "스토어 케어")
-                    OtherViewButton(image: "storeInfo", title: "매장 정보")
-                    OtherViewButton(image: "myReview", title: "마이 스타벅스 리뷰")
+                    OtherViewButton(image: "storeCare", title: "스토어 케어", action: {print("")})
+                    OtherViewButton(image: "storeInfo", title: "매장 정보", action: {
+                        parsingViewModel.loadStoreData { result in
+                            switch result {
+                            case .success(_):
+                                self.router.push(.storeMap)
+                            case .failure(let error):
+                                print("otherview parsing error: \(error)")
+                            }
+                        }
+                    })
+                    OtherViewButton(image: "myReview", title: "마이 스타벅스 리뷰", action: {print("")})
                 }
                 Spacer()
                 VStack(alignment: .leading, spacing: 16) {
-                    OtherViewButton(image: "customerVoice", title: "고객의 소리")
-                    OtherViewButton(image: "returnInfo", title: "반납기 정보")
+                    OtherViewButton(image: "customerVoice", title: "고객의 소리", action: {print("")})
+                    OtherViewButton(image: "returnInfo", title: "반납기 정보", action: {print("")})
                 }
                 .padding(.trailing, 30)
             }
@@ -151,6 +163,7 @@ struct OtherView: View {
         .padding(.horizontal, 20)
     }
 }
+
 
 struct OtherView_Preview: PreviewProvider {
     static var devices = ["iPhone 11", "iPhone 16 Pro Max"]

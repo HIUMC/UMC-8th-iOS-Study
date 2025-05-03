@@ -20,11 +20,22 @@
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		7C1088DC2DBFFA3D0015B5C4 /* Exceptions for "cloneStarbucks" folder in "Compile Sources" phase from "cloneStarbucks" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 7C8153682DA7399A006D1327 /* Sources */;
+			membershipExceptions = (
+				Map/stores.geojson,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7C81536E2DA7399A006D1327 /* cloneStarbucks */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				7C81547F2DA73CD3006D1327 /* Exceptions for "cloneStarbucks" folder in "cloneStarbucks" target */,
+				7C1088DC2DBFFA3D0015B5C4 /* Exceptions for "cloneStarbucks" folder in "Compile Sources" phase from "cloneStarbucks" target */,
 			);
 			path = cloneStarbucks;
 			sourceTree = "<group>";
@@ -279,7 +290,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.umc.cloneStarbucks;
+				PRODUCT_BUNDLE_IDENTIFIER = com.umc.neulbo.cloneStarbucks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -309,7 +320,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.umc.cloneStarbucks;
+				PRODUCT_BUNDLE_IDENTIFIER = com.umc.neulbo.cloneStarbucks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
