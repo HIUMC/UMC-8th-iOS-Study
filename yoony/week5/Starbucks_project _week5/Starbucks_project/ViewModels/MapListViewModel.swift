@@ -11,7 +11,7 @@ import MapKit
 
 @Observable
 final class MapListViewModel : ObservableObject {
-    @Published var filteredStores: [MapListModel] = []
+    var filteredStores: [MapListModel] = []
     
     var stores: [MapListModel] = []
     

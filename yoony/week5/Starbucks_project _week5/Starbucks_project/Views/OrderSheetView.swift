@@ -83,8 +83,9 @@ struct OrderSheetView: View {
                     print("Error loading stores: \(error)")
                 }
             }
-        }
+        }.background(Color.white)
 }
+    
     }
 
 
