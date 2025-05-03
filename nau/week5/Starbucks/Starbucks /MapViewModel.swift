@@ -31,17 +31,32 @@ import Observation
 }*/
 
 final class MapViewModel {
-    var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
+    var cameraPosition: MapCameraPosition
     var makers: [Marker] = []
 
+    private var hasInitializedPosition = false
+    
+    /*
     let geofenceCoordinate = CLLocationCoordinate2D(latitude: 36.013024, longitude: 129.326010)
     let geofenceRadius: CLLocationDistance = 200
     let geofenceIdentifier = "포항공대"
-
+    */
+    
     init() {
-        LocationManager.shared.startMonitoringGeofence(center: geofenceCoordinate, radius: geofenceRadius, identifier: geofenceIdentifier)
+        /*LocationManager.shared.startMonitoringGeofence(center: geofenceCoordinate, radius: geofenceRadius, identifier: geofenceIdentifier)*/
         let current = LocationManager.shared.currentLocation
-        loadMarkersFromGeoJSON(userLocation: current)
+        if let current {
+            self.cameraPosition = .region(
+            MKCoordinateRegion(
+                center: current.coordinate,
+                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                )
+            )
+        } else {
+            self.cameraPosition = .automatic
+        }
+        
+        loadMarkersFromGeoJSON(userLocation: LocationManager.shared.currentLocation)
     }
 
     func loadMarkersFromGeoJSON(userLocation: CLLocation?) {

@@ -77,10 +77,13 @@ enum StoreCategory: String {
     case none
     case reserve
     case drive
+    case both
     
     init(from category: String) {
         if category.contains("리저브") {
             self = .reserve
+        } else if category.contains("DTR") {
+            self = .both
         } else if category.contains("DT") {
             self = .drive
         } else {
@@ -96,6 +99,8 @@ enum StoreCategory: String {
             return []
         case .drive:
             return [.drive]
+        case .both:
+            return [.reserve, .drive]
         }
     }
 }

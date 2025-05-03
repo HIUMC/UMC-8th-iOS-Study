@@ -117,7 +117,11 @@ struct OrderSheetView: View {
                     MapListView()
                 }
             case .second:
-                Text("d")
+                if isMap {
+                    MapView()
+                } else {
+                    Text("Second")
+                }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
