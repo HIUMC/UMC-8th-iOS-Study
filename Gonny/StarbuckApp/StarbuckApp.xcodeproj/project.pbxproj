@@ -58,31 +58,6 @@
 			path = StarbuckAppUITests;
 			sourceTree = "<group>";
 		};
-		78A459C72D90F7DC007F42AD /* Models */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Models;
-			sourceTree = "<group>";
-		};
-		78A459C82D90F7ED007F42AD /* Views */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Views;
-			sourceTree = "<group>";
-		};
-		78A459C92D90F7FB007F42AD /* ViewModels */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		78A459D62D9130C4007F42AD /* Font */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Font;
-			sourceTree = "<group>";
-		};
-		78B6EC252DA126D700E57AA5 /* Color */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Color;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,11 +88,6 @@
 		78A459902D90F6D2007F42AD = {
 			isa = PBXGroup;
 			children = (
-				78B6EC252DA126D700E57AA5 /* Color */,
-				78A459D62D9130C4007F42AD /* Font */,
-				78A459C92D90F7FB007F42AD /* ViewModels */,
-				78A459C82D90F7ED007F42AD /* Views */,
-				78A459C72D90F7DC007F42AD /* Models */,
 				78A4599B2D90F6D2007F42AD /* StarbuckApp */,
 				78A459AC2D90F6D3007F42AD /* StarbuckAppTests */,
 				78A459B62D90F6D3007F42AD /* StarbuckAppUITests */,
@@ -152,11 +122,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				78A4599B2D90F6D2007F42AD /* StarbuckApp */,
-				78A459C72D90F7DC007F42AD /* Models */,
-				78A459C82D90F7ED007F42AD /* Views */,
-				78A459C92D90F7FB007F42AD /* ViewModels */,
-				78A459D62D9130C4007F42AD /* Font */,
-				78B6EC252DA126D700E57AA5 /* Color */,
 			);
 			name = StarbuckApp;
 			packageProductDependencies = (
@@ -444,9 +409,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StarbuckApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 6PW49YXW64;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarbuckApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "이 앱은 현재 위치를 표시하기 위해 위치 정보가 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -473,9 +440,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StarbuckApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 6PW49YXW64;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarbuckApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "이 앱은 현재 위치를 표시하기 위해 위치 정보가 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -498,12 +467,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6PW49YXW64;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = k.StarbuckAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = umc.com.Gonny.starbucks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

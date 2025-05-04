@@ -37,6 +37,7 @@ import SwiftData
 @main
 struct MyApp: App {
     @AppStorage("isLoggedIn") var isLoggedIn: Bool = false
+    
     var body: some Scene {
         WindowGroup {
             if isLoggedIn {
