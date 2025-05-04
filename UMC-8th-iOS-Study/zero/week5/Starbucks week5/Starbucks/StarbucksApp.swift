@@ -15,15 +15,15 @@ struct StarbucksApp: App {
             //SplashView()
             //SignupView(viewModel:SignupViewModel())
             //AdView()
-            //BottomTabView()
+            BottomTabView()
             //HomeView()
             //OtherView()
             //CircleImageCardView()
             //ShopView()
-            OrderView()
+            /*OrderView()
                 .environment(NavigationRouter())
                 .environment(MapListViewModel())
-        
+        */
 
         }
     }

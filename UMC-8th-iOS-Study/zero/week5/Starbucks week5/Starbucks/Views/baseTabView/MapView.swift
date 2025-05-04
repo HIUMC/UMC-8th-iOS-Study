@@ -12,14 +12,9 @@ struct MapView: View {
     @State private var viewModel = MapViewModel()
     @StateObject private var locationManager: LocationManager = .shared
     
-    @State private var lastKnownLocation: CLLocationCoordinate2D? // 이전 카메라 위치 저장
+    @State private var lastKnownLocation: CLLocationCoordinate2D?
    
     @Namespace var mapScope // 맵 관련 스코프 바인딩용
-    
-    /*
-     @State private var showEnteredAlert: Bool = false
-    @State private var showExitedAlert: Bool = false // 지오펜스 알림 제어
-    */
     
     @State private var hasMovedMap = false // 사용자가 지도를 움직였는지..
     @State private var hasInitializedCameraPosition = false
@@ -38,34 +33,9 @@ struct MapView: View {
                 
                 // 내 위치에 점을 지도에 표시
                 UserAnnotation()
-                
-                //지정한 반경을 지도에 원으로 표시
-                /*MapCircle(center: viewModel.geofenceCoordinate, radius: viewModel.geofenceRadius)
-                    .foregroundStyle(Color.blue.opacity(0.2))
-                    .stroke(Color.blue, lineWidth: 2)
-                 */
-            }
-            // 사용자가 지정한 영역에 들어가거나 나가면 3초동안 알림 표시
-            /*
-            .onChange(of: locationManager.didEnterGeofence) { _, entered in
-                if entered {
-                    showEnteredAlert = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        showEnteredAlert = false
-                        locationManager.didEnterGeofence = false
-                    }
-                }
+          
             }
             
-            .onChange(of: locationManager.didExitGeofence) { _, exited in
-                if exited {
-                    showExitedAlert = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        showExitedAlert = false
-                        locationManager.didExitGeofence = false
-                    }
-                }
-            }*/
             .task {
                 if !hasInitializedCameraPosition,
                    let location = LocationManager.shared.currentLocation {
@@ -119,7 +89,7 @@ struct MapView: View {
                             .shadow(radius: 5)
                     }
                     .frame(width: 88)
-                    //.offset(x: -UIScreen.screenSize.width/2 + 44, y: 10)
+                 
                 }
                 
                 Spacer()
@@ -132,41 +102,9 @@ struct MapView: View {
                     })
                     .offset(x: -10, y: -10)
             }
-            // 지오펜스 알림
-            /*if showEnteredAlert {
-                HStack {
-                    Spacer()
-                    Text("\(viewModel.geofenceIdentifier) 진입함")
-                        .padding()
-                        .background(.ultraThinMaterial)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .shadow(radius: 5)
-                    Spacer()
-                }
-            }
-
-            if showExitedAlert {
-                HStack {
-                    Spacer()
-                    Text("\(viewModel.geofenceIdentifier) 벗어남")
-                        .padding()
-                        .background(.ultraThinMaterial)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .shadow(radius: 5)
-                    Spacer()
-                }
-            }*/
         }
         .mapScope(mapScope)
-        /*.overlay(alignment: .top, content: {
-            VStack(content: {
-                HStack(spacing: 10) {
-                    Text("속도: \(locationManager.currentSpeed, specifier: "%.2f") m/s")
-                    
-                    Text("방향: \(locationManager.currentDirection, specifier: "%.0f")°")
-                }
-            })
-        })*/
+       
     }
 }
 

@@ -20,6 +20,8 @@ struct BottomTabView: View {
             
             Tab("Order", image: "order") {
                 OrderView()
+                    .environment(NavigationRouter())
+                    .environment(MapListViewModel())
             }
             
             Tab("Shop", image: "shop") {

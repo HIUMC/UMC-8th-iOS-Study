@@ -14,84 +14,65 @@ class LocationManager: NSObject, ObservableObject {
     
     static let shared = LocationManager()
     
-    // MARK: - CLLocationManager
     private let locationManager = CLLocationManager()
     
-    // MARK: - Published Properties
     @Published var currentLocation: CLLocation?
     @Published var currentHeading: CLHeading?
-    
     @Published var currentSpeed: CLLocationSpeed = 0
     @Published var currentDirection: CLLocationDirection = 0
-    
     @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
-    
     @Published var didEnterGeofence: Bool = false
     @Published var didExitGeofence: Bool = false
     
-    // MARK: - Init
     override init() {
         super.init()
-        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.headingFilter = kCLHeadingFilterNone
         
         requestAuthorization()
-        startUpdatingLocation()
-        startUpdatingHeading()
     }
     
-    // MARK: - 권한 요청
     func requestAuthorization() {
+        // 둘 중 하나만 선택 (보통은 whenInUse)
         locationManager.requestWhenInUseAuthorization()
-        locationManager.requestAlwaysAuthorization()
     }
 
-    // MARK: - 위치 추적
     func startUpdatingLocation() {
         locationManager.startUpdatingLocation()
     }
-    
+
     func stopUpdatingLocation() {
         locationManager.stopUpdatingLocation()
     }
-    
-    // MARK: - 방향 추적
+
     func startUpdatingHeading() {
         locationManager.startUpdatingHeading()
     }
-    
+
     func stopUpdatingHeading() {
         locationManager.stopUpdatingHeading()
     }
 
-    // MARK: - Significant Location Change
     func startMonitoringSignificantLocationChanges() {
         locationManager.startMonitoringSignificantLocationChanges()
     }
-    
+
     func stopMonitoringSignificantLocationChanges() {
         locationManager.stopMonitoringSignificantLocationChanges()
     }
-    
-    // MARK: - 방문 감지
+
     func startMonitoringVisits() {
         locationManager.startMonitoringVisits()
     }
 
-    // MARK: - 지오펜싱
     func startMonitoringGeofence(center: CLLocationCoordinate2D,
                                  radius: CLLocationDistance,
                                  identifier: String) {
-        let region = CLCircularRegion(center: center,
-                                      radius: radius,
-                                      identifier: identifier)
+        let region = CLCircularRegion(center: center, radius: radius, identifier: identifier)
         region.notifyOnEntry = true
         region.notifyOnExit = true
-        
         locationManager.startMonitoring(for: region)
-        print("Monitoring regions: \(locationManager.monitoredRegions)")
     }
 
     func stopMonitoringAllGeofences() {
@@ -104,12 +85,28 @@ class LocationManager: NSObject, ObservableObject {
 // MARK: - CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate {
     
-    // 권한 변경 감지
+    // iOS 14 이상
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        authorizationStatus = manager.authorizationStatus
+        handleAuthorization(manager.authorizationStatus)
     }
 
-    // 위치 업데이트 감지
+    // iOS 13 이하
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        handleAuthorization(status)
+    }
+
+    private func handleAuthorization(_ status: CLAuthorizationStatus) {
+        DispatchQueue.main.async {
+            self.authorizationStatus = status
+        }
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            startUpdatingLocation()
+        default:
+            stopUpdatingLocation()
+        }
+    }
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let latest = locations.last else { return }
         DispatchQueue.main.async {
@@ -118,7 +115,6 @@ extension LocationManager: CLLocationManagerDelegate {
         }
     }
 
-    // 방향 감지
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         DispatchQueue.main.async {
             self.currentHeading = newHeading
@@ -126,12 +122,10 @@ extension LocationManager: CLLocationManagerDelegate {
         }
     }
 
-    // 방문 감지
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
         print("방문 감지됨 - 좌표: \(visit.coordinate), 도착: \(visit.arrivalDate), 출발: \(visit.departureDate)")
     }
 
-    // 지오펜싱 진입
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         DispatchQueue.main.async {
             self.didEnterGeofence = true
@@ -139,7 +133,6 @@ extension LocationManager: CLLocationManagerDelegate {
         }
     }
 
-    // 지오펜싱 이탈
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         DispatchQueue.main.async {
             self.didEnterGeofence = false
@@ -147,7 +140,6 @@ extension LocationManager: CLLocationManagerDelegate {
         }
     }
 
-    // 오류 처리
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("위치 오류: \(error.localizedDescription)")
     }

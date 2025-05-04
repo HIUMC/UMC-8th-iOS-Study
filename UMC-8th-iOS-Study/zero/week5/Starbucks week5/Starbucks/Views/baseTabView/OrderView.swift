@@ -56,29 +56,17 @@ struct OrderView: View {
             VStack {
                 HStack {
                     Button(action: {
-                        if let location = locationManager.currentLocation {
-                            viewModel.setUserLocation(location)
-                            viewModel.loadGeoJSON { result in
-                                switch result {
-                                case .success(_):
-                                    self.showPopup.toggle()
-                                case .failure(let error):
-                                    print("error: \(error)")
-                                }
-                            }
-                        }
-                    }, label: {
+                        self.showPopup.toggle()
+                    }) {
                         HStack {
                             Group {
                                 Text("주문할 매장을 선택해 주세요")
                                     .font(.PretendardSemibold16)
-                                
                                 Spacer()
-                                
                                 Image(systemName: "chevron.down")
                             }.foregroundStyle(Color.white)
                         }
-                    })
+                    }
                 }
                 
                 Divider()

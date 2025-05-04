@@ -75,7 +75,7 @@ struct OrderSheetView: View {
     private var searchBar: some View {
         VStack {
             TextField("검색", text: $text)
-                .font(.PretendardSemibold13)
+                //.font(.PretendardSemibold13)
                 .padding(EdgeInsets(top: 4, leading: 7, bottom: 4, trailing: 7))
         }
         .background(Color.gray)
