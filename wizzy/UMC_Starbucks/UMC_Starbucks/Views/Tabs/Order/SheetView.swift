@@ -11,7 +11,7 @@ struct SheetView: View {
     @State private var showMap = false
     
     var body: some View {
-        VStack(){ //여기 horizontal 간격이 왜이러지
+        VStack(spacing: 0) {
             HStack {
                 Spacer()
                 Text("매장 설정")
@@ -23,33 +23,43 @@ struct SheetView: View {
                         .resizable()
                         .frame(width: 18, height: 17)
                 }
-            } //h
+            }
             .padding(.vertical, 24)
-            .padding(.horizontal, 36)
-            
-            if showMap {
-                SearchBar()
-                MapView()
-                    .frame(height: 400)
-                    .transition(.move(edge: .bottom))
-                
-            } else {
-                VStack {
-                    SearchBar()
-                    storeBar()
-                    JSONParsingView()
-                        .padding(.horizontal, 23)
-                    //HybridMapView()
+            //.padding(.horizontal, 36)
+
+            // SearchBar 항상 상단 고정
+            SearchBar()
+
+            GeometryReader { geometry in
+                ScrollView {
+                    VStack(spacing: 0) {
+                        if showMap {
+                            HStack {
+                                MapView()
+                                Spacer(minLength: 0)
+                            }
+                            .frame(minHeight: geometry.size.height)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        } else {
+                            VStack {
+                                storeBar()
+                                JSONParsingView()
+                                    .padding(.horizontal, 23)
+                                //HybridMapView()
+                            }
+                            .frame(minHeight: geometry.size.height)
+                            .frame(maxWidth: .infinity)
+                        }
+
+                        Divider()
+                            .foregroundStyle(Color.gray07)
+                            .frame(width: 440, height: 1)
+                            .padding(.top, 15)
+                            .padding(.horizontal)
+                    }
                 }
             }
-            
-            Divider()
-                .foregroundStyle(Color.gray07)
-                .frame(width: 440, height: 1)
-                .padding(.top, 15)
-                .padding(.horizontal)
-            
-        }//v
+        }
         .padding(.horizontal, 30)
         
     }//body

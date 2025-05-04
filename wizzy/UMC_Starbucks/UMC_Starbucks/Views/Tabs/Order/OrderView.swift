@@ -176,18 +176,21 @@ struct SelectUnderBar: View {
                 .frame(width: 440, height: 80)
             VStack {
                 Button(action: {showSheet.toggle()}) {
-                    HStack {
+                    VStack {
+                        HStack {
+                            
+                            Text("주문할 매장을 선택해 주세요")
+                                .foregroundStyle(Color.white)
+                                .font(.PretendardSemiBold16)
+                            Spacer()
+                            Image("downIcon")
+                        } // h
+                        .padding(.horizontal, 20)
                         
-                        Text("주문할 매장을 선택해 주세요")
-                            .foregroundStyle(Color.white)
-                            .font(.PretendardSemiBold16)
-                        Spacer()
-                        Image("downIcon")
-                    } // h
-                    .padding(.horizontal, 20)
-                    
-                    Divider()
-                        .foregroundStyle(Color.gray66)
+                        Rectangle()
+                            .frame(width: 400, height: 1)
+                            .foregroundStyle(Color.gray66)
+                    }
                 }
                 .frame(width: 440, height: 80) // 정해주기
             }
