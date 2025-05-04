@@ -36,6 +36,9 @@ struct UMC_iOS_StarbucksApp: App {
                         case .receipts:
                             ReceiptsView()
                                 .environmentObject(router)
+                        case .findStore:
+                            FindStoreView(viewModel: JSONParsingViewModel())
+                                .environmentObject(router)
                         }
                     }
             }

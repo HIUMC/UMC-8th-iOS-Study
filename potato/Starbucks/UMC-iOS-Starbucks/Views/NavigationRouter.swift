@@ -36,4 +36,5 @@ enum Route: Hashable {
     case tab
     case ad
     case receipts
+    case findStore
 }

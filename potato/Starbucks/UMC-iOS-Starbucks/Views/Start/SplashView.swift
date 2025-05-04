@@ -22,7 +22,7 @@ struct SplashView: View {
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                router.push(.ad)
+                router.push(.tab)
             }
         }
     }

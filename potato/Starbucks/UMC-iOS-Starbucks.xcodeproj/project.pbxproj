@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -53,6 +53,10 @@
 		AFC920A72D996CFB0076A5AA /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC920A62D996CFB0076A5AA /* SignupModel.swift */; };
 		AFC920A92D998C000076A5AA /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC920A82D998C000076A5AA /* AdView.swift */; };
 		AFC920AB2D999C180076A5AA /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC920AA2D999C180076A5AA /* TabBarView.swift */; };
+		AFF2ADB02DC0AAC600B3B757 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF2ADAF2DC0AAC600B3B757 /* OrderViewModel.swift */; };
+		AFF2AFC42DC29B5D00B3B757 /* JSONParsingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF2AFC32DC29B5D00B3B757 /* JSONParsingViewModel.swift */; };
+		AFF2AFFA2DC341FA00B3B757 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF2AFF92DC341FA00B3B757 /* LocationManager.swift */; };
+		AFF2B0182DC3CDD500B3B757 /* FindStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF2B0172DC3CDD500B3B757 /* FindStoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,7 +109,18 @@
 		AFC920A62D996CFB0076A5AA /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
 		AFC920A82D998C000076A5AA /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
 		AFC920AA2D999C180076A5AA /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		AFF2ADAF2DC0AAC600B3B757 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
+		AFF2AFC32DC29B5D00B3B757 /* JSONParsingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParsingViewModel.swift; sourceTree = "<group>"; };
+		AFF2AFF92DC341FA00B3B757 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		AFF2B0172DC3CDD500B3B757 /* FindStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindStoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AFF2ADA92DC061A200B3B757 /* Order */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Order; sourceTree = "<group>"; };
+		AFF2ADAC2DC0AA8800B3B757 /* Order */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Order; sourceTree = "<group>"; };
+		AFF2AFAF2DC287BD00B3B757 /* Datas */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Datas; sourceTree = "<group>"; };
+		AFF2B00C2DC38F6700B3B757 /* Map */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Map; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AF7D07292D9903E100E175BC /* Frameworks */ = {
@@ -126,6 +141,7 @@
 				AF43E81B2DA4106300D8EAA8 /* MenuItemView.swift */,
 				AF43E84A2DA44C8200D8EAA8 /* ReceiptsView.swift */,
 				AF43E8F82DA5208400D8EAA8 /* ReceiptInfoView.swift */,
+				AFF2B0172DC3CDD500B3B757 /* FindStoreView.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -200,17 +216,20 @@
 		AF7D072E2D9903E100E175BC /* UMC-iOS-Starbucks */ = {
 			isa = PBXGroup;
 			children = (
+				AFF2AFAF2DC287BD00B3B757 /* Datas */,
 				AF7D075E2D990C5600E175BC /* Info.plist */,
+				AFF2B00C2DC38F6700B3B757 /* Map */,
 				AF7D07492D9909F900E175BC /* Resources */,
 				AF7D07402D99042100E175BC /* Views */,
 				AF7D073F2D99041200E175BC /* ViewModels */,
 				AF7D073E2D99040C00E175BC /* Models */,
 				AF7D072F2D9903E100E175BC /* UMC_iOS_StarbucksApp.swift */,
+				AF43E8F62DA50A4400D8EAA8 /* OCRCameraPicker.swift */,
+				AFF2AFF92DC341FA00B3B757 /* LocationManager.swift */,
 				AF7D07332D9903E200E175BC /* Assets.xcassets */,
 				AF7D07612D99133400E175BC /* Colors.xcassets */,
 				AF7D07352D9903E200E175BC /* UMC_iOS_Starbucks.entitlements */,
 				AF7D07362D9903E200E175BC /* Preview Content */,
-				AF43E8F62DA50A4400D8EAA8 /* OCRCameraPicker.swift */,
 			);
 			path = "UMC-iOS-Starbucks";
 			sourceTree = "<group>";
@@ -226,6 +245,7 @@
 		AF7D073E2D99040C00E175BC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AFF2ADAC2DC0AA8800B3B757 /* Order */,
 				AF43E8872DA4541800D8EAA8 /* Shop */,
 				AF43E8862DA4541400D8EAA8 /* Home */,
 				AF7D07472D99045600E175BC /* LoginModel.swift */,
@@ -244,6 +264,8 @@
 				AFC920A42D996CED0076A5AA /* SignupViewModel.swift */,
 				AF8A39062D9BE25A001AA523 /* HomeViewModel.swift */,
 				AF43E8842DA453E300D8EAA8 /* ShopViewModel.swift */,
+				AFF2ADAF2DC0AAC600B3B757 /* OrderViewModel.swift */,
+				AFF2AFC32DC29B5D00B3B757 /* JSONParsingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -251,6 +273,7 @@
 		AF7D07402D99042100E175BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AFF2ADA92DC061A200B3B757 /* Order */,
 				AF43E84C2DA44F1000D8EAA8 /* Shop */,
 				AF43E8492DA43D0B00D8EAA8 /* Start */,
 				AF43E8182DA4100600D8EAA8 /* Home */,
@@ -291,6 +314,12 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AFF2ADA92DC061A200B3B757 /* Order */,
+				AFF2ADAC2DC0AA8800B3B757 /* Order */,
+				AFF2AFAF2DC287BD00B3B757 /* Datas */,
+				AFF2B00C2DC38F6700B3B757 /* Map */,
 			);
 			name = "UMC-iOS-Starbucks";
 			productName = "UMC-iOS-Starbucks";
@@ -373,6 +402,7 @@
 				AF43E88F2DA4587100D8EAA8 /* NewProductsModel.swift in Sources */,
 				AF8A39E12D9E6454001AA523 /* CoffeeDetailView.swift in Sources */,
 				AF7D07422D99043100E175BC /* LoginView.swift in Sources */,
+				AFF2AFFA2DC341FA00B3B757 /* LocationManager.swift in Sources */,
 				AF7D07482D99045600E175BC /* LoginModel.swift in Sources */,
 				AFC920A92D998C000076A5AA /* AdView.swift in Sources */,
 				AF7D07442D99043C00E175BC /* SplashView.swift in Sources */,
@@ -387,10 +417,13 @@
 				AF43E8852DA453E300D8EAA8 /* ShopViewModel.swift in Sources */,
 				AF8A390D2D9DA680001AA523 /* DesertModel.swift in Sources */,
 				AF8A39092D9BE264001AA523 /* CoffeeModel.swift in Sources */,
+				AFF2ADB02DC0AAC600B3B757 /* OrderViewModel.swift in Sources */,
 				AF7D07302D9903E100E175BC /* UMC_iOS_StarbucksApp.swift in Sources */,
 				AFAF5C662D9A60A100D0F5B8 /* OtherView.swift in Sources */,
+				AFF2AFC42DC29B5D00B3B757 /* JSONParsingViewModel.swift in Sources */,
 				AF43E8F52DA4ECD800D8EAA8 /* ReceiptsModel.swift in Sources */,
 				AF43E84E2DA44F1A00D8EAA8 /* ShopView.swift in Sources */,
+				AFF2B0182DC3CDD500B3B757 /* FindStoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +557,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UMC-iOS-Starbucks/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "이 앱을 사용하려면 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "이 앱을 사용하려면 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "이 앱을 사용하려면 위치 정보가 필요합니다.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -562,6 +598,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UMC-iOS-Starbucks/Info.plist";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "이 앱을 사용하려면 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "이 앱을 사용하려면 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "이 앱을 사용하려면 위치 정보가 필요합니다.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
