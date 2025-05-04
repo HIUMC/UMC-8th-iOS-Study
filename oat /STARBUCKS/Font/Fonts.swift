@@ -99,4 +99,12 @@ extension Font{
         return .pretend(type: .semibold, size: 14)
     }
     
+    static var mainTextMedium10: Font {
+        return .pretend(type: .medium, size: 10)
+    }
+    static var mainTextMedium12: Font {
+        return .pretend(type: .medium, size: 12)
+    }
+    
+    
 }
