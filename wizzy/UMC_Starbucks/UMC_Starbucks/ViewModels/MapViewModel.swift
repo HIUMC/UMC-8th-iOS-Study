@@ -27,7 +27,7 @@ final class MapViewModel {
         .init(coordinate: .init(latitude: 37.529598, longitude: 126.963946), title: "용산 CGV")
     ]
 
-    let geofenceCoordinate = CLLocationCoordinate2D(latitude: 36.013024, longitude: 129.326010) // 본인의 학교 위도 / 경도로 넣어보세요
+    let geofenceCoordinate = CLLocationCoordinate2D(latitude: 36.013024, longitude: 129.326010) 
     let geofenceRadius: CLLocationDistance = 200
     let geofenceIdentifier = "포항공대"
     
