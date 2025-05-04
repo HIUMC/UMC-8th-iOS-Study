@@ -7,9 +7,13 @@
 
 import SwiftUI
 
+
+
 struct OtherView: View {
     @AppStorage("nickname") private var storedNickname = ""
     @AppStorage("isLoggedIn") var isLoggedIn = false
+    
+    @State private var showFindStoreView = false
     
     var body: some View {
         VStack {
@@ -43,7 +47,7 @@ struct OtherView: View {
                 
                 HStack {
                     boxView(text: "별 히스토리")
-                    boxView(text: "전자영수증", destination: AnyView(ReceiptScreen()))
+                    boxView(text: "전자영수증", destination: AnyView(ReceiptView()))
                     boxView(text: "나만의 메뉴")
                 }
                 
@@ -85,8 +89,14 @@ struct OtherView: View {
                                 .frame(maxWidth: .infinity)
                         }
                         HStack {
-                            leftImageView(text: "매장 정보")
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                            leftImageView(
+                                text: "매장 정보",
+                                action: {
+                                    showFindStoreView = true
+                                }
+                            )
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
                             Spacer()
                             leftImageView(text: "반납기 정보")
                                 .frame(maxWidth: .infinity)
@@ -104,6 +114,11 @@ struct OtherView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.white00)
             .navigationBarBackButtonHidden(true)
+            
+            NavigationLink(destination: FindStoreView(), isActive: $showFindStoreView) {
+                EmptyView()
+            }
+
         }
     }
 }
@@ -158,9 +173,11 @@ struct boxView: View {
 
 struct leftImageView: View {
     var text: String
+    var action: (() -> Void)? = nil  // ✅ 여기 추가
+    
     var body: some View {
         Button(action: {
-            print(text)
+            action?()  // ✅ action 있으면 실행, 없으면 print만
         }) {
             HStack {
                 Image(payImage(text))
@@ -197,6 +214,7 @@ struct leftImageView: View {
         }
     }
 }
+
 
 #Preview {
     OtherView()
