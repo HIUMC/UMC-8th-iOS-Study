@@ -11,6 +11,7 @@ import Observation
 enum Route: Hashable {
     case signup
     case cafeMenu(MenuDetailModel)
+    case receipt
 }
 
 class NavigationRouter: ObservableObject {

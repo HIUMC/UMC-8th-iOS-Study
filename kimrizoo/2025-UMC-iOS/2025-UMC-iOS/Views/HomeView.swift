@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @State private var showAdvertisementSheet = true
     @State private var currentStars: Int = 4  // 현재 별 개수
     let totalStars: Int = 12  // 전체 별 개수
 
@@ -163,6 +164,13 @@ struct HomeView: View {
             // ScrollView 끝
         }
         // VStack 끝
+        .onAppear{
+            // 진입 시 광고창 등장
+            showAdvertisementSheet = true
+        }
+        .sheet(isPresented: $showAdvertisementSheet) {
+            AdvertisementView()
+        }
     }
 }
 
