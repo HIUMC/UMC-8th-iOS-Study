@@ -118,7 +118,18 @@ struct OtherView: View {
                         .padding(.vertical, 16)
                         
                         HStack {
-                            PayAreaView(imageName: "locationicon", title: "매장 정보")
+                            NavigationLink(destination: FindMapView()) {
+                                HStack {
+                                    Image("locationicon")
+                                        .padding(.trailing, 4)
+                                    Text("매장 정보")
+                                        .lineLimit(1)
+                                        .fixedSize() //내용이 줄바꿈 없이 한 줄로 유지되도록 강제
+                                        .font(.PretendardSemiBold16)
+                                        .foregroundStyle(Color.black02)
+                                }
+                                .frame(width: 157, alignment: .leading)
+                            }
                             
                             Spacer()
                             PayAreaView(imageName: "returnicon", title: "반납기 정보")
@@ -171,4 +182,3 @@ struct OtherView: View {
 #Preview {
     OtherView()
 }
-

@@ -103,19 +103,19 @@ struct TabBarView: View {
         
         
         TabView {
-            Tab("Home", image: "home") {
+            Tab("", image: "home") {
                     HomeView()
             }
-            Tab("Pay", image: "pay") {
+            Tab("", image: "pay") {
                 PayView()
             }
-            Tab("Order", image: "order") {
+            Tab("", image: "order") {
                 OrderView()
             }
-            Tab("Shop", image: "shop") {
+            Tab("", image: "shop") {
                 ShopView()
             }
-            Tab("Other", image: "other") {
+            Tab("", image: "other") {
                 OtherView()
             }
         }
