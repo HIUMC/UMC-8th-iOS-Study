@@ -53,6 +53,10 @@ extension Font {
     static var mainTextBold24: Font {
         return .pretend(type: .bold, size: 24)
     }
+    static var mainTextBold26: Font {
+        return .pretend(type: .bold, size: 26)
+    }
+    
     
     static var mainTextSemiBold38: Font {
       return .pretend(type: .semibold, size: 38)
