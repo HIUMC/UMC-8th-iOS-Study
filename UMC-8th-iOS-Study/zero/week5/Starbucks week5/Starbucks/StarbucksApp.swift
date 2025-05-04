@@ -20,8 +20,10 @@ struct StarbucksApp: App {
             //OtherView()
             //CircleImageCardView()
             //ShopView()
-            //OrderView()
-            MapView(viewModel: JSONParsingViewModel())
+            OrderView()
+                .environment(NavigationRouter())
+                .environment(MapListViewModel())
+        
 
         }
     }

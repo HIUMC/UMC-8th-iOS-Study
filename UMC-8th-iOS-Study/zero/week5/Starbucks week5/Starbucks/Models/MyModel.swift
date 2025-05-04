@@ -13,7 +13,7 @@ struct MyModel: Codable, Identifiable, Hashable {
     let address: String
 
     enum CodingKeys: String, CodingKey {
-        case properties
+        case properties, geometry
     }
 
     enum PropertiesKeys: String, CodingKey {
@@ -22,6 +22,10 @@ struct MyModel: Codable, Identifiable, Hashable {
         case address = "Address"
         case latitude = "Ycoordinate"
         case longitude = "Xcoordinate"
+    }
+    
+    enum GeometryKeys: String, CodingKey {
+        case coordinates
     }
 
     init(from decoder: Decoder) throws {

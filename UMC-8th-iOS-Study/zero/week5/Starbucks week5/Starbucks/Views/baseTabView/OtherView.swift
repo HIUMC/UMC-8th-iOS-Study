@@ -21,8 +21,13 @@ struct OtherView: View {
                 ContentView
             }
             .navigationDestination(for: String.self) { value in
-                if value == "receipt" {
+                switch value {
+                case "receipt":
                     ReceiptView()
+                case "storemap":
+                    MapView()
+                default:
+                    EmptyView()
                 }
             }
         }
@@ -195,7 +200,10 @@ struct OtherView: View {
             Spacer().frame(height: 32)
             
             HStack {
-                listItem(image: .storeInfo, title: "매장 정보")
+                listItem(image: .storeInfo, title: "매장 정보") {
+                    path.append("storemap")
+                }
+
                 Spacer()
                 
                 listItem(image: .returnInfo, title: "반납기 정보")
@@ -212,13 +220,15 @@ struct OtherView: View {
         .padding(.horizontal, 10)
     }
     
-    struct listItem: View{
+    struct listItem: View {
         let image: ImageResource
         let title: String
+        var action: () -> Void = {
+            print("Default action")
+        }
+
         var body: some View {
-            Button(action:{
-                print(title)
-            }) {
+            Button(action: action) {
                 HStack(spacing:4){
                     Image(image)
                     Text(title)
@@ -229,6 +239,7 @@ struct OtherView: View {
             }
         }
     }
+
 }
 
 struct ReceiptView: View {
