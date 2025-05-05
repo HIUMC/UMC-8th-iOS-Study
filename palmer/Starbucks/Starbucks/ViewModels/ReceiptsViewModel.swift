@@ -33,16 +33,6 @@ class ReceiptsViewModel {
         didSet {
             startOCR(selectedSegment)
         }
-    }
-
-    var currentReceipt: ReceiptsModel?
-
-    func startOCR(_ segment: ReceiptSegment) {
-        guard let uiImage = UIImage(named: segment.imageName),
-              let cgImage = uiImage.cgImage else {
-            self.currentReceipt = nil
-            return
-        }*/
 
         let request = VNRecognizeTextRequest { [weak self] request, error in
             guard let self = self,

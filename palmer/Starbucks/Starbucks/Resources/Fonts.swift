@@ -54,6 +54,10 @@ extension Font {
         return .custom("Pretendard-Bold", size: size)
     }
  
+    static func pretendardMedium(_ size: CGFloat) -> Font {
+        return .custom("Pretendard-Medium", size: size)
+    }
+    
     static func pretend(type: Pretend, size: CGFloat) -> Font {
         return .custom(type.value, size: size)
     }
