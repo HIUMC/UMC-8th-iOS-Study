@@ -7,175 +7,166 @@
 import SwiftUI
 
 struct OrderView: View {
-    @Binding var currentTabOrder: Int
-    @Binding var currentTabAll: Int
-    
+    @State var showSheet: Bool = false
+    @State private var JSONViewModel: JSONParsingViewModel = .init()
     @State private var viewModel: OrderViewModel = .init()
     
     @State var showSheet: Bool = false
-    @State private var JSONViewModel: JSONParsingViewModel = .init()
-    
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Order")
-                .padding(.top, 20)
-                .padding(.leading, 24)
-                .foregroundStyle(Color("black03"))
-                .font(.mainTextBold24)
-
-            orderTabBar
-            
-            if currentTabOrder == 0 {
-                allTabBar
-                Divider()
-                if currentTabAll == 0 {
-                    coffees
-                } else if currentTabAll == 1 {
-                    Text("desserts")
-                    Spacer()
-                } else {
-                    Text("상품")
-                    Spacer()
-                }
-            } else if currentTabOrder == 1 {
-                Text("나만의 메뉴")
-                Spacer()
-            } else {
-                Text("홀케이크 예약")
-                Spacer()
+        ZStack(alignment: .bottom) {
+            VStack(alignment: .leading) {
+                Text("Order")
+                    .padding(.top, 20)
+                    .padding(.leading, 24)
+                    .foregroundStyle(Color("black03"))
+                    .font(.mainTextBold24)
+                
+                topSegmentView
+                
+                bottomSegmentView
+                
+                coffeeListView
             }
-            selectStore
+            
+            selectStoreView
+        }
+        .sheet(isPresented: $showSheet) {
+            OrderSheetView()
         }
     }
     
-    private var orderTabBar: some View {
-        ZStack {
-            Rectangle()
-                .fill(Color("white00"))
-                .shadow(color: .black.opacity(0.15), radius: 1.5, x: 0, y: 3)
-            
+    private var topSegmentView: some View {
             HStack {
-                ForEach(OrderTabOptions.allCases, id:\.self) { menu in
-                    Button(action: {
-                        currentTabOrder = menu.id
-                    }, label: {
-                        VStack {
-                            HStack(spacing: 2) {
-                                if menu.id == 2 {
-                                    Image(.cake)
-                                }
-                                
-                                Text(menu.title)
-                                    .foregroundStyle(menu.id == 2 ? Color("green01") : currentTabOrder == menu.id ? Color("black01") : Color("gray04"))
-                                    .font(.mainTextSemiBold16)
-                            }
-//                            .padding(.vertical, 12)
-                            .frame(height: 40)
-                            
-                            Rectangle()
-                                .fill(currentTabOrder == menu.id ? Color("green01") : .clear)
-                                .frame(height: 3)
-                        }
-                    })
+                ForEach(OrderSegment.allCases, id: \.id) { segment in
+                    topSegment(segment: segment)
                 }
             }
+            .background(Color.white)
+            .overlay(
+                Rectangle()
+                    .fill(Color.black.opacity(0.15))
+                    .frame(height: 2)
+                    .blur(radius: 1.5),
+                alignment: .bottom
+            )
         }
-        .frame(height: 52)
-    }
-    
-    private var allTabBar: some View {
-        HStack {
-            ForEach(
-                AllTabOptions.allCases, id:\.self) { menu in
-                Button(action: {
-                    currentTabAll = menu.id
-                }, label: {
-                    HStack(alignment: .top) {
-                        Text(menu.title)
-                            .foregroundStyle(currentTabAll == menu.id ? Color("black01") : Color("gray04"))
-                            .font(.mainTextSemiBold16)
-                        
-                        Image(.new)
+        
+        @ViewBuilder
+        func topSegment(segment: OrderSegment) -> some View {
+            Button(action: {
+                withAnimation {
+                    viewModel.selectedTopSegment = segment
+                }
+            }) {
+                VStack(spacing: 13) {
+                    if segment == .third {
+                        HStack(spacing: 6) {
+                            Image("cake")
+                            Text(segment.title)
+                                .foregroundStyle(viewModel.selectedTopSegment == segment ? .black01 : .green01)
+                                .font(.pretendardBold(16))
+                        }
+                    } else {
+                        Text(segment.title)
+                            .foregroundStyle(viewModel.selectedTopSegment == segment ? .black01 : .gray04)
+                            .font(.pretendardBold(16))
+                    }
+                    
+                    if viewModel.selectedTopSegment == segment {
+                        Rectangle()
+                            .fill(.green01)
+                            .frame(maxWidth: segment == .third ? .infinity : 120)
+                            .frame(height: 3)
+                    } else {
+                        Rectangle()
+                            .fill(.clear)
+                            .frame(height: 3)
+                    }
+                }
+                .frame(maxWidth: segment == .third ? .infinity : 120)
+                .padding(.top, 19)
+            }
+        }
+        
+        private var bottomSegmentView: some View {
+            VStack(alignment: .leading) {
+                HStack {
+                    ForEach(CategorySegment.allCases, id: \.id) { segment in
+                        bottomSegment(segment: segment)
+                    }
+                }
+                .padding(.leading, 23)
+                
+                Divider()
+                    .frame(height: 2)
+                    .foregroundStyle(.gray04)
+            }
+        }
+        
+        func bottomSegment(segment: CategorySegment) -> some View {
+            HStack(spacing: 2) {
+                Text(segment.title)
+                    .foregroundStyle(viewModel.selectedBottomSegment == segment ? .black01 : .gray04)
+                    .font(.pretendardSemiBold(16))
+                    .onTapGesture {
+                        withAnimation {
+                            viewModel.selectedBottomSegment = segment
+                        }
+                    }
+                
+                Image("new")
+            }
+            .padding(EdgeInsets(top: 18, leading: 6, bottom: 8, trailing: 6))
+        }
+        
+        private var coffeeListView: some View {
+            ScrollView(.vertical, content: {
+                LazyVStack(spacing: 26, content: {
+                    ForEach(viewModel.dummyOrderList, id: \.id) { list in
+                        OrderListItem(model: list)
                     }
                 })
-            }
+            })
+            .scrollIndicators(.hidden)
+            .padding(.horizontal, 23)
+            .padding(.top, 19)
         }
-        .padding(.leading, 24)
-        .padding(.vertical, 18)
-        .frame(height: 52)
-    }
     
-    private var coffees: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                ForEach(Array(viewModel.coffees.enumerated()), id: \.element.id) { index, coffee in
-                    coffeeCard(img: coffee.img, name: coffee.name, nameEng: coffee.nameEng)
-                        .padding(.top, index == 0 ? 20 : 0)
-                        .padding(.bottom, index == viewModel.coffees.count - 1 ? 24 : 0)
-                }
-            }
-        }
-        .scrollIndicators(.hidden)
-        .padding(.horizontal, 20)
-    }
-    
-    private func coffeeCard(img: String, name: String, nameEng: String) -> some View {
-        HStack(spacing: 16) {
-            Image(img)
-                .resizable()
-                .frame(width: 60, height: 60)
-            
-            VStack(alignment: .leading) {
-                HStack(alignment: .top, spacing: 2) {
-                    Text(name)
-                        .foregroundStyle(Color("gray06"))
-                        .font(.mainTextSemiBold16)
+        
+        private var selectStoreView: some View {
+            Button(action : {
+                showSheet = true
+            }) {
+                ZStack {
+                    Rectangle()
+                        .fill(.black02)
+                        .frame(width: 440, height: 60)
                     
-                    Circle()
-                        .fill(Color("green01"))
-                        .frame(width: 6, height: 6)
+                    VStack(alignment: .center, spacing: 7) {
+                        HStack {
+                            Text("주문할 매장을 선택해 주세요")
+                                .font(.pretendardSemiBold(16))
+                                .foregroundStyle(.white)
+                            
+                            Spacer()
+                            
+                            Image("arrow_down")
+                        }
+                        
+                        Divider()
+                            .background(.gray06)
+                            .frame(height: 3)
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
                 }
-                
-                Text(nameEng)
-                    .foregroundStyle(Color("gray03"))
-                    .font(.mainTextSemiBold13)
             }
         }
     }
-    
-    private var selectStore: some View {
-        Button(action: {
-            self.showSheet.toggle()
-        }, label: {
-            VStack(alignment: .leading, spacing: 8) {
-                HStack {
-                    Text("주문할 매장을 선택해 주세요")
-                        .foregroundStyle(Color("white00"))
-                        .font(.mainTextSemiBold16)
 
-                    Spacer()
-                    
-                    Image(systemName: "chevron.down")
-                        .foregroundStyle(Color("white00"))
-                }
-                Rectangle()
-                    .fill(Color("gray06"))
-                    .frame(height: 1)
-            }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 10)
-            .frame(height: 60)
-            .background(Color("black02"))
-        })
-        .sheet(isPresented: $showSheet, content: {
-            OrderSheetView(viewModel: JSONViewModel)
-        })
+    #Preview {
+        OrderView()
     }
-}
 
-#Preview {
-    @Previewable @State var selectedOrderTabIndex: Int = 0
-    @Previewable @State var selectedAllTabIndex: Int = 0
     
-    OrderView(currentTabOrder:  $selectedOrderTabIndex, currentTabAll: $selectedAllTabIndex)
-}
+

@@ -14,12 +14,15 @@ struct OrderSheetView: View {
     @State private var selectedTab = 0
     
     @Bindable var viewModel: JSONParsingViewModel
-    @Bindable private var locationManager: LocationManㅜ12ager = .shared
-    
-    @Bindable private var mapViewModel: MapViewModel = .init()
-    
+    @Bindable private var locationManager: LocationManager = .shared
+        
     var body: some View {
         VStack {
+            Capsule(style: .circular)
+                .fill(.gray04)
+                .frame(width: 70, height: 4)
+                .padding(.top, 10)
+            
             topNav
             searchBar
             storeNav
@@ -28,11 +31,9 @@ struct OrderSheetView: View {
             
             if selectedTab == 0 {
                 if isMap {
-                    MapView(showsUserLocationButton: false)
-                        .padding(.horizontal, -32)
-                        .ignoresSafeArea()
+                    mapView
                 } else {
-                    stores
+                    storeListView
                 }
             } else {
                 Text("2")
@@ -70,6 +71,7 @@ struct OrderSheetView: View {
         .presentationDragIndicator(.visible)
     }
     
+    // 상단 네비게이션바
     private var topNav: some View {
         HStack {
             Spacer()
@@ -88,6 +90,7 @@ struct OrderSheetView: View {
         .padding(.bottom, 24)
     }
     
+    
     private var searchBar: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
@@ -95,12 +98,6 @@ struct OrderSheetView: View {
                 .foregroundStyle(Color("gray08"))
             
             TextField("검색", text: $searchText)
-            /* onCommit: {
-             if let location = locationManager.currentLocation {
-                    mapViewModel.search(query: searchText, to: location)
-             }
-         })
-             */
                 .font(.mainTextSemiBold13)
                 .foregroundStyle(Color("gray01"))
                 .textInputAutocapitalization(.never)
@@ -110,31 +107,32 @@ struct OrderSheetView: View {
     }
     
     private var storeNav: some View {
-        HStack(spacing: 10) {
-            ForEach(StoreType.allCases, id: \.self) { type in
-                Text(type.title)
-                    .foregroundStyle(selectedTab == type.id ? Color("black03") : Color("gray03"))
-                    .font(.mainTextSemiBold13)
-                    .onTapGesture {
-                        selectedTab = type.id
+        HStack(spacing: 0) {
+                ForEach(OrderSheetSegment.allCases.indices, id: \.self) { index in
+                    let segment = OrderSheetSegment.allCases[index]
+
+                    HStack(spacing: 0) {
+                        Text(segment.title)
+                            .foregroundStyle(viewModel.selectedSegment == segment ? .black03 : .gray03)
+                            .font(.pretendardSemiBold(13))
+                            .onTapGesture {
+                                withAnimation {
+                                    viewModel.selectedSegment = segment
+                                }
+                            }
+
+                        if index < OrderSheetSegment.allCases.count - 1 {
+                            Image("verticalLine")
+                                .padding(.horizontal, 10)
+                        }
                     }
-                
-                if type.id == 0 {
-                    Text("|")
-                        .foregroundStyle(Color("gray03"))
-                        .font(.mainTextSemiBold13)
                 }
             }
-            
-            Spacer()
-        }
-        .padding(.top, 20)
-        .padding(.bottom, 16)
     }
     
-    private var stores: some View {
+    private var storeListView: some View {
         ScrollView {
-            if !viewModel.sortedStores.isEmpty {
+            if !$viewModel.sortedStores.isEmpty {
                 VStack(alignment: .leading, spacing: 16) {
                     ForEach(Array(viewModel.sortedStores.enumerated()), id: \.element.id) { index, store in
                         StoreCardView(store: store, distance: viewModel.distances[store.id])
@@ -148,6 +146,60 @@ struct OrderSheetView: View {
         }
         .scrollIndicators(.hidden)
     }
+    
+    // 맵뷰
+    private var mapView: some View {
+        ZStack(alignment: .top) {
+            Map(position: $viewModel.cameraPosition) {
+                if let stores = viewModel.pinStores {
+                    ForEach(stores, id: \.properties.Seq, content: { store in
+                        let location = CLLocationCoordinate2D(
+                            latitude: store.properties.Ycoordinate,
+                            longitude: store.properties.Xcoordinate
+                        )
+                        
+                        Annotation(store.properties.Sotre_nm, coordinate: location, content: {
+                            ZStack {
+                                Circle()
+                                    .frame(width: 40, height: 40)
+                                    .foregroundStyle( .green02)
+                                
+                                Image("Starbucks")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                            }
+                        })
+                    })
+                    
+                    UserAnnotation(anchor: .center)
+                }
+            }
+            .onMapCameraChange { context in
+                viewModel.visibleRegion = context.region
+                hasDraggedMap = true
+            }
+            
+            if hasDraggedMap {
+                Button(action : {
+                    print("버튼 클릭")
+                    viewModel.calculateDistanceFromRegionCenter()
+                    hasDraggedMap = false
+                }) {
+                    Text("이 지역 검색")
+                        .font(.pretendardMedium(13))
+                        .foregroundStyle(.gray06)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(.white)
+                                .frame(width: 88, height: 36)
+                                .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 3)
+                        )
+                }
+                .offset(y: 25)
+            }
+        }
+    }
+    
 }
 
 #Preview {
