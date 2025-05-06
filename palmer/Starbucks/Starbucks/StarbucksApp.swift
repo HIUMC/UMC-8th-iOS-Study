@@ -31,13 +31,13 @@ struct StarbucksApp: App {
                             CoffeeDetailView(viewModel: HomeViewModel())
                                 .navigationBarBackButtonHidden(true)
                         case .receipts:
-                            ReceiptsView()
+                            ReceiptView()
                                 .navigationBarBackButtonHidden(true)
                         }
                     }
             }
             .environmentObject(router)
-            .modelContainer(for: ReceiptsModel.self)
+            .modelContainer(for: ReceiptModel.self)
         }
     }
 }
