@@ -9,7 +9,7 @@ import Foundation
 
 struct OrderCoffeeModel: Identifiable {
     let id = UUID()
-    var img: String
+    var image: String
     var name: String
-    var nameEng: String
+    var nameEn: String
 }

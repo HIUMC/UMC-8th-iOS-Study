@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ReceiptImageViewer: View {
+struct ReceiptImageView: View {
     @Environment(\.dismiss) var dismiss
-    let receipt: ReceiptsModel
+    let receipt: ReceiptModel
 
     var body: some View {
         ZStack {

@@ -5,78 +5,153 @@
 //  Created by 박정환 on 5/2/25.
 //
 
-import Foundation
-import CoreLocation
+import SwiftUI
+import MapKit
+import Observation
 
 @Observable
 class JSONParsingViewModel {
-    var stores: [StoreModel] = []
+    var searchKeyword: String = ""
+    var selectedSegment: OrderSheetSegment = .first
+    var cameraPosition: MapCameraPosition = .region(
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 37.550952, longitude: 126.925479),
+            latitudinalMeters: 1000,
+            longitudinalMeters: 1000
+        )
+    )
+//    var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
+    var visibleRegion: MKCoordinateRegion?
+    var location = LocationManager.shared
     
-    var userLocation: CLLocation? {
-        didSet {
-            updateDistances()
-        }
-    }
+    var allStores: [StoreFeature]?
+    var stores: [StoreFeature]?
+    var pinStores: [StoreFeature]?
     
-    var distances: [UUID: CLLocationDistance] = [:]
-    
-    var sortedStores: [StoreModel] {
-        guard userLocation != nil, !stores.isEmpty else {
-            return []
-        }
-        
-        let radius: CLLocationDistance = 10000 // 10km
-        
-        let filteredStores = stores.filter { store in
-            let distance = distances[store.id] ?? Double.greatestFiniteMagnitude
-            return distance <= radius
-        }
-        
-        let sortedStores = filteredStores.sorted { (store1, store2) in
-            let distance1 = distances[store1.id] ?? Double.greatestFiniteMagnitude
-            let distance2 = distances[store2.id] ?? Double.greatestFiniteMagnitude
-            return distance1 < distance2
-        }
-        
-        return Array(sortedStores.prefix(10))
-    }
-    
-    // 모든 매장까지의 거리를 계산
-    private func updateDistances() {
-        guard let userLoc = userLocation, !stores.isEmpty else {
-            distances = [:]
-            return
-        }
-        
-        var calculated = [UUID: CLLocationDistance]()
-        for store in stores { // StoreModel의 xCoordinate와 yCoordinate를 사용하여 CLLocation 생성
-            let storeLocation = CLLocation(latitude: store.yCoordinate, longitude: store.xCoordinate)
-            let distanceInMeters = userLoc.distance(from: storeLocation)
-            calculated[store.id] = distanceInMeters
-        }
-        self.distances = calculated
-    }
-    
-    func loadStoreList(completion: @escaping (Result<[StoreModel], Error>) -> Void) {
-        guard let url = Bundle.main.url(forResource: "Starbucks", withExtension: "geojson") else {
-            print("json 파일 없음")
-            completion(.failure(NSError(domain: "파일 못 찾아요!", code: 404, userInfo: nil)))
+    func loadStores() {
+        guard let url = Bundle.main.url(forResource: "Starbucks_2025_store_data", withExtension: "geojson") else {
+            print("geojson 파일 없음")
             return
         }
         
         do {
             let data = try Data(contentsOf: url)
-            let geoJson = try JSONDecoder().decode(GeoJSON.self, from: data)
-            let storeList = geoJson.features.map { $0.properties }
-            self.stores = storeList
+            let decoded = try JSONDecoder().decode(StoreResponse.self, from: data)
+
+            self.allStores = decoded.features
+            self.stores = decoded.features
             print("디코딩 성공")
-            if userLocation != nil {
-                updateDistances()
-            }
-            completion(.success(storeList))
         } catch {
             print("디코딩 실패: \(error.localizedDescription)")
-            completion(.failure(error))
         }
+    }
+    
+    func calculateDistanceFromCurrentLocation() async {
+        guard let current = location.currentLocation else {
+            print("현재 위치없음")
+            return
+        }
+        guard let allStores = self.allStores else {
+            print("allstores 없음")
+            return
+        }
+        
+        let myLocation = CLLocation(
+            latitude: current.coordinate.latitude,
+            longitude: current.coordinate.longitude
+        )
+        
+        await MainActor.run {
+            self.stores = allStores.compactMap { store in
+                let storeLocation = CLLocation(
+                    latitude: store.properties.Ycoordinate,
+                    longitude: store.properties.Xcoordinate
+                )
+                
+                let distance = myLocation.distance(from: storeLocation) / 1000
+                
+                // 10km 초과는 제거
+                guard distance <= 10 else { return nil }
+                
+                var updated = store
+                updated.properties.KM = round(distance * 10) / 10
+                return updated
+            }
+            self.pinStores = stores
+            
+            guard let stores = self.stores else { return }
+            var updatedStores: [StoreFeature] = []
+            
+            for store in stores {
+                var updated = store
+                let category = store.properties.Category
+                
+                // 매장 카테고리 분류
+                switch category {
+                case "DTR 매장":
+                    updated.properties.storeCategory = .dtr
+                case "리저브 매장":
+                    updated.properties.storeCategory = .reserve
+                case "DT 매장":
+                    updated.properties.storeCategory = .dt
+                default:
+                    break
+                }
+                
+                updatedStores.append(updated)
+            }
+            
+            let sortedStores = updatedStores.sorted {
+                let loc1 = CLLocation(
+                    latitude: $0.properties.Ycoordinate,
+                    longitude: $0.properties.Xcoordinate
+                )
+                let loc2 = CLLocation(
+                    latitude: $1.properties.Ycoordinate,
+                    longitude: $1.properties.Xcoordinate
+                )
+                
+                return myLocation.distance(from: loc1) < myLocation.distance(from: loc2)
+            }
+            self.stores = sortedStores
+        }
+    }
+    
+    func calculateDistanceFromRegionCenter() {
+        guard let allStores = self.allStores else { return }
+        guard let base = visibleRegion?.center else { return }
+        
+        let cameraLocation = CLLocation(latitude: base.latitude, longitude: base.longitude)
+
+        self.pinStores = allStores.compactMap { store in
+            let storeLocation = CLLocation(
+                latitude: store.properties.Ycoordinate,
+                longitude: store.properties.Xcoordinate
+            )
+            let distance = cameraLocation.distance(from: storeLocation) / 1000
+            guard distance <= 10 else { return nil }
+            return store
+        }
+    }
+    
+    func calculateGeocoder(location: CLLocation) async -> String {
+        let geocoder = CLGeocoder()
+        
+        do {
+            let placemarks = try await geocoder.reverseGeocodeLocation(location)
+            if let placemark = placemarks.first {
+                let address = [
+                    placemark.administrativeArea,
+                    placemark.subAdministrativeArea,
+                    placemark.name,
+                ].compactMap { $0 }.joined(separator: " ")
+
+                print("주소: \(address)")
+                return address
+            }
+        } catch {
+            print("역지오코딩 에러: \(error.localizedDescription)")
+        }
+        return "주소 없음"
     }
 }

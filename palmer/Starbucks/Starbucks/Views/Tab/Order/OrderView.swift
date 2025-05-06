@@ -11,7 +11,6 @@ struct OrderView: View {
     @State private var JSONViewModel: JSONParsingViewModel = .init()
     @State private var viewModel: OrderViewModel = .init()
     
-    @State var showSheet: Bool = false
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(alignment: .leading) {
@@ -31,7 +30,7 @@ struct OrderView: View {
             selectStoreView
         }
         .sheet(isPresented: $showSheet) {
-            OrderSheetView()
+            OrderSheetView(viewModel: JSONViewModel)
         }
     }
     
@@ -123,7 +122,7 @@ struct OrderView: View {
             ScrollView(.vertical, content: {
                 LazyVStack(spacing: 26, content: {
                     ForEach(viewModel.dummyOrderList, id: \.id) { list in
-                        OrderListItem(model: list)
+                        CoffeeListView(model: list)
                     }
                 })
             })

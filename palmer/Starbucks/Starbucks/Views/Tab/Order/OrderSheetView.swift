@@ -7,11 +7,13 @@
 
 import SwiftUI
 import CoreLocation
+import _MapKit_SwiftUI
 
 struct OrderSheetView: View {
     @State var isMap: Bool = false
     @State private var searchText: String = ""
     @State private var selectedTab = 0
+    @State private var hasDraggedMap: Bool = false
     
     @Bindable var viewModel: JSONParsingViewModel
     @Bindable private var locationManager: LocationManager = .shared
@@ -41,34 +43,11 @@ struct OrderSheetView: View {
             }
         }
         .onAppear {
-            locationManager.requestAuthorization()
-            locationManager.startUpdatingLocation()
-            
-            viewModel.loadStoreList { result in
-                switch result {
-                case .success(_):
-                    print("가까운 매장 반환")
-                case .failure(let error):
-                    print("store list error: \(error)")
-                }
-            }
+            viewModel.loadStores()
         }
-        .onChange(of: locationManager.currentLocation) {
-            if let location = locationManager.currentLocation {
-                // 정확도 50미터 이하인 위치만 사용
-                let desiredAccuracy: CLLocationAccuracy = 50
-                if location.horizontalAccuracy <= desiredAccuracy {
-                    viewModel.userLocation = location
-                    print(location.coordinate.latitude, location.coordinate.longitude )
-                }
-            }
+        .task {
+            await viewModel.calculateDistanceFromCurrentLocation()
         }
-        .onDisappear {
-            locationManager.stopUpdatingLocation()
-        }
-        .background(Color("white00"))
-        .padding(.horizontal, 32)
-        .presentationDragIndicator(.visible)
     }
     
     // 상단 네비게이션바
@@ -130,21 +109,19 @@ struct OrderSheetView: View {
             }
     }
     
+    // 매장 리스트 뷰
     private var storeListView: some View {
-        ScrollView {
-            if !$viewModel.sortedStores.isEmpty {
-                VStack(alignment: .leading, spacing: 16) {
-                    ForEach(Array(viewModel.sortedStores.enumerated()), id: \.element.id) { index, store in
-                        StoreCardView(store: store, distance: viewModel.distances[store.id])
+        ScrollView(.vertical, content: {
+            LazyVStack(spacing: 16, content: {
+                if let stores = viewModel.stores {
+                    ForEach(stores.indices, id: \.self) { index in
+                        StoreCardView(model: stores[index])
                             .padding(.top, index == 0 ? 28 : 0)
-                            .padding(.bottom, index == viewModel.sortedStores.count - 1 ? 24 : 0)
                     }
                 }
-            } else {
-                Text("가까운 매장이 존재하지 않습니다.")
-            }
-        }
-        .scrollIndicators(.hidden)
+            })
+        })
+        .padding(.horizontal, 32.5)
     }
     
     // 맵뷰
@@ -170,7 +147,6 @@ struct OrderSheetView: View {
                             }
                         })
                     })
-                    
                     UserAnnotation(anchor: .center)
                 }
             }
