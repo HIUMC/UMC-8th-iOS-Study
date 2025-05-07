@@ -39,7 +39,7 @@ struct MapListModel: Identifiable, Decodable {
 
         let coords = try geo.decode([Double].self, forKey: .coordinates)
 
-        image = ImageResource(name: "coffeeDetail1", bundle: .module)
+        image = ImageResource(name: "coffeeDetail1", bundle: .main)
         name = try props.decode(String.self, forKey: .name)
         address = try props.decode(String.self, forKey: .address)
         category = try props.decodeIfPresent(String.self, forKey: .category) ?? ""
