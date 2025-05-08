@@ -7,15 +7,21 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct ContentView: View {
+    @State var showCameraView: Bool = false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        Button(action: {
+            showCameraView.toggle()
+        }, label: {
+            Text("책 조회하기")
+                .font(.title)
+                .foregroundStyle(Color.black)
+        })
+        .fullScreenCover(isPresented: $showCameraView, content: {
+            ISBNScannerView()
+        })
     }
 }
 

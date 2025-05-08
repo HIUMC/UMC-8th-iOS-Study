@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5D5D67322DCC64B100DA21C1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5D5D67312DCC64B100DA21C1 /* Alamofire */; };
+		5D5D67352DCC679300DA21C1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5D5D67342DCC679300DA21C1 /* Kingfisher */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		5D5D67092DCB403B00DA21C1 /* week6Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = week6Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D5D67352DCC679300DA21C1 /* Kingfisher in Frameworks */,
+				5D5D67322DCC64B100DA21C1 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +72,8 @@
 			);
 			name = week6Project;
 			packageProductDependencies = (
+				5D5D67312DCC64B100DA21C1 /* Alamofire */,
+				5D5D67342DCC679300DA21C1 /* Kingfisher */,
 			);
 			productName = week6Project;
 			productReference = 5D5D67092DCB403B00DA21C1 /* week6Project.app */;
@@ -94,6 +103,10 @@
 			);
 			mainGroup = 5D5D67002DCB403B00DA21C1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5D5D67302DCC64B100DA21C1 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5D5D67332DCC679300DA21C1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5D5D670A2DCB403B00DA21C1 /* Products */;
 			projectDirPath = "";
@@ -254,6 +267,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"week6Project/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 접근 권한을 설정합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -282,6 +296,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"week6Project/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 접근 권한을 설정합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -322,6 +337,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5D5D67302DCC64B100DA21C1 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+		5D5D67332DCC679300DA21C1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.3.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5D5D67312DCC64B100DA21C1 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D5D67302DCC64B100DA21C1 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		5D5D67342DCC679300DA21C1 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D5D67332DCC679300DA21C1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5D5D67012DCB403B00DA21C1 /* Project object */;
 }
