@@ -45,6 +45,7 @@ struct OtherView: View {
                     Image("starhistory")
                 }
                 
+                
                 Button(action:{print("전자영수증")}) {
                     Image("receipt")
                 }
