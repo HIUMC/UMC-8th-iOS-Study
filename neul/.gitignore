@@ -1,0 +1,71 @@
+# Cleaned and safer .gitignore for Swift/Xcode projects
+# Keeps essential project files tracked, ignores only user-specific data
+
+### Swift + Xcode + Swift Package Manager ###
+
+## Xcode - User settings
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcworkspace/xcuserdata/
+
+## Xcode auto-generated files (ignore build outputs, keep project data)
+build/
+DerivedData/
+
+## Compatibility (older Xcode versions — still useful to ignore these)
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+## Xcode metadata (keep necessary project structure)
+*.xcscmblueprint
+*.xccheckout
+*.hmap
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Swift Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+## Swift Package Manager
+.build/
+Packages
+
+## CocoaPods (optional — comment/uncomment based on your setup)
+# Pods/
+
+## Carthage
+Carthage/Build/
+
+## Accio
+Dependencies/
+.accio/
+
+## fastlane (optional)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+## Code Injection
+iOSInjectionProject/
+
+## Workspace settings
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+## Others
+.DS_Store

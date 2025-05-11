@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "cardregister.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
