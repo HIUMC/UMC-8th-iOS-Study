@@ -11,12 +11,13 @@ struct SignUpView: View {
     @StateObject var viewModel = SignUpViewModel()
     @Environment(\.dismiss) var dismiss
     
+    
     var body: some View {
         VStack {
             textFieldView
             Spacer()
             Button(action:  {
-                viewModel.saveToAppStorage()
+                viewModel.saveToKeychain()
                 dismiss()
             }, label: {
                 Text("생성하기")

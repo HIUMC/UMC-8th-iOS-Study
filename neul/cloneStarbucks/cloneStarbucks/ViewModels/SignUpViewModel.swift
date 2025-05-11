@@ -35,6 +35,8 @@ class SignUpViewModel: ObservableObject {
     @Published var signUpModel: SignUpModel = SignUpModel(nickname: "", email: "", pwd: "")
     @Published var hasLoggedIn: Bool = false
     
+    let keychain = KeychainService.shared
+    
     public func saveToAppStorage() {
         if checkValidation() {
             nickname = signUpModel.nickname
@@ -45,7 +47,18 @@ class SignUpViewModel: ObservableObject {
         } else {
             print("저장 실패")
         }
-        
+    }
+    
+    func saveToKeychain() {
+        if checkValidation() {
+            let signUp = keychain.savePasswordToKeychain(email: signUpModel.email, service: "com.cloneStarbucks.login", password: signUpModel.pwd, nickname: signUpModel.nickname)
+            if signUp == errSecSuccess {
+                keychain.saveMasterKey(email: signUpModel.email, service: "com.cloneStarbucks.autoLogin")
+                print("회원가입 정보 저장 성공")
+            } else {
+                print("회원가입 정보 저장 실패:", signUp)
+            }
+        }
     }
     
     private func checkValidation() -> Bool {
@@ -53,6 +66,26 @@ class SignUpViewModel: ObservableObject {
                !signUpModel.email.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
                !signUpModel.pwd.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
+    
+    func getNickName() -> String {
+        if let savedId = keychain.load(account: "autoLogin", service: "com.cloneStarbucks.autoLogin") {
+            let savedInfo = keychain.loadLabel(account: savedId, service: "com.cloneStarbucks.login")
+            return savedInfo ?? "(작성한 닉네임)"
+        } else {
+            return "(작성한 닉네임)"
+        }
+    }
+    
+    func logOut() {
+        let deleteStatus = keychain.delete(account: "autoLogin", service: "com.cloneStarbucks.autoLogin")
+        if deleteStatus == errSecSuccess {
+            print("비밀번호 삭제 완료")
+        } else {
+            print("비밀번호 삭제 실패:", deleteStatus)
+        }
+    }
+        
+    
 
     
 }
