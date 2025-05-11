@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KakaoSDKUser
 
 struct LoginView: View {
     @State private var id = ""
@@ -67,12 +68,16 @@ struct LoginView: View {
                                 .foregroundStyle(Color.customGray2)
                         }
                         
-                        Image("KakaoLogin")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 306, height: 45)
+                        Button(action: {
+                            kakaoLogin()
+                        }) {
+                            Image("kakaoLogin")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 306, height: 45)
+                        }
                         
-                        Image("AppleLogin")
+                        Image("appleLogin")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 306, height: 45)
@@ -84,6 +89,54 @@ struct LoginView: View {
         .padding(.horizontal, 19)
         .padding(.bottom, 62.4)
     }
+    
+    func kakaoLogin() {
+        if UserApi.isKakaoTalkLoginAvailable() {
+            UserApi.shared.loginWithKakaoTalk { oauthToken, error in
+                if let error = error {
+                    print("❌ 카카오톡 로그인 실패:", error)
+                } else if let token = oauthToken {
+                    print("✅ 카카오톡 로그인 성공")
+                    print("accessToken: \(token.accessToken)")
+                    
+                    // 👉 유저 정보 불러오기 (선택)
+                    UserApi.shared.me { user, error in
+                        if let error = error {
+                            print("❌ 유저 정보 조회 실패:", error)
+                        } else {
+                            print("✅ 유저 정보:", user?.kakaoAccount?.email ?? "이메일 없음")
+                        }
+                        
+                        DispatchQueue.main.async {
+                            router.push(.home)
+                        }
+                    }
+                }
+            }
+        } else {
+            UserApi.shared.loginWithKakaoAccount { oauthToken, error in
+                if let error = error {
+                    print("❌ 카카오 계정 로그인 실패:", error)
+                } else if let token = oauthToken {
+                    print("✅ 카카오 계정 로그인 성공")
+                    print("accessToken: \(token.accessToken)")
+
+                    UserApi.shared.me { user, error in
+                        if let error = error {
+                            print("❌ 유저 정보 조회 실패:", error)
+                        } else {
+                            print("✅ 유저 정보:", user?.kakaoAccount?.email ?? "이메일 없음")
+                        }
+
+                        DispatchQueue.main.async {
+                            router.push(.home)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 

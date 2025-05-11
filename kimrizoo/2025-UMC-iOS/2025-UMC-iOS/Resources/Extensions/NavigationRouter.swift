@@ -12,6 +12,7 @@ enum Route: Hashable {
     case signup
     case cafeMenu(MenuDetailModel)
     case receipt
+    case home
 }
 
 class NavigationRouter: ObservableObject {
