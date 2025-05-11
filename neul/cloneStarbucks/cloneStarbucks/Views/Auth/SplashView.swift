@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SplashView: View {
     @EnvironmentObject var router: NavigationRouter
+    let keychain = KeychainService.shared
     
     var body: some View {
         ZStack(alignment: .center) {
@@ -21,7 +22,12 @@ struct SplashView: View {
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                router.push(.login)
+                if let savedId = keychain.load(account: "autoLogin", service: "com.cloneStarbucks.autoLogin") {
+                    print(savedId)
+                    router.push(.goToTab)
+                } else {
+                    router.push(.login)
+                }
             }
         }
     }

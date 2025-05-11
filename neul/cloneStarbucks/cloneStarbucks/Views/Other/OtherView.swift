@@ -54,6 +54,7 @@ struct OtherView: View {
                         .padding(.bottom, 16)
                     Spacer()
                     Button(action: {
+                        viewModel.logOut()
                         router.reset()
                     }, label: {
                         Image(.logout)
@@ -72,7 +73,7 @@ struct OtherView: View {
         VStack(spacing: 5) {
             HStack(spacing: 2) {
                 Group {
-                    Text("\(nickname)")
+                    Text("\(viewModel.getNickName())")
                         .foregroundStyle(Color.green01)
                     Text("님")
                         .foregroundStyle(Color.black02)

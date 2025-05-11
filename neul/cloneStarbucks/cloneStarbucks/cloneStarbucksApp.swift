@@ -7,12 +7,18 @@
 
 import SwiftUI
 import SwiftData
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 @main
 struct cloneStarbucksApp: App {
     @StateObject private var router = NavigationRouter()
     @StateObject private var parsingViewModel = JSONParsingViewModel()
     @StateObject private var mapViewModel = MapViewModel()
+    
+    init() {
+        KakaoSDK.initSDK(appKey: Config.nativeAppKey)
+    }
     
     var body: some Scene {
         WindowGroup {
@@ -36,6 +42,11 @@ struct cloneStarbucksApp: App {
                             MapContainerView()
                         }
                     }
+                    .onOpenURL(perform: { url in
+                            if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                                AuthController.handleOpenUrl(url: url)
+                            }
+                        })
             }
             .environmentObject(router)
             // router는 @ObservedObject가 아니고, 굳이 상태추적하거나 바인딩할 필요가 없기 때문에 @Environment로 넘겨주는 거임.

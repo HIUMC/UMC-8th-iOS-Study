@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import WebKit
 
 struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel = .init()
     @FocusState private var isFocused: Bool
     @EnvironmentObject var router: NavigationRouter
+    @Environment(\.openURL) var openURL
+    let networkManager: NetworkManager = .init()
+    @State var isWeb:Bool = false
+    @State private var htmlContent: String = ""
     
     var body: some View {
         VStack {
@@ -24,7 +29,15 @@ struct LoginView: View {
                 .frame(height: 144)
                 .padding(.bottom, 60)
         }
+        .sheet(isPresented: $isWeb, content: {
+            WebView(htmlContent: $htmlContent)
+        })
         .toolbar(.hidden, for: .navigationBar)
+        .onChange(of: viewModel.isLoggedIn) { _, newValue in
+            if newValue {
+                router.push(.ad)
+            }
+        }
     }
     
     private var topView: some View {
@@ -66,7 +79,7 @@ struct LoginView: View {
                 CustomUnderlineTextField(placeholder: field.label, text: field.binding)
             }
             Button(action:  {
-                if viewModel.login() {
+                if viewModel.keychainLogin() {
                     router.push(.ad)
                 } else {
                     print("다시 로그인하세요.")
@@ -98,7 +111,12 @@ struct LoginView: View {
                 Spacer()
                 
                 Button(action: {
-                    print("카카오 로그인 클릭됨")
+                    viewModel.kakaoLogin()
+                    /*Task {
+                        if let url = await networkManager.kakaoLogin() {
+                            openURL(url)
+                        }
+                    }*/
                 }) {
                     HStack {
                         Image("kakaoLogo")
@@ -136,6 +154,8 @@ struct LoginView: View {
                 }
         }
     }
+    
+    
 }
 
 
@@ -150,5 +170,22 @@ struct LoginView_Preview: PreviewProvider {
                 .previewDevice(PreviewDevice(rawValue: device))
                 .previewDisplayName(device)
         }
+    }
+}
+
+
+struct WebView: UIViewRepresentable {
+    typealias UIViewType = WKWebView
+    
+    @Binding var htmlContent: String
+       
+    func makeUIView(context: Context) -> WKWebView {
+        let webView = WKWebView()
+        webView.loadHTMLString(htmlContent, baseURL: nil)
+        return webView
+    }
+    
+    func updateUIView(_ webView: WKWebView, context: Context) {
+        webView.loadHTMLString(htmlContent, baseURL: nil)
     }
 }

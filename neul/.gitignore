@@ -69,3 +69,4 @@ iOSInjectionProject/
 
 ## Others
 .DS_Store
+*.xcconfig
