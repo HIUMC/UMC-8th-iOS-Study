@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4613aa60-d85b-4272-983e-639b05b9cbad" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Starbucks week6/Starbucks/Service/Credential.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Starbucks week6/Starbucks/Service/KeychainService.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Starbucks week6/Starbucks/Service/Secret.xcconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Starbucks week6/Starbucks/Service/TokenAuthenticator.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Starbucks week6/Starbucks/Service/TokenInfo.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Starbucks week6/Starbucks/Views/AppRootView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Week4/Starbucks week4/Starbucks.xcodeproj/project.xcworkspace/xcuserdata/kim0taek.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Week4/Starbucks week4/Starbucks.xcodeproj/project.xcworkspace/xcuserdata/kim0taek.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Week4/Starbucks week4/Starbucks/Views/baseTabView/OtherView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Week4/Starbucks week4/Starbucks/Views/baseTabView/OtherView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks.xcodeproj/project.xcworkspace/xcuserdata/kim0taek.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks.xcodeproj/project.xcworkspace/xcuserdata/kim0taek.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/AccentColor.colorset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/Vector.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/Vector.imageset/Vector.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/advertisement.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/advertisement.imageset/상당 광고 이미지.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/affogato.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/affogato.imageset/affogato.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/allProduct1.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/allProduct1.imageset/allProduct1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/allProduct2.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/allProduct2.imageset/allProduct2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/allProduct3.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/allProduct3.imageset/allProduct2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/allProduct4.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/allProduct4.imageset/allProduct3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/allProduct5.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/allProduct5.imageset/allProduct4.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/allProduct6.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/allProduct6.imageset/allProduct5.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/americano.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/americano.imageset/americano.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/americano_hot.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/americano_hot.imageset/americano_hot.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/applelogin.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/applelogin.imageset/애플 로그인.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/baristafavorite.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/baristafavorite.imageset/baristafavorite.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bearBanner.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bearBanner.imageset/banner.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem1.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem1.imageset/bestItem1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem2.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem2.imageset/bestItem2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem3.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem3.imageset/bestItem3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem4.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem4.imageset/bestItem4.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem5.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem5.imageset/bestItem5.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem6.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem6.imageset/bestItem6.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem7.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem7.imageset/bestItem7.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem8.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bestItem8.imageset/bestItem8.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bottledrink.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/bottledrink.imageset/bottledrink.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/breve.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/breve.imageset/breve.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/cake.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/cake.imageset/cake.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/cappuccino.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/cappuccino.imageset/cappuccino.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/caramel_hot.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/caramel_hot.imageset/caramel_hot.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/caramel_ice.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/caramel_ice.imageset/caramel_ice.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/card.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/card.imageset/card.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/cardChange.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/cardChange.imageset/cardChange.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/chocolate.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/chocolate.imageset/chocolate.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/coldbrewbanner.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/coldbrewbanner.imageset/coldbrewbanner.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/conpanna.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/conpanna.imageset/conpanna.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/cortado.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/cortado.imageset/cortado.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/coupon.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/coupon.imageset/coupon.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/couponHistory.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/couponHistory.imageset/couponHistory.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/createbutton.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/createbutton.imageset/생성 버튼.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/customerSound.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/customerSound.imageset/customerSound.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/deliverybanner.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/deliverybanner.imageset/deliverybanner.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/drive.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/drive.imageset/drive.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/eventBanner.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/eventBanner.imageset/eventBanner.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/home.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/home.imageset/home.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/icecappuccino.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/icecappuccino.imageset/icecappuccino.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/kakaologin.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/kakaologin.imageset/_카카오 로그인.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/logout.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/logout.imageset/logout.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/machiato.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/machiato.imageset/machiato.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/map.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/map.imageset/map.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/marker.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/marker.imageset/marker.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/minipie.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/minipie.imageset/minipie.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/mugbanner.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/mugbanner.imageset/mugbanner.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/my.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/my.imageset/my.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/myreceipt.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/myreceipt.imageset/receipt.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/myreview.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/myreview.imageset/my_review.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/new.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/new.imageset/new.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/newProduct1.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/newProduct1.imageset/newProduct1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/newProduct2.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/newProduct2.imageset/newProduct2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/newProduct3.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/newProduct3.imageset/newProduct3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/newProduct4.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/newProduct4.imageset/newProduct4.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/nuttycrossant.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/nuttycrossant.imageset/nuttycrossant.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/onlineStore1.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/onlineStore1.imageset/onlineStore1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/onlineStore2.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/onlineStore2.imageset/onlineStore2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/onlineStore3.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/onlineStore3.imageset/onlineStore3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/order.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/order.imageset/order.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/other.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/other.imageset/other.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/partnership.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/partnership.imageset/partnership.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/pay.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/pay.imageset/pay.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/ramericano.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/ramericano.imageset/americanpCold.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/ramericano_hot.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/ramericano_hot.imageset/hotamericano.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/rcaramel_hot.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/rcaramel_hot.imageset/machi.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/rcaramel_ice.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/rcaramel_ice.imageset/icemachi.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/rconpanna.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/rconpanna.imageset/conpana.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/reserve.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/reserve.imageset/reserve.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/return_info.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/return_info.imageset/return_info.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/right.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/right.imageset/icon.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/rmachiato.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/rmachiato.imageset/hotmachi.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/sausagepie.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/sausagepie.imageset/sausagepie.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/seoul.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/seoul.imageset/seoul.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/serviceSuscibe.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/serviceSuscibe.imageset/serviceSuscibe.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/shop.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/shop.imageset/shop.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/sizeupbanner.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/sizeupbanner.imageset/sizeupbanner.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/spicysausage.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/spicysausage.imageset/spicysausage.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/springreserve.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/springreserve.imageset/springreserve.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/starbanner.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/starbanner.imageset/starbanner.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/starbucslogo.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/starbucslogo.imageset/starbucsLogo.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/starhistory.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/starhistory.imageset/star_history.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/storeCare.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/storeCare.imageset/storeCare.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/storeInfo.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/storeInfo.imageset/storeInfo.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/top_img.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/top_img.imageset/top_img.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/zerodisposable.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Assets.xcassets/zerodisposable.imageset/zerodisposable.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Color.xcassets/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Color.xcassets/Tologin.colorset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Color.xcassets/close.colorset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Color.xcassets/delivery.colorset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Color.xcassets/email.colorset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Color.xcassets/hello.colorset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Color.xcassets/idpwd.colorset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Color.xcassets/login.colorset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Color.xcassets/otherback.colorset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Color.xcassets/progress.colorset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Color.xcassets/reward.colorset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Color.xcassets/seecontent.colorset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Color.xcassets/service.colorset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Color.xcassets/tabgreen.colorset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/BestItemsModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/CircleImageCardModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/CoffeeDetailModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/GeoJSON.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/LoginModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/MapData.geojson" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/MapListModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/Marker.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/MyModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/NavigationModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/NewProductsModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/OrderModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/ShopModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/SignupModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Models/WhatModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Preview Content/Preview Assets.xcassets/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Resources/Fonts.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Resources/Pretendard-Black.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Resources/Pretendard-Bold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Resources/Pretendard-ExtraBold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Resources/Pretendard-ExtraLight.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Resources/Pretendard-Light.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Resources/Pretendard-Medium.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Resources/Pretendard-Regular.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Resources/Pretendard-SemiBold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Resources/Pretendard-Thin.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/StarbucksApp.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/ViewModels/BestItemsViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/ViewModels/CoffeeDetailViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/ViewModels/HomeViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/ViewModels/LocationManager.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/ViewModels/LoginViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/ViewModels/MapListViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/ViewModels/MapViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/ViewModels/NavigationViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/ViewModels/NewProductsViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/ViewModels/OrderViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/ViewModels/OtherViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/ViewModels/ShopViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/ViewModels/SignupViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/ViewModels/WhatViewModel.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/AdView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/BottomTabView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/LoginView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/SignupView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/SplashView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/AllProductImageView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/BestItemsView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/BreadImageView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/CircleImageCardView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/HomeView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/MapView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/NewProductsView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/OrderCircleImage.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/OrderSheetView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/OrderView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/OtherView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/PayView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/ShopView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/StoreFindView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/WhatView.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/coffeeView/Coffee2View.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/coffeeView/Coffee3View.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/coffeeView/Coffee4View.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/coffeeView/Coffee5View.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/coffeeView/Coffee6View.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../week5/Starbucks week5/Starbucks/Views/baseTabView/coffeeView/CoffeeDetailView.swift" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2wmBHe3IeGyEqiZC0vtdbNjBDy7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.HttpMethodTest 빌드.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.HttpMethodTestApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;zero&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="HttpMethodTestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="HttpMethodTest.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.httptest.httpmethodtest.HttpMethodTestApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.109" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.109" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="4613aa60-d85b-4272-983e-639b05b9cbad" name="변경" comment="" />
+      <created>1746636782461</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1746636782461</updated>
+      <workItem from="1746636783720" duration="5036000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

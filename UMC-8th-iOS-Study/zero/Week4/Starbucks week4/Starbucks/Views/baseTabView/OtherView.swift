@@ -238,7 +238,7 @@ struct ReceiptView: View {
 
             Spacer()
 
-            ReceiptContentView()
+            //ReceiptContentView()
 
             Spacer()
         }
@@ -281,7 +281,7 @@ struct ReceiptTopBar: View {
 }
 
 
-struct ReceiptContentView: View {
+/*struct ReceiptContentView: View {
     @State private var selectedImage: UIImage?
     @State private var showPicker = false
     @State private var receiptItems: [ReceiptItem] = []
@@ -380,7 +380,7 @@ struct ReceiptItem: Identifiable {
     let amount: Int
 }
 
-
+*/
 
 #Preview {
     OtherView()
