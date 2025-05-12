@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "cortado.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
