@@ -9,25 +9,29 @@ import SwiftUI
 
 struct OtherView: View {
     @AppStorage("Nickname") private var nickname: String = ""
-    @FocusState var focusField: Field?
     @AppStorage("isLoggedIn") var isLoggedIn: Bool = false
+    @State private var isReceiptActive: Bool = false
 
-    
     var body: some View {
-        VStack {
-            topView
-            Spacer()
-            middleView
-            Spacer()
-            payView
-            Spacer()
-            customView
-            Spacer().frame(height: 92)
+        NavigationStack {
+            VStack {
+                topView
+                Spacer()
+                middleView
+                Spacer()
+                payView
+                Spacer()
+                customView
+                Spacer().frame(height: 92)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.gray7)
+            .navigationDestination(isPresented: $isReceiptActive) {
+                ReceiptsView()
+            }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.gray7)
     }
-    
+
     private var topView: some View {
         VStack(spacing: 16) {
             HStack {
@@ -44,7 +48,7 @@ struct OtherView: View {
         .frame(maxWidth: .infinity)
         .background(Color.white)
     }
-    
+
     private var middleView: some View {
         Group {
             HStack {
@@ -58,12 +62,14 @@ struct OtherView: View {
                 .font(.custom("Pretendard-SemiBold", size: 24))
             HStack(spacing: 10.5) {
                 MenuBtn(image: .starHistory, title: "별 히스토리")
-                MenuBtn(image: .receipt, title: "전자영수증")
+                MenuBtn(image: .receipt, title: "전자영수증") {
+                    isReceiptActive = true
+                }
                 MenuBtn(image: .my, title: "나만의 메뉴")
             }
         }
     }
-    
+
     private var payView: some View {
         VStack {
             HStack {
@@ -72,7 +78,7 @@ struct OtherView: View {
                 Spacer()
             }
             .padding(.horizontal, 10)
-            
+
             VStack(spacing: 32) {
                 HStack {
                     Btn(image: .card, title: "스타벅스 카드 등록")
@@ -87,13 +93,13 @@ struct OtherView: View {
             }
             .padding(.horizontal, 10)
             .padding(.top, 16)
-            
+
             Divider()
                 .frame(width: 320)
                 .padding(.leading, 10)
         }
     }
-    
+
     private var customView: some View {
         VStack {
             HStack {
@@ -102,7 +108,7 @@ struct OtherView: View {
                 Spacer()
             }
             .padding(.horizontal, 10)
-            
+
             VStack(spacing: 32) {
                 HStack {
                     Btn(image: .storeCare, title: "스타벅스 카드 등록")
@@ -123,14 +129,15 @@ struct OtherView: View {
             .padding(.top, 16)
         }
     }
-    
+
     struct MenuBtn: View {
         let image: ImageResource
         let title: String
-        
+        var action: (() -> Void)? = nil
+
         var body: some View {
             Button(action: {
-                print(title)
+                action?()
             }) {
                 VStack(spacing: 4) {
                     Spacer().frame(height: 19)
@@ -147,11 +154,11 @@ struct OtherView: View {
             }
         }
     }
-    
+
     struct Btn: View {
         let image: ImageResource
         let title: String
-        
+
         var body: some View {
             Button(action: {
                 print(title)
