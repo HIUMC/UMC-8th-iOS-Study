@@ -4,8 +4,19 @@
 <dict>
 	<key>CFBundleIdentifier</key>
 	<string></string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string></string>
+		</dict>
+	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>위치 정보 사용</string>
+	<key>CFBundleExecutable</key>
+	<string></string>
+	<key>CFBundleURLSchemes</key>
+	<string>kakao{4a44882e28b79e70bfb159cf7f6781bb}</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>앱이 백그라운드에서 위치를 사용 할 수 있습니다.</string>
 	<key>UIAppFonts</key>

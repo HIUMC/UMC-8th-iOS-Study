@@ -1,7 +1,7 @@
-
-
-
 import SwiftUI
+
+//MARK: -그냥.. 카카오에서 제공하는 SDK 사용
+
 import KakaoSDKAuth
 import KakaoSDKUser
 
@@ -70,12 +70,17 @@ struct LoginView: View {
                     .focused($focusField, equals: .password)
                 Divider()
                     .frame(width: 350)
-                    .background(focusField == .password ? Color("green1") : Color.gray.opacity(0.3))
+                    .background(focusField == .password ? Color("green01") : Color.gray.opacity(0.3))
             }
             .padding(.leading, 19)
             Button(action: {
-                print("로그인 버튼 클릭")
-                isLoggedIn = true
+                let storedEmail = KeychainAccountService.shared.load(for: .email)
+                let storedPassword = KeychainAccountService.shared.load(for: .password)
+                if viewModel.id == storedEmail && viewModel.password == storedPassword {
+                    isLoggedIn = true
+                } else {
+                    print("로그인 실패: 저장된 정보와 일치하지 않음")
+                }
             }) {
                 Text("로그인하기")
                     .font(.custom("Pretendard-Medium", size: 16))
@@ -99,7 +104,6 @@ struct LoginView: View {
             }
 
             VStack(spacing: 19) {
-                // 카카오톡 설치 여부에 따라 로그인 방식 분기
                 // 로그인 성공 시 accessToken을 키체인에 저장하고 로그인 상태 true 설정
                 Button(action: {
                     if UserApi.isKakaoTalkLoginAvailable() {
@@ -109,6 +113,12 @@ struct LoginView: View {
                             } else {
                                 if let accessToken = oauthToken?.accessToken {
                                     KeychainAccountService.shared.save(value: accessToken, for: .token) // accessToken을 키체인에 저장
+                                    // 사용자 정보 요청 (email 저장)
+                                    UserApi.shared.me { user, error in
+                                        if let email = user?.kakaoAccount?.email {
+                                            KeychainAccountService.shared.save(value: email, for: .email)
+                                        }
+                                    }
                                     isLoggedIn = true // 로그인 상태 저장 (다음 화면으로 전환 목적)
                                 }
                             }
@@ -120,6 +130,12 @@ struct LoginView: View {
                             } else {
                                 if let accessToken = oauthToken?.accessToken {
                                     KeychainAccountService.shared.save(value: accessToken, for: .token) // accessToken을 키체인에 저장
+                                    // 사용자 정보 요청 (email 저장)
+                                    UserApi.shared.me { user, error in
+                                        if let email = user?.kakaoAccount?.email {
+                                            KeychainAccountService.shared.save(value: email, for: .email)
+                                        }
+                                    }
                                     isLoggedIn = true // 로그인 상태 저장 (다음 화면으로 전환 목적)
                                 }
                             }
