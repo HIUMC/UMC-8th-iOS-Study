@@ -239,6 +239,7 @@ class KeychainService {
     
     public func saveToken(_ tokenInfo: TokenInfo) {
         let saveStatus = self.saveTokenInfo(tokenInfo)
+        print("저장하려는 토큰: \(tokenInfo)")
         print(saveStatus == errSecSuccess ? "저장 성공" : "저장 실패")
     }
     

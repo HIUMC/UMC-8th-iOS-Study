@@ -15,7 +15,8 @@ struct LoginView: View {
     @Environment(\.openURL) var openURL
     let networkManager: NetworkManager = .init()
     @State var isWeb:Bool = false
-    @State private var htmlContent: String = ""
+    @State private var url: URL?
+    @State private var redirectedURL: URL? = nil
     
     var body: some View {
         VStack {
@@ -30,7 +31,18 @@ struct LoginView: View {
                 .padding(.bottom, 60)
         }
         .sheet(isPresented: $isWeb, content: {
-            WebView(htmlContent: $htmlContent)
+            if let url = url {
+                WebView(url: url) { redirectedURL in
+                    Task {
+                        await networkManager.handleRedirect(url: redirectedURL)
+                    }
+                    
+                    isWeb = false
+                }
+            } else {
+                Text("wrong url")
+            }
+            
         })
         .toolbar(.hidden, for: .navigationBar)
         .onChange(of: viewModel.isLoggedIn) { _, newValue in
@@ -111,12 +123,14 @@ struct LoginView: View {
                 Spacer()
                 
                 Button(action: {
-                    viewModel.kakaoLogin()
-                    /*Task {
+                    //viewModel.kakaoLogin()
+                    Task {
                         if let url = await networkManager.kakaoLogin() {
-                            openURL(url)
+                            //openURL(url)
+                            self.url = url
+                            self.isWeb = true
                         }
-                    }*/
+                    }
                 }) {
                     HStack {
                         Image("kakaoLogo")
@@ -174,18 +188,47 @@ struct LoginView_Preview: PreviewProvider {
 }
 
 
+
 struct WebView: UIViewRepresentable {
-    typealias UIViewType = WKWebView
+    let url: URL
+    let onRedirect: (URL) -> Void
     
-    @Binding var htmlContent: String
-       
+    func makeCoordinator() -> Coordinator {
+        Coordinator(onRedirect: onRedirect)
+    }
+
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
-        webView.loadHTMLString(htmlContent, baseURL: nil)
+        webView.navigationDelegate = context.coordinator
         return webView
     }
-    
-    func updateUIView(_ webView: WKWebView, context: Context) {
-        webView.loadHTMLString(htmlContent, baseURL: nil)
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        uiView.load(URLRequest(url: url))
+    }
+
+    class Coordinator: NSObject, WKNavigationDelegate {
+        let onRedirect: (URL) -> Void
+        
+        init(onRedirect: @escaping (URL) -> Void) {
+            self.onRedirect = onRedirect
+        }
+
+        func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+            if let redirectedURL = navigationAction.request.url {
+                // 🔥 여기서 모든 이동 URL이 찍힘
+                print("📡 Redirect Attempt to: \(redirectedURL.absoluteString)")
+                
+                // 여기서 특정 URL 감지해서 처리 가능
+                if redirectedURL.absoluteString.contains("code=") {
+                    print("로그인 성공, redirect uri 감지됨")
+                    onRedirect(redirectedURL)
+                    decisionHandler(.cancel) // 웹뷰 내 로딩 막기
+                    return
+                }
+            }
+
+            decisionHandler(.allow)
+        }
     }
 }
