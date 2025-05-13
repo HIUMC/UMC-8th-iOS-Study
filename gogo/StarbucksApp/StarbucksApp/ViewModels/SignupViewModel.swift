@@ -13,4 +13,10 @@ class SignupViewModel  {
     var nickname: String = ""
     var email: String = ""
     var password: String = ""
+    
+    
+    public func getSignupData() -> (String, String, String) {
+        return (nickname, email, password)
+    }
+
 }

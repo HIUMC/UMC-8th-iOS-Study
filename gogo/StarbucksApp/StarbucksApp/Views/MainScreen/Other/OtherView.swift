@@ -32,30 +32,32 @@ struct OtherView: View {
     
     
     
-   
     
+   
+   
     var body: some View {
-        
-        ZStack {
-            Color.white
-                .ignoresSafeArea()
-            VStack {
-                topSection
-                    .padding(.top,68)
-                    .padding(.horizontal,23.5)
-                Spacer()
-                
-                mainContentView
-                
-                Spacer()
-                
-                customerServiceView
+        NavigationStack {
+            ZStack {
+                Color.white
+                    .ignoresSafeArea()
+                VStack {
+                    topSection
+                        .padding(.top,68)
+                        .padding(.horizontal,23.5)
+                    Spacer()
                     
-                
+                    mainContentView
                     
+                    Spacer()
                     
-                
-              
+                    customerServiceView
+                        
+                    
+                        
+                        
+                    
+                  
+                }
             }
         }
        
@@ -68,7 +70,7 @@ struct OtherView: View {
                 .foregroundStyle(.black01)
             Spacer()
                 
-            NavigationLink(destination: LoginView(viewModel:LoginViewModel())) {
+            NavigationLink(destination: LoginView()) {
                                 Image("logout")
                             }
             
@@ -116,9 +118,9 @@ struct OtherView: View {
                
                HStack(spacing: 10.5) {
                    ButtonView(icon: Image("star_history"), title: "별 히스토리")
-                   ButtonView(icon: Image("receipt"), title: "전자영수증", action: {
-                       router.push(.goToReceipt)
-                   })
+                   NavigationLink(destination: ReceiptView()) {
+                       ButtonView(icon: Image("receipt"), title: "전자영수증")
+                   }
                    ButtonView(icon: Image("cup"), title: "나만의 메뉴")
                }
                .padding(.top, 24)
@@ -205,5 +207,3 @@ struct OtherView_Preview: PreviewProvider {
         }
     }
 }
-
-
