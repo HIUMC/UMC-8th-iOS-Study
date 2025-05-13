@@ -19,7 +19,7 @@
 			<string>com.umc.neulbo.cloneStarbucks</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kakao2f106bf152ca4f1e2abf2230d526148c</string>
+				<string>kakao2f106bf152ca4f1e2abf2230d526148c//oauth</string>
 			</array>
 		</dict>
 	</array>
