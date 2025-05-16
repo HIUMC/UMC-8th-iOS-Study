@@ -4,50 +4,52 @@
 //
 //  Created by 박병선 on 3/24/25.
 //
-
-/*import SwiftUI
-
-/*@main
-struct StarbuckAppApp: App {
-    var body: some Scene {
-        WindowGroup {
-            SplashView()//앱이 실행될 때 가장 먼저 보여줄 View
-        }
-    }
-}
- */
-@main
-struct YourAppNameApp: App {
-    @AppStorage("isLoggedIn") var isLoggedIn = false
-
-    var body: some Scene {
-        WindowGroup {
-            if isLoggedIn {
-                           MyTabView()
-                               .modelContainer(for: Receipt.self)
-                       } else {
-                           LoginView(userInfo: LoginViewModel())
-                       }
-        }
-    }
-}*/
 import SwiftUI
 import SwiftData
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 @main
 struct MyApp: App {
     @AppStorage("isLoggedIn") var isLoggedIn: Bool = false
-    
+
+    init() {
+        KakaoSDK.initSDK(appKey: "6898bc7cbafc48a016922cee9e0dff52")
+    }
+
     var body: some Scene {
         WindowGroup {
-            if isLoggedIn {
-                        MyTabView()
-                      } else {
-                          LoginView(userInfo: LoginViewModel())
-                      }
-            //LoginView()
-            //MyTabView()
+            LoginHandlingView()
         }
-        //.modelContainer(for: Receipt.self)
     }
 }
+
+struct LoginHandlingView: View {
+        @AppStorage("isLoggedIn") var isLoggedIn: Bool = false
+
+        @State private var isLoginComplete = false
+
+        var body: some View {
+            Group {
+                if !isLoginComplete {
+                    Color.clear
+                        .onAppear {
+                            let email = KeychainService.shared.load(account: "email", service: "StarbuckApp")
+                            let password = KeychainService.shared.load(account: "password", service: "StarbuckApp")
+                            if let email = email, !email.isEmpty,
+                               let password = password, !password.isEmpty {
+                                isLoggedIn = true
+                            }
+                            isLoginComplete = true
+                        }
+                } else {
+                    if isLoggedIn {
+                        MyTabView()
+                    } else {
+                        LoginView()
+                    }
+                }
+            }
+        }
+    }
+

@@ -89,11 +89,15 @@ struct OrderSheetView: View {
                 .padding(.horizontal, 20)
                 .padding(.bottom, 8)
         }
+    
         
         private var segmentTabView: some View {
             HStack(spacing: 16) {
                 Button(action: {
                     selectedTab = .nearby
+                    if let userLoc = locationManager.currentLocation {
+                            viewModel.loadNearbyStores(userLocation: userLoc)
+                        }
                 }) {
                     Text("가까운 매장")
                         .font(.mainTextSemiBold13)
