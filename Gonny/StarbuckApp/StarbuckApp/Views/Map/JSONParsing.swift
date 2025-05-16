@@ -13,7 +13,7 @@ class JSONParsingViewModel {
     
     func loadStoreData(completion: @escaping (Result<StarbucksStoreModel, Error>) -> Void) {
         // JSON 파일 경로 찾기
-        guard let url = Bundle.main.url(forResource: "starbucks_2025data", withExtension: "json") else {
+        guard let url = Bundle.main.url(forResource: "starbucks_2025data", withExtension: "geojson") else {
             print("json 파일 없음")
             completion(.failure(NSError(domain: "파일 못찾아요!", code: 404, userInfo: nil)))
             return
