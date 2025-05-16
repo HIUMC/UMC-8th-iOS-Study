@@ -132,8 +132,8 @@ class ReceiptsViewModel {
             }
 
             // 결제 금액
-            if trimmed.contains("결제금액"), i + 4 < lines.count {
-                let priceLine = lines[i + 4].trimmingCharacters(in: .whitespaces)
+            if trimmed.contains("결제금액"), i + 3 < lines.count {
+                let priceLine = lines[i + 3].trimmingCharacters(in: .whitespaces)
                 let numberOnly = priceLine.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
                 if let amount = Int(numberOnly) {
                     totalAmount = amount

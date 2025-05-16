@@ -45,6 +45,7 @@ struct NavBarView: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: 50.0) // 이거 바 길이 조절 어떻게 해야 되는 건지....
+            
             //.frame(height: 60)
             //.frame(, height: 60)
             //.frame(maxWidth: .infinity, height: 60)

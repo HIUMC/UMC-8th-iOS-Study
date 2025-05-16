@@ -11,6 +11,7 @@ struct HybridMapView: UIViewRepresentable {
     @Binding var selectedCoordinate: CLLocationCoordinate2D?
     @Binding var cameraCenter: CLLocationCoordinate2D?
     @Binding var hasMoved: Bool
+    @Binding var markers: [Marker]  // viewModel에서 사용하는 구조체
 
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -30,14 +31,23 @@ struct HybridMapView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: MKMapView, context: Context) {
+        uiView.removeAnnotations(uiView.annotations)
+
+        // Add annotations for each marker
+        for marker in markers {
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = marker.coordinate
+            annotation.title = marker.title
+            uiView.addAnnotation(annotation)
+        }
+
+        // Add selected coordinate annotation if available
         if let coordinate = selectedCoordinate {
-            uiView.removeAnnotations(uiView.annotations)
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
             annotation.title = "선택한 위치"
             uiView.addAnnotation(annotation)
         }
-
     }
 
     // MARK: - Coordinator
@@ -58,10 +68,14 @@ struct HybridMapView: UIViewRepresentable {
             parent.selectedCoordinate = coordinate
         }
          
-        func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-            parent.cameraCenter = mapView.centerCoordinate // gpt 추가
-            parent.selectedCoordinate = mapView.centerCoordinate
-            parent.hasMoved = true
+        
+        func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {//지도의 영역을 변경할 때마다 mapViewDidChangeVisibleRegion이 자동으로 호출
+            DispatchQueue.main.async {
+                self.parent.cameraCenter = mapView.centerCoordinate
+                self.parent.selectedCoordinate = mapView.centerCoordinate
+                self.parent.hasMoved = true
+            }
         }
+       
     }
 }

@@ -11,8 +11,8 @@ import SwiftUI
 
 
 class CoffeeViewModel: ObservableObject {
-    @AppStorage("name") var storedNickname: String = ""
-    var homeViewName: String { storedNickname.isEmpty ? "(설정 닉네임)" : storedNickname }
+    @AppStorage("nickname") var nickname: String = "(작성한 닉네임)"
+    //var homeViewName: String { nickname.isEmpty ? "(설정 닉네임)" : nickname }
     
     var selectMenu: CoffeeModel? = CoffeeModel(title: "에스프레소 콘 파나", engTitle: "Espresso Con Panna", content: "신선한 에스프레소 샷에 풍부한 휘핑크림을 얹은 커피 음료로서, 뜨거운 커피의 맛과 차갑고 달콤한 생크림의 맛을 같이 즐길 수 있는 커피 음료", price: "4,100", choice: .hot,image: "conPanna", imageD: "confana")
     let recommendCoffeeList: [CoffeeModel] = [

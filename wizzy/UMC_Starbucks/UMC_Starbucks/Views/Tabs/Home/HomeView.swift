@@ -15,12 +15,14 @@ struct HomeView: View {
     var body: some View {
        NavigationStack{
             ZStack {
+                /*
                 if showPopup {
                     PopupView(showPopup: $showPopup)
                         .padding(.horizontal, 30)
                         .transition(.opacity)
                         .zIndex(1)
                 }
+                 */
                 
                 ScrollView {
                     VStack {
@@ -46,13 +48,17 @@ struct HomeView: View {
                         Spacer()
                         
                         WhatsNewView()
+                            .padding(.leading, 10)
                         ThreeBannerView()
+                        
                         DessertView()
+                            .padding(.leading, 20)
                         UnderBannerView()
                         
                     }
-                    .padding(.horizontal, 16)
+                    //.padding(.horizontal, 30) 해도 안 먹히네
                 }
+                .ignoresSafeArea() //스크롤뷰
                 
             }
             //.padding(.horizontal, 16)

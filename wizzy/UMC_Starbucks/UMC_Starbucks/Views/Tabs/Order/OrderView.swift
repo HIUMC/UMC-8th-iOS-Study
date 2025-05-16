@@ -173,7 +173,8 @@ struct SelectUnderBar: View {
         ZStack {
             Rectangle()
                 .fill(Color.black02)
-                .frame(width: 440, height: 80)
+                .frame(width: .infinity)
+                .frame(height: 80)
             VStack {
                 Button(action: {showSheet.toggle()}) {
                     VStack {
@@ -188,11 +189,14 @@ struct SelectUnderBar: View {
                         .padding(.horizontal, 20)
                         
                         Rectangle()
-                            .frame(width: 400, height: 1)
+                            .frame(width: .infinity)
+                            .frame(height: 1)
                             .foregroundStyle(Color.gray66)
+                            .padding(.horizontal, 20)
                     }
                 }
-                .frame(width: 440, height: 80) // 정해주기
+                .frame(width: .infinity)
+                .frame(height: 80) // 정해주기
             }
             .sheet(isPresented: $showSheet) {
                 //Text("여기에 매장 선택 Sheet 뷰 넣기")

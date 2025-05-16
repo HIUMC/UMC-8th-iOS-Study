@@ -14,36 +14,18 @@ struct PopupView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            /*
-             VStack() {
-             //.frame(maxWidth: .infinity, maxHeight: 720)
-             Image("PopupImage")
-             .resizable()
-             //.padding(.bottom, 106)
-             .aspectRatio(contentMode: .fill)
-             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 720)
-             .ignoresSafeArea()
-             //.padding(.bottom, 40)
-             //Spacer().frame(height: 100)
-             
-             //Spacer()
-             detailButton
-             //Spacer()
-             closeButton
-             //Spacer()
-             }
-             .frame(width: geometry.size.width, height: geometry.size.height)
-             
-             } //v
-             .ignoresSafeArea()
-             */
-            VStack(spacing: 0) {
+            
+            VStack(alignment: .center) {
                 Image("PopupImage") // 위쪽 이미지
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 720)
-                    .ignoresSafeArea()
+                    //.ignoresSafeArea()
                 
+                Spacer()
+                detailButton
+                closeButton
+                /*
                 // 아래 흰색 박스 영역
                 VStack(spacing: 0) {
                     Spacer()
@@ -56,11 +38,15 @@ struct PopupView: View {
                 }
                 //.frame(maxWidth: .infinity)
                 .background(Color.white)
+                */
             }
+            .background(Color.white)
             .frame(width: geometry.size.width, height: geometry.size.height)
+            //.toolbarVisibility(.hidden)
             
         }
         .ignoresSafeArea(edges: .vertical)
+        //.toolbarVisibility(.hidden)
     }
     
     
@@ -71,11 +57,13 @@ struct PopupView: View {
         }) {
             Text("자세히 보기")
                 .font(.PretendardMedium16)
-                .frame(width: 402, height: 58)
+                //.frame(width: 402, height: 58)
+                .frame(maxWidth: .infinity, minHeight: 58)
                 .background(Color.loginButtonGreen)
                 .foregroundStyle(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
         }
+        .padding(.horizontal, 20)
     }
     
     
@@ -92,7 +80,11 @@ struct PopupView: View {
                     .font(.PretendardLight14)
                     .foregroundStyle(Color.popupGray)
             }
-            .padding(.trailing, 19)
+            .padding(.top, 17)
+            .padding(.bottom, 35)
+            .padding(.trailing, 35)
+            
+            //.padding(.trailing, 19)
         } // h
     }
     

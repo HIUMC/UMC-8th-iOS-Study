@@ -45,7 +45,7 @@ struct OtherView: View {
                             } // h (닉네임 님)
                             .padding(.top, 5)
                             
-                            Text("환영합니다! 🙌🏻")
+                            Text("환영합니다!")
                         }
                         .font(.PretendardSemiBold24)
                         

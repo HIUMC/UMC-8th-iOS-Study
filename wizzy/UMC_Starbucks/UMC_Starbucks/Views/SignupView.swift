@@ -115,8 +115,19 @@ struct SignupView: View {
         Button(action: {
             if signviewModel.signupModel.nickname.count > 0 &&
                 signviewModel.signupModel.emailAccount.count > 0 &&
-                signviewModel.signupModel.password.count > 0 {signviewModel.saveUserData()
-                print("\(signviewModel.storedNickname)")
+                signviewModel.signupModel.password.count > 0 {
+                
+                signviewModel.saveUserData()
+                
+                let token = TokenInfo(
+                    accessToken: signviewModel.signupModel.emailAccount,
+                    refreshToken: signviewModel.signupModel.password,
+                    nickname: signviewModel.signupModel.nickname
+                )
+                KeychainService.shared.saveToken(token)
+
+                UserDefaults.standard.set(signviewModel.signupModel.nickname, forKey: "nickname")
+                print("✅ 저장된 닉네임:", signviewModel.signupModel.nickname)
                 dismiss()
             }
         }) {
@@ -136,4 +147,3 @@ struct SignupView: View {
         SignupView()
     }
 }
-
