@@ -36,7 +36,7 @@ struct DetailCoffeeView: View {
                     case .tabBar:
                         TabBarView()
                     case .login:
-                        LoginView(viewModel: LoginViewModel())
+                        LoginView()
                     case .detailCoffee:
                         DetailCoffeeView(viewModel: HomeViewModel())
                     case .ad:

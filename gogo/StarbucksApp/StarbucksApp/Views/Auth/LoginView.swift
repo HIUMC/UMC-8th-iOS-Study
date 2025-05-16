@@ -1,147 +1,164 @@
-//
-//  LoginViews.swift
-//  Starbucks_Week1_gogo
-//
-//  Created by 고석현 on 3/24/25.
-//
-
-// Mark: --내가 지금 뭘하니
-
 import SwiftUI
-import Observation
-import Foundation
+
+//MARK: -그냥.. 카카오에서 제공하는 SDK 사용
+
+import KakaoSDKAuth
+import KakaoSDKUser
 
 struct LoginView: View {
-    @FocusState private var focusedField: LoginField?
-    @EnvironmentObject var router: NavigationRouter
-    @Bindable var viewModel: LoginViewModel
-    
-    @AppStorage("storedEmail") private var storedEmail: String = ""
-    @AppStorage("storedPassword") private var storedPassword: String = ""
-    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
-    
-    enum LoginField {
-        case id
-        case password
-    }
-    
-    
+    @StateObject private var viewModel = LoginViewModel() // 로그인 상태 및 입력값 관리하는 뷰모델
+    @FocusState var focusField: Field? // 텍스트필드 포커스 관리
+    @AppStorage("isLoggedIn") var isLoggedIn: Bool = false // 로그인 상태를 UserDefaults로 관리
+
+    // MARK: - Body
     var body: some View {
-        VStack(alignment: .leading) {
-            topTitle
-                .padding(.top, 100)
-            Spacer()
-            idpassword
-                .frame(height: 180)
-            Spacer()
-            loginSelection
-                .frame(height: 144)
-                .padding(.bottom, 60)
-        }
-    }
-    
-    private var topTitle: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Image("minilogo")
-                    .resizable()
-                    .frame(width: 97, height: 95)
-                Spacer().frame(height: 28)
-                Text("안녕하세요. \n스타벅스입니다.")
-                    .foregroundStyle(.black)
-                    .font(.PretendardExtraBold24)
-                    .kerning(2)
-                    .padding(.bottom, 10)
-                Text("회원 서비스 이용을 위해 로그인 해주세요")
-                    .foregroundStyle(Color("gray01"))
-                    .font(.PretendardMedium16)
+        NavigationStack{
+            VStack {
+                Spacer().frame(height: 104)
+                topView
+                Spacer()
+                middleView
+                Spacer()
+                bottomView
+                Spacer()
             }
-            .padding(.leading, 20)
-            Spacer()
+            
+            
+            .ignoresSafeArea()
         }
     }
-    
-    var idpassword: some View {
+    // MARK: - Top View (로고 및 인삿말 영역)
+    private var topView: some View {
         VStack(alignment: .leading) {
-            TextField("아이디", text: $viewModel.id)
-                .focused($focusedField, equals: .id)
-            
-            Divider()
-                .frame(height: 0.7)
-                .background(focusedField == .id ? Color("green01") : Color("gray00"))
-                .padding(.bottom, 47)
-            
-            SecureField("비밀번호", text: $viewModel.password)
-                .focused($focusedField, equals: .password)
-            
-            Divider()
-                .frame(height: 0.7)
-                .background(focusedField == .password ? Color("green01") : Color("gray00"))
-                .padding(.bottom, 47)
-            
+            Image(.minilogo)
+                .resizable()
+                .frame(width: 96, height: 96)
+                .padding(.bottom, 28)
+
+            Text("안녕하세요.\n스타벅스입니다.")
+                .font(.custom("Pretendard-ExtraBold", size: 24))
+                .multilineTextAlignment(.leading)
+                .lineSpacing(5)
+                .padding(.bottom, 12)
+
+            Text("회원 서비스 이용을 위해 로그인 해주세요")
+                .font(.custom("Pretendard-Medium", size: 16))
+                .foregroundColor(Color.gray01)
+        }
+        .frame(maxWidth: 402, alignment: .leading)
+        .padding(.leading, 19)
+    }
+
+    // MARK: - Middle View (ID, PW 입력 및 로그인 버튼)
+    private var middleView: some View {
+        VStack(spacing: 47) {
+            VStack(alignment: .leading, spacing: 8) {
+                
+                TextField("아이디", text: $viewModel.id)
+                    .font(.custom("Pretendard-Regular", size: 13))
+                    .foregroundColor(Color.black)
+                    .focused($focusField, equals: .id)
+                Divider()
+                    .frame(width: 350)
+                    .background(focusField == .id ? Color("green01"): Color.gray.opacity(0.3))
+            }
+            .padding(.leading, 19)
+
+            VStack(alignment: .leading, spacing: 8) {
+                TextField("비밀번호", text: $viewModel.password)
+                    .font(.custom("Pretendard-Regular", size: 13))
+                    .focused($focusField, equals: .password)
+                Divider()
+                    .frame(width: 350)
+                    .background(focusField == .password ? Color("green01") : Color.gray.opacity(0.3))
+            }
+            .padding(.leading, 19)
             Button(action: {
-                print("로그인 버튼")
+                let storedEmail = KeychainAccountService.shared.load(for: .email)
+                let storedPassword = KeychainAccountService.shared.load(for: .password)
                 if viewModel.id == storedEmail && viewModel.password == storedPassword {
-                    print("성공적으로 로그인되었습니다!")
-                    router.push(.tabBar)
+                    isLoggedIn = true
                 } else {
-                    print("이메일과 패스워드가 다릅니다.")
+                    print("로그인 실패: 저장된 정보와 일치하지 않음")
                 }
             }) {
                 Text("로그인하기")
-                    .font(.PretendardMedium16)
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: 402, minHeight: 46)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(Color("green01"))
-                    )
-                    .contentShape(Rectangle())
-                    .background(Color.clear)
+                    .font(.custom("Pretendard-Medium", size: 16))
+                    .foregroundColor(.white)
+                    .frame(width: 382, height: 46)
+                    .background(Color("green01"))
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+            }
+
+        }
+    }
+
+    // MARK: - Bottom View (회원가입, 카카오/애플 로그인 버튼)
+    private var bottomView: some View {
+        VStack(spacing: 19) {
+            NavigationLink(destination:  SignupView(signupViewModel: SignupViewModel())) {
+                Text("이메일로 회원가입하기")
+                    .font(.custom("Pretendard-Regular", size: 12))
+                    .foregroundColor(.gray03)
+                    .underline()
+            }
+
+            VStack(spacing: 19) {
+                // 로그인 성공 시 accessToken을 키체인에 저장하고 로그인 상태 true 설정
+                Button(action: {
+                    if UserApi.isKakaoTalkLoginAvailable() {
+                        UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
+                            if let error = error {
+                                print("카카오톡 로그인 실패: \(error.localizedDescription)")
+                            } else {
+                                if let accessToken = oauthToken?.accessToken {
+                                    KeychainAccountService.shared.save(value: accessToken, for: .token) // accessToken을 키체인에 저장
+                                    // 사용자 정보 요청 (email 저장)
+                                    UserApi.shared.me { user, error in
+                                        if let email = user?.kakaoAccount?.email {
+                                            KeychainAccountService.shared.save(value: email, for: .email)
+                                        }
+                                    }
+                                    isLoggedIn = true // 로그인 상태 저장 (다음 화면으로 전환 목적)
+                                }
+                            }
+                        }
+                    } else {
+                        UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in
+                            if let error = error {
+                                print("카카오 계정 로그인 실패: \(error.localizedDescription)")
+                            } else {
+                                if let accessToken = oauthToken?.accessToken {
+                                    KeychainAccountService.shared.save(value: accessToken, for: .token) // accessToken을 키체인에 저장
+                                    // 사용자 정보 요청 (email 저장)
+                                    UserApi.shared.me { user, error in
+                                        if let email = user?.kakaoAccount?.email {
+                                            KeychainAccountService.shared.save(value: email, for: .email)
+                                        }
+                                    }
+                                    isLoggedIn = true // 로그인 상태 저장 (다음 화면으로 전환 목적)
+                                }
+                            }
+                        }
+                    }
+                }) {
+                    Image(.kakao)
+                        .resizable()
+                        .frame(width: 300, height: 45)
+                }
+                Image(.apple)
             }
         }
-        .padding(.horizontal, 20)
     }
     
-    private var loginSelection: some View {
-        VStack {
-            Button(action: { router.push(.signup)
-            }, label: {
-                Text("이메일로 회원가입하기")
-                    .foregroundColor(Color("black01"))
-                    .font(.PretendardRegular12)
-                    .underline()
-            })
-            
-            Image("kakao")
-                .padding(.bottom, 19)
-            
-            Image("apple")
-        }
-        .frame(maxWidth: .infinity, alignment: .center)
-    }
 }
-    
-struct LoginView_Preview: PreviewProvider {
-    static var devices = ["iPhone 11", "iPhone 16 Pro Max"]
-
-    static var previews: some View {
-        ForEach(devices, id: \.self) { device in
-            LoginView(viewModel: LoginViewModel())
-                .environmentObject(NavigationRouter())
-                .previewDevice(PreviewDevice(rawValue: device))
-                .previewDisplayName(device)
-        }
-    }
+// MARK: - FocusField 정의
+enum Field {
+    case id
+    case password
 }
 
-
-
-
-
-
-
-
+// MARK: - Preview
 #Preview {
-    LoginView(viewModel: LoginViewModel())
+    LoginView()
 }

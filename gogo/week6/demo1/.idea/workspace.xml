@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="07417b87-861e-4bf7-b48d-9b9fe4ec2430" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Assets.xcassets/Receipt/Order/mapicon.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Assets.xcassets/Receipt/Order/mapicon.imageset/lsicon_map-location-filled.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/Other/OtherMapView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp.xcodeproj/project.xcworkspace/xcuserdata/koh.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp.xcodeproj/project.xcworkspace/xcuserdata/koh.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Map/JSONParsingViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Map/JSONParsingViewModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Map/MapViewModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Map/MapViewModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Map/StarbucksStoreModel.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Map/StarbucksStoreModel.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Navigation/Route.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Navigation/Route.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/StarbucksAppApp.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/StarbucksAppApp.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/HomeView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/HomeView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/HomeView_Elements/DetailCoffeeView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/HomeView_Elements/DetailCoffeeView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/Order/OrderSheet.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/Order/OrderSheet.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/Order/OrderView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/Order/OrderView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/Order/StoreCircle.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/Order/StoreCircle.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/Order/StoreMapView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/Order/StoreMapView.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/Other/OtherView.swift" beforeDir="false" afterPath="$PROJECT_DIR$/../../StarbucksApp/StarbucksApp/Views/MainScreen/Other/OtherView.swift" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2wyuU73YBWMEiloQBQOqCBlJLq2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build demo1.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Demo1Application.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gogo&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Demo1Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="demo1.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.Demo1Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="07417b87-861e-4bf7-b48d-9b9fe4ec2430" name="Changes" comment="" />
+      <created>1747026148013</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747026148013</updated>
+      <workItem from="1747026149015" duration="882000" />
+      <workItem from="1747027047973" duration="29000" />
+      <workItem from="1747027084989" duration="95000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
