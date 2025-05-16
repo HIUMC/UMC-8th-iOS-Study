@@ -14,4 +14,5 @@ import SwiftUI
 class LoginViewModel {
     var id: String = ""
     var pwd: String = ""
+    var nickname: String = ""
 }

@@ -120,6 +120,7 @@ struct TabBarView: View {
             }
         }
         .tint(.green02)
+
         .onAppear {
             UITabBar.appearance().backgroundColor = .white
         }

@@ -5,7 +5,14 @@
 //  Created by 이서현 on 3/30/25.
 //
 
+
+// Alamofire .. URLSession 이해가 부족해서 지피티 범벅이라..,,,공부 더 하고 수정해서 pr 올리고 싶었는데 생각보다 시간이 안 났어유,,ㅠ,ㅡ
+//이번 주차 하기 전에 6주차 공부하고 스터디 때 들었던 피드백 반영해서 최대한 수정해서 오겠습니디ㅏ....
+// 지금까지 계속 네비게이션 스택을 썼는데 지금이라도 라우터로 바꾸는 게 좋은지 궁금해요!!!
+
+
 import SwiftUI
+import Alamofire
 
 struct LoginView: View {
     
@@ -15,10 +22,14 @@ struct LoginView: View {
     @FocusState private var isIdFocused: Bool // 포커스 상태 추적이라네..
     @FocusState private var isPwdFocused: Bool
     
-    
-    
-    @AppStorage("email") private var storedEmail: String = ""
-    @AppStorage("pwd") private var storedPassword: String = ""
+    @Environment(\.openURL) private var openURL
+
+    private var kakaoLoginURL: URL? {
+        let restAPIKey = "4f1fb1b08be15e4edf1d71003fb065ba"
+        let redirectURI = "http://kakao4f1fb1b08be15e4edf1d71003fb065ba://oauth"
+        let urlString = "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=\(restAPIKey)&redirect_uri=\(redirectURI)"
+        return URL(string: urlString)
+    }
     
     
     
@@ -32,13 +43,40 @@ struct LoginView: View {
                 idPwdGroup
                 Spacer()
                 loginGroup
-                
             }
-            
             .padding(.horizontal, 19)
             //.ignoresSafeArea(edges: .top)
+            .navigationDestination(isPresented: $isLoginOK) {
+                TabBarView()
+            }
+            .onAppear {
+                if let token = KeychainService.shared.loadTokenInfo() {
+                    print("Keychain에서 토큰 정보 불러옴: \(token)")
+                    
+                    // accessToken이 존재하면 로그인 성공 처리
+                    if !token.accessToken.isEmpty {
+                        // 닉네임 UserDefaults에도 저장
+                        UserDefaults.standard.set(token.nickname, forKey: "nickname")
+                        print("✅ 자동 로그인 시 닉네임 저장:", token.nickname)
+                        
+                        isLoginOK = true
+                    }
+                } else {
+                    print("ℹ️ Keychain에 저장된 토큰 없음")
+                }
+            }
+            .navigationBarBackButtonHidden(true)
+            .onOpenURL { url in
+                print("돌아온 URL: \(url)")
+                if url.scheme == "umcstarbucks", url.host == "oauth" {
+                    if let code = URLComponents(string: url.absoluteString)?
+                        .queryItems?.first(where: { $0.name == "code" })?.value {
+                        print("✅ 인가 코드 받음: \(code)")
+                        fetchToken(with: code)
+                    }
+                }
+            }
         }
-        
     }
     
     
@@ -129,14 +167,24 @@ struct LoginView: View {
             Spacer().frame(height: 47)
             
             Button(action: {
-                
-                if viewModel.id == storedEmail && viewModel.pwd == storedPassword {
-                        isLoginOK = true
-                    } else {
-                        print("아이디 또는 비밀번호가 틀렸습니다")
+                let token = TokenInfo(
+                    accessToken: viewModel.id,
+                    refreshToken: viewModel.pwd,
+                    nickname: viewModel.nickname
+                )
+                KeychainService.shared.saveToken(token)
+
+                if viewModel.nickname.isEmpty {
+                    if let saved = KeychainService.shared.loadTokenInfo() {
+                        UserDefaults.standard.set(saved.nickname, forKey: "nickname")
+                        print("Keychain에서 닉네임 가져와 저장:", saved.nickname)
                     }
-                
-                
+                } else {
+                    UserDefaults.standard.set(viewModel.nickname, forKey: "nickname")
+                    print("직접 입력한 닉네임 저장:", viewModel.nickname)
+                }
+
+                isLoginOK = true
             }) {
                 Text("로그인하기")
                     .font(.PretendardMedium16)
@@ -171,10 +219,18 @@ struct LoginView: View {
             
             HStack {
                 Spacer()
-                Image("kakaoLogin")
-                    .resizable()
-                    .frame(width: 306, height: 45)
-                    .aspectRatio(contentMode: .fit)
+                Button(action: {
+                    if let url = kakaoLoginURL {
+                        openURL(url)
+                    } else {
+                        print("카카오 로그인 URL 생성 실패")
+                    }
+                }) {
+                    Image("kakaoLogin")
+                        .resizable()
+                        .frame(width: 306, height: 45)
+                        .aspectRatio(contentMode: .fit)
+                }
                 Spacer()
             }
             .padding(.bottom, 16)
@@ -195,6 +251,65 @@ struct LoginView: View {
         
     }
 
+    private func fetchToken(with code: String) {
+        let url = "https://kauth.kakao.com/oauth/token"
+        let parameters: [String: String] = [
+            "grant_type": "authorization_code",
+            "client_id": "4f1fb1b08be15e4edf1d71003fb065ba",
+            "redirect_uri": "http://kakao4f1fb1b08be15e4edf1d71003fb065ba://oauth",
+            "code": code
+        ]
+
+        AF.request(url, method: .post, parameters: parameters)
+            .validate(statusCode: 200..<300)
+            .responseDecodable(of: TokenResponse.self) { response in
+                switch response.result {
+                case .success(let token):
+                    print("Access Token: \(token.access_token)")
+
+                    let headers: HTTPHeaders = [
+                        "Authorization": "Bearer \(token.access_token)"
+                    ]
+
+                    AF.request("https://kapi.kakao.com/v2/user/me", headers: headers)
+                        .validate()
+                        .responseDecodable(of: KakaoUserResponse.self) { profileResponse in
+                            switch profileResponse.result {
+                            case .success(let user):
+                                let nickname = user.kakao_account.profile.nickname
+                                print("사용자 닉네임:", nickname)
+
+                                let tokenInfo = TokenInfo(
+                                    accessToken: token.access_token,
+                                    refreshToken: token.refresh_token,
+                                    nickname: nickname
+                                )
+                                KeychainService.shared.saveToken(tokenInfo)
+                                UserDefaults.standard.set(nickname, forKey: "nickname") //값을 저장/조회할 때 사용하는 이름표
+
+                                print("UserDefaults 저장된 닉네임:", UserDefaults.standard.string(forKey: "nickname") ?? "nil")
+
+                            case .failure(let error):
+                                print("사용자 정보 요청 실패:", error)
+                            }
+                        }
+                case .failure(let error):
+                    print("토큰 요청 실패:", error)
+                    if let data = response.data,
+                       let body = String(data: data, encoding: .utf8) {
+                        print("응답 본문:\n\(body)")
+                    }
+                }
+            }
+    }
+
+    private struct TokenResponse: Decodable {
+        let access_token: String
+        let token_type: String
+        let refresh_token: String
+        let expires_in: Int
+    }
+
 
 
 struct SwiftUIView_Preview: PreviewProvider {
@@ -209,3 +324,21 @@ struct SwiftUIView_Preview: PreviewProvider {
     }
 }
 
+// MARK: - Kakao User Info Models
+
+private struct KakaoUserResponse: Decodable {
+    let id: Int
+    let kakao_account: KakaoAccount
+}
+
+private struct KakaoAccount: Decodable {
+    let profile: KakaoProfile
+}
+
+private struct KakaoProfile: Decodable {
+    let nickname: String
+}
+
+
+// WebView 를 만들어서..?? 띄워봐라 ? 리다이렉트 핸들링 -> 사용하기?
+// SDK  구현해보기

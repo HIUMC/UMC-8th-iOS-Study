@@ -14,7 +14,7 @@ struct RecommendView: View {
         VStack(alignment: .leading) {
             HStack {
                 Group {
-                    Text("\(recoviewModel.homeViewName)")
+                    Text("\(recoviewModel.nickname)")
                         .foregroundStyle(Color.brown02)
                         .padding(.leading, 19)
                     Text("님을 위한 추천 메뉴")

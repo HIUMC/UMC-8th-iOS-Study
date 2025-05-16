@@ -33,13 +33,13 @@ class SignupViewModel {
 class SignupViewModel: ObservableObject {
     @Published var signupModel = SignupModel(nickname: "", emailAccount: "", password: "")
     
-    @AppStorage("nickname") var storedNickname: String = ""
-    @AppStorage("email") var storedEmailAccount: String = ""
-    @AppStorage("pwd") var storedPassword: String = ""
+    @AppStorage("nickname") var nickname: String = ""
+    @AppStorage("email") var email: String = ""
+    @AppStorage("pwd") var pwd: String = ""
 
     func saveUserData() { //지피티의 도움..
-        storedNickname = signupModel.nickname
-        storedEmailAccount = signupModel.emailAccount
-        storedPassword = signupModel.password
+        nickname = signupModel.nickname
+        email = signupModel.emailAccount
+        pwd = signupModel.password
     }
 }

@@ -12,6 +12,24 @@ struct SheetView: View {
     
     var body: some View {
         VStack(spacing: 0) {
+            ZStack {
+                Text("매장 설정")
+                    .font(.PretendardMedium16)
+                    .kerning(-0.8)
+
+                HStack {
+                    Spacer()
+                    Button(action: { showMap.toggle() }) {
+                        Image(systemName: showMap ? "list.bullet" : "map")
+                            .resizable()
+                            .frame(width: 18, height: 17)
+                            .foregroundStyle(Color.black02)
+                    }
+                }
+            }
+            .padding(.vertical, 24)
+            .padding(.horizontal, 23)
+            /*
             HStack {
                 Spacer()
                 Text("매장 설정")
@@ -26,6 +44,7 @@ struct SheetView: View {
             }
             .padding(.vertical, 24)
             //.padding(.horizontal, 36)
+            */
 
             // SearchBar 항상 상단 고정
             SearchBar()
@@ -34,17 +53,17 @@ struct SheetView: View {
                 ScrollView {
                     VStack(spacing: 0) {
                         if showMap {
-                            HStack {
+                           
                                 MapView()
-                                Spacer(minLength: 0)
-                            }
+                                //Spacer(minLength: 0)
+                            
                             .frame(minHeight: geometry.size.height)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(maxWidth: .infinity)
                         } else {
                             VStack {
                                 storeBar()
                                 JSONParsingView()
-                                    .padding(.horizontal, 23)
+                                    //.padding(.horizontal, 23)
                                 //HybridMapView()
                             }
                             .frame(minHeight: geometry.size.height)
@@ -52,15 +71,17 @@ struct SheetView: View {
                         }
 
                         Divider()
-                            .foregroundStyle(Color.gray07)
-                            .frame(width: 440, height: 1)
+                            .foregroundStyle(Color.green02)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 1)
                             .padding(.top, 15)
                             .padding(.horizontal)
                     }
                 }
+
             }
         }
-        .padding(.horizontal, 30)
+        //
         
     }//body
 }//struct

@@ -5,10 +5,8 @@
 //  Created by 이서현 on 4/7/25.
 //
 
-// 너무 얼레벌레인데 우선.... 이렇게 내겠습니다..ㅠ ㅜ,ㅜㅜ..ㅜㅜㅜ
-// 시험 끝나고 3주차 피드백 포함해서 수정해보겠습니다!!!!!!!!!
 
-// NavBar 너비랑~.. 사진 버튼 안 열리는 거랑~.. 결제금액 안 뜨는 거랑~.... ..
+// 결제금액 왜 안 뜨지.... ..
 
 import SwiftUI
 import Observation
@@ -39,8 +37,6 @@ struct ReceiptView: View {
                     //.frame(width: 420, height: CGFloat(70))
                     
                     receiptHeaderSummaryView
-                    
-                    //GetImage(images: $viewModel.images)
                     Spacer()
                     
                     if !viewModel.ocrResults.isEmpty {
@@ -49,26 +45,15 @@ struct ReceiptView: View {
                                 receiptListView
                             }
                             .padding(.horizontal, 19)
+                            .padding(.top, 16)
                         }
                         
                     }
-                    /*
-                     ScrollView(.horizontal) {
-                     HStack {
-                     ForEach(viewModel.getImages(), id: \.self) { image in
-                     Image(uiImage: image)
-                     .resizable()
-                     .scaledToFill()
-                     .frame(width: 100, height: 100)
-                     .clipped()
-                     }
-                     }
-                     }
-                     */
+                    
                     
                 } // v3
                 
-                .padding(.horizontal, 19) // 양옆
+                //.padding(.horizontal, 30) // 양옆
                 .navigationBarBackButtonHidden(true) // 기본 뒤로가기 버튼 숨기기
                 //.toolbar(content: receiptToolbar)
                 .confirmationDialog("영수증을 어떻게 추가할까요?", isPresented: $showActionSheet, titleVisibility: .visible) {
@@ -149,6 +134,7 @@ struct ReceiptView: View {
                     .fontWeight(.semibold)
             }
         }
+        .padding(.horizontal, 17)
     }
 
     /*
@@ -197,8 +183,9 @@ struct ReceiptView: View {
                     Text("₩\(result.receipt.totalAmount.formattedWithComma())원")
                         .font(.headline)
                         .foregroundColor(.brown01)
-                    Rectangle()
-                        .frame(width: 402, height: 0.7)
+                    Rectangle() // 이 부분 고정된 거 빼니까 괜찮아지네..
+                        .frame(width: .infinity)
+                        .frame(height: 0.7)
                         .foregroundStyle(Color.signupGray)
                         .padding(.top, 10)
                 }
