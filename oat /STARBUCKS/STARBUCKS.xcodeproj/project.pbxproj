@@ -1,0 +1,771 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E30BBF92DC48255006E7292 /* FindStoreView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E30BBF82DC48255006E7292 /* FindStoreView .swift */; };
+		6E4761632D9677E0006E1C4D /* WhatsNewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4761622D9677E0006E1C4D /* WhatsNewModel.swift */; };
+		6E47616D2D9685F5006E1C4D /* DessertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E47616C2D9685F5006E1C4D /* DessertModel.swift */; };
+		6E4761732D96925B006E1C4D /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4761722D96925B006E1C4D /* DetailModel.swift */; };
+		6E5B43292DBFB24900B4E77E /* CoffeeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5B43282DBFB24900B4E77E /* CoffeeMenu.swift */; };
+		6E5B432D2DBFC50500B4E77E /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5B432C2DBFC50500B4E77E /* StoreModel.swift */; };
+		6E5B432F2DBFC61B00B4E77E /* FeatureModel .swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5B432E2DBFC61B00B4E77E /* FeatureModel .swift */; };
+		6E5B43312DBFC67300B4E77E /* StoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5B43302DBFC67300B4E77E /* StoreDataManager.swift */; };
+		6E79C28C2DA008D200D3B726 /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E79C28B2DA008D200D3B726 /* BannerModel.swift */; };
+		6E79C29A2DA0107200D3B726 /* AllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E79C2992DA0107200D3B726 /* AllModel.swift */; };
+		6E79C30E2DA01DE900D3B726 /* NewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E79C30D2DA01DE900D3B726 /* NewModel.swift */; };
+		6E7E88FA2DC3C5CF00367D2B /* StoreMapViewUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E88F92DC3C5CF00367D2B /* StoreMapViewUIKit.swift */; };
+		6E909B022DA02CB60046DF12 /* BestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E909B012DA02CB60046DF12 /* BestModel.swift */; };
+		6E95C78E2D93D8C60093C40F /* SignupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E95C78D2D93D8C60093C40F /* SignupModel.swift */; };
+		6EB7EC302D901E3800BAEBD8 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB7EC2F2D901E3800BAEBD8 /* LoginModel.swift */; };
+		6EBD5C562DD2611D00EDA212 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6EBD5C552DD2611D00EDA212 /* Alamofire */; };
+		6EBD5C592DD2669300EDA212 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6EBD5C582DD2669300EDA212 /* KakaoSDKAuth */; };
+		6EBD5C5B2DD2669D00EDA212 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 6EBD5C5A2DD2669D00EDA212 /* KakaoSDKUser */; };
+		6EBD5C5D2DD266BB00EDA212 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 6EBD5C5C2DD266BB00EDA212 /* KakaoSDK */; };
+		6EC8A3462D95A75C00F2C2E1 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC8A3452D95A75C00F2C2E1 /* HomeModel.swift */; };
+		6ECA06DB2D963AD5005D9D22 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECA06DA2D963AD5005D9D22 /* RecommendModel.swift */; };
+		6EFD74242DC237A800D041A5 /* 스타벅스_2025 데이터.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 6EFD74012DC237A800D041A5 /* 스타벅스_2025 데이터.geojson */; };
+		6EFD742E2DC237A800D041A5 /* OrderSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD74072DC237A800D041A5 /* OrderSheetView.swift */; };
+		6EFD74302DC237A800D041A5 /* StoreMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFD74092DC237A800D041A5 /* StoreMapView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6EB7EBE72D901E0C00BAEBD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EB7EBCE2D901E0A00BAEBD8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6EB7EBD52D901E0A00BAEBD8;
+			remoteInfo = STARBUCKS;
+		};
+		6EB7EBF12D901E0C00BAEBD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EB7EBCE2D901E0A00BAEBD8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6EB7EBD52D901E0A00BAEBD8;
+			remoteInfo = STARBUCKS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6E30BBF82DC48255006E7292 /* FindStoreView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FindStoreView .swift"; sourceTree = "<group>"; };
+		6E4761622D9677E0006E1C4D /* WhatsNewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewModel.swift; sourceTree = "<group>"; };
+		6E47616C2D9685F5006E1C4D /* DessertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertModel.swift; sourceTree = "<group>"; };
+		6E4761722D96925B006E1C4D /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		6E5B43282DBFB24900B4E77E /* CoffeeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeMenu.swift; sourceTree = "<group>"; };
+		6E5B432C2DBFC50500B4E77E /* StoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
+		6E5B432E2DBFC61B00B4E77E /* FeatureModel .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeatureModel .swift"; sourceTree = "<group>"; };
+		6E5B43302DBFC67300B4E77E /* StoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataManager.swift; sourceTree = "<group>"; };
+		6E79C28B2DA008D200D3B726 /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
+		6E79C2992DA0107200D3B726 /* AllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllModel.swift; sourceTree = "<group>"; };
+		6E79C30D2DA01DE900D3B726 /* NewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewModel.swift; sourceTree = "<group>"; };
+		6E7E88F92DC3C5CF00367D2B /* StoreMapViewUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMapViewUIKit.swift; sourceTree = "<group>"; };
+		6E909B012DA02CB60046DF12 /* BestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestModel.swift; sourceTree = "<group>"; };
+		6E95C78D2D93D8C60093C40F /* SignupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModel.swift; sourceTree = "<group>"; };
+		6EB7EBD62D901E0A00BAEBD8 /* STARBUCKS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STARBUCKS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EB7EBE62D901E0C00BAEBD8 /* STARBUCKSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = STARBUCKSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EB7EBF02D901E0C00BAEBD8 /* STARBUCKSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = STARBUCKSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EB7EC2F2D901E3800BAEBD8 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		6EC8A3452D95A75C00F2C2E1 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		6ECA06DA2D963AD5005D9D22 /* RecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
+		6EFD74012DC237A800D041A5 /* 스타벅스_2025 데이터.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = "스타벅스_2025 데이터.geojson"; sourceTree = "<group>"; };
+		6EFD74072DC237A800D041A5 /* OrderSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSheetView.swift; sourceTree = "<group>"; };
+		6EFD74092DC237A800D041A5 /* StoreMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMapView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6E230A4C2D92BB7B0084A7BA /* Exceptions for "STARBUCKS" folder in "STARBUCKS" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 6EB7EBD52D901E0A00BAEBD8 /* STARBUCKS */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		6E5B30A92DD867ED003604EF /* week6 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = week6;
+			sourceTree = "<group>";
+		};
+		6E6B548E2D92F69D009945BC /* ViewModels */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6EB7EBD82D901E0A00BAEBD8 /* STARBUCKS */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6E230A4C2D92BB7B0084A7BA /* Exceptions for "STARBUCKS" folder in "STARBUCKS" target */,
+			);
+			path = STARBUCKS;
+			sourceTree = "<group>";
+		};
+		6EB7EBE92D901E0C00BAEBD8 /* STARBUCKSTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = STARBUCKSTests;
+			sourceTree = "<group>";
+		};
+		6EB7EBF32D901E0C00BAEBD8 /* STARBUCKSUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = STARBUCKSUITests;
+			sourceTree = "<group>";
+		};
+		6EB7EC322D901F0700BAEBD8 /* Font */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Font;
+			sourceTree = "<group>";
+		};
+		6EB7EC4A2D901F5200BAEBD8 /* Views */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6EB7EBD32D901E0A00BAEBD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EBD5C562DD2611D00EDA212 /* Alamofire in Frameworks */,
+				6EBD5C5D2DD266BB00EDA212 /* KakaoSDK in Frameworks */,
+				6EBD5C592DD2669300EDA212 /* KakaoSDKAuth in Frameworks */,
+				6EBD5C5B2DD2669D00EDA212 /* KakaoSDKUser in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB7EBE32D901E0C00BAEBD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB7EBED2D901E0C00BAEBD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6EB7EBCD2D901E0A00BAEBD8 = {
+			isa = PBXGroup;
+			children = (
+				6E5B30A92DD867ED003604EF /* week6 */,
+				6EFD74582DC2574000D041A5 /* map */,
+				6EB7EC2E2D901E2100BAEBD8 /* Models */,
+				6EB7EBD82D901E0A00BAEBD8 /* STARBUCKS */,
+				6EB7EBE92D901E0C00BAEBD8 /* STARBUCKSTests */,
+				6EB7EBF32D901E0C00BAEBD8 /* STARBUCKSUITests */,
+				6EB7EBD72D901E0A00BAEBD8 /* Products */,
+				6EB7EC322D901F0700BAEBD8 /* Font */,
+				6EB7EC4A2D901F5200BAEBD8 /* Views */,
+				6E6B548E2D92F69D009945BC /* ViewModels */,
+				6EBD5C542DD2611D00EDA212 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6EB7EBD72D901E0A00BAEBD8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6EB7EBD62D901E0A00BAEBD8 /* STARBUCKS.app */,
+				6EB7EBE62D901E0C00BAEBD8 /* STARBUCKSTests.xctest */,
+				6EB7EBF02D901E0C00BAEBD8 /* STARBUCKSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6EB7EC2E2D901E2100BAEBD8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6EB7EC2F2D901E3800BAEBD8 /* LoginModel.swift */,
+				6E5B43282DBFB24900B4E77E /* CoffeeMenu.swift */,
+				6E79C2992DA0107200D3B726 /* AllModel.swift */,
+				6E79C28B2DA008D200D3B726 /* BannerModel.swift */,
+				6E5B432E2DBFC61B00B4E77E /* FeatureModel .swift */,
+				6E4761722D96925B006E1C4D /* DetailModel.swift */,
+				6E909B012DA02CB60046DF12 /* BestModel.swift */,
+				6E79C30D2DA01DE900D3B726 /* NewModel.swift */,
+				6E47616C2D9685F5006E1C4D /* DessertModel.swift */,
+				6E95C78D2D93D8C60093C40F /* SignupModel.swift */,
+				6EC8A3452D95A75C00F2C2E1 /* HomeModel.swift */,
+				6ECA06DA2D963AD5005D9D22 /* RecommendModel.swift */,
+				6E4761622D9677E0006E1C4D /* WhatsNewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6EBD5C542DD2611D00EDA212 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6EFD74582DC2574000D041A5 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				6EFD74072DC237A800D041A5 /* OrderSheetView.swift */,
+				6E5B43302DBFC67300B4E77E /* StoreDataManager.swift */,
+				6E30BBF82DC48255006E7292 /* FindStoreView .swift */,
+				6E7E88F92DC3C5CF00367D2B /* StoreMapViewUIKit.swift */,
+				6E5B432C2DBFC50500B4E77E /* StoreModel.swift */,
+				6EFD74092DC237A800D041A5 /* StoreMapView.swift */,
+				6EFD74012DC237A800D041A5 /* 스타벅스_2025 데이터.geojson */,
+			);
+			path = map;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6EB7EBD52D901E0A00BAEBD8 /* STARBUCKS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EB7EBFA2D901E0C00BAEBD8 /* Build configuration list for PBXNativeTarget "STARBUCKS" */;
+			buildPhases = (
+				6EB7EBD22D901E0A00BAEBD8 /* Sources */,
+				6EB7EBD32D901E0A00BAEBD8 /* Frameworks */,
+				6EB7EBD42D901E0A00BAEBD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6E5B30A92DD867ED003604EF /* week6 */,
+				6E6B548E2D92F69D009945BC /* ViewModels */,
+				6EB7EBD82D901E0A00BAEBD8 /* STARBUCKS */,
+				6EB7EC322D901F0700BAEBD8 /* Font */,
+				6EB7EC4A2D901F5200BAEBD8 /* Views */,
+			);
+			name = STARBUCKS;
+			packageProductDependencies = (
+				6EBD5C552DD2611D00EDA212 /* Alamofire */,
+				6EBD5C582DD2669300EDA212 /* KakaoSDKAuth */,
+				6EBD5C5A2DD2669D00EDA212 /* KakaoSDKUser */,
+				6EBD5C5C2DD266BB00EDA212 /* KakaoSDK */,
+			);
+			productName = STARBUCKS;
+			productReference = 6EB7EBD62D901E0A00BAEBD8 /* STARBUCKS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6EB7EBE52D901E0C00BAEBD8 /* STARBUCKSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EB7EBFD2D901E0C00BAEBD8 /* Build configuration list for PBXNativeTarget "STARBUCKSTests" */;
+			buildPhases = (
+				6EB7EBE22D901E0C00BAEBD8 /* Sources */,
+				6EB7EBE32D901E0C00BAEBD8 /* Frameworks */,
+				6EB7EBE42D901E0C00BAEBD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6EB7EBE82D901E0C00BAEBD8 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6EB7EBE92D901E0C00BAEBD8 /* STARBUCKSTests */,
+			);
+			name = STARBUCKSTests;
+			packageProductDependencies = (
+			);
+			productName = STARBUCKSTests;
+			productReference = 6EB7EBE62D901E0C00BAEBD8 /* STARBUCKSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6EB7EBEF2D901E0C00BAEBD8 /* STARBUCKSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EB7EC002D901E0C00BAEBD8 /* Build configuration list for PBXNativeTarget "STARBUCKSUITests" */;
+			buildPhases = (
+				6EB7EBEC2D901E0C00BAEBD8 /* Sources */,
+				6EB7EBED2D901E0C00BAEBD8 /* Frameworks */,
+				6EB7EBEE2D901E0C00BAEBD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6EB7EBF22D901E0C00BAEBD8 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				6EB7EBF32D901E0C00BAEBD8 /* STARBUCKSUITests */,
+			);
+			name = STARBUCKSUITests;
+			packageProductDependencies = (
+			);
+			productName = STARBUCKSUITests;
+			productReference = 6EB7EBF02D901E0C00BAEBD8 /* STARBUCKSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6EB7EBCE2D901E0A00BAEBD8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					6EB7EBD52D901E0A00BAEBD8 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					6EB7EBE52D901E0C00BAEBD8 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 6EB7EBD52D901E0A00BAEBD8;
+					};
+					6EB7EBEF2D901E0C00BAEBD8 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 6EB7EBD52D901E0A00BAEBD8;
+					};
+				};
+			};
+			buildConfigurationList = 6EB7EBD12D901E0A00BAEBD8 /* Build configuration list for PBXProject "STARBUCKS" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6EB7EBCD2D901E0A00BAEBD8;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6E151C492DD246E400BCFD1E /* XCRemoteSwiftPackageReference "Alamofire" */,
+				6EBD5C572DD261D100EDA212 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 6EB7EBD72D901E0A00BAEBD8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6EB7EBD52D901E0A00BAEBD8 /* STARBUCKS */,
+				6EB7EBE52D901E0C00BAEBD8 /* STARBUCKSTests */,
+				6EB7EBEF2D901E0C00BAEBD8 /* STARBUCKSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6EB7EBD42D901E0A00BAEBD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EFD74242DC237A800D041A5 /* 스타벅스_2025 데이터.geojson in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB7EBE42D901E0C00BAEBD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB7EBEE2D901E0C00BAEBD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6EB7EBD22D901E0A00BAEBD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EC8A3462D95A75C00F2C2E1 /* HomeModel.swift in Sources */,
+				6E95C78E2D93D8C60093C40F /* SignupModel.swift in Sources */,
+				6E47616D2D9685F5006E1C4D /* DessertModel.swift in Sources */,
+				6ECA06DB2D963AD5005D9D22 /* RecommendModel.swift in Sources */,
+				6E4761732D96925B006E1C4D /* DetailModel.swift in Sources */,
+				6E4761632D9677E0006E1C4D /* WhatsNewModel.swift in Sources */,
+				6E5B43312DBFC67300B4E77E /* StoreDataManager.swift in Sources */,
+				6EFD742E2DC237A800D041A5 /* OrderSheetView.swift in Sources */,
+				6EFD74302DC237A800D041A5 /* StoreMapView.swift in Sources */,
+				6E5B432D2DBFC50500B4E77E /* StoreModel.swift in Sources */,
+				6E7E88FA2DC3C5CF00367D2B /* StoreMapViewUIKit.swift in Sources */,
+				6E5B432F2DBFC61B00B4E77E /* FeatureModel .swift in Sources */,
+				6E30BBF92DC48255006E7292 /* FindStoreView .swift in Sources */,
+				6E5B43292DBFB24900B4E77E /* CoffeeMenu.swift in Sources */,
+				6E79C28C2DA008D200D3B726 /* BannerModel.swift in Sources */,
+				6E79C30E2DA01DE900D3B726 /* NewModel.swift in Sources */,
+				6EB7EC302D901E3800BAEBD8 /* LoginModel.swift in Sources */,
+				6E909B022DA02CB60046DF12 /* BestModel.swift in Sources */,
+				6E79C29A2DA0107200D3B726 /* AllModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB7EBE22D901E0C00BAEBD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EB7EBEC2D901E0C00BAEBD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6EB7EBE82D901E0C00BAEBD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6EB7EBD52D901E0A00BAEBD8 /* STARBUCKS */;
+			targetProxy = 6EB7EBE72D901E0C00BAEBD8 /* PBXContainerItemProxy */;
+		};
+		6EB7EBF22D901E0C00BAEBD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6EB7EBD52D901E0A00BAEBD8 /* STARBUCKS */;
+			targetProxy = 6EB7EBF12D901E0C00BAEBD8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6EB7EBF82D901E0C00BAEBD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6EB7EBF92D901E0C00BAEBD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6EB7EBFB2D901E0C00BAEBD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"STARBUCKS/Preview Content\"";
+				DEVELOPMENT_TEAM = D2W3D8C267;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = STARBUCKS/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 현재 위치를 매장 거리 계산에 사용합니다";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "영수증 이미지를 등록하기 위해 사진 접근 권한이 필요합니다.\n영수증 이미지를 등록하기 위해 사진 접근 권한이 필요합니다.\n";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = umc.com.oat.STARBUCKS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6EB7EBFC2D901E0C00BAEBD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"STARBUCKS/Preview Content\"";
+				DEVELOPMENT_TEAM = D2W3D8C267;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = STARBUCKS/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 현재 위치를 매장 거리 계산에 사용합니다";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "영수증 이미지를 등록하기 위해 사진 접근 권한이 필요합니다.\n영수증 이미지를 등록하기 위해 사진 접근 권한이 필요합니다.\n";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = umc.com.oat.STARBUCKS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6EB7EBFE2D901E0C00BAEBD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testmap.STARBUCKSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/STARBUCKS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/STARBUCKS";
+			};
+			name = Debug;
+		};
+		6EB7EBFF2D901E0C00BAEBD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testmap.STARBUCKSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/STARBUCKS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/STARBUCKS";
+			};
+			name = Release;
+		};
+		6EB7EC012D901E0C00BAEBD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testmap.STARBUCKSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = STARBUCKS;
+			};
+			name = Debug;
+		};
+		6EB7EC022D901E0C00BAEBD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.testmap.STARBUCKSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = STARBUCKS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6EB7EBD12D901E0A00BAEBD8 /* Build configuration list for PBXProject "STARBUCKS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EB7EBF82D901E0C00BAEBD8 /* Debug */,
+				6EB7EBF92D901E0C00BAEBD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EB7EBFA2D901E0C00BAEBD8 /* Build configuration list for PBXNativeTarget "STARBUCKS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EB7EBFB2D901E0C00BAEBD8 /* Debug */,
+				6EB7EBFC2D901E0C00BAEBD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EB7EBFD2D901E0C00BAEBD8 /* Build configuration list for PBXNativeTarget "STARBUCKSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EB7EBFE2D901E0C00BAEBD8 /* Debug */,
+				6EB7EBFF2D901E0C00BAEBD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EB7EC002D901E0C00BAEBD8 /* Build configuration list for PBXNativeTarget "STARBUCKSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EB7EC012D901E0C00BAEBD8 /* Debug */,
+				6EB7EC022D901E0C00BAEBD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6E151C492DD246E400BCFD1E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+		6EBD5C572DD261D100EDA212 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.24.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6EBD5C552DD2611D00EDA212 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6E151C492DD246E400BCFD1E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		6EBD5C582DD2669300EDA212 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6EBD5C572DD261D100EDA212 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		6EBD5C5A2DD2669D00EDA212 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6EBD5C572DD261D100EDA212 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+		6EBD5C5C2DD266BB00EDA212 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6EBD5C572DD261D100EDA212 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 6EB7EBCE2D901E0A00BAEBD8 /* Project object */;
+}
