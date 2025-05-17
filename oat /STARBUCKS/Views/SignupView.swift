@@ -45,7 +45,7 @@ struct SignupView: View {
 
             ToolbarItem(placement: .principal) {
                 Text("가입하기")
-                    .font(.mainTextMedium16) 
+                    .font(.mainTextMedium16)
             }
         
         }
@@ -58,11 +58,14 @@ struct SignupView: View {
                 signupViewModel.email.count > 0 &&
                 signupViewModel.pwd.count > 0 {
 
-                signupViewModel.storedNickname = signupViewModel.nickname
-                signupViewModel.storedEmail = signupViewModel.email
-                signupViewModel.storedPwd = signupViewModel.pwd
+                let success = signupViewModel.saveToKeychain()
 
-//                dismiss()
+                if success {
+                    print("✅ 회원가입 성공 - 키체인에 저장됨")
+                    dismiss()  // 회원가입 끝났으니 로그인 화면으로 돌아가기
+                } else {
+                    print("❌ 회원가입 실패 - 키체인 저장 에러")
+                }
             }
         }) {
             RoundedRectangle(cornerRadius: 20)

@@ -10,9 +10,7 @@ import SwiftUI
 
 
 struct OtherView: View {
-    @AppStorage("nickname") private var storedNickname = ""
-    @AppStorage("isLoggedIn") var isLoggedIn = false
-    
+    @ObservedObject private var userManager = UserManager.shared
     @State private var showFindStoreView = false
     
     var body: some View {
@@ -24,16 +22,19 @@ struct OtherView: View {
                     .font(.mainTextBold24)
                 Spacer()
                 
-                NavigationLink(destination: LoginView()) {
+                Button(action: {
+                    userManager.logout()
+                }) {
                     Image("logout")
                 }
+
             }
             .padding(.horizontal, 23.5)
             .background(Color.white)
             VStack {
                 VStack(alignment: .center) {
                     HStack(spacing: 0) {
-                        Text(storedNickname.isEmpty ? "(작성한 닉네임)" : storedNickname)
+                        Text(userManager.nickname.isEmpty ? "(작성한 닉네임)" : userManager.nickname)
                             .foregroundStyle(Color.green01)
                             .font(.mainTextSemibold24)
                         Text("님")
