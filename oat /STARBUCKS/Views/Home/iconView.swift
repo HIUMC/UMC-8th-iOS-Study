@@ -9,24 +9,28 @@ import SwiftUI
 
 struct iconView: View {
     var body: some View {
-        TabView{
-            Tab("Home", image: "home") {
-                HomeView()
+            TabView{
+                Tab("Home", image: "home") {
+                    HomeView()
+                }
+                Tab("Pay", image: "pay") {
+                    PayView()
+                }
+                Tab("Order", image: "Order") {
+                    OrderView()
+                }
+                Tab("Shop", image:"shop") {
+                    ShopView()
+                }
+                Tab("Other", image: "other") {
+                    OtherView()
+                }
             }
-            Tab("Pay", image: "pay") {
-                PayView()
+            .tint(Color("green02"))
+            .onAppear {
+                UITabBar.appearance().backgroundColor = .white
             }
-            Tab("Order", image: "Order") {
-                OrderView()
-            }
-            Tab("Shop", image:"shop") {
-                ShopView()
-            }
-            Tab("Other", image: "other") {
-                OtherView()
-            }
-        }
-        .tint(Color("green02"))
+        
     }
 }
             

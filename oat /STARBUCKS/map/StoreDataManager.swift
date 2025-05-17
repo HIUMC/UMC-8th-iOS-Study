@@ -8,17 +8,36 @@
 import Foundation
 import CoreLocation
 
+enum StoreTab {
+    case nearby
+    case frequent
+}
+
+
 
 class StoreDataManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     //StoreDataManager: 매장 데이터 + 사용자 위치를 다루는 클래스
     //ObservableObject: SwiftUI에서 뷰와 데이터 상태 연동
     //CLLocationManagerDelegate : 위치 업데이트 콜백 받기
+
     @Published var stores: [Store] = [] // 매장 리스트 저장
+    @Published var displayedStores: [Store] = []
     //뷰에서 이 stores 가 바뀌면 자동으로 화면 갱신이 됨
     @Published var userLocation: CLLocation?
     //사용자 현재 위치 정보 저장
     private var locationManager = CLLocationManager()
     //iOS 시스템에서 위치를 추적하는 클래스
+    
+    func updateDisplayedStores(center: CLLocationCoordinate2D) {
+        let base = CLLocation(latitude: center.latitude, longitude: center.longitude)
+        displayedStores = stores.filter {
+            let loc = CLLocation(latitude: $0.latitude, longitude: $0.longitude)
+            return base.distance(from: loc) / 1000 <= 10
+        }
+    }
+
+
+
     
     override init() {
         super.init()

@@ -104,7 +104,7 @@ struct FindStoreView: View {
                             Rectangle()
                                 .fill(selectedTop == segment ? Color("brown02") : Color.clear)
                                 .frame(height: 3)
-                                .cornerRadius(1.5)
+                                .clipShape(RoundedRectangle(cornerRadius: 1.5, style: .continuous))
                         }
                         .frame(maxWidth: .infinity)
                     }

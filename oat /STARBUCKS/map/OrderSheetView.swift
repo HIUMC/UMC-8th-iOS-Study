@@ -45,7 +45,8 @@ struct OrderSheetView: View {
                                 Button("이 지역 검색") {
                                     // 현재 지도 중심 좌표로 10km 필터링
                                     if let center = mapCenter {
-                                        updateDisplayedStores(center: center)
+                                        storeDataManager.updateDisplayedStores(center: center)
+
                                     }
                                     hasMoved = false
 
@@ -65,7 +66,7 @@ struct OrderSheetView: View {
                     .onAppear {
                         // 최초 지도 뷰 열릴 때 10km 매장 미리 필터링
                         if let center = storeDataManager.userLocation?.coordinate {
-                            updateDisplayedStores(center: center)
+                            storeDataManager.updateDisplayedStores(center: center)
                         }
                     }
                 } else {
@@ -79,7 +80,7 @@ struct OrderSheetView: View {
                                         Rectangle()
                                             .fill(Color.gray)
                                             .frame(width: 80, height: 80)
-                                            .cornerRadius(8)
+                                            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
 
                                         VStack(alignment: .leading, spacing: 6) {
                                             // 매장 이름과 주소
@@ -165,7 +166,7 @@ struct OrderSheetView: View {
         TextField("검색", text: .constant(""))
             .padding(10)
             .background(Color.gray.opacity(0.1))
-            .cornerRadius(8)
+            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
             .padding()
     }
 
@@ -192,20 +193,7 @@ struct OrderSheetView: View {
         Divider()
     }
     
-    // 지도 중심 좌표로 매장 필터링
-    private func updateDisplayedStores(center: CLLocationCoordinate2D) {
-        let base = CLLocation(latitude: center.latitude, longitude: center.longitude)
-        displayedStores = storeDataManager.stores.filter {
-            let loc = CLLocation(latitude: $0.latitude, longitude: $0.longitude)
-            return base.distance(from: loc) / 1000 <= 10
-        }
-    }
-}
 
-// 탭의 선택 상태
-enum StoreTab {
-    case nearby
-    case frequent
 }
 
 #Preview {

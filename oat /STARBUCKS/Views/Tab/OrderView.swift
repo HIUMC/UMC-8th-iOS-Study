@@ -7,25 +7,10 @@
 
 import SwiftUI
 
-//메뉴 데이터를 정의한 배열
-//CoffeMenus 모델(이미지 이름, 한글이름, 영어 이름 을 담은)
-let coffeeMenus: [CoffeeMenu] = [
-    CoffeeMenu(imageName: "co1", koreanName: "추천", englishName: "Recommend"),
-    CoffeeMenu(imageName: "co2", koreanName: "아이스 카페 아메리카노", englishName: "Reserve Espresso"),
-    CoffeeMenu(imageName: "co3", koreanName: "카페 아메리카노", englishName: "Reserve Drip"),
-    CoffeeMenu(imageName: "co4", koreanName: "카푸치노", englishName: "Dcaf Coffee"),
-    CoffeeMenu(imageName: "co5", koreanName: "아이스 카푸치노", englishName: "Espresso"),
-    CoffeeMenu(imageName: "co6", koreanName: "카라멜 마키아또", englishName: "Blonde Coffee"),
-    CoffeeMenu(imageName: "co7", koreanName: "아이스 카라멜 마키아또", englishName: "Americano"),
-    CoffeeMenu(imageName: "co8", koreanName: "아포가토/기타", englishName: "Others"),
-    CoffeeMenu(imageName: "co9", koreanName: "럼 샷 코르타도", englishName: "Brewed Coffee"),
-    CoffeeMenu(imageName: "co10", koreanName: "라벤터 카페 브레베", englishName: "Teavana"),
-    CoffeeMenu(imageName: "co11", koreanName: "병음료", englishName: "RTD"),
-]
-
 
 struct OrderView: View {
     //상담 탭 옵션 : 전체, 나만의 메뉴, 홀케이크 예약
+    @StateObject private var viewModel = CoffeeMenuViewModel()
     enum TopSegment: String, CaseIterable {
         case all = "전체 메뉴"
         case myMenu = "나만의 메뉴"
@@ -106,12 +91,11 @@ struct OrderView: View {
                                 : Color.black02
                             )
                             .frame(width: topTabWidths[idx], height: 44)
-                            
-                            // ✅ 각 탭마다 개별 밑줄 추가
+                        
                             Rectangle()
                                 .fill(selectedTop == segment ? Color.green01 : Color.clear)
                                 .frame(height: 2)
-                                .cornerRadius(1)
+                                .clipShape(RoundedRectangle(cornerRadius: 1, style: .continuous))
                         }
                     }
                 }
@@ -135,7 +119,7 @@ struct OrderView: View {
                 Button(action: {
                     selectedBottom = segment
                 }) {
-                    HStack(spacing: 4) {  // ✅ 글자 + 이미지 사이 살짝 띄우기
+                    HStack(spacing: 4) {
                         Text(segment.rawValue)
                             .font(.mainTextSemibold16)
                             .foregroundStyle(selectedBottom == segment ? Color.black01 : Color.gray03)
@@ -154,43 +138,63 @@ struct OrderView: View {
         
         
         //메뉴 리스트 뷰
-        var menuList: some View {
-            ScrollView {
-                VStack(spacing: 16) {
-                    // 커피 메뉴의 배열을 순회하며 각 메뉴를 소개
-                    ForEach(coffeeMenus) { coffee in
+    var menuList: some View {
+        ScrollView {
+            VStack(spacing: 16) {
+                if selectedTop == .all && selectedBottom == .drink {
+                    // ✅ 기존 커피 메뉴 리스트
+                    ForEach(viewModel.coffeeMenus) { coffee in
                         HStack(spacing: 16) {
-                            
-                            Image(coffee.imageName) // 메뉴 이미지
+                            Image(coffee.imageName)
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 60, height: 60)
                                 .clipShape(Circle())
-                            
+
                             VStack(alignment: .leading, spacing: 4) {
-                                //한국이름
                                 Text(coffee.koreanName)
                                     .font(.mainTextSemibold16)
                                     .foregroundStyle(Color.gray06)
-                                
-                                //영어이름
                                 Text(coffee.englishName)
                                     .font(.mainTextSemiBold13)
                                     .foregroundStyle(Color.gray03)
                             }
-                            
+
                             Spacer()
                         }
                         .padding(.horizontal)
                     }
-                    
                 }
-                .padding(.top)
-                
-                Divider()
-                    .padding(.top, 8)
+
+                else if selectedBottom == .food {
+                    Text("푸드 메뉴")
+                        .font(.mainTextSemibold16)
+                        .foregroundStyle(Color.gray06)
+                }
+
+                else if selectedBottom == .product {
+                    Text("상품 메뉴")
+                        .font(.mainTextSemibold16)
+                        .foregroundStyle(Color.gray06)
+                }
+
+                else if selectedTop == .myMenu {
+                    Text("나만의 메뉴")
+                        .font(.mainTextSemibold16)
+                        .foregroundStyle(Color.gray06)
+                }
+
+                else if selectedTop == .cake {
+                    Text("홀케이크 예약")
+                        .font(.mainTextSemibold16)
+                        .foregroundStyle(Color.gray06)
+                }
             }
+            .padding(.top)
+            Divider().padding(.top, 8)
         }
+    }
+
         
         
         // 하단매장선택.
