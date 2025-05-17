@@ -10,9 +10,7 @@ import Foundation
 import SwiftUI
 
 struct KeychainTokenView: View {
-    
     let keychain = KeychainToken.shared
-    
     let tokenInfo = TokenInfo(accessToken: "abc123", refreshToken: "xyz456")
     
     enum ButtonType: String, CaseIterable {
