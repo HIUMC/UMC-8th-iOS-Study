@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
 
 struct LoginView: View {
     @AppStorage("isLoggedIn") private var isLoggedIn = false
-    @Bindable var userInfo: LoginViewModel
+    @StateObject var userInfo: LoginViewModel
     @FocusState private var focusedField: Focusfield? //커서올리면 초록색 불 들어오게 해줘
     
     enum Focusfield{
@@ -85,7 +88,6 @@ struct LoginView: View {
                     
                         .padding(.bottom, 47)
                     
-                 //왜 홈뷰로 안 넘어가지...
                     Button(action: {
                         print("로그인 시도됨")
                         if userInfo.isValid(){
@@ -121,9 +123,36 @@ struct LoginView: View {
                             .foregroundColor(Color("black01"))
                             .padding(.bottom, 19)
                     }
-                    Image("kakaoLogin")
-                        .frame(width: 306, height: 45)
-                        .padding(.bottom, 19)
+                    Button(action: {
+                        if(UserApi.isKakaoTalkLoginAvailable()){
+                            UserApi.shared.loginWithKakaoTalk{
+                                (oauthToken, error) in if let error = error{
+                                    print(error)
+                                } else {
+                                    print("카카오톡 로그인 성공")
+                                    isLoggedIn = true
+                                }
+                                
+                            }
+                        } else {
+                            UserApi.shared.loginWithKakaoAccount{
+                                (oauthToken, error) in
+                                if let error = error {
+                                    print(error)
+                                }
+                                else{
+                                    print("카카오 계정 로그인 성공")
+                                    isLoggedIn = true
+                                }
+                            }
+                        }
+                    }) {
+                                    Image("kakaoLogin")
+                                        .resizable()
+                                        .frame(width: 306, height: 45)
+                                }
+                                .padding(.bottom, 19)
+
                     Image("appleLogin")
                         .frame(width: 306, height: 45)
                 

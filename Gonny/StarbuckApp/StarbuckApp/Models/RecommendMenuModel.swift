@@ -21,7 +21,7 @@ extension RecommendMenu {
             imageName: self.imageName,
             description: "설명 준비 중입니다.",
             price: 0,
-            temperature: .iced, // 기본값
+            temperature: .iced, // 기본값4
             temperatureOption: .both, // 기본값
             selectedTemperature: .iced
         )
