@@ -16,7 +16,9 @@ struct StoreFeature: Codable, Hashable {
     let geometry: Geometry
 }
 
-struct StoreProperty: Codable, Hashable {
+struct StoreProperty: Codable, Hashable, Identifiable {
+    var id: String { storeId }
+    
     let storeId: String
     let storeName: String
     let address: String

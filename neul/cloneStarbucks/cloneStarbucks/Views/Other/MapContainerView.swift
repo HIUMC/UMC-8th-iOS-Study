@@ -19,10 +19,15 @@ struct MapContainerView: View {
         VStack(spacing: 0) {
             navigationBar
             segmentMenu
-            ZStack(alignment: .bottomTrailing) {
-                StoreMapContainerView(locationManager: locationManager, mapState: mapState)
-                userLocationButton
+            if isFindStore {
+                ZStack(alignment: .bottomTrailing) {
+                    StoreMapContainerView(locationManager: locationManager, mapState: mapState)
+                    userLocationButton
+                }
+            } else {
+                FindRouteView(locationManager: locationManager)
             }
+            
             
         }
         .navigationBarBackButtonHidden()

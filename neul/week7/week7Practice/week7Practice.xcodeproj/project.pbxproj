@@ -7,71 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7CFE0BDF2DD126DD007A7DDE /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 7CFE0BDE2DD126DD007A7DDE /* KakaoSDK */; };
-		7CFE172E2DDC719A007A7DDE /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7CFE172D2DDC719A007A7DDE /* Moya */; };
+		7CFE16032DDB6BE6007A7DDE /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7CFE16022DDB6BE6007A7DDE /* Moya */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7C81536C2DA7399A006D1327 /* cloneStarbucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cloneStarbucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CFE15F02DDB6BA3007A7DDE /* week7Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = week7Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		7C81547F2DA73CD3006D1327 /* Exceptions for "cloneStarbucks" folder in "cloneStarbucks" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 7C81536B2DA7399A006D1327 /* cloneStarbucks */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		7C1088DC2DBFFA3D0015B5C4 /* Exceptions for "cloneStarbucks" folder in "Compile Sources" phase from "cloneStarbucks" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 7C8153682DA7399A006D1327 /* Sources */;
-			membershipExceptions = (
-				Core/Map/stores.geojson,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		7C81536E2DA7399A006D1327 /* cloneStarbucks */ = {
+		7CFE15F22DDB6BA3007A7DDE /* week7Practice */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				7C81547F2DA73CD3006D1327 /* Exceptions for "cloneStarbucks" folder in "cloneStarbucks" target */,
-				7C1088DC2DBFFA3D0015B5C4 /* Exceptions for "cloneStarbucks" folder in "Compile Sources" phase from "cloneStarbucks" target */,
-			);
-			path = cloneStarbucks;
+			path = week7Practice;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7C8153692DA7399A006D1327 /* Frameworks */ = {
+		7CFE15ED2DDB6BA3007A7DDE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CFE172E2DDC719A007A7DDE /* Moya in Frameworks */,
-				7CFE0BDF2DD126DD007A7DDE /* KakaoSDK in Frameworks */,
+				7CFE16032DDB6BE6007A7DDE /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7C8153632DA7399A006D1327 = {
+		7CFE15E72DDB6BA3007A7DDE = {
 			isa = PBXGroup;
 			children = (
-				7C81536E2DA7399A006D1327 /* cloneStarbucks */,
-				7C81536D2DA7399A006D1327 /* Products */,
+				7CFE15F22DDB6BA3007A7DDE /* week7Practice */,
+				7CFE15F12DDB6BA3007A7DDE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		7C81536D2DA7399A006D1327 /* Products */ = {
+		7CFE15F12DDB6BA3007A7DDE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7C81536C2DA7399A006D1327 /* cloneStarbucks.app */,
+				7CFE15F02DDB6BA3007A7DDE /* week7Practice.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,70 +53,68 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7C81536B2DA7399A006D1327 /* cloneStarbucks */ = {
+		7CFE15EF2DDB6BA3007A7DDE /* week7Practice */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7C81537A2DA7399D006D1327 /* Build configuration list for PBXNativeTarget "cloneStarbucks" */;
+			buildConfigurationList = 7CFE15FE2DDB6BA6007A7DDE /* Build configuration list for PBXNativeTarget "week7Practice" */;
 			buildPhases = (
-				7C8153682DA7399A006D1327 /* Sources */,
-				7C8153692DA7399A006D1327 /* Frameworks */,
-				7C81536A2DA7399A006D1327 /* Resources */,
+				7CFE15EC2DDB6BA3007A7DDE /* Sources */,
+				7CFE15ED2DDB6BA3007A7DDE /* Frameworks */,
+				7CFE15EE2DDB6BA3007A7DDE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				7C81536E2DA7399A006D1327 /* cloneStarbucks */,
+				7CFE15F22DDB6BA3007A7DDE /* week7Practice */,
 			);
-			name = cloneStarbucks;
+			name = week7Practice;
 			packageProductDependencies = (
-				7CFE0BDE2DD126DD007A7DDE /* KakaoSDK */,
-				7CFE172D2DDC719A007A7DDE /* Moya */,
+				7CFE16022DDB6BE6007A7DDE /* Moya */,
 			);
-			productName = cloneStarbucks;
-			productReference = 7C81536C2DA7399A006D1327 /* cloneStarbucks.app */;
+			productName = week7Practice;
+			productReference = 7CFE15F02DDB6BA3007A7DDE /* week7Practice.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7C8153642DA7399A006D1327 /* Project object */ = {
+		7CFE15E82DDB6BA3007A7DDE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					7C81536B2DA7399A006D1327 = {
+					7CFE15EF2DDB6BA3007A7DDE = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
-			buildConfigurationList = 7C8153672DA7399A006D1327 /* Build configuration list for PBXProject "cloneStarbucks" */;
+			buildConfigurationList = 7CFE15EB2DDB6BA3007A7DDE /* Build configuration list for PBXProject "week7Practice" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 7C8153632DA7399A006D1327;
+			mainGroup = 7CFE15E72DDB6BA3007A7DDE;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				7CFE0BDD2DD126DD007A7DDE /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
-				7CFE172C2DDC719A007A7DDE /* XCRemoteSwiftPackageReference "Moya" */,
+				7CFE16012DDB6BE6007A7DDE /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 7C81536D2DA7399A006D1327 /* Products */;
+			productRefGroup = 7CFE15F12DDB6BA3007A7DDE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7C81536B2DA7399A006D1327 /* cloneStarbucks */,
+				7CFE15EF2DDB6BA3007A7DDE /* week7Practice */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7C81536A2DA7399A006D1327 /* Resources */ = {
+		7CFE15EE2DDB6BA3007A7DDE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -152,7 +124,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7C8153682DA7399A006D1327 /* Sources */ = {
+		7CFE15EC2DDB6BA3007A7DDE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -162,10 +134,8 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		7C8153782DA7399D006D1327 /* Debug */ = {
+		7CFE15FC2DDB6BA6007A7DDE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = 7C81536E2DA7399A006D1327 /* cloneStarbucks */;
-			baseConfigurationReferenceRelativePath = Secret.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -227,10 +197,8 @@
 			};
 			name = Debug;
 		};
-		7C8153792DA7399D006D1327 /* Release */ = {
+		7CFE15FD2DDB6BA6007A7DDE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = 7C81536E2DA7399A006D1327 /* cloneStarbucks */;
-			baseConfigurationReferenceRelativePath = Secret.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -285,20 +253,17 @@
 			};
 			name = Release;
 		};
-		7C81537B2DA7399D006D1327 /* Debug */ = {
+		7CFE15FF2DDB6BA6007A7DDE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReferenceAnchor = 7C81536E2DA7399A006D1327 /* cloneStarbucks */;
-			baseConfigurationReferenceRelativePath = Secret.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"cloneStarbucks/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"week7Practice/Preview Content\"";
 				DEVELOPMENT_TEAM = CACTN7F6PL;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = cloneStarbucks/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -309,7 +274,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.umc.neulbo.cloneStarbucks;
+				PRODUCT_BUNDLE_IDENTIFIER = com.umc.week7Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -317,18 +282,17 @@
 			};
 			name = Debug;
 		};
-		7C81537C2DA7399D006D1327 /* Release */ = {
+		7CFE16002DDB6BA6007A7DDE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"cloneStarbucks/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"week7Practice/Preview Content\"";
 				DEVELOPMENT_TEAM = CACTN7F6PL;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = cloneStarbucks/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -339,7 +303,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.umc.neulbo.cloneStarbucks;
+				PRODUCT_BUNDLE_IDENTIFIER = com.umc.week7Practice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -350,20 +314,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7C8153672DA7399A006D1327 /* Build configuration list for PBXProject "cloneStarbucks" */ = {
+		7CFE15EB2DDB6BA3007A7DDE /* Build configuration list for PBXProject "week7Practice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C8153782DA7399D006D1327 /* Debug */,
-				7C8153792DA7399D006D1327 /* Release */,
+				7CFE15FC2DDB6BA6007A7DDE /* Debug */,
+				7CFE15FD2DDB6BA6007A7DDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7C81537A2DA7399D006D1327 /* Build configuration list for PBXNativeTarget "cloneStarbucks" */ = {
+		7CFE15FE2DDB6BA6007A7DDE /* Build configuration list for PBXNativeTarget "week7Practice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C81537B2DA7399D006D1327 /* Debug */,
-				7C81537C2DA7399D006D1327 /* Release */,
+				7CFE15FF2DDB6BA6007A7DDE /* Debug */,
+				7CFE16002DDB6BA6007A7DDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -371,15 +335,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7CFE0BDD2DD126DD007A7DDE /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kakao/kakao-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.24.1;
-			};
-		};
-		7CFE172C2DDC719A007A7DDE /* XCRemoteSwiftPackageReference "Moya" */ = {
+		7CFE16012DDB6BE6007A7DDE /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
 			requirement = {
@@ -390,17 +346,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7CFE0BDE2DD126DD007A7DDE /* KakaoSDK */ = {
+		7CFE16022DDB6BE6007A7DDE /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7CFE0BDD2DD126DD007A7DDE /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
-			productName = KakaoSDK;
-		};
-		7CFE172D2DDC719A007A7DDE /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7CFE172C2DDC719A007A7DDE /* XCRemoteSwiftPackageReference "Moya" */;
+			package = 7CFE16012DDB6BE6007A7DDE /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 7C8153642DA7399A006D1327 /* Project object */;
+	rootObject = 7CFE15E82DDB6BA3007A7DDE /* Project object */;
 }
