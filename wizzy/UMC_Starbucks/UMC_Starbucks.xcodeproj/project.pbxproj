@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		611C8D872DD22368000F00F9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 611C8D862DD22368000F00F9 /* Alamofire */; };
 		611C8D8B2DD223C6000F00F9 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C8D8A2DD223C5000F00F9 /* TokenModel.swift */; };
 		611C8D8D2DD22401000F00F9 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C8D8C2DD22401000F00F9 /* KeychainService.swift */; };
 		612107032DC2FC0600ED7FBE /* TabOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612107022DC2FC0600ED7FBE /* TabOrderModel.swift */; };
@@ -19,9 +18,32 @@
 		612107192DC5F15C00ED7FBE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612107182DC5F15C00ED7FBE /* MapViewModel.swift */; };
 		6121071B2DC5F20400ED7FBE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6121071A2DC5F20400ED7FBE /* LocationManager.swift */; };
 		612107292DC61C9C00ED7FBE /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612107282DC61C9B00ED7FBE /* Marker.swift */; };
+		612FD6802DDB9B820094DA02 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 612FD67F2DDB9B820094DA02 /* Alamofire */; };
+		612FD69E2DDBA6F30094DA02 /* FindStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612FD69D2DDBA6F30094DA02 /* FindStoreModel.swift */; };
+		612FD6A02DDBAC2A0094DA02 /* KakaoAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612FD69F2DDBAC2A0094DA02 /* KakaoAPIService.swift */; };
+		612FD6A22DDBAC430094DA02 /* KakaoInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612FD6A12DDBAC430094DA02 /* KakaoInterceptor.swift */; };
+		612FD6A62DDBAD3F0094DA02 /* KakaoBookAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612FD6A52DDBAD3F0094DA02 /* KakaoBookAPIError.swift */; };
+		612FD6A82DDC10500094DA02 /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612FD6A72DDC10500094DA02 /* StoreModel.swift */; };
+		612FD6AA2DDC21650094DA02 /* StarbucksGeoStoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612FD6A92DDC21650094DA02 /* StarbucksGeoStoreViewModel.swift */; };
+		612FD6AC2DDC21940094DA02 /* StarbucksGeoStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612FD6AB2DDC21940094DA02 /* StarbucksGeoStoreModel.swift */; };
+		612FD6B42DDC613F0094DA02 /* RouteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612FD6B32DDC613F0094DA02 /* RouteAPI.swift */; };
+		612FD6B62DDC61600094DA02 /* RouteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612FD6B52DDC615F0094DA02 /* RouteResponse.swift */; };
+		612FD6BA2DDC64B10094DA02 /* RouteMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612FD6B92DDC64B10094DA02 /* RouteMapView.swift */; };
+		612FD6BD2DDC65B20094DA02 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 612FD6BC2DDC65B20094DA02 /* Moya */; };
+		612FD6BF2DDC66780094DA02 /* RouteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612FD6BE2DDC66780094DA02 /* RouteService.swift */; };
+		612FD6C12DDC69410094DA02 /* RouteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612FD6C02DDC69410094DA02 /* RouteViewModel.swift */; };
 		6180FA842DD2EBD700014E97 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6180FA832DD2EBD700014E97 /* KakaoSDKAuth */; };
 		6180FA862DD2EBD700014E97 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 6180FA852DD2EBD700014E97 /* KakaoSDKCommon */; };
 		6180FA882DD2EBD700014E97 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 6180FA872DD2EBD700014E97 /* KakaoSDKUser */; };
+		6180FB312DDB27AC00014E97 /* FindMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180FB1E2DDB27AC00014E97 /* FindMapView.swift */; };
+		6180FB362DDB2B4300014E97 /* FindStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180FB352DDB2B4300014E97 /* FindStoreView.swift */; };
+		6180FB382DDB32C100014E97 /* SearchLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180FB372DDB32C100014E97 /* SearchLocationModel.swift */; };
+		6180FB3A2DDB334200014E97 /* SearchLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180FB392DDB334200014E97 /* SearchLocationViewModel.swift */; };
+		6180FB3E2DDB502900014E97 /* FetchToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180FB3D2DDB502900014E97 /* FetchToken.swift */; };
+		6180FB402DDB508F00014E97 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180FB3F2DDB508F00014E97 /* TokenResponse.swift */; };
+		6180FB422DDB50B800014E97 /* KakaoInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180FB412DDB50B800014E97 /* KakaoInfoModel.swift */; };
+		6180FB442DDB65B500014E97 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 6180FB432DDB65B500014E97 /* KakaoSDK */; };
+		6180FB462DDB6D4100014E97 /* Secret.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 6180FB452DDB6D4100014E97 /* Secret.xcconfig */; };
 		618FA5E72DA434F200F87301 /* ReceiptsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FA5E62DA434F200F87301 /* ReceiptsModel.swift */; };
 		618FA5E92DA435A700F87301 /* ReceiptsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FA5E82DA435A700F87301 /* ReceiptsViewModel.swift */; };
 		618FA5EB2DA435D400F87301 /* ReceiptSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618FA5EA2DA435D400F87301 /* ReceiptSegment.swift */; };
@@ -36,7 +58,6 @@
 		61AD1DD72D992AD20047DF1B /* UMC_StarbucksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1DD62D992AD20047DF1B /* UMC_StarbucksApp.swift */; };
 		61AD1DDB2D992AD40047DF1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61AD1DDA2D992AD40047DF1B /* Assets.xcassets */; };
 		61AD1DDE2D992AD40047DF1B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61AD1DDD2D992AD40047DF1B /* Preview Assets.xcassets */; };
-		61AD1DE82D992BA90047DF1B /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1DE72D992BA90047DF1B /* LoginModel.swift */; };
 		61AD1DEA2D992BC20047DF1B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1DE92D992BC20047DF1B /* LoginViewModel.swift */; };
 		61AD1DEC2D992BE70047DF1B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1DEB2D992BE70047DF1B /* LoginView.swift */; };
 		61AD1DEE2D992BF80047DF1B /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AD1DED2D992BF70047DF1B /* SplashView.swift */; };
@@ -107,6 +128,26 @@
 		612107182DC5F15C00ED7FBE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		6121071A2DC5F20400ED7FBE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		612107282DC61C9B00ED7FBE /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		612FD69D2DDBA6F30094DA02 /* FindStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindStoreModel.swift; sourceTree = "<group>"; };
+		612FD69F2DDBAC2A0094DA02 /* KakaoAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAPIService.swift; sourceTree = "<group>"; };
+		612FD6A12DDBAC430094DA02 /* KakaoInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoInterceptor.swift; sourceTree = "<group>"; };
+		612FD6A52DDBAD3F0094DA02 /* KakaoBookAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoBookAPIError.swift; sourceTree = "<group>"; };
+		612FD6A72DDC10500094DA02 /* StoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
+		612FD6A92DDC21650094DA02 /* StarbucksGeoStoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksGeoStoreViewModel.swift; sourceTree = "<group>"; };
+		612FD6AB2DDC21940094DA02 /* StarbucksGeoStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksGeoStoreModel.swift; sourceTree = "<group>"; };
+		612FD6B32DDC613F0094DA02 /* RouteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAPI.swift; sourceTree = "<group>"; };
+		612FD6B52DDC615F0094DA02 /* RouteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteResponse.swift; sourceTree = "<group>"; };
+		612FD6B92DDC64B10094DA02 /* RouteMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapView.swift; sourceTree = "<group>"; };
+		612FD6BE2DDC66780094DA02 /* RouteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteService.swift; sourceTree = "<group>"; };
+		612FD6C02DDC69410094DA02 /* RouteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModel.swift; sourceTree = "<group>"; };
+		6180FB1E2DDB27AC00014E97 /* FindMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMapView.swift; sourceTree = "<group>"; };
+		6180FB352DDB2B4300014E97 /* FindStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindStoreView.swift; sourceTree = "<group>"; };
+		6180FB372DDB32C100014E97 /* SearchLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationModel.swift; sourceTree = "<group>"; };
+		6180FB392DDB334200014E97 /* SearchLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewModel.swift; sourceTree = "<group>"; };
+		6180FB3D2DDB502900014E97 /* FetchToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchToken.swift; sourceTree = "<group>"; };
+		6180FB3F2DDB508F00014E97 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		6180FB412DDB50B800014E97 /* KakaoInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoInfoModel.swift; sourceTree = "<group>"; };
+		6180FB452DDB6D4100014E97 /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
 		618FA5E62DA434F200F87301 /* ReceiptsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsModel.swift; sourceTree = "<group>"; };
 		618FA5E82DA435A700F87301 /* ReceiptsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsViewModel.swift; sourceTree = "<group>"; };
 		618FA5EA2DA435D400F87301 /* ReceiptSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptSegment.swift; sourceTree = "<group>"; };
@@ -122,7 +163,6 @@
 		61AD1DD62D992AD20047DF1B /* UMC_StarbucksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UMC_StarbucksApp.swift; sourceTree = "<group>"; };
 		61AD1DDA2D992AD40047DF1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61AD1DDD2D992AD40047DF1B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		61AD1DE72D992BA90047DF1B /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		61AD1DE92D992BC20047DF1B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		61AD1DEB2D992BE70047DF1B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		61AD1DED2D992BF70047DF1B /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -196,15 +236,38 @@
 			files = (
 				6180FA862DD2EBD700014E97 /* KakaoSDKCommon in Frameworks */,
 				61AD1E3E2D9BDA510047DF1B /* Kingfisher in Frameworks */,
-				611C8D872DD22368000F00F9 /* Alamofire in Frameworks */,
 				6180FA882DD2EBD700014E97 /* KakaoSDKUser in Frameworks */,
+				612FD6802DDB9B820094DA02 /* Alamofire in Frameworks */,
 				6180FA842DD2EBD700014E97 /* KakaoSDKAuth in Frameworks */,
+				612FD6BD2DDC65B20094DA02 /* Moya in Frameworks */,
+				6180FB442DDB65B500014E97 /* KakaoSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		612FD6B22DDC61310094DA02 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				612FD6B32DDC613F0094DA02 /* RouteAPI.swift */,
+				612FD6B52DDC615F0094DA02 /* RouteResponse.swift */,
+				612FD6BE2DDC66780094DA02 /* RouteService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6180FB342DDB2B0300014E97 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				61AD1E122D99A8330047DF1B /* OtherView.swift */,
+				6180FB1E2DDB27AC00014E97 /* FindMapView.swift */,
+				6180FB352DDB2B4300014E97 /* FindStoreView.swift */,
+				612FD6B92DDC64B10094DA02 /* RouteMapView.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		618FA5E52DA4347B00F87301 /* Receipt */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,8 +308,10 @@
 		61AD1DD52D992AD20047DF1B /* UMC_Starbucks */ = {
 			isa = PBXGroup;
 			children = (
+				612FD6B22DDC61310094DA02 /* Services */,
 				61AD1DF12D9931FB0047DF1B /* UMC-Starbucks-Info.plist */,
 				61AD1DD62D992AD20047DF1B /* UMC_StarbucksApp.swift */,
+				6180FB452DDB6D4100014E97 /* Secret.xcconfig */,
 				61AD1DF32D99324A0047DF1B /* Resources */,
 				619C69232DA618C50096713E /* Navigation */,
 				61AD1DE62D992B730047DF1B /* Models */,
@@ -286,6 +351,8 @@
 			children = (
 				61AD1DE92D992BC20047DF1B /* LoginViewModel.swift */,
 				61AD1E0A2D9946530047DF1B /* SignupViewModel.swift */,
+				6180FB392DDB334200014E97 /* SearchLocationViewModel.swift */,
+				612FD6A92DDC21650094DA02 /* StarbucksGeoStoreViewModel.swift */,
 				61E6BF582D9E139C008CF8D8 /* DessertViewModel.swift */,
 				618FA5EC2DA4367400F87301 /* ReceiptSegmentViewModel.swift */,
 				61E6BFA62DA26F4F008CF8D8 /* shopAllprodViewModel.swift */,
@@ -302,7 +369,12 @@
 				612107042DC2FCBB00ED7FBE /* TabOrderViewModel.swift */,
 				612107142DC5BB8F00ED7FBE /* JSONParsingViewModel.swift */,
 				612107182DC5F15C00ED7FBE /* MapViewModel.swift */,
+				6180FB3D2DDB502900014E97 /* FetchToken.swift */,
 				611C8D8C2DD22401000F00F9 /* KeychainService.swift */,
+				612FD69F2DDBAC2A0094DA02 /* KakaoAPIService.swift */,
+				612FD6A52DDBAD3F0094DA02 /* KakaoBookAPIError.swift */,
+				612FD6A12DDBAC430094DA02 /* KakaoInterceptor.swift */,
+				612FD6C02DDC69410094DA02 /* RouteViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -310,12 +382,12 @@
 		61AD1DE62D992B730047DF1B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				61AD1DE72D992BA90047DF1B /* LoginModel.swift */,
 				61E6BF5C2D9E1D08008CF8D8 /* CoffeeModel.swift */,
 				612107082DC4DC1900ED7FBE /* OrderCoffeeModel.swift */,
 				61E6BF462D9DD3EB008CF8D8 /* WhatsNewModel.swift */,
 				61AD1E522D9D66240047DF1B /* HomeModel.swift */,
 				61AD1E082D9946410047DF1B /* SignupModel.swift */,
+				6180FB372DDB32C100014E97 /* SearchLocationModel.swift */,
 				618FA5E62DA434F200F87301 /* ReceiptsModel.swift */,
 				618FA5EA2DA435D400F87301 /* ReceiptSegment.swift */,
 				61EF3C222DA7549800605790 /* OCRResult.swift */,
@@ -328,6 +400,11 @@
 				6121071A2DC5F20400ED7FBE /* LocationManager.swift */,
 				612107282DC61C9B00ED7FBE /* Marker.swift */,
 				611C8D8A2DD223C5000F00F9 /* TokenModel.swift */,
+				6180FB3F2DDB508F00014E97 /* TokenResponse.swift */,
+				6180FB412DDB50B800014E97 /* KakaoInfoModel.swift */,
+				612FD69D2DDBA6F30094DA02 /* FindStoreModel.swift */,
+				612FD6A72DDC10500094DA02 /* StoreModel.swift */,
+				612FD6AB2DDC21940094DA02 /* StarbucksGeoStoreModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -352,11 +429,11 @@
 		61AD1E562D9D66410047DF1B /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				6180FB342DDB2B0300014E97 /* Other */,
 				612107012DC2F64900ED7FBE /* Order */,
 				61E6BFA82DA271E0008CF8D8 /* Shop */,
 				61E6BF3D2D9DB319008CF8D8 /* Home */,
 				61AD1E5D2D9D66770047DF1B /* PayView.swift */,
-				61AD1E122D99A8330047DF1B /* OtherView.swift */,
 				618FA5E52DA4347B00F87301 /* Receipt */,
 				61AD1E612D9D66BA0047DF1B /* OtherButtonView.swift */,
 			);
@@ -412,11 +489,12 @@
 			name = UMC_Starbucks;
 			packageProductDependencies = (
 				61AD1E3D2D9BDA510047DF1B /* Kingfisher */,
-				611C8D862DD22368000F00F9 /* Alamofire */,
-				611C8D882DD22368000F00F9 /* AlamofireDynamic */,
 				6180FA832DD2EBD700014E97 /* KakaoSDKAuth */,
 				6180FA852DD2EBD700014E97 /* KakaoSDKCommon */,
 				6180FA872DD2EBD700014E97 /* KakaoSDKUser */,
+				6180FB432DDB65B500014E97 /* KakaoSDK */,
+				612FD67F2DDB9B820094DA02 /* Alamofire */,
+				612FD6BC2DDC65B20094DA02 /* Moya */,
 			);
 			productName = UMC_Starbucks;
 			productReference = 61AD1DD32D992AD20047DF1B /* UMC_Starbucks.app */;
@@ -447,8 +525,9 @@
 			mainGroup = 61AD1DCA2D992AD20047DF1B;
 			packageReferences = (
 				61AD1E3C2D9BDA510047DF1B /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				611C8D852DD22368000F00F9 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				6180FA822DD2EBD700014E97 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				612FD67E2DDB9B820094DA02 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				612FD6BB2DDC65B20094DA02 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 61AD1DD42D992AD20047DF1B /* Products */;
@@ -476,6 +555,7 @@
 				61AD1DFF2D9932F80047DF1B /* Pretendard-Thin.otf in Resources */,
 				61AD1E002D9932F80047DF1B /* Pretendard-Light.otf in Resources */,
 				61AD1DDB2D992AD40047DF1B /* Assets.xcassets in Resources */,
+				6180FB462DDB6D4100014E97 /* Secret.xcconfig in Resources */,
 				61AD1DFD2D9932F80047DF1B /* Pretendard-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,6 +575,8 @@
 				612107092DC4DC1900ED7FBE /* OrderCoffeeModel.swift in Sources */,
 				61E6BF5F2D9E429C008CF8D8 /* CoffeeView.swift in Sources */,
 				61EF3C092DA622D400605790 /* ReceiptInfoView.swift in Sources */,
+				612FD6A82DDC10500094DA02 /* StoreModel.swift in Sources */,
+				612FD6BA2DDC64B10094DA02 /* RouteMapView.swift in Sources */,
 				61E6BFA72DA26F4F008CF8D8 /* shopAllprodViewModel.swift in Sources */,
 				618FA5EF2DA4DA3400F87301 /* OCRViewModel.swift in Sources */,
 				612107192DC5F15C00ED7FBE /* MapViewModel.swift in Sources */,
@@ -503,36 +585,47 @@
 				612107292DC61C9C00ED7FBE /* Marker.swift in Sources */,
 				61E6BFB02DA2D83C008CF8D8 /* BestItemViewModel.swift in Sources */,
 				61AD1E152D99A8430047DF1B /* OtherViewModel.swift in Sources */,
+				612FD6A62DDBAD3F0094DA02 /* KakaoBookAPIError.swift in Sources */,
 				618FA5F52DA4DB7B00F87301 /* ContentView.swift in Sources */,
+				612FD6AC2DDC21940094DA02 /* StarbucksGeoStoreModel.swift in Sources */,
 				618FA5E72DA434F200F87301 /* ReceiptsModel.swift in Sources */,
 				61E6BF432D9DB7E1008CF8D8 /* CoffeeViewModel.swift in Sources */,
+				612FD6A22DDBAC430094DA02 /* KakaoInterceptor.swift in Sources */,
 				61E6BF5D2D9E1D08008CF8D8 /* CoffeeModel.swift in Sources */,
 				61E6BFAC2DA2A1CB008CF8D8 /* BestItemsView.swift in Sources */,
 				612107052DC2FCBB00ED7FBE /* TabOrderViewModel.swift in Sources */,
+				612FD6B42DDC613F0094DA02 /* RouteAPI.swift in Sources */,
 				61AD1E5E2D9D66770047DF1B /* PayView.swift in Sources */,
 				612107132DC5BB7900ED7FBE /* MyModel.swift in Sources */,
 				61E6BF4B2D9E0534008CF8D8 /* WhatsNewView.swift in Sources */,
 				611C8D8B2DD223C6000F00F9 /* TokenModel.swift in Sources */,
 				61E6BF3A2D9DB256008CF8D8 /* ProgressBarView.swift in Sources */,
 				61E6BF3C2D9DB30E008CF8D8 /* RecommendView.swift in Sources */,
+				6180FB3E2DDB502900014E97 /* FetchToken.swift in Sources */,
+				612FD6AA2DDC21650094DA02 /* StarbucksGeoStoreViewModel.swift in Sources */,
 				61E6BFB42DA3E5AE008CF8D8 /* ReceiptView.swift in Sources */,
 				61AD1E072D99355B0047DF1B /* Fonts.swift in Sources */,
 				61E6BF472D9DD3EB008CF8D8 /* WhatsNewModel.swift in Sources */,
 				618FA5ED2DA4367400F87301 /* ReceiptSegmentViewModel.swift in Sources */,
 				611C8D8D2DD22401000F00F9 /* KeychainService.swift in Sources */,
 				612107032DC2FC0600ED7FBE /* TabOrderModel.swift in Sources */,
+				612FD6C12DDC69410094DA02 /* RouteViewModel.swift in Sources */,
 				61AD1DEA2D992BC20047DF1B /* LoginViewModel.swift in Sources */,
 				61AD1E0F2D995F750047DF1B /* PopupView.swift in Sources */,
 				61AD1E0B2D9946530047DF1B /* SignupViewModel.swift in Sources */,
-				61AD1DE82D992BA90047DF1B /* LoginModel.swift in Sources */,
 				61AD1DEC2D992BE70047DF1B /* LoginView.swift in Sources */,
 				61AD1DD72D992AD20047DF1B /* UMC_StarbucksApp.swift in Sources */,
 				61AD1E532D9D66240047DF1B /* HomeModel.swift in Sources */,
+				6180FB312DDB27AC00014E97 /* FindMapView.swift in Sources */,
 				61AD1E5C2D9D666D0047DF1B /* ShopView.swift in Sources */,
 				61E6BF592D9E139C008CF8D8 /* DessertViewModel.swift in Sources */,
 				61E6BF4F2D9E0E1A008CF8D8 /* ThreeBannerView.swift in Sources */,
 				618FA5E92DA435A700F87301 /* ReceiptsViewModel.swift in Sources */,
+				6180FB362DDB2B4300014E97 /* FindStoreView.swift in Sources */,
 				61E6BF5B2D9E1657008CF8D8 /* UnderBannerView.swift in Sources */,
+				6180FB422DDB50B800014E97 /* KakaoInfoModel.swift in Sources */,
+				6180FB402DDB508F00014E97 /* TokenResponse.swift in Sources */,
+				612FD6A02DDBAC2A0094DA02 /* KakaoAPIService.swift in Sources */,
 				61E6BF492D9E043B008CF8D8 /* WhatsnewViewModel.swift in Sources */,
 				61E6BF572D9E1359008CF8D8 /* DessertView.swift in Sources */,
 				61EF3C212DA7470500605790 /* NavBarView.swift in Sources */,
@@ -542,20 +635,25 @@
 				618FA5EB2DA435D400F87301 /* ReceiptSegment.swift in Sources */,
 				61E6BF552D9E12EF008CF8D8 /* DessertModel.swift in Sources */,
 				61E6BFAE2DA2D7F7008CF8D8 /* BestItemModel.swift in Sources */,
+				612FD6BF2DDC66780094DA02 /* RouteService.swift in Sources */,
 				61EF3C232DA7549800605790 /* OCRResult.swift in Sources */,
 				6121071B2DC5F20400ED7FBE /* LocationManager.swift in Sources */,
 				61E6BFAA2DA27223008CF8D8 /* CircleShopImageCard.swift in Sources */,
 				61AD1E092D9946410047DF1B /* SignupModel.swift in Sources */,
+				6180FB382DDB32C100014E97 /* SearchLocationModel.swift in Sources */,
 				619C69252DA618E50096713E /* Route.swift in Sources */,
 				61E6BFB22DA36D51008CF8D8 /* NewProductsView.swift in Sources */,
 				61AD1DEE2D992BF80047DF1B /* SplashView.swift in Sources */,
+				612FD69E2DDBA6F30094DA02 /* FindStoreModel.swift in Sources */,
 				61AD1E582D9D66520047DF1B /* HomeView.swift in Sources */,
 				61AD1E552D9D663B0047DF1B /* HomeViewModel.swift in Sources */,
 				61E6BF452D9DC915008CF8D8 /* CircleImageCard.swift in Sources */,
 				61AD1E602D9D66AE0047DF1B /* PayAreaView.swift in Sources */,
 				61AD1E132D99A8330047DF1B /* OtherView.swift in Sources */,
+				6180FB3A2DDB334200014E97 /* SearchLocationViewModel.swift in Sources */,
 				618FA5F72DA4DCCD00F87301 /* ContentViewModel.swift in Sources */,
 				612107152DC5BB8F00ED7FBE /* JSONParsingViewModel.swift in Sources */,
+				612FD6B62DDC61600094DA02 /* RouteResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +662,7 @@
 /* Begin XCBuildConfiguration section */
 		61AD1DDF2D992AD40047DF1B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6180FB452DDB6D4100014E97 /* Secret.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -627,6 +726,7 @@
 		};
 		61AD1DE02D992AD40047DF1B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6180FB452DDB6D4100014E97 /* Secret.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -707,6 +807,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OSRM_BASE_URL = "http://localhost:8080";
 				PRODUCT_BUNDLE_IDENTIFIER = umc.com.wizzyStarbuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -741,6 +842,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OSRM_BASE_URL = "http://localhost:8080";
 				PRODUCT_BUNDLE_IDENTIFIER = umc.com.wizzyStarbuck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -773,12 +875,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		611C8D852DD22368000F00F9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		612FD67E2DDB9B820094DA02 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.10.0;
+			};
+		};
+		612FD6BB2DDC65B20094DA02 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
 			};
 		};
 		6180FA822DD2EBD700014E97 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
@@ -800,15 +910,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		611C8D862DD22368000F00F9 /* Alamofire */ = {
+		612FD67F2DDB9B820094DA02 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 611C8D852DD22368000F00F9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 612FD67E2DDB9B820094DA02 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		611C8D882DD22368000F00F9 /* AlamofireDynamic */ = {
+		612FD6BC2DDC65B20094DA02 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 611C8D852DD22368000F00F9 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
+			package = 612FD6BB2DDC65B20094DA02 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 		6180FA832DD2EBD700014E97 /* KakaoSDKAuth */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -824,6 +934,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6180FA822DD2EBD700014E97 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
+		};
+		6180FB432DDB65B500014E97 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6180FA822DD2EBD700014E97 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
 		};
 		61AD1E3D2D9BDA510047DF1B /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

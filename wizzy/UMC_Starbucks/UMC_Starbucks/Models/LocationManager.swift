@@ -100,6 +100,41 @@ class LocationManager: NSObject {
             locationManager.stopMonitoring(for: region)
         }
     }
+
+    // MARK: - 현재 위치 주소 가져오기 GPT!!!!!!!!!!!!!
+    func fetchCurrentAddress(completion: @escaping (String?) -> Void) {
+        guard let location = currentLocation else {
+            completion(nil)
+            return
+        }
+
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+            if let placemark = placemarks?.first {
+                let components = [
+                    placemark.administrativeArea,
+                    placemark.locality,
+                    placemark.subLocality,
+                    placemark.thoroughfare
+                ]
+
+                var unique = [String]()
+                var seen = Set<String>() // 중복 문자열 제거
+
+                for component in components {
+                    if let value = component, !seen.contains(value) {
+                        unique.append(value) // 중복 아닌 경우에만 추가
+                        seen.insert(value) // 세트에 넣어서 다음 비교할 때 중복 방지
+                    }
+                }
+
+                let address = unique.joined(separator: " ")
+                completion(address)
+            } else {
+                completion(nil)
+            }
+        }
+    }
 }
 
 // MARK: - CLLocationManagerDelegate

@@ -21,12 +21,12 @@ struct OtherView: View {
                             .font(.PretendardBold24)
                             .foregroundStyle(Color.black)
                         Spacer()
-                        
                         NavigationLink(destination: LoginView()) {
                             Image("logout")
                                 .resizable()
                                 .frame(width: 35, height: 35)
                         }
+                       
                     } //h
                     .padding(.horizontal, 19)
                     .padding(.bottom, 41)
@@ -118,7 +118,7 @@ struct OtherView: View {
                         .padding(.vertical, 16)
                         
                         HStack {
-                            NavigationLink(destination: FindMapView()) {
+                            NavigationLink(destination: FindStoreView()) {
                                 HStack {
                                     Image("locationicon")
                                         .padding(.trailing, 4)
