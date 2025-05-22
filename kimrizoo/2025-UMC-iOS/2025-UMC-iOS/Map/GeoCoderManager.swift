@@ -28,15 +28,24 @@ class GeoCoderManager {
         do {
             let placemarks = try await geocoder.reverseGeocodeLocation(location)
             if let placemark = placemarks.first {
-                let address = [
-                    placemark.administrativeArea,
-                    placemark.locality,
-                    placemark.subLocality,
-                    placemark.thoroughfare
-                ].compactMap { $0 }.joined(separator: " ") // ← 오타: seperator → separator
+                let administrativeArea = placemark.administrativeArea ?? ""     // ex. 서울특별시
+                let subLocality = placemark.subLocality ?? ""                   // ex. 동교동
+                let thoroughfare = placemark.thoroughfare ?? ""                 // ex. 동교동 or 양화로
+                let subThoroughfare = placemark.subThoroughfare ?? ""           // ex. 166-1
 
-                print("주소: \(address)")
-                return address
+                // ✅ 중복 제거 (예: thoroughfare == subLocality인 경우 제거)
+                let useThoroughfare = (thoroughfare != subLocality) ? thoroughfare : ""
+                
+                let detailAddress = [useThoroughfare, subThoroughfare]
+                    .filter { !$0.isEmpty }
+                    .joined(separator: " ")
+
+                // ✅ 최종 주소: 서울특별시 동교동 166-1
+                let fullAddress = "\(administrativeArea) \(subLocality) \(detailAddress)"
+                    .trimmingCharacters(in: .whitespaces)
+
+                print("주소: \(fullAddress)")
+                return fullAddress
             }
         } catch {
             print("역지오코딩 에러: \(error.localizedDescription)")
@@ -44,4 +53,7 @@ class GeoCoderManager {
 
         return nil
     }
+
+
+
 }

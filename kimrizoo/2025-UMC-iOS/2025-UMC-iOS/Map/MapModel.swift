@@ -1,5 +1,6 @@
 import Foundation
 import CoreLocation
+import MapKit
 
 // 최상위 구조
 struct StoreFeatureCollection: Codable {
@@ -84,3 +85,9 @@ struct StoreDisplayInfo: Identifiable, Hashable {
     let address: String
 }
 
+// MARK: - 마커
+struct Marker: Identifiable {
+    let id = UUID()
+    let coordinate: CLLocationCoordinate2D
+    let title: String
+}

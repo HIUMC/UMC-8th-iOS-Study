@@ -11,6 +11,7 @@ struct OtherView: View {
     
     @AppStorage("nickname") private var storedNickname: String = ""
     @EnvironmentObject var router: NavigationRouter
+    @State private var showOtherMapView = false
     
     var body: some View {
         VStack{
@@ -139,8 +140,11 @@ struct OtherView: View {
                             
                             HStack{
                                 FeatureItemView(imageName: "location", text: "매장 정보") {
-                                            print("💳 매장 정보 버튼 클릭됨!")
-                                        }
+                                    showOtherMapView = true
+                                }
+                                .fullScreenCover(isPresented: $showOtherMapView) {
+                                    OtherMapView()
+                                }
                                 
                                 Spacer()
                                 

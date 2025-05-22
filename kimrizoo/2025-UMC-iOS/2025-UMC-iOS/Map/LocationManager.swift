@@ -109,6 +109,7 @@ extension LocationManager: CLLocationManagerDelegate {
             DispatchQueue.main.async {
                 self.currentLocation = latest
                 self.currentSpeed = max(latest.speed, 0)
+                
             }
         }
     }
