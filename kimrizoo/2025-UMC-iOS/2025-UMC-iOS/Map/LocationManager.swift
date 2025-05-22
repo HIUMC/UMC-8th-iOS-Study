@@ -9,7 +9,7 @@ class LocationManager: NSObject {
     static let shared = LocationManager()
     
     // MARK: - CLLocationManager
-    private let locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
     
     // MARK: - Published Properties
     var currentLocation: CLLocation?
@@ -21,6 +21,7 @@ class LocationManager: NSObject {
     var authorizationStatus: CLAuthorizationStatus = .notDetermined
     
     var didEnterGeofence: Bool = false
+    var didExitGeofence: Bool = false
     
     // MARK: - Init
     override init() {
@@ -33,8 +34,6 @@ class LocationManager: NSObject {
         requestAuthorization()
         startUpdatingLocation()
         startUpdatingHeading()
-        
-        
     }
     
     // MARK: - 권한 요청
@@ -86,6 +85,7 @@ class LocationManager: NSObject {
         region.notifyOnExit = true
         
         locationManager.startMonitoring(for: region)
+        print("Monitoring regions: \(locationManager.monitoredRegions)")
     }
 
     func stopMonitoringAllGeofences() {
@@ -130,6 +130,7 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         DispatchQueue.main.async {
             self.didEnterGeofence = true
+            self.didExitGeofence = false
         }
     }
 
@@ -137,6 +138,7 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         DispatchQueue.main.async {
             self.didEnterGeofence = false
+            self.didExitGeofence = true
         }
     }
 

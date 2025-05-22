@@ -23,7 +23,7 @@ struct _025_UMC_iOSApp: App {
         
         WindowGroup {
             NavigationStack(path: $router.path) {
-                AppEntryView()
+                OrderSheetView()
                     .environmentObject(router)
                     .environmentObject(detailViewModel)
                     .navigationDestination(for: Route.self) { route in
