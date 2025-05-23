@@ -29,6 +29,7 @@ struct StoreMapContainerView: View {
                 Color.white01
                     .overlay {
                         ProgressView("지도 불러오는 중 ..")
+                            .tint(.green02)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 

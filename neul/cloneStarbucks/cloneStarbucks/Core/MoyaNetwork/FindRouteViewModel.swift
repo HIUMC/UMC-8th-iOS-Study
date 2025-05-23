@@ -35,6 +35,37 @@ class FindRouteViewModel: ObservableObject {
             }
         }
     }
+    
+    
+    
+    func addressToCoordinate(address: String) async throws -> (Double, Double)? {
+        do {
+            let response = try await provider.requestAsync(.addressToCoordinate(add: address))
+            let coordResponse = try JSONDecoder().decode(CoordinateResponse.self, from: response.data)
+            guard let coord = coordResponse.documents.first?.coordinate else {
+                print("좌표 변환 실패")
+                return nil
+            }
+            return (coord.longitude, coord.latitude)
+        } catch {
+            print("좌표 변환 API 디코딩 실패:", error)
+            throw error
+        }
+    }
+    
+    
+    func requestOsrmRoute(source: (Double, Double), dest: (Double, Double)) async throws -> [CLLocationCoordinate2D] {
+        do {
+            let response = try await provider.requestAsync(.osrmRoute(source: source, dest: dest))
+            let routeResponse = try JSONDecoder().decode(RouteResponse.self, from: response.data)
+            print("osrm route API 받아오기 성공!")
+            return routeResponse.routes[0].geometry.coordinates
+        } catch {
+            print("osrm route API 실패:", error)
+            return []
+        }
+    }
+    
 
 }
 

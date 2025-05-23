@@ -20,6 +20,7 @@ class MapViewModel: ObservableObject {
     @Published var initialRegion: MKCoordinateRegion?
     @Published var markers: [Marker] = []
     
+    @Published var routePoints: [CLLocationCoordinate2D] = []
     
     
     func distance(to store: StoreFeature) -> CLLocationDistance? {
@@ -49,26 +50,24 @@ class MapViewModel: ObservableObject {
     func updateMarkers(around userLocation: CLLocationCoordinate2D, within radius: CLLocationDistance = 10000) {
         print("업데이트마커 호출됨")
         print("현재 store 개수: \(stores.count)")
-            self.markers = self.stores.compactMap { feature in
-                let storeLocation = CLLocation(latitude: feature.properties.yCoordinate,
-                                               longitude: feature.properties.xCoordinate)
-                let userLoc = CLLocation(latitude: userLocation.latitude,
-                                         longitude: userLocation.longitude)
+        self.markers = self.stores.compactMap { feature in
+            let storeLocation = CLLocation(latitude: feature.properties.yCoordinate,
+                                            longitude: feature.properties.xCoordinate)
+            let userLoc = CLLocation(latitude: userLocation.latitude,
+                                        longitude: userLocation.longitude)
                 
-                let distance = userLoc.distance(from: storeLocation)
+            let distance = userLoc.distance(from: storeLocation)
                 
-                if distance <= radius {
-                    return Marker(
-                        coordinate: CLLocationCoordinate2D(latitude: feature.properties.yCoordinate,
-                                                            longitude: feature.properties.xCoordinate),
-                        title: feature.properties.storeName
+            if distance <= radius {
+                return Marker(
+                    coordinate: CLLocationCoordinate2D(latitude: feature.properties.yCoordinate,
+                                                        longitude: feature.properties.xCoordinate),
+                    title: feature.properties.storeName
                     )
-                } else {
-                    return nil
-                }
+            } else {
+                return nil
             }
-
-
+        }
     }
     
 

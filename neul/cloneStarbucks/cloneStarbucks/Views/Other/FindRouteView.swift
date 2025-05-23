@@ -10,29 +10,41 @@ import CoreLocation
 
 struct FindRouteView : View {
     @Bindable var locationManager: LocationManager
+    @Binding var isFindStore: Bool
+    
+    @State var isRouteLoading: Bool = false
     @State var showSource: Bool = false
     @State var showDest: Bool = false
-    @State var source: String = ""
-    @State var destination: String = ""
+    @State var source: FindRouteModel = .init(placeName: "", address: "")
+    @State var destination: FindRouteModel = .init(placeName: "", address: "")
+    @FocusState private var isFocused: Bool
     
     @StateObject var viewModel: FindRouteViewModel = .init()
     @EnvironmentObject var parsingViewModel: JSONParsingViewModel
+    @EnvironmentObject var mapViewModel: MapViewModel
     
 
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            topView
-            if showSource {
-                sourceSearchResult
-            } else if showDest {
-                destSearchResult
-            } else {
-                Spacer()
+        ZStack {
+            VStack(alignment: .leading, spacing: 0) {
+                topView
+                if showSource {
+                    sourceSearchResult
+                } else if showDest {
+                    destSearchResult
+                } else {
+                    Spacer()
+                }
+            }
+            if isRouteLoading {
+                Color.black.opacity(0.5).ignoresSafeArea()
+                ProgressView("경로 검색 중...")
+                    .tint(.green00)
             }
         }
-        
     }
+    
     
     private var topView: some View {
         VStack {
@@ -41,7 +53,9 @@ struct FindRouteView : View {
                     .font(.MainTextSemiBold16)
                 Button(action: {
                     Task {
-                        source = await viewModel.resolveAddress(for: locationManager.currentLocation ?? CLLocation(latitude: 37.556809, longitude: 126.924196))
+                        let placeInfo = await viewModel.resolveAddress(for: locationManager.currentLocation ?? CLLocation(latitude: 37.556809, longitude: 126.924196))
+                        source.address = placeInfo
+                        source.placeName = placeInfo
                     }
                 }, label: {
                     Text("현재 위치")
@@ -51,12 +65,16 @@ struct FindRouteView : View {
                         .background(.brown01)
                         .clipShape(RoundedRectangle(cornerRadius: 6))
                 })
-                TextField("매장명 또는 주소", text: $source)
+                TextField("매장명 또는 주소", text: $source.placeName)
+                    .focused($isFocused)
                     .textFieldStyle(.roundedBorder)
                 Button(action: {
-                    viewModel.searchWithKeyword(query: source)
-                    showDest = false
-                    showSource = true
+                    if !source.placeName.isEmpty {
+                        viewModel.searchWithKeyword(query: source.placeName)
+                        showDest = false
+                        showSource = true
+                    }
+                    
                 }) {
                     Image(systemName: "magnifyingglass")
                         .resizable()
@@ -67,11 +85,14 @@ struct FindRouteView : View {
             HStack {
                 Text("도착")
                     .font(.MainTextSemiBold16)
-                TextField("매장명 또는 주소", text: $destination)
+                TextField("매장명 또는 주소", text: $destination.placeName)
+                    .focused($isFocused)
                     .textFieldStyle(.roundedBorder)
                 Button(action: {
-                    parsingViewModel.sortAddress(by: destination)
-                    showDest = true
+                    if !destination.placeName.isEmpty {
+                        parsingViewModel.sortAddress(by: destination.placeName)
+                        showDest = true
+                    }
                 }) {
                     Image(systemName: "magnifyingglass")
                         .resizable()
@@ -79,7 +100,26 @@ struct FindRouteView : View {
                         .foregroundStyle(Color.black)
                 }
             }
-            Button(action:  {
+            Button(action: {
+                
+                isFocused = false
+                
+                Task {
+                    isRouteLoading = true
+                    defer { isRouteLoading = false }
+                    
+                    do {
+                        guard let sourceCoord = try await viewModel.addressToCoordinate(address: source.address),
+                              let destCoord = try await viewModel.addressToCoordinate(address: destination.address) else {
+                            print("좌표 변환 실패")
+                            return
+                        }
+                        mapViewModel.routePoints = try await viewModel.requestOsrmRoute(source: sourceCoord, dest: destCoord)
+                        isFindStore.toggle()
+                    } catch {
+                        print("경로 요청 중 에러 발생")
+                    }
+                }
             }, label: {
                 Text("경로 찾기")
                     .foregroundStyle(.white)
@@ -100,7 +140,8 @@ struct FindRouteView : View {
                 ForEach(viewModel.searchResults, id: \.self) { store in
                     makeCell(placeName: store.placeName, address: store.addressName)
                     .onTapGesture {
-                        source = store.placeName
+                        source.placeName = store.placeName
+                        source.address = store.addressName
                         showSource = false
                         showDest = false
                     }
@@ -117,7 +158,8 @@ struct FindRouteView : View {
                 ForEach(parsingViewModel.sortedData, id: \.storeId) { store in
                     makeCell(placeName: store.storeName, address: store.address)
                         .onTapGesture {
-                            destination = store.storeName
+                            destination.placeName = store.storeName
+                            destination.address = store.address
                             parsingViewModel.sortedData = [store]
                         }
                     Divider()

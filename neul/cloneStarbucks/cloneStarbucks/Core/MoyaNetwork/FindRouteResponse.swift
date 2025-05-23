@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import CoreLocation
 
+// MARK: - Search Place with Keyword
 struct KeywordSearchResponse: Codable {
     let documents: [Place]
 }
@@ -49,3 +51,55 @@ struct Place: Codable, Hashable {
 }
 
 
+
+
+// MARK: - Convert Address to Coordinates
+
+struct CoordinateResponse: Codable {
+    let documents: [Coordinate]
+}
+
+struct Coordinate: Codable {
+    let x: String
+    let y: String
+    
+    var coordinate: CLLocationCoordinate2D? {
+        guard let lon = Double(x), let lat = Double(y) else { return nil }
+        return CLLocationCoordinate2D(latitude: lat, longitude: lon)
+    }
+}
+
+
+// MARK: - PlaceName and Address Mapping
+
+struct FindRouteModel {
+    var placeName: String
+    var address: String
+}
+
+
+// MARK: - Route Coordinate Response
+
+struct RouteResponse: Decodable {
+    let routes: [OSRMRoute]
+}
+
+struct OSRMRoute: Decodable {
+    let geometry: RouteCoordinate
+}
+
+struct RouteCoordinate: Decodable {
+    let coordinates: [CLLocationCoordinate2D]
+    
+    enum CodingKeys: String, CodingKey {
+        case coordinates
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let rawCoordinates = try container.decode([[Double]].self, forKey: .coordinates)
+        coordinates = rawCoordinates.map {
+            CLLocationCoordinate2D(latitude: $0[1], longitude: $0[0])
+        }
+    }
+}

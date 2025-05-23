@@ -25,16 +25,14 @@ struct MapContainerView: View {
                     userLocationButton
                 }
             } else {
-                FindRouteView(locationManager: locationManager)
+                FindRouteView(locationManager: locationManager, isFindStore: $isFindStore)
             }
             
             
         }
         .navigationBarBackButtonHidden()
         .onAppear {
-            print("이건 돼.")
             if let storeData = viewModel.storeData {
-                print("왜.. 안되지?")
                 mapViewModel.stores = storeData.features
             }
         }

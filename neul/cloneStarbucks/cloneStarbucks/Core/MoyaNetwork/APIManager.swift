@@ -23,7 +23,7 @@ class APIManager: @unchecked Sendable {
         accessTokenRefresher = AccessTokenRefresher()
         session = Session(interceptor: accessTokenRefresher)
         
-        loggerPlugin = NetworkLoggerPlugin(configuration: .init(logOptions: .errorResponseBody))
+        loggerPlugin = NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))
     }
     
     /// 실제 API 요청용 MoyaProvider
@@ -40,5 +40,21 @@ class APIManager: @unchecked Sendable {
             stubClosure: MoyaProvider.immediatelyStub,
             plugins: [loggerPlugin]
         )
+    }
+}
+
+
+extension MoyaProvider {
+    func requestAsync(_ target: Target) async throws -> Response {
+        try await withCheckedThrowingContinuation { continuation in
+            self.request(target) { result in
+                switch result {
+                case .success(let response):
+                    continuation.resume(returning: response)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
     }
 }
