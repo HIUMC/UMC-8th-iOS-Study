@@ -29,6 +29,12 @@ struct OtherView: View {
             .navigationDestination(isPresented: $isReceiptActive) {
                 ReceiptView()
             }
+            
+            .onAppear {
+                if let savedNickname = KeychainAccountService.shared.load(for: .nickname) { //enum값을 인자로받기때문에 .형식으로해야됨
+                    nickname = savedNickname
+                }
+            }
         }
     }
 

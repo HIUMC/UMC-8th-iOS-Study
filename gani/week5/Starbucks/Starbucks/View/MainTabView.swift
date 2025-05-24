@@ -19,7 +19,7 @@ struct MainTabView: View {
             }
             
             Tab("Order", image: "coffee") {
-                
+                OrderView()
             }
             
             Tab("Shop", image: "bag") {

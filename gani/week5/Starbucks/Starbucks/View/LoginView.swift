@@ -1,5 +1,6 @@
 import SwiftUI
-
+import KakaoSDKAuth
+import KakaoSDKUser
 
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
@@ -91,7 +92,35 @@ struct LoginView: View {
             }
 
             VStack(spacing: 19) {
-                Image(.kakao)
+                Button(action: {
+                    if UserApi.isKakaoTalkLoginAvailable() {
+                        UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
+                            if let error = error {
+                                print("카카오톡 로그인 실패: \(error.localizedDescription)")
+                            } else {
+                                if let accessToken = oauthToken?.accessToken {
+                                    KeychainAccountService.shared.save(value: accessToken, for: .token)
+                                    isLoggedIn = true
+                                }
+                            }
+                        }
+                    } else {
+                        UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in
+                            if let error = error {
+                                print("카카오 계정 로그인 실패: \(error.localizedDescription)")
+                            } else {
+                                if let accessToken = oauthToken?.accessToken {
+                                    KeychainAccountService.shared.save(value: accessToken, for: .token)
+                                    isLoggedIn = true
+                                }
+                            }
+                        }
+                    }
+                }) {
+                    Image(.kakao)
+                        .resizable()
+                        .frame(width: 300, height: 45)
+                }
                 Image(.apple)
             }
         }

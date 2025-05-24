@@ -1,173 +1,239 @@
-//
 //  OrderView.swift
 //  Starbucks
 //
-//  Created by 이가원 on 4/13/25.
+//  Created by 이가원 on 5/22/25.
 //
+
 import SwiftUI
 
-enum TopSegment: String, CaseIterable {
-    case 전체메뉴 = "전체 메뉴"
-    case 나만의메뉴 = "나만의 메뉴"
-    case 홀케이크예약 = "홀케이크 예약"
-}
-
-enum BottomSegment: String, CaseIterable {
-    case 음료 = "음료"
-    case 푸드 = "푸드"
-    case 상품 = "상품"
-}
-
-struct CoffeeMenuItem: Identifiable {
-    var id = UUID()
-    var name: String
-    var image: String
-    var engname: String
-}
-
-struct ContentView: View {
-    @State private var selectedSegment: TopSegment = .전체메뉴
-    @State private var animationOffset: CGFloat = 0
-    @State private var selectedBottomSegment: BottomSegment = .음료
+struct OrderView: View {
+    @StateObject var viewModel = OrderMenuViewModel()
     @State private var showSheet = false
-    
-    let segmentWidth: CGFloat = 120
-    let coffeeItems = [
-        CoffeeMenuItem(name: "추천", image: "reccof", engname: "recommend"),
-        CoffeeMenuItem(name: "아이스 카페 아메리카노", image: "coffee1",engname:"ice americano"),
-        CoffeeMenuItem(name: "카푸치노", image: "coffee2",engname: "cappu"),
-        CoffeeMenuItem(name: "카라멜 마끼아또", image: "coffee3",engname: "caramel")
-    ]
-    
+
     var body: some View {
-        VStack {
-            Spacer().frame(height: 59)
-            Text("Order")
-                .font(.custom("Pretendard-Bold", size: 24))
-            HStack {
-                ForEach(TopSegment.allCases, id: \.self) { segment in
-                    Button(action: {
-                        withAnimation(.easeInOut(duration: 0.3)) {
-                            selectedSegment = segment
-                            animationOffset = segmentWidth * CGFloat(TopSegment.allCases.firstIndex(of: segment) ?? 0)
-                        }
-                    }) {
-                        Text(segment.rawValue)
-                            .foregroundColor(selectedSegment == segment ? .green : .gray)
-                            .padding()
-                    }
-                    .frame(width: segmentWidth)
+        VStack(spacing: 0) {
+            ScrollView {
+                VStack(spacing: 0) {
+                    
+                    TopView
+                    SelectView()
+                    Select2View()
+                    Spacer().frame(height: 19)
+                    MenuView(menus: viewModel.ordermenu)
+                        .padding(.bottom, 100)
+                    
                 }
             }
-            .background(Color.white)
-            .cornerRadius(10)
-            .shadow(radius: 5)
-            .padding()
 
-            // 초록색 애니메이션 막대
-            Rectangle()
-                .foregroundColor(.green)
-                .frame(width: segmentWidth, height: 3)
-                .offset(x: animationOffset)
-                .animation(.easeInOut(duration: 0.3), value: animationOffset)
             
-            // 하단 세그먼트
-            BottomSegmentView(selectedBottomSegment: $selectedBottomSegment)
+            Button(action: {
+                showSheet = true
+            }) {
+                HStack {
+                    Text("주문할 매장을 선택해 주세요")
+                        .font(.custom("Pretendard-SemiBold", size: 16))
+                        .foregroundColor(.white)
+                    Spacer()
+                    Image(systemName: "chevron.down")
+                        .foregroundColor(.white)
+                }
+                .padding(.horizontal, 20)
+                .frame(height: 60)
+                .frame(maxWidth: .infinity)
+                .background(Color.black02)
+            }
+            .padding(.horizontal, 16)
+            .sheet(isPresented: $showSheet) {
+                OrderSheetView()
+            }
+        }
+        .ignoresSafeArea(.keyboard)
+    }
+}
 
-            // 커피 메뉴 아이템
-            CoffeeMenuView(coffeeItems: coffeeItems)
+    private var TopView: some View {
+        VStack(alignment: .leading) {
+            Text("Order")
+                .font(.custom("Pretendard-Bold", size: 24))
+                .padding(6)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.leading, 23)
+    }
+
+struct SelectView: View {
+    @State private var selectedTab: Tab? = nil
+
+    enum Tab {
+        case allMenu, myMenu
+    }
+
+    var body: some View {
+        HStack(spacing: 0) {
+            SelectTabItem(
+                title: "전체 메뉴",
+                isSelected: selectedTab == .allMenu,
+                alwaysGreen: false,
+                imageName: nil
+            ) {
+                selectedTab = .allMenu
+            }
+            .frame(width: 119, height: 50)
+
+            SelectTabItem(
+                title: "나만의 메뉴",
+                isSelected: selectedTab == .myMenu,
+                alwaysGreen: false,
+                imageName: nil
+            ) {
+                selectedTab = .myMenu
+            }
+            .frame(width: 119, height: 50)
 
             Spacer()
 
-            // 주문할 매장 선택 버튼
-            Button(action: {
-                showSheet.toggle()
-            }) {
-                Text("주문할 매장을 선택해주세요")
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.green)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
-            .padding()
-            .sheet(isPresented: $showSheet) {
-                StoreSelectionView()
-            }
+            CakeTabItem()
         }
-        .padding()
-        .ignoresSafeArea()
+        .padding(.horizontal, 23)
+        .background(Color.white)
+        .shadow(color: Color.black.opacity(0.15), radius: 3, x: 0, y: 3)
     }
 }
 
-// 하단 세그먼트 (음료, 푸드, 상품 버튼)
-struct BottomSegmentView: View {
-    @Binding var selectedBottomSegment: BottomSegment
-    
-    var body: some View {
-        HStack {
-            ForEach(BottomSegment.allCases, id: \.self) { segment in
-                Button(action: {
-                    selectedBottomSegment = segment
-                }) {
-                    Text(segment.rawValue)
-                        .foregroundColor(selectedBottomSegment == segment ? .green : .gray)
-                        .padding()
-                        .background(selectedBottomSegment == segment ? Color.green.opacity(0.2) : Color.clear)
-                        .cornerRadius(10)
-                }
-            }
-        }
-        .padding()
-    }
-}
+struct SelectTabItem: View {
+    let title: String
+    let isSelected: Bool
+    let alwaysGreen: Bool
+    let imageName: String?
+    let action: () -> Void
 
-// 커피 메뉴 아이템을 LazyVGrid로 표시
-struct CoffeeMenuView: View {
-    let coffeeItems: [CoffeeMenuItem]
-    
     var body: some View {
-        LazyVStack(alignment: .leading, spacing: 10) {
-            ForEach(coffeeItems) { item in
-                HStack {
-                    Image(systemName: item.image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 50, height: 50)
-                    VStack(alignment: .leading){
-                        Text(item.name)
-                            .font(.custom("Pretendard-SemiBold", size: 16))
-                            .foregroundColor(.gray6)
-                        Text(item.engname)
-                            .font(.custom("Pretendard-SemiBold", size: 13))
-                            .foregroundColor(.gray02)
-                        
-
+        Button(action: action) {
+            VStack(spacing: 0) {
+                HStack(spacing: 4) {
+                    if let imageName = imageName {
+                        Image(imageName)
+                            .resizable()
+                            .frame(width: 16, height: 16)
                     }
-                    
-                    Spacer()
+
+                    Text(title)
+                        .font(.custom("Pretendard-SemiBold", size: 16))
+                        .foregroundColor(
+                            alwaysGreen ? .green1 : (isSelected ? .black : .gray)
+                        )
                 }
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 10).stroke(Color.white))
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+                Rectangle()
+                    .fill(isSelected ? Color.green1 : Color.clear)
+                    .frame(height: 3)
             }
         }
-        .padding()
     }
 }
 
-// 매장 선택 화면
-struct StoreSelectionView: View {
+struct CakeTabItem: View {
     var body: some View {
-        VStack {
-            Text("매장을 선택하세요.")
-            // 매장 목록 등 추가 구성 가능
+        HStack(spacing: 4) {
+            Image("cake")
+                .resizable()
+                .frame(width: 16, height: 16)
+
+            Text("홀케이크 예약")
+                .font(.custom("Pretendard-SemiBold", size: 16))
+                .foregroundColor(.green1)
         }
-        .padding()
+        .frame(height: 50)
+        .padding(.trailing, 27)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct Select2View: View {
+    @State private var selectedTab: Tab = .drink
+
+    enum Tab: String, CaseIterable {
+        case drink = "음료"
+        case food = "푸드"
+        case product = "상품"
     }
+
+    var body: some View {
+        HStack(spacing: 32) {
+            ForEach(Tab.allCases, id: \.self) { tab in
+                TabItemView(
+                    title: tab.rawValue,
+                    isSelected: selectedTab == tab,
+                    onTap: {
+                        selectedTab = tab
+                    }
+                )
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.leading, 23)
+        .padding(.top, 12)
+        .padding(.bottom, 8)
+        .background(Color.white)
+        .shadow(color: Color.black.opacity(0.10), radius: 0, x: 0, y: 1)
+    }
+}
+
+struct TabItemView: View {
+    let title: String
+    let isSelected: Bool
+    let onTap: () -> Void
+
+    var body: some View {
+        Button(action: onTap) {
+            VStack(spacing: 4) {
+                HStack(spacing: 4) {
+                    Text(title)
+                        .font(.custom("Pretendard-SemiBold", size: 16))
+                        .foregroundColor(isSelected ? .black : .gray)
+                    Image("newnew")
+                        .resizable()
+                        .frame(width: 16, height: 10)
+                }
+            }
+        }
+    }
+}
+
+struct MenuView: View {
+    let menus: [OrderMenu]
+
+    var body: some View {
+        LazyVStack(alignment: .leading, spacing: 26) {
+            ForEach(menus) { item in
+                HStack(alignment: .center, spacing: 16) {
+                    Image(item.imageName)
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                        .clipShape(Circle())
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        HStack(spacing: 1) {
+                            Text(item.nameKo)
+                                .font(.custom("Pretendard-SemiBold", size: 16))
+                                .foregroundStyle(.gray6)
+                            if item.isNew {
+                                Circle()
+                                    .fill(Color.green1)
+                                    .frame(width: 1, height: 1)
+                            }
+                        }
+                        Text(item.nameEn)
+                            .font(.custom("Pretendard-SemiBold", size: 13))
+                            .foregroundStyle(.gray3)
+                    }
+                }
+                .padding(.leading, 23)
+            }
+        }
+    }
+}
+
+#Preview {
+    OrderView()
 }

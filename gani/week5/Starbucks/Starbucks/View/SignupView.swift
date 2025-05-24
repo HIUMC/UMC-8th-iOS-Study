@@ -13,7 +13,8 @@ struct SignupView: View {
     @AppStorage("Password") var savedPassword: String = ""
     @State private var viewModel = SignupViewModel()
     @Environment(\.dismiss) var dismiss
-
+    let keychain = KeychainAccountService.shared
+    
     var body: some View {
         VStack {
             Spacer().frame(height:210)
@@ -24,10 +25,12 @@ struct SignupView: View {
                         !viewModel.email.isEmpty &&
                     !viewModel.password.isEmpty {
                     let(nickname, email, password) = viewModel.getSignupData()
-                    savedNickname = nickname
-                    savedEmail = email
-                    savedPassword = password
+                    keychain.save(value: nickname, for: .nickname)
+                    keychain.save(value: email, for: .email)
+                    keychain.save(value: password, for: .password)
+
                     dismiss()
+                    
                 }
             }) {
                 Text("생성하기")

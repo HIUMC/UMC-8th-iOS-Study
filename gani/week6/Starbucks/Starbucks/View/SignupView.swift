@@ -30,10 +30,7 @@ struct SignupView: View {
                     keychain.save(value: password, for: .password)
 
                     dismiss()
-                    savedNickname = nickname
-                    savedEmail = email
-                    savedPassword = password
-                    dismiss()
+                    
                 }
             }) {
                 Text("생성하기")
