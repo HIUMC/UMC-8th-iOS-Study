@@ -154,3 +154,23 @@ extension LocationManager: CLLocationManagerDelegate {
         print("위치 오류: \(error.localizedDescription)")
     }
 }
+
+
+extension LocationManager {
+    func waitForLocation(timeout: TimeInterval = 5.0) async throws -> CLLocation {
+        let start = Date()
+
+        while currentLocation == nil {
+            try await Task.sleep(nanoseconds: 200_000_000) // 0.2초
+            if Date().timeIntervalSince(start) > timeout {
+                throw LocationError.timeout
+            }
+        }
+
+        return currentLocation!
+    }
+
+    enum LocationError: Error {
+        case timeout
+    }
+}

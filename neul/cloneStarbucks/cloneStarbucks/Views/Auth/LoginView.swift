@@ -126,9 +126,9 @@ struct LoginView: View {
                     //viewModel.kakaoLogin()
                     Task {
                         if let url = await networkManager.kakaoLogin() {
-                            //openURL(url)
-                            self.url = url
-                            self.isWeb = true
+                            openURL(url)
+                            //self.url = url
+                            //self.isWeb = true
                         }
                     }
                 }) {

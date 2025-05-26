@@ -9,6 +9,8 @@ import SwiftUI
 import MapKit
 
 struct UIKitMapView: UIViewRepresentable {
+    @EnvironmentObject var mapViewModel: MapViewModel
+    
     @Binding var cameraCenter: CLLocationCoordinate2D?
     @Binding var hasMovedMap: Bool
     @Binding var markers: [Marker]
@@ -52,6 +54,14 @@ struct UIKitMapView: UIViewRepresentable {
                 mapState.shouldMoveToUserLocation = false
             }
         }
+        
+        if !mapViewModel.routePoints.isEmpty {
+            //update route 함수 실행
+            updateRoute(on: uiView, with: mapViewModel.routePoints)
+            DispatchQueue.main.async {
+                mapViewModel.routePoints = []
+            }
+        }
     }
     
     func updateMarkers(on mapView: MKMapView, with markers: [Marker]) {
@@ -62,6 +72,18 @@ struct UIKitMapView: UIViewRepresentable {
             annotation.title = marker.title
             mapView.addAnnotation(annotation)
         }
+    }
+    
+    func updateRoute(on mapView: MKMapView, with points: [CLLocationCoordinate2D]) {
+        print("routePoints count: \(points.count)")
+        print("points: \(points)")
+        // Remove existing polylines (but keep annotations)
+        let existingPolylines = mapView.overlays.filter { $0 is MKPolyline }
+        mapView.removeOverlays(existingPolylines)
+
+        // Add new route as polyline
+        let polyline = MKPolyline(coordinates: points, count: points.count)
+        mapView.addOverlay(polyline)
     }
     
     
@@ -91,6 +113,16 @@ struct UIKitMapView: UIViewRepresentable {
             }
 
             return view
+        }
+        
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            if let polyline = overlay as? MKPolyline {
+                let renderer = MKPolylineRenderer(polyline: polyline)
+                renderer.strokeColor = .green02
+                renderer.lineWidth = 5
+                return renderer
+            }
+            return MKOverlayRenderer(overlay: overlay)
         }
 
         @objc func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {

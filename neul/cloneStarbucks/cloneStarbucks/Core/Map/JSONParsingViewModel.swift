@@ -10,6 +10,7 @@ import CoreLocation
 
 class JSONParsingViewModel: ObservableObject {
     @Published var storeData: StarbuckStoreModel?
+    @Published var sortedData: [StoreProperty] = []
     
     @MainActor
     func loadStoreData(completion: @escaping (Result<StarbuckStoreModel, Error>) -> Void) {
@@ -37,6 +38,31 @@ class JSONParsingViewModel: ObservableObject {
                 completion(.failure(error))
             }
         }
+    }
+    
+    func sortAddress(by query: String) {
+        guard let data = storeData else { return }
+        sortedData = []
+
+        let lowercasedQuery = query.lowercased()
+        var seenIds = Set<String>()  // storeId 중복 방지용
+        var uniqueResults: [StoreProperty] = []
+
+        let nameFiltered = data.features
+            .filter { $0.properties.storeName.lowercased().contains(lowercasedQuery) }
+            .map { $0.properties }
+
+        let addressFiltered = data.features
+            .filter { $0.properties.address.lowercased().contains(lowercasedQuery) }
+            .map { $0.properties }
+
+        for store in nameFiltered + addressFiltered {
+            if seenIds.insert(store.storeId).inserted {
+                uniqueResults.append(store)
+            }
+        }
+
+        sortedData = uniqueResults
     }
     
     func resolveAddresses(for features: [StoreFeature]) async -> [StoreFeature] {

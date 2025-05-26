@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>GOOGLE_KEY</key>
+	<string>$(GOOGLE_KEY)</string>
+	<key>BASE_URL</key>
+	<string>$(BASE_URL)</string>
 	<key>CFBundleExecutable</key>
 	<string>cloneStarbucks</string>
 	<key>CFBundleIdentifier</key>
@@ -19,7 +23,7 @@
 			<string>com.umc.neulbo.cloneStarbucks</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kakao2f106bf152ca4f1e2abf2230d526148c//oauth</string>
+				<string>http://kakao2f106bf152ca4f1e2abf2230d526148c//oauth</string>
 			</array>
 		</dict>
 	</array>

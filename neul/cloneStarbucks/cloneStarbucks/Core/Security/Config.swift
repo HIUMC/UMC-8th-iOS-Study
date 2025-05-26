@@ -29,5 +29,19 @@ enum Config {
         return restApiKey
     }()
     
+    static let baseUrl: String = {
+        guard let baseUrl = Config.infoDictionary["BASE_URL"] as? String else {
+            fatalError()
+        }
+        return baseUrl
+    }()
+    
+    static let googleApiKey: String = {
+        guard let googleKey = Config.infoDictionary["GOOGLE_KEY"] as? String else {
+            fatalError()
+        }
+        return googleKey
+    }()
+    
 
 }
