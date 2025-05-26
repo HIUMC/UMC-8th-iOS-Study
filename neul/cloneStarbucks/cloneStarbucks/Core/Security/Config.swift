@@ -36,5 +36,12 @@ enum Config {
         return baseUrl
     }()
     
+    static let googleApiKey: String = {
+        guard let googleKey = Config.infoDictionary["GOOGLE_KEY"] as? String else {
+            fatalError()
+        }
+        return googleKey
+    }()
+    
 
 }

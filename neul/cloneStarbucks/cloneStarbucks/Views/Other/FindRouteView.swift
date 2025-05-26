@@ -15,6 +15,8 @@ struct FindRouteView : View {
     @State var isRouteLoading: Bool = false
     @State var showSource: Bool = false
     @State var showDest: Bool = false
+    @State private var showAlert: Bool = false
+    
     @State var source: FindRouteModel = .init(placeName: "", address: "")
     @State var destination: FindRouteModel = .init(placeName: "", address: "")
     @FocusState private var isFocused: Bool
@@ -42,6 +44,11 @@ struct FindRouteView : View {
                 ProgressView("경로 검색 중...")
                     .tint(.green00)
             }
+        }
+        .alert("경고", isPresented: $showAlert) {
+            Button("확인", role: .cancel) {}
+        } message: {
+        Text("해당 검색어로 조회한 매장 정보가 존재하지 않아요!")
         }
     }
     
@@ -91,6 +98,10 @@ struct FindRouteView : View {
                 Button(action: {
                     if !destination.placeName.isEmpty {
                         parsingViewModel.sortAddress(by: destination.placeName)
+                        if parsingViewModel.sortedData.isEmpty {
+                            showAlert = true
+                        }
+                        showSource = false
                         showDest = true
                     }
                 }) {

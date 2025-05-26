@@ -12,6 +12,9 @@ import CoreLocation
 
 class MapViewModel: ObservableObject {
     @Published var stores: [StoreFeature] = []
+    @Published var displayedStores: [StarbucksImageModel] = []
+    
+    
     var userLocation: CLLocation? {
         LocationManager.shared.currentLocation
     }
@@ -30,12 +33,30 @@ class MapViewModel: ObservableObject {
         return userLocation.distance(from: storeLocation)
     }
     
-    func sortedStoresByDistance() -> [StoreFeature] {
-        stores.sorted {
-            let d1 = distance(to: $0) ?? Double.greatestFiniteMagnitude
-            let d2 = distance(to: $1) ?? Double.greatestFiniteMagnitude
-            return d1 < d2
+    @MainActor
+    func setStoresAndUpdate(_ stores: [StoreFeature]) async {
+        do {
+            _ = try await LocationManager.shared.waitForLocation()
+            self.stores = stores
+            self.displayedStores = stores
+                .compactMap { store in
+                    guard let distance = distance(to: store), distance <= 10000 else { return nil }
+                    return StarbucksImageModel(
+                        storeName: store.properties.storeName,
+                        address: store.properties.address,
+                        distance: distance,
+                        category: store.properties.category,
+                        imageData: nil
+                    )
+                }
+                .sorted { $0.distance < $1.distance }
+            print("Store 개수: \(self.stores.count)")
+            print("displayed 개수: \(self.displayedStores.count)")
+        } catch {
+            print("⛔️ 위치 정보 기다리다 실패: \(error)")
         }
+            
+        
     }
     
     func makeInitialRegion(for coordinate: CLLocationCoordinate2D) {

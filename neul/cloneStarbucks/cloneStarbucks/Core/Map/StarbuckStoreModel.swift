@@ -58,3 +58,14 @@ struct Marker: Identifiable {
     let coordinate: CLLocationCoordinate2D
     let title: String
 }
+
+
+
+// MARK: - 실제 list에 띄울 모델
+struct StarbucksImageModel: Hashable {
+    let storeName: String
+    let address: String
+    let distance: CLLocationDistance
+    let category: StoreCategory
+    var imageData: String?
+}

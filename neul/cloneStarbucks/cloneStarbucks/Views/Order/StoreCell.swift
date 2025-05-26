@@ -6,18 +6,31 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct StoreCell: View {
+    
     let storeName: String
     let storeAddress: String
     let category: StoreCategory
     let distance: Double
+    let imageData: String?
     
     var body: some View {
         HStack(spacing: 16) {
-            Image(systemName: "person.crop.circle")
-                .resizable()
-                .frame(width: 83, height: 83)
+            if let imageUrl = URL(string: "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=\(imageData ?? "")&key=\(Config.googleApiKey)") {
+                KFImage(imageUrl)
+                    .placeholder({
+                        Image(systemName: "person.crop.circle")
+                            .resizable()
+                            .frame(width: 83, height: 83)
+                    })
+                    .resizable()
+                    .frame(width: 83, height: 83)
+                    .clipShape(RoundedRectangle(cornerRadius: 6))
+                
+            }
+            
             textStack
             Spacer()
             VStack {
@@ -28,6 +41,7 @@ struct StoreCell: View {
             }
         }
         .frame(maxWidth: .infinity, minHeight: 84)
+
     }
     
     private var textStack: some View {
