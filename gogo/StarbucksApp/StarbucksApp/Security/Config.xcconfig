@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  UMC_Starbucks
+//
+
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+KAKAO_NATIVE_APP_KEY = 4a44882e28b79e70bfb159cf7f6781bb
+REST_API_KEY = 0a2eae6fdacfbef3243be37bcdec5613
+OSRM_BASE_URL= http://localhost:8080
+
