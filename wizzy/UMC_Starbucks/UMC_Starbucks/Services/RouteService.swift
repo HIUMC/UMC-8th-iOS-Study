@@ -20,12 +20,12 @@ class RouteService {
                     let decoded = try JSONDecoder().decode(RouteResponse.self, from: response.data)
                     completion(decoded.routes.first)
                 } catch {
-                    print("❌ 디코딩 실패:", error)
+                    print("디코딩 실패:", error)
                     completion(nil)
                 }
 
             case let .failure(error):
-                print("❌ 요청 실패:", error)
+                print("요청 실패:", error)
                 completion(nil)
             }
         }

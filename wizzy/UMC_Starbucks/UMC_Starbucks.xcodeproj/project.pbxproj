@@ -227,6 +227,11 @@
 			path = Order;
 			sourceTree = "<group>";
 		};
+		615855CA2DE0AD36007CAFBE /* GooglePlaces */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GooglePlaces;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +313,7 @@
 		61AD1DD52D992AD20047DF1B /* UMC_Starbucks */ = {
 			isa = PBXGroup;
 			children = (
+				615855CA2DE0AD36007CAFBE /* GooglePlaces */,
 				612FD6B22DDC61310094DA02 /* Services */,
 				61AD1DF12D9931FB0047DF1B /* UMC-Starbucks-Info.plist */,
 				61AD1DD62D992AD20047DF1B /* UMC_StarbucksApp.swift */,
@@ -485,6 +491,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				612107012DC2F64900ED7FBE /* Order */,
+				615855CA2DE0AD36007CAFBE /* GooglePlaces */,
 			);
 			name = UMC_Starbucks;
 			packageProductDependencies = (
