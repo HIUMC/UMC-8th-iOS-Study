@@ -12,7 +12,7 @@ import SwiftUI
 
 struct StoreMapView: View {
     @ObservedObject var viewModel: MapViewModel
-    @Bindable var locationManager: LocationManager
+    @ObservedObject var locationManager: LocationManager
     @Namespace var mapScope
     @State private var hasMovedMap: Bool = false//사용자가 지도를 움직였는지 여부
     @State private var cameraInitialized: Bool = false
