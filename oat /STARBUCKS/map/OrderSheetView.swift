@@ -11,9 +11,7 @@ import CoreLocation
 struct OrderSheetView: View {
     @StateObject var storeDataManager = StoreDataManager()
     // 매장 목록과 사용자 위치를 관리하는 뷰모델
-    @State private var routeCoordinates: [CLLocationCoordinate2D] = []
-    @ObservedObject var directionsVM: DirectionsSearchViewModel
-
+    
     @State private var isMapView = false
     // true면 지도뷰, false면 리스트뷰
     
@@ -35,12 +33,12 @@ struct OrderSheetView: View {
                         stores: storeDataManager.stores,
                         hasMoved: $hasMoved,
                         displayedStores: $displayedStores,
-                        routeCoordinates: $directionsVM.routeCoordinates,
                         userLocation: storeDataManager.userLocation,
                         onRegionChange: { center in
                             self.mapCenter = center
                         }
                     )
+
                     .overlay(
                         VStack {
                             if hasMoved {
@@ -79,8 +77,10 @@ struct OrderSheetView: View {
                             VStack(spacing: 16) {
                                 ForEach(filteredStores) { store in
                                     HStack(alignment: .top, spacing: 16) {
-                                        StoreImageView(storeName: store.name)
-
+                                        Rectangle()
+                                            .fill(Color.gray)
+                                            .frame(width: 80, height: 80)
+                                            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
 
                                         VStack(alignment: .leading, spacing: 6) {
                                             // 매장 이름과 주소
@@ -196,4 +196,6 @@ struct OrderSheetView: View {
 
 }
 
-
+#Preview {
+    OrderSheetView()
+}

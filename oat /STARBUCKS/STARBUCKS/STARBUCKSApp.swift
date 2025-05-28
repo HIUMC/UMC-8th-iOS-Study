@@ -6,14 +6,10 @@
 //
 
 import SwiftUI
-import KakaoSDKCommon
-import KakaoSDKAuth
 
 @main
 struct MyApp: App {
     @StateObject private var userManager = UserManager.shared
-    @State private var isLoggedIn = false
-
 
     var body: some Scene {
         WindowGroup {
@@ -24,10 +20,9 @@ struct MyApp: App {
                     LoginView()
                 }
             }
+            .environmentObject(userManager) // 필요 시 자식 뷰에 공유 가능
         }
         .modelContainer(for: [ReceiptsModel.self, ReceiptsImageModel.self])
     }
-
 }
-
 

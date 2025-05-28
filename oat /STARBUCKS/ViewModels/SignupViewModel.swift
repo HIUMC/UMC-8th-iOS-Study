@@ -15,16 +15,9 @@ class SignupViewModel: ObservableObject {
     private let service = "com.minjung.keychain.login"
 
     func saveToKeychain() -> Bool {
-        print("⭐️ 저장 시 닉네임:", nickname)
-        
-        let pwdSaved = keychain.savePasswordToKeychain(account: email, service: service, password: pwd)
-        
-        let nickSaved = keychain.savePasswordToKeychain(account: "nickname", service: service, password: nickname)
-        
-        print("닉네임 저장 결과 코드: \(nickSaved)")
-        return pwdSaved == errSecSuccess && nickSaved == errSecSuccess
+        let status = keychain.savePasswordToKeychain(account: email, service: service, password: pwd)
+        return status == errSecSuccess
     }
-
 }
 
 
