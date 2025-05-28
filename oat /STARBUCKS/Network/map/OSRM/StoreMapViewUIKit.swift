@@ -12,6 +12,7 @@ struct StoreMapViewUIKit: UIViewRepresentable {
     var stores: [Store]
     @Binding var hasMoved: Bool
     @Binding var displayedStores: [Store]
+    @Binding var routeCoordinates: [CLLocationCoordinate2D] 
     var userLocation: CLLocation?
     var onRegionChange: ((CLLocationCoordinate2D) -> Void)? = nil
   
@@ -27,7 +28,9 @@ struct StoreMapViewUIKit: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
-        if !context.coordinator.hasSetInitialRegion, let location = userLocation {
+     
+        if !context.coordinator.hasSetInitialRegion,
+           let location = userLocation {
             let camera = MKMapCamera(lookingAtCenter: location.coordinate,
                                      fromDistance: 3000,
                                      pitch: 0,
@@ -35,20 +38,34 @@ struct StoreMapViewUIKit: UIViewRepresentable {
             uiView.setCamera(camera, animated: true)
             context.coordinator.hasSetInitialRegion = true
         }
-        
-   
-        uiView.removeAnnotations(uiView.annotations)
-        
 
+
+        uiView.removeAnnotations(uiView.annotations)
         let annotations = displayedStores.map { store -> MKPointAnnotation in
             let annotation = MKPointAnnotation()
             annotation.title = store.name
             annotation.coordinate = CLLocationCoordinate2D(latitude: store.latitude,
-                                                            longitude: store.longitude)
+                                                           longitude: store.longitude)
             return annotation
         }
         uiView.addAnnotations(annotations)
+
+      
+        uiView.removeOverlays(uiView.overlays)
+
+    
+        if !routeCoordinates.isEmpty {
+            let polyline = MKPolyline(coordinates: routeCoordinates,
+                                      count: routeCoordinates.count)
+            uiView.addOverlay(polyline)
+
+           
+            let mapRect = polyline.boundingMapRect
+            let padding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+            uiView.setVisibleMapRect(mapRect, edgePadding: padding, animated: true)
+        }
     }
+
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -62,6 +79,16 @@ struct StoreMapViewUIKit: UIViewRepresentable {
             self.parent = parent
         }
         
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            if let polyline = overlay as? MKPolyline {
+                let renderer = MKPolylineRenderer(polyline: polyline)
+                renderer.strokeColor = .systemGreen
+                renderer.lineWidth = 5
+                return renderer
+            }
+            return MKOverlayRenderer()
+        }
+
         func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
             DispatchQueue.main.async {
                 self.parent.hasMoved = true

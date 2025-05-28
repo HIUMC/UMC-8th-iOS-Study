@@ -7,15 +7,33 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
 			<key>CFBundleURLName</key>
-			<string>com.minjung.starbucks
-</string>
+			<string>ㅡ</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>yourapp</string>
+				<string>kakao59e91991905b5028f7c77172a4024a75</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+		</dict>
 	</array>
+	<key>GOOGLE_API_KEY</key>
+	<string>$(GOOGLE_API_KEY)</string>
+	<key>KAKAO_REDIRECT_URI</key>
+	<string>$(KAKAO_REDIRECT_URI)</string>
+	<key>KAKAO_REST_API_KEY</key>
+	<string>$(KAKAO_REST_API_KEY)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>kakaokompassauth</string>
+		<string>kakaolink</string>
+	</array>
+	<key>OSRM_BASE_URL</key>
+	<string>http://192.168.35.35:8080</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Pretendard-Bold.otf</string>
