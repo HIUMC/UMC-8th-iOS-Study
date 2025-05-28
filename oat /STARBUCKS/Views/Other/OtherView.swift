@@ -12,6 +12,9 @@ import SwiftUI
 struct OtherView: View {
     @ObservedObject private var userManager = UserManager.shared
     @State private var showFindStoreView = false
+    @StateObject private var storeDataManager = StoreDataManager()
+    @StateObject private var directionsVM = DirectionsSearchViewModel()
+
     
     var body: some View {
         VStack {
@@ -34,7 +37,7 @@ struct OtherView: View {
             VStack {
                 VStack(alignment: .center) {
                     HStack(spacing: 0) {
-                        Text(userManager.nickname.isEmpty ? "(작성한 닉네임)" : userManager.nickname)
+                        Text("안녕하세요, \(userManager.nickname.isEmpty ? "닉네임없음" : userManager.nickname)님")
                             .foregroundStyle(Color.green01)
                             .font(.mainTextSemibold24)
                         Text("님")
@@ -116,9 +119,16 @@ struct OtherView: View {
             .background(Color.white00)
             .navigationBarBackButtonHidden(true)
             
-            NavigationLink(destination: FindStoreView(), isActive: $showFindStoreView) {
+            NavigationLink(
+                destination: FindStoreView(
+                    storeDataManager: storeDataManager,
+                    directionsVM: directionsVM
+                ),
+                isActive: $showFindStoreView
+            ) {
                 EmptyView()
             }
+
 
         }
     }

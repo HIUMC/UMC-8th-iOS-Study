@@ -11,9 +11,9 @@ struct RecommendView: View {
     @StateObject var recViewModel = RecommendViewModel()
     var body: some View {
         VStack {
-            VStack(alignment: .leading){  (Text("\(recViewModel.homeNickname)")
+            VStack(alignment: .leading){  (Text("\(UserManager.shared.nickname)")
                 .foregroundStyle(Color.brown01)
-                                           + Text("님을 위한 추천 메뉴" ) )
+                                           + Text("을 위한 추천 메뉴" ) )
             .font(.mainTextBold24)
             .foregroundStyle(Color.black03)
                     ScrollView(.horizontal) {

@@ -4,24 +4,25 @@
 //
 //  Created by 신민정 on 5/2/25.
 //
+//지도 + 길찾기 세그먼트 뷰 
 
 import SwiftUI
 import CoreLocation
 
-
 struct FindStoreView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State var routeCoordinates: [CLLocationCoordinate2D] = []
+
     @State private var selectedTab: FindStoreTab = .findStore
     @State private var selectedTop: FindStoreTopSegment = .findStore
     @State private var currentMapCenter: CLLocationCoordinate2D? = nil
-
-
-    
+    @State private var placeSearchVM = PlaceSearchViewModel()
     @State private var hasMoved = false
     @State private var displayedStores: [Store] = []
-    
-    @StateObject var storeDataManager = StoreDataManager()
-    
+
+    @ObservedObject var storeDataManager: StoreDataManager
+    @ObservedObject var directionsVM: DirectionsSearchViewModel
+
     var body: some View {
         VStack(spacing: 0) {
             // 상단 네비 + 세그먼트
@@ -39,51 +40,73 @@ struct FindStoreView: View {
                 Spacer().frame(width: 24)
             }
             .padding()
-            
+
             topSegment()
 
-            // 지도 뷰
-            StoreMapViewUIKit(
-                stores: storeDataManager.stores,
-                hasMoved: $hasMoved,
-                displayedStores: $displayedStores,
-                userLocation: storeDataManager.userLocation,
-                onRegionChange: { center in
-                    self.currentMapCenter = center
-                }
-            )
-            .onAppear {
-                if let center = storeDataManager.userLocation?.coordinate {
-                    updateDisplayedStores(center: center)
-                }
-            }
-            .overlay(
-                VStack {
-                    if hasMoved {
-                        Button("이 지역 검색") {
-                            if let center = currentMapCenter {
-                                updateDisplayedStores(center: center)
-                            }
-                            hasMoved = false
+            if selectedTop == .findStore {
+                ZStack {
+                    StoreMapViewUIKit(
+                        stores: storeDataManager.stores,
+                        hasMoved: $hasMoved,
+                        displayedStores: $displayedStores,
+                        routeCoordinates: $directionsVM.routeCoordinates,
+                        userLocation: storeDataManager.userLocation,    
+                        onRegionChange: { center in
+                            self.currentMapCenter = center
                         }
-                        .font(.caption)
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
-                        .background(Color.white)
-                        .foregroundStyle(.black)
-                        .clipShape(Capsule())
-                        .shadow(radius: 4)
-                        .padding(.top, 30)
-                        Spacer()
+                    )
+
+                   
+                }
+                .onAppear {
+                    if let center = storeDataManager.userLocation?.coordinate {
+                        updateDisplayedStores(center: center)
                     }
                 }
-            )
+
+                .overlay(
+                    VStack {
+                        if hasMoved {
+                            Button("이 지역 검색") {
+                                if let center = currentMapCenter {
+                                    updateDisplayedStores(center: center)
+                                }
+                                hasMoved = false
+                            }
+                            .font(.caption)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(Color.white)
+                            .foregroundStyle(.black)
+                            .clipShape(Capsule())
+                            .shadow(radius: 4)
+                            .padding(.top, 30)
+                            Spacer()
+                        }
+                    }
+                )
+            } else if selectedTop == .directions {
+                DirectionsSearchView(
+                    viewModel: directionsVM,
+                    storeDataManager: storeDataManager
+                )
+                .transition(.move(edge: .bottom))
+            }
         }
         .ignoresSafeArea(edges: .bottom)
         .navigationBarBackButtonHidden(true)
-
     }
-    
+
+    enum FindStoreTab {
+        case findStore
+        case directions
+    }
+
+    enum FindStoreTopSegment: String, CaseIterable {
+        case findStore = "매장 찾기"
+        case directions = "길찾기"
+    }
+
     private func topSegment() -> some View {
         VStack(spacing: 0) {
             HStack(spacing: 0) {
@@ -97,9 +120,7 @@ struct FindStoreView: View {
                             Text(segment.rawValue)
                                 .font(.mainTextSemibold16)
                                 .foregroundStyle(
-                                    selectedTop == segment
-                                    ? Color.black
-                                    : Color.black.opacity(0.5)
+                                    selectedTop == segment ? Color.black : Color.black.opacity(0.5)
                                 )
                             Rectangle()
                                 .fill(selectedTop == segment ? Color("brown02") : Color.clear)
@@ -114,8 +135,6 @@ struct FindStoreView: View {
         }
     }
 
-    
-    // 세그먼트 버튼
     private func segmentButton(title: String, tab: FindStoreTab) -> some View {
         Button(action: {
             selectedTab = tab
@@ -128,8 +147,7 @@ struct FindStoreView: View {
                 .background(selectedTab == tab ? Color.white : Color.clear)
         }
     }
-    
-    // 매장 필터링
+
     private func updateDisplayedStores(center: CLLocationCoordinate2D) {
         let base = CLLocation(latitude: center.latitude, longitude: center.longitude)
         displayedStores = storeDataManager.stores.filter {
@@ -138,19 +156,3 @@ struct FindStoreView: View {
         }
     }
 }
-
-
-
-// 탭 선택 상태
-enum FindStoreTab {
-    case findStore
-    case directions
-}
-
-enum FindStoreTopSegment: String, CaseIterable {
-    case findStore = "매장 찾기"
-    case directions = "길찾기"
-}
-
-
-

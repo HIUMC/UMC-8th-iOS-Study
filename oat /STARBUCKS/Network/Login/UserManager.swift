@@ -24,10 +24,12 @@ class UserManager: ObservableObject {
     func autoLogin() {
         // 마지막 이메일을 UserDefaults에서 불러오고,
         if let savedEmail = UserDefaults.standard.string(forKey: "lastEmail"),
-           let savedPwd = keychain.load(account: savedEmail, service: service) {
-         
+           let savedPwd = keychain.load(account: savedEmail, service: service),
+           let savedNickname = KeychainService.shared.load(account: "nickname", service: service)
+            
+        {
             self.email = savedEmail
-            self.nickname = "오트"
+            self.nickname = savedNickname
             self.isLoggedIn = true
             print("자동 로그인 성공")
         } else {
@@ -43,9 +45,13 @@ class UserManager: ObservableObject {
     }
 
     func logout() {
+        KeychainService.shared.delete(account: "email", service: "com.myapp.login")
+        KeychainService.shared.delete(account: "password", service: "com.myapp.login")
+        KeychainService.shared.delete(account: "nickname", service: "com.myapp.login")
+
         self.email = ""
         self.nickname = ""
         self.isLoggedIn = false
-        UserDefaults.standard.removeObject(forKey: "lastEmail")
     }
+
 }
