@@ -7,6 +7,52 @@
 
 import SwiftUI
 import CoreLocation
+import MapKit
+
+struct Geo_ReverseGeo: View {
+    @State private var address: String = "주소 불러오는 중..."
+    @Bindable var locationManager = LocationManager.shared
+
+    var body: some View {
+        Text(address)
+            .padding()
+            .task {
+                let geocoder = CLGeocoder()
+
+                // 🔽 현재 위치가 있는지 확인
+                guard let location = locationManager.currentLocation else {
+                    self.address = "현재 위치를 가져올 수 없습니다."
+                    return
+                }
+
+                // 🔽 역지오코딩: 좌표 → 주소
+                do {
+                    let placemarks = try await geocoder.reverseGeocodeLocation(location)
+                    if let placemark = placemarks.first {
+                        let address = [
+                            placemark.administrativeArea,
+                            placemark.locality,
+                            placemark.subLocality,
+                            placemark.thoroughfare
+                        ].compactMap { $0 }.joined(separator: " ")
+
+                        self.address = address
+                    } else {
+                        self.address = "주소를 찾을 수 없습니다."
+                    }
+                } catch {
+                    self.address = "주소 변환 실패: \(error.localizedDescription)"
+                }
+            }
+    }
+}
+
+#Preview {
+    Geo_ReverseGeo()
+}
+/*
+import SwiftUI
+import CoreLocation
 
 struct Geo_ReverseGeo: View {
     @State private var address: String = "주소 불러오는 중..."
@@ -46,6 +92,7 @@ struct Geo_ReverseGeo: View {
             }
     }
 }
+ */
 
 #Preview {
     Geo_ReverseGeo()
