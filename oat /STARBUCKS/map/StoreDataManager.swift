@@ -25,9 +25,6 @@ class StoreDataManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     //뷰에서 이 stores 가 바뀌면 자동으로 화면 갱신이 됨
     @Published var userLocation: CLLocation?
     //사용자 현재 위치 정보 저장
-    @Published var currentAddress: String = ""
-    private let geocoder = CLGeocoder()
-
     private var locationManager = CLLocationManager()
     //iOS 시스템에서 위치를 추적하는 클래스
     
@@ -52,45 +49,9 @@ class StoreDataManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         //GeoJSON 파일을 불러와 매장 데이터를 파싱하는 함수 호출
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-                DispatchQueue.main.async {
-                    self.userLocation = location
-                }
-            }
+        userLocation = locations.first
         //위치가 없데이트 되면 가장 첫 위치를(locations.first) userLocation에 저장/ 이후 거리계산, 매장 정렬에 사용됨
-        
-        if let location = locations.first {
-                geocoder.reverseGeocodeLocation(location) { placemarks, error in
-                    if let placemark = placemarks?.first {
-                        let city = placemark.locality ?? ""
-                        let town = placemark.subLocality ?? ""
-                        let detail = placemark.name ?? ""
-                        
-                        DispatchQueue.main.async {
-                            self.currentAddress = "\(city) \(town) \(detail)"
-                        }
-                    }
-                }
-            }
     }
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch manager.authorizationStatus {
-        case .authorizedWhenInUse, .authorizedAlways:
-            locationManager.startUpdatingLocation()
-        case .denied, .restricted:
-            print("위치 권한이 거부됨")
-        default:
-            break
-        }
-    }
-    
-
-    func requestLocation() {
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation() // 한번만 요청
-    }
-
     func distanceFromUser(to store: Store) -> Double? {
         guard let userLocation = userLocation else {
             return nil

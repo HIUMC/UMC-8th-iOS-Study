@@ -4,10 +4,23 @@
 //
 //  Created by 신민정 on 3/23/25.
 //
+
 import SwiftUI
+import Foundation
 
 struct LoginView: View {
+    // ─ 기존 로그인 필드(AppStorage) ─
+    @AppStorage("email") private var storedEmail: String = ""
+    @AppStorage("pwd")   private var storedPwd:   String = ""
+    
+    // ─ 로컬 화면 전환 바인딩 ─
+    @State private var isLoggedIn: Bool = false
+    
+    // ─ 뷰모델 (이메일/비번 + 카카오 OAuth 담당) ─
     @StateObject private var loginVM = LoginViewModel()
+    
+    // ─ SwiftUI URL 열기 도우미 ─
+    @Environment(\.openURL) private var openURL
 
     var body: some View {
         NavigationStack {
@@ -23,12 +36,22 @@ struct LoginView: View {
                     .frame(maxWidth: .infinity)
                 Spacer()
 
-                // 로그인 성공 시 화면 전환
+                // ▶︎ 여기만 바꿔주세요!
                 NavigationLink(
                     destination: iconView(),
-                    isActive: $loginVM.isLoggedIn
+                    isActive: $isLoggedIn     // ← 로컬 상태
                 ) {
                     EmptyView()
+                }
+            }
+            // 카카오 Redirect 콜백 잡기
+            .onOpenURL { url in
+                loginVM.handleKakaoRedirect(url)
+            }
+            // 뷰모델에서 성공 신호 오면 로컬 상태에 복사
+            .onReceive(loginVM.$isLoggedIn) { success in
+                if success {
+                    isLoggedIn = true
                 }
             }
         }
@@ -51,12 +74,10 @@ struct LoginView: View {
 
     private var mainMiddleGroup: some View {
         VStack(alignment: .leading) {
-            // 이메일/비번 입력 필드
-            LoginTextView(id: $loginVM.id, pwd: $loginVM.pwd)
-            
-            // 이메일 로그인 버튼
+            LoginTextView(loginViewModel: loginVM)
             Button {
-                loginVM.loginWithEmail()
+                // 이메일/비번 로그인 시도 → 뷰모델 내부에서 isLoggedIn = true 로 세팅
+                _ = loginVM.loginWithEmail()
             } label: {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(Color.green01)
@@ -83,18 +104,9 @@ struct LoginView: View {
 
             // 카카오 로그인 버튼
             Button {
-                Task {
-                        do {
-                            // 복사한 인가코드 직접 입력
-                            let token = try await KakaoAPIService.shared.requestToken(code: "_gpUhZpD0ml6v74BmT2kcbEh9KKKmd5EkRc1UN8U4M-AzIppUdVtOQAAAAQKFwAnAAABlxE0vInSDh85zpcCzQ")
-                            
-                            // 로그인 상태 변경
-                            UserManager.shared.isLoggedIn = true
-                            print("✅ 카카오 로그인 성공")
-                        } catch {
-                            print("❌ 카카오 로그인 실패:", error)
-                        }
-                    }
+                if let url = loginVM.kakaoAuthURL {
+                    openURL(url)
+                }
             } label: {
                 Image(.kakao)
                     .resizable()
@@ -102,7 +114,6 @@ struct LoginView: View {
                     .padding(.bottom, 19)
             }
 
-            // 애플 로그인 버튼 
             Image(.apple)
                 .resizable()
                 .frame(width: 306, height: 45)
@@ -111,23 +122,21 @@ struct LoginView: View {
     }
 }
 
-
 struct LoginTextView: View {
-    @Binding var id: String
-    @Binding var pwd: String
+    @ObservedObject var loginViewModel: LoginViewModel
     @FocusState private var isID: Bool
     @FocusState private var isPwd: Bool
 
     var body: some View {
         VStack(alignment: .leading) {
-            // 아이디 입력
+            // 아이디
             ZStack(alignment: .leading) {
-                if id.isEmpty {
+                if loginViewModel.id.isEmpty {
                     Text("아이디")
                         .foregroundColor(.black)
                         .font(.mainTextRegular13)
                 }
-                TextField("", text: $id)
+                TextField("", text: $loginViewModel.id)
                     .focused($isID)
                     .font(.mainTextRegular13)
                     .foregroundStyle(Color.black01)
@@ -137,14 +146,14 @@ struct LoginTextView: View {
                 .foregroundStyle(isID ? Color.green01 : Color.gray00)
                 .padding(.bottom, 47)
 
-            // 비밀번호 입력
+            // 비밀번호
             ZStack(alignment: .leading) {
-                if pwd.isEmpty {
+                if loginViewModel.pwd.isEmpty {
                     Text("비밀번호")
                         .foregroundColor(.black)
                         .font(.mainTextRegular13)
                 }
-                SecureField("", text: $pwd)
+                SecureField("", text: $loginViewModel.pwd)
                     .focused($isPwd)
                     .font(.mainTextRegular13)
                     .foregroundStyle(Color.black01)
@@ -154,12 +163,5 @@ struct LoginTextView: View {
                 .foregroundStyle(isPwd ? Color.green01 : Color.gray00)
                 .padding(.bottom, 47)
         }
-    }
-}
-
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
     }
 }

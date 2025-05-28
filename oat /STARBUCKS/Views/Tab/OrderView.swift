@@ -9,9 +9,6 @@ import SwiftUI
 
 
 struct OrderView: View {
-    @ObservedObject var storeDataManager: StoreDataManager
-    @ObservedObject var directionsVM: DirectionsSearchViewModel
-
     //상담 탭 옵션 : 전체, 나만의 메뉴, 홀케이크 예약
     @StateObject private var viewModel = CoffeeMenuViewModel()
     enum TopSegment: String, CaseIterable {
@@ -46,10 +43,7 @@ struct OrderView: View {
         }
         .background(Color.white)
         .sheet(isPresented: $showStoreSheet) {
-            OrderSheetView(
-                storeDataManager: storeDataManager,
-                directionsVM: directionsVM
-            )
+            OrderSheetView()
         }
     }
     
@@ -227,5 +221,8 @@ struct OrderView: View {
     }
 
     
-
+    #Preview {
+        OrderView()
+    }
+    
 

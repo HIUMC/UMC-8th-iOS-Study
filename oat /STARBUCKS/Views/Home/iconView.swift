@@ -8,9 +8,6 @@ import Foundation
 import SwiftUI
 
 struct iconView: View {
-    @StateObject private var storeDataManager = StoreDataManager()
-    @StateObject private var directionsVM = DirectionsSearchViewModel()
-
     var body: some View {
             TabView{
                 Tab("Home", image: "home") {
@@ -20,10 +17,7 @@ struct iconView: View {
                     PayView()
                 }
                 Tab("Order", image: "Order") {
-                    OrderView(
-                        storeDataManager: storeDataManager,
-                        directionsVM: directionsVM
-                    )
+                    OrderView()
                 }
                 Tab("Shop", image:"shop") {
                     ShopView()
