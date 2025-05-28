@@ -55,13 +55,6 @@ struct UMC_StarbucksApp: App {
                         _ = AuthController.handleOpenUrl(url: url)
                     }
                 }
-            /*
-            if isLoginOK {
-                TabBarView()
-            } else {
-                LoginView()
-            }
-             */
             
         }
         
