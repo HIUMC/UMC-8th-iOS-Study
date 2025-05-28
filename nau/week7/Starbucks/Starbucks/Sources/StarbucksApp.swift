@@ -6,8 +6,7 @@ import KakaoSDKAuth
 struct StarbucksApp: App {
     init() {
         // kakao sdk 초기화
-        let kakaoAppKey = (Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] as? String) ?? ""
-        KakaoSDK.initSDK(appKey: kakaoAppKey)
+        KakaoSDK.initSDK(appKey: BuildSetting.kakaoAppKey)
     }
     
     var body: some Scene {

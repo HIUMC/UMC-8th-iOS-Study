@@ -11,24 +11,30 @@ import Foundation
 
 @Observable
 class WayFindViewModel {
-    let provider: MoyaProvider<MapRouter>
+    var provider: MoyaProvider<MapRouter>
     
     init(provider: MoyaProvider<MapRouter> = APIManager.shared.createProvider(for: MapRouter.self)) {
         self.provider = provider
-        
-        locationManager.startUpdatingLocation()
-        Task {
-            await reverseGeocoding()
-        }
     }
-    
+
     var keywordResults: [Place] = []
+    var stores: [MapListModel] = []
+    var filteredStores: [MapListModel] = []
     
     var locationManager: LocationManager = .shared
     
     let geocoder = CLGeocoder()
     var address = ""
 
+    var routeCoordinates: [CLLocationCoordinate2D] = []
+    
+    func startlocation() {
+        locationManager.startUpdatingLocation()
+        _Concurrency.Task {
+            await reverseGeocoding()
+        }
+    }
+    
     func reverseGeocoding() async {
         guard let location = locationManager.currentLocation else {
             locationManager.stopUpdatingLocation()
@@ -56,14 +62,70 @@ class WayFindViewModel {
         }
     }
     
-    func searchAddress(keyword: String) async {
-        do {
-            let response = try await provider.requestAsync(.getSearchAddress(query: keyword))
-            let data = try JSONDecoder().decode(SearchAddress.self, from: response.data)
-            print("\(data)")
+    func searchAddress(keyword: String) {
+        _Concurrency.Task {
+            do {
+                let response = try await provider.requestAsync(.getSearchAddress(query: keyword))
+                let data = try JSONDecoder().decode(SearchAddress.self, from: response.data)
+                
+                DispatchQueue.main.async {
+                    self.keywordResults = data.documents
+                }
+                
+            }
+            catch {
+                print(error.localizedDescription)
+            }
         }
-        catch {
-            print(error.localizedDescription)
+    }
+    
+    func loadGeoJSON(completion: @escaping (Result<[MapListModel], Error>) -> Void) {
+        guard let url = Bundle.main.url(forResource: "MapData", withExtension: "geojson"),
+              let data = try? Data(contentsOf: url) else { return }
+
+        do {
+            let decoder = JSONDecoder()
+            let geoJSON = try decoder.decode(GeoJSON.self, from: data)
+            self.stores = geoJSON.features.map {
+                let store = $0.toStore()
+                return store
+            }
+
+            completion(.success(filteredStores))
+            print("\(String(describing: filteredStores))")
+            
+        } catch {
+            print("GeoJSON 파싱 오류:", error)
+            completion(.failure(error))
+        }
+    }
+    
+    func searchAddressEnd(keyword: String) {
+        self.filteredStores = stores.filter { store in
+            store.name.contains(keyword) || store.address.contains(keyword)
+        }
+    }
+    
+    func getRoute(start: CLLocationCoordinate2D, end: CLLocationCoordinate2D) async throws -> RouteResponse.Route {
+        let start = String(format: "%.6f,%.6f", start.longitude, start.latitude)
+        let end = String(format: "%.6f,%.6f", end.longitude, end.latitude)
+
+        print("➡️ 요청 경로: \(start);\(end)")
+
+        let response = try await provider.requestAsync(.getOrsmRoute(start: start, end: end))
+        print("✅ 응답 코드: \(response.statusCode)")
+
+        do {
+            let data = try JSONDecoder().decode(RouteResponse.self, from: response.data)
+            guard let route = data.routes.first else {
+                throw NSError(domain: "NoRouteFound", code: -1)
+            }
+            
+            // 경로 좌표 디코딩
+            self.routeCoordinates = PolylineDecoder.decodePolyline(route.geometry)
+            return route
+        } catch {
+            throw error
         }
     }
 }

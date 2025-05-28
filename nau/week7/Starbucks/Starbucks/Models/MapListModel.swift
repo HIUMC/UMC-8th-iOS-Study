@@ -11,7 +11,7 @@ import SwiftUI
 
 struct MapListModel: Identifiable, Decodable {
     let id = UUID()
-    let image: ImageResource
+    let imageURL: URL? = nil // 구글 api로 사진 정보 받아오기
     let name: String
     let address: String
     let coordinate: CLLocationCoordinate2D
@@ -39,15 +39,13 @@ struct MapListModel: Identifiable, Decodable {
 
         let coords = try geo.decode([Double].self, forKey: .coordinates)
 
-        image = ImageResource(name: "coffeeDetail1", bundle: .main)
         name = try props.decode(String.self, forKey: .name)
         address = try props.decode(String.self, forKey: .address)
         category = try props.decodeIfPresent(String.self, forKey: .category) ?? ""
         coordinate = CLLocationCoordinate2D(latitude: coords[1], longitude: coords[0])
     }
     
-    init(image: ImageResource, name: String, address: String, coordinate: CLLocationCoordinate2D, category: String, distance: Double? = nil) {
-        self.image = image
+    init(name: String, address: String, coordinate: CLLocationCoordinate2D, category: String, distance: Double? = nil) {
         self.name = name
         self.address = address
         self.coordinate = coordinate

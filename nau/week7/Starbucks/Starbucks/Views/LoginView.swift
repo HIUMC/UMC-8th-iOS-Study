@@ -135,7 +135,7 @@ struct LoginView: View {
                     print(error)
                 } else if let token = oauthToken {
                     print("카카오톡 로그인 success")
-                    let tokenInfo = TokenInfo(
+                    let tokenInfo = TokenResponse(
                         accessToken: token.accessToken,
                         refreshToken: token.refreshToken
                     )
@@ -153,7 +153,7 @@ struct LoginView: View {
                     print(error)
                 } else if let token = oauthToken {
                     print("카카오계정 로그인 success")
-                    let tokenInfo = TokenInfo(
+                    let tokenInfo = TokenResponse(
                         accessToken: token.accessToken,
                         refreshToken: token.refreshToken
                     )

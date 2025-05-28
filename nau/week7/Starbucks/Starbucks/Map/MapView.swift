@@ -16,6 +16,9 @@ struct MapView: View {
    
     @Namespace var mapScope // 맵 관련 스코프 바인딩용
     
+    @Environment(WayFindViewModel.self) var viewModel2
+    @Environment(NavigationRouter.self) var router
+    
     /*
      @State private var showEnteredAlert: Bool = false
     @State private var showExitedAlert: Bool = false // 지오펜스 알림 제어
@@ -35,6 +38,11 @@ struct MapView: View {
                             .frame(width: 35, height: 48)
                     })
                 })
+                
+                if !viewModel2.routeCoordinates.isEmpty {
+                    MapPolyline(coordinates: viewModel2.routeCoordinates)
+                        .stroke(Color.green02, lineWidth: 4)
+                }
                 
                 // 내 위치에 점을 지도에 표시
                 UserAnnotation()
@@ -69,12 +77,22 @@ struct MapView: View {
             .task {
                 if !hasInitializedCameraPosition,
                    let location = LocationManager.shared.currentLocation {
-                    viewModel.cameraPosition = .region(
-                        MKCoordinateRegion(
-                            center: location.coordinate,
-                            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                    if let first = viewModel2.routeCoordinates.first {
+                        viewModel.cameraPosition = .region(
+                            MKCoordinateRegion(
+                                center: first,
+                                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                            )
                         )
-                    )
+                    }
+                    else {
+                        viewModel.cameraPosition = .region(
+                            MKCoordinateRegion(
+                                center: location.coordinate,
+                                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                            )
+                        )
+                    }
                     hasInitializedCameraPosition = true
                 }
             }
@@ -170,6 +188,3 @@ struct MapView: View {
     }
 }
 
-#Preview {
-    MapView()
-}

@@ -18,7 +18,6 @@ struct Features: Codable {
     
     func toStore() -> MapListModel {
         return MapListModel(
-            image: ImageResource(name: "coffeeDetail1", bundle: .main),
             name: properties.storeName,
             address: properties.address,
             coordinate: CLLocationCoordinate2D(latitude: properties.latitude, longitude: properties.longitude),

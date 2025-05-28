@@ -2779,25 +2779,6 @@
     {
       "type": "Feature",
       "properties": {
-        "Seq": "193.0",
-        "Sotre_nm": "서교",
-        "Address": "서울특별시 마포구 양화로 78 (서교동) 서교빌딩 1층",
-        "Telephone": "1522-3232",
-        "Category": "",
-        "Ycoordinate": 37.551385,
-        "Xcoordinate": 126.9169208
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          126.9169208,
-          37.551385
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "Seq": "194.0",
         "Sotre_nm": "서강대",
         "Address": "서울특별시 마포구 백범로 23 (신수동)",

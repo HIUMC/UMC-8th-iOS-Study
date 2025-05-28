@@ -8,6 +8,8 @@
 import Foundation
 import CoreLocation
 import MapKit
+import Moya
+import Kingfisher
 
 @Observable
 final class MapListViewModel {
@@ -15,6 +17,10 @@ final class MapListViewModel {
     var filteredStores: [MapListModel] = []
 
     var userLocation: CLLocation?
+    
+    let provider: MoyaProvider<MapRouter> = .init()
+    
+    var imageURL: [UUID: URL] = [:]
 
     func loadGeoJSON(completion: @escaping (Result<[MapListModel], Error>) -> Void) {
         guard let url = Bundle.main.url(forResource: "MapData", withExtension: "geojson"),
@@ -57,7 +63,6 @@ final class MapListViewModel {
             guard distance <= 10000 else { return nil }
             
             return MapListModel(
-                image: store.image,
                 name: store.name,
                 address: store.address,
                 coordinate: store.coordinate,
@@ -69,6 +74,27 @@ final class MapListViewModel {
             let loc1 = CLLocation(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude)
             let loc2 = CLLocation(latitude: $1.coordinate.latitude, longitude: $1.coordinate.longitude)
             return userLocation.distance(from: loc1) < userLocation.distance(from: loc2)
+        }
+    }
+    
+    func getPhotoURL(for store: MapListModel) { // 사진 url 불러오기
+        _Concurrency.Task {
+            do {
+                let response1 = try await provider.requestAsync(.getPlaceId(query: "스타벅스 \(store.name)점"))
+                let searchData = try JSONDecoder().decode(PlaceSearchResponse.self, from: response1.data)
+                guard let placeID = searchData.candidates.first?.place_id else { return }
+                
+                let response2 = try await provider.requestAsync(.getPhotoURL(query: placeID))
+             
+                let data = try JSONDecoder().decode(PlaceDetailsResponse.self, from: response2.data)
+                print(data)
+                if let imageURL = data.result.photos?.first?.photo_reference {
+                    let fullURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=\(imageURL)&key=\(BuildSetting.googleApiKey)"
+                    self.imageURL[store.id] = URL(string: fullURL)
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
 }
@@ -91,7 +117,7 @@ enum StoreCategory: String {
         }
     }
     
-    var icons: [ImageResource] {
+    var icons: [Image] {
         switch self {
         case .reserve:
             return [.reserve]

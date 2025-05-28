@@ -9,7 +9,7 @@ import SwiftUI
 import Observation
 
 @Observable
-class NavigationRouter{
+class NavigationRouter {
     var path = NavigationPath()  // 네비게이션 경로를 저장하는 변수
 
     var isLoggedIn: Bool = false

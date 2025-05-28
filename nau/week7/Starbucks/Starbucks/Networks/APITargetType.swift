@@ -12,7 +12,7 @@ protocol APITargetType: TargetType {}
 
 extension APITargetType {
     var baseURL: URL {
-        return URL(string: "http://localhost:8080")!
+        return URL(string: BuildSetting.baseUrl)!
     }
 
     var headers: [String: String]? {

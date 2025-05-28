@@ -124,6 +124,10 @@ extension Font {
         return .pretend(type: .medium, size: 10)
     }
     
+    static var mainTextMedium13: Font {
+        return .pretend(type: .medium, size: 13)
+    }
+    
     static var mainTextMedium12: Font {
         return .pretend(type: .medium, size: 12)
     }

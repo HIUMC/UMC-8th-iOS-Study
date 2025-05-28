@@ -15,6 +15,7 @@ struct RootView: View {
     @State private var viewModel2 = OrderViewModel()
     @State private var viewModel3 = MapListViewModel()
     @State private var viewModel4 = MapViewModel()
+    @State private var viewModel5 = WayFindViewModel()
 
     var body: some View {
         NavigationStack(path: $router.path) {
@@ -71,6 +72,7 @@ struct RootView: View {
                         StoreFindView()
                             .environment(router)
                             .environment(viewModel4)
+                            .environment(viewModel5)
                     }
                 }
         }
