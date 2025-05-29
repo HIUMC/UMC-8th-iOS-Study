@@ -4,14 +4,18 @@
 //
 //  Created by 박병선 on 3/24/25.
 //
-
 import SwiftUI
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
-
+/*
+ isLoggedIn = true
+ 만 하고 있음
+ -> 그런데 문제는 토큰 유무를 확인하지 않아서 다음 API호출 시 다음 과 같은 에러가 발생함
+ TokenNotFound, authentication tokens not exist.
+ */
 struct LoginView: View {
-    @AppStorage("isLoggedIn") private var isLoggedIn = false
+    @AppStorage("isLoggedIn") private var isLoggedIn = true
     @StateObject var userInfo: LoginViewModel
     @FocusState private var focusedField: Focusfield? //커서올리면 초록색 불 들어오게 해줘
     
@@ -115,8 +119,7 @@ struct LoginView: View {
         
         private var BottomView: some View {
             VStack {
-                Group {
-                    NavigationLink(destination: SignupView()) {
+                NavigationLink(destination: SignupView()) {
                         Text("이메일로 회원가입하기")
                             .font(.mainTextRegular13)
                             .underline()
@@ -124,28 +127,7 @@ struct LoginView: View {
                             .padding(.bottom, 19)
                     }
                     Button(action: {
-                        if(UserApi.isKakaoTalkLoginAvailable()){
-                            UserApi.shared.loginWithKakaoTalk{
-                                (oauthToken, error) in if let error = error{
-                                    print(error)
-                                } else {
-                                    print("카카오톡 로그인 성공")
-                                    isLoggedIn = true
-                                }
-                                
-                            }
-                        } else {
-                            UserApi.shared.loginWithKakaoAccount{
-                                (oauthToken, error) in
-                                if let error = error {
-                                    print(error)
-                                }
-                                else{
-                                    print("카카오 계정 로그인 성공")
-                                    isLoggedIn = true
-                                }
-                            }
-                        }
+                        handleKakaoLogin()
                     }) {
                                     Image("kakaoLogin")
                                         .resizable()
@@ -156,8 +138,48 @@ struct LoginView: View {
                     Image("appleLogin")
                         .frame(width: 306, height: 45)
                 
-            }
+            
             .frame(maxWidth: .infinity, alignment: .center)
+        }
+    }
+    
+    private func handleKakaoLogin() {
+        if AuthApi.hasToken() {
+            // 토큰 있음 → 유효한지 확인
+            UserApi.shared.accessTokenInfo { (_, error) in
+                if let error = error {
+                    print("토큰 유효하지 않음: \(error.localizedDescription)")
+                    loginWithKakao()
+                } else {
+                    print(" 이미 로그인되어 있음")
+                    isLoggedIn = true
+                }
+            }
+        } else {
+            print(" 저장된 토큰 없음 → 로그인 시작")
+            loginWithKakao()
+        }
+    }
+
+    private func loginWithKakao() {
+        if UserApi.isKakaoTalkLoginAvailable() {
+            UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
+                if let error = error {
+                    print(" 카카오톡 로그인 실패: \(error.localizedDescription)")
+                } else {
+                    print(" 카카오톡 로그인 성공: \(oauthToken?.accessToken ?? "")")
+                    isLoggedIn = true
+                }
+            }
+        } else {
+            UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in
+                if let error = error {
+                    print(" 카카오계정 로그인 실패: \(error.localizedDescription)")
+                } else {
+                    print(" 카카오계정 로그인 성공: \(oauthToken?.accessToken ?? "")")
+                    isLoggedIn = true
+                }
+            }
         }
     }
 }

@@ -4,13 +4,12 @@
 //
 //  Created by 박병선 on 4/29/25.
 //
+
 import Foundation
 import CoreLocation
 import MapKit
-import Observation
 
-@Observable
-class LocationManager: NSObject {
+class LocationManager: NSObject, ObservableObject {
     
     static let shared = LocationManager()
     var userLocation: CLLocationCoordinate2D?
@@ -19,16 +18,17 @@ class LocationManager: NSObject {
     private let locationManager = CLLocationManager()
     
     // MARK: - Published Properties
-    var currentLocation: CLLocation?
-    var currentHeading: CLHeading?
+    @Published var currentLocation: CLLocation?
+    @Published var currentHeading: CLHeading?
+    @Published var currentAddress: String = "" //7주차에 추가된 내용, 현재의 주소 입력
     
-    var currentSpeed: CLLocationSpeed = 0
-    var currentDirection: CLLocationDirection = 0
+    @Published var currentSpeed: CLLocationSpeed = 0
+    @Published var currentDirection: CLLocationDirection = 0
     
-    var authorizationStatus: CLAuthorizationStatus = .notDetermined
+    @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
     
-    var didEnterGeofence: Bool = false
-    var didExitGeofence: Bool = false
+    @Published var didEnterGeofence: Bool = false
+    @Published var didExitGeofence: Bool = false
     
     // MARK: - Init
     override init() {
@@ -39,8 +39,9 @@ class LocationManager: NSObject {
         locationManager.headingFilter = kCLHeadingFilterNone
         
         requestAuthorization()
-        startUpdatingLocation()
-        startUpdatingHeading()
+        //startUpdatingLocation()
+            //startUpdatingHeading()
+        //위에 주석처리한 두 함수 때문에 위치가 계속 파싱이 되어버림(이 두 함수가 초기화 자리에 들어가있어서 그런거야!!)
     }
     
     // MARK: - 권한 요청
@@ -57,6 +58,43 @@ class LocationManager: NSObject {
     func stopUpdatingLocation() {
         locationManager.stopUpdatingLocation()
     }
+ 
+    //7주차에 추가됨, 처음 한 번 버튼 눌렀을 때만 위치 반환
+    func requestCurrentLocation() {
+        currentLocation = nil//중복요청방지
+        locationManager.requestLocation()
+    }
+    
+  
+    private var lastGeocodeTime: Date = .distantPast //마지막으로 주소를 요청한 시간을 기억하는 변수
+    func reverseGeocodeIfNeeded(_ location: CLLocation){
+        let now = Date()
+        
+        //마지막 요청이랑 지금 시간 차이가 3초보다 작으면 그냥 return
+        guard now.timeIntervalSince(lastGeocodeTime)
+                > 3 else { return }
+        
+        lastGeocodeTime = now //시간 업데이트
+        reverseGeocode(location) // 실제 주소 요청 실행
+    }
+    
+    private func reverseGeocode(_ location: CLLocation) {
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            guard let placemark = placemarks?.first, error == nil else {
+                print("주소 변환 실패: \(error?.localizedDescription ?? "알 수 없음")")
+                return
+            }
+
+            let city = placemark.locality ?? ""         // 시/군/구
+            let dong = placemark.subLocality ?? ""// 법정동
+            let parsedAddress = "\(city) \(dong)"
+            DispatchQueue.main.async {
+                self.currentAddress = parsedAddress
+                print("주소 파싱 완료: \(parsedAddress)")
+            }
+        }
+    }
+
     
     // MARK: - 방향 추적
     func startUpdatingHeading() {
@@ -102,6 +140,7 @@ class LocationManager: NSObject {
     }
 }
 
+
 // MARK: - CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate {
     
@@ -116,8 +155,10 @@ extension LocationManager: CLLocationManagerDelegate {
             DispatchQueue.main.async {
                 self.currentLocation = latest
                 self.currentSpeed = max(latest.speed, 0)
+                self.reverseGeocodeIfNeeded(latest)
             }
         }
+     
     }
 
     // 방향 감지
@@ -154,4 +195,3 @@ extension LocationManager: CLLocationManagerDelegate {
         print("위치 오류: \(error.localizedDescription)")
     }
 }
-

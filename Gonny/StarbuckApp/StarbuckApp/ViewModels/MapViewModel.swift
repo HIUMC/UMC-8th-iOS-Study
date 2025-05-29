@@ -10,7 +10,7 @@ import MapKit
 import CoreLocation
 import SwiftUI
 
-
+//마커 띄우는 뷰모델이 있고, 경로를 띄우는 맵뷰모델도 있다!, UpdateRoute라는 함수도 만들어야함(폴리라인 계속 초기화 시켜줘야함),updateUIView-> 유저의 위치를 계속 호출되지 않도록 
 class MapViewModel: ObservableObject {
     let locationManager: LocationManager
     private let parser = JSONParsingViewModel()
@@ -22,6 +22,7 @@ class MapViewModel: ObservableObject {
     @Published var markers: [Marker] = []
   //markers도 변경되면 UI가 갱신돼야 하므로 @Published 필요
     @Published var stores: [StoreFeature] = []
+    @Published var routePoint: [CLLocationCoordinate2D] = []
     
     var userLocation: CLLocation? {
         LocationManager.shared.currentLocation
