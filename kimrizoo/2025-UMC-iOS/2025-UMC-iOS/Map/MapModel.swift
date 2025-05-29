@@ -83,6 +83,7 @@ struct StoreDisplayInfo: Identifiable, Hashable {
     let distance: String
     let tagSymbol: [String]  // "R", "D", ""
     let address: String
+    let photoReference: String?
 }
 
 // MARK: - 마커

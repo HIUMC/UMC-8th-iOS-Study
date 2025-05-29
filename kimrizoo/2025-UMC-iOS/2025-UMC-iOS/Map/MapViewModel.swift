@@ -23,6 +23,7 @@ class MapViewModel {
     var hasInitializedCamera: Bool = false
     
     private var kakaoProvider = MoyaProvider<KakaoAPI>()
+    private let googleProvider = MoyaProvider<GooglePlaceAPI>()
     
     // 마커
     var makers: [Marker] = []
@@ -56,14 +57,18 @@ class MapViewModel {
             return
         }
 
-        let result = await withCheckedContinuation { continuation in
-            parsingViewModel.loadStarbucks { result in
-                continuation.resume(returning: result)
+        do {
+            let storeCollection = try await withCheckedThrowingContinuation { continuation in
+                parsingViewModel.loadStarbucks { result in
+                    switch result {
+                    case .success(let storeCollection):
+                        continuation.resume(returning: storeCollection)
+                    case .failure(let error):
+                        continuation.resume(throwing: error)
+                    }
+                }
             }
-        }
 
-        switch result {
-        case .success(let storeCollection):
             var displayStores: [StoreDisplayInfo] = []
             var newMarkers: [Marker] = []
 
@@ -79,11 +84,15 @@ class MapViewModel {
                 let coord = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                 let address = await geoCoderManager.reverseGeocode(coordinate: coord) ?? "주소 없음"
 
+                let photoRefs = await fetchPhotoReferences(for: props.storeName)
+                let photoRef = photoRefs.first
+
                 let storeDisplay = StoreDisplayInfo(
                     name: props.storeName,
                     distance: String(format: "%.2fkm", distance / 1000),
                     tagSymbol: [props.categoryTag.tagSymbol],
-                    address: address
+                    address: address,
+                    photoReference: photoRef
                 )
 
                 displayStores.append(storeDisplay)
@@ -93,12 +102,13 @@ class MapViewModel {
             nearbyStores = displayStores.sorted { $0.distance < $1.distance }
             makers = newMarkers
 
-        case .failure(let error):
+        } catch {
             nearbyStores = []
             makers = []
-            print("에러: \(error.localizedDescription)")
+            print("❌ 매장 불러오기 실패: \(error.localizedDescription)")
         }
     }
+
     
     // MARK: - 지도 관련 함수
     func updateFromLocation(_ location: CLLocation?) {
@@ -142,12 +152,16 @@ class MapViewModel {
 
                 let coord = CLLocationCoordinate2D(latitude: lat, longitude: lon)
                 let address = await geoCoderManager.reverseGeocode(coordinate: coord) ?? "주소 없음"
+                
+                let photoRefs = await fetchPhotoReferences(for: props.storeName)
+                let photoRef = photoRefs.first
 
                 let storeDisplay = StoreDisplayInfo(
                     name: props.storeName,
                     distance: String(format: "%.2fkm", distance / 1000),
                     tagSymbol: [props.categoryTag.tagSymbol],
-                    address: address
+                    address: address,
+                    photoReference: photoRef
                 )
 
                 displayStores.append(storeDisplay)
@@ -205,5 +219,58 @@ class MapViewModel {
         }
     }
 
+    // MARK: - 키워드 도착지 검색 함수
+    func searchArrivalStores(by keyword: String, completion: @escaping ([KakaoPlace]) -> Void) {
+        parsingViewModel.loadStarbucks { result in
+            switch result {
+            case .success(let storeCollection):
+                let matches = storeCollection.features
+                    .map { $0.properties }
+                    .filter { $0.storeName.contains(keyword) }
+                    .map {
+                        KakaoPlace(
+                            placeName: $0.storeName,
+                            addressName: $0.address
+                        )
+                    }
 
+                completion(matches)
+
+            case .failure(let error):
+                print("❌ 도착지 검색 실패: \(error.localizedDescription)")
+                completion([])
+            }
+        }
+    }
+    
+    // MARK: - Google Place API 에서 photo_reference만 추출하는 함수
+    @MainActor
+    func fetchPhotoReferences(for keyword: String) async -> [String] {
+        do {
+            let response = try await withCheckedThrowingContinuation { continuation in
+                googleProvider.request(.searchPlace(query: keyword)) { result in
+                    switch result {
+                    case .success(let response):
+                        continuation.resume(returning: response)
+                    case .failure(let error):
+                        continuation.resume(throwing: error)
+                    }
+                }
+            }
+
+            let decoded = try JSONDecoder().decode(GooglePlaceResponse.self, from: response.data)
+            let references = decoded.results.compactMap { $0.photos?.first?.photo_reference }
+            print("📸 photo_references:", references)
+            return references
+        } catch {
+            print("❌ photo_reference 파싱 실패: \(error)")
+            return []
+        }
+    }
+    
+    func photoURL(from reference: String) -> URL? {
+        let apiKey = Bundle.main.object(forInfoDictionaryKey: "GOOGLE_PLACES_API_KEY") as? String ?? ""
+        let urlString = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=\(reference)&key=\(apiKey)"
+        return URL(string: urlString)
+    }
 }
