@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D77022CB2DE661FC000347CC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = D77022CA2DE661FC000347CC /* Moya */; };
 		D7EF95452DD2A933003A3C81 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D7EF95442DD2A933003A3C81 /* Alamofire */; };
 		D7EF95482DD2A9ED003A3C81 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D7EF95472DD2A9ED003A3C81 /* KakaoSDK */; };
 		D7EF954A2DD2A9ED003A3C81 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D7EF95492DD2A9ED003A3C81 /* KakaoSDKAuth */; };
 		D7EF954C2DD2A9ED003A3C81 /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = D7EF954B2DD2A9ED003A3C81 /* KakaoSDKCert */; };
 		D7EF954E2DD2A9ED003A3C81 /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = D7EF954D2DD2A9ED003A3C81 /* KakaoSDKCertCore */; };
 		D7EF95502DD2A9ED003A3C81 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = D7EF954F2DD2A9ED003A3C81 /* KakaoSDKCommon */; };
+		D7EF95542DD32542003A3C81 /* KakaoSDKFriendResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D7EF95532DD32542003A3C81 /* KakaoSDKFriendResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 		D7D384092D9D153A0066E5D8 /* StarbucksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarbucksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7D3841A2D9D153B0066E5D8 /* StarbucksAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarbucksAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7D384242D9D153B0066E5D8 /* StarbucksAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarbucksAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7EF95532DD32542003A3C81 /* KakaoSDKFriendResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = KakaoSDKFriendResources.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -95,6 +98,7 @@
 				D7EF954E2DD2A9ED003A3C81 /* KakaoSDKCertCore in Frameworks */,
 				D7EF954A2DD2A9ED003A3C81 /* KakaoSDKAuth in Frameworks */,
 				D7EF95502DD2A9ED003A3C81 /* KakaoSDKCommon in Frameworks */,
+				D77022CB2DE661FC000347CC /* Moya in Frameworks */,
 				D7EF954C2DD2A9ED003A3C81 /* KakaoSDKCert in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +123,7 @@
 		D7D384002D9D153A0066E5D8 = {
 			isa = PBXGroup;
 			children = (
+				D7EF95532DD32542003A3C81 /* KakaoSDKFriendResources.bundle */,
 				D7D3840A2D9D153A0066E5D8 /* Products */,
 				D7D3840B2D9D153A0066E5D8 /* StarbucksApp */,
 				D7D3841D2D9D153B0066E5D8 /* StarbucksAppTests */,
@@ -162,6 +167,7 @@
 				D7EF954B2DD2A9ED003A3C81 /* KakaoSDKCert */,
 				D7EF954D2DD2A9ED003A3C81 /* KakaoSDKCertCore */,
 				D7EF954F2DD2A9ED003A3C81 /* KakaoSDKCommon */,
+				D77022CA2DE661FC000347CC /* Moya */,
 			);
 			productName = StarbucksApp;
 			productReference = D7D384092D9D153A0066E5D8 /* StarbucksApp.app */;
@@ -248,6 +254,7 @@
 			packageReferences = (
 				D7EF95432DD2A933003A3C81 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D7EF95462DD2A9ED003A3C81 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				D77022C92DE661FC000347CC /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D7D3840A2D9D153A0066E5D8 /* Products */;
@@ -266,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7EF95542DD32542003A3C81 /* KakaoSDKFriendResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +461,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarbucksApp/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "위치 정보 사용~";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "앱이 백그라운드에서 위치를 사용 할 수 있습니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보 사용";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -494,7 +502,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarbucksApp/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "위치 정보 사용~";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "앱이 백그라운드에서 위치를 사용 할 수 있습니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보 사용";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -653,6 +661,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D77022C92DE661FC000347CC /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 		D7EF95432DD2A933003A3C81 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -672,6 +688,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D77022CA2DE661FC000347CC /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D77022C92DE661FC000347CC /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
 		D7EF95442DD2A933003A3C81 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D7EF95432DD2A933003A3C81 /* XCRemoteSwiftPackageReference "Alamofire" */;
