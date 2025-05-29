@@ -79,19 +79,21 @@ class MapViewModel {
                 let storeLocation = CLLocation(latitude: lat, longitude: lon)
                 let distance = userLocation.distance(from: storeLocation)
 
-                guard distance <= 10000 else { continue }
+                guard distance <= 10_000 else { continue }
 
                 let coord = CLLocationCoordinate2D(latitude: lat, longitude: lon)
-                let address = await geoCoderManager.reverseGeocode(coordinate: coord) ?? "주소 없음"
 
-                let photoRefs = await fetchPhotoReferences(for: props.storeName)
+                async let addressTask = geoCoderManager.reverseGeocode(coordinate: coord)
+                async let photoTask = fetchPhotoReferences(for: props.storeName)
+
+                let (address, photoRefs) = await (addressTask, photoTask)
                 let photoRef = photoRefs.first
 
                 let storeDisplay = StoreDisplayInfo(
                     name: props.storeName,
                     distance: String(format: "%.2fkm", distance / 1000),
                     tagSymbol: [props.categoryTag.tagSymbol],
-                    address: address,
+                    address: address ?? "주소 없음",
                     photoReference: photoRef
                 )
 
@@ -243,12 +245,13 @@ class MapViewModel {
         }
     }
     
-    // MARK: - Google Place API 에서 photo_reference만 추출하는 함수
+    // MARK: - Google Place API에서 photo_reference 추출
     @MainActor
-    func fetchPhotoReferences(for keyword: String) async -> [String] {
+    func fetchPhotoReferences(for storeName: String) async -> [String] {
+        let query = "\(storeName) 스타벅스"
         do {
             let response = try await withCheckedThrowingContinuation { continuation in
-                googleProvider.request(.searchPlace(query: keyword)) { result in
+                googleProvider.request(.searchPlace(query: query)) { result in
                     switch result {
                     case .success(let response):
                         continuation.resume(returning: response)
@@ -260,7 +263,6 @@ class MapViewModel {
 
             let decoded = try JSONDecoder().decode(GooglePlaceResponse.self, from: response.data)
             let references = decoded.results.compactMap { $0.photos?.first?.photo_reference }
-            print("📸 photo_references:", references)
             return references
         } catch {
             print("❌ photo_reference 파싱 실패: \(error)")
