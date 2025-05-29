@@ -187,6 +187,9 @@ class MapViewModel {
         kakaoProvider.request(.keywordSearch(query: keyword, center: location.coordinate)) { result in
             switch result {
             case .success(let response):
+                if let raw = String(data: response.data, encoding: .utf8) {
+                    print("📦 응답 원문: \(raw)")
+                }
                 do {
                     let decoded = try JSONDecoder().decode(KakaoPlaceResponse.self, from: response.data)
                     print("✅ 검색 성공: \(decoded.documents.count)개 결과")
@@ -195,7 +198,6 @@ class MapViewModel {
                     print("❌ JSON 파싱 실패: \(error)")
                     completion([])
                 }
-
             case .failure(let error):
                 print("❌ 카카오 API 요청 실패: \(error)")
                 completion([])

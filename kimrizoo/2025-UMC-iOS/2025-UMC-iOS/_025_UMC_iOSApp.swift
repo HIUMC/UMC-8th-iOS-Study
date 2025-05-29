@@ -6,6 +6,7 @@
 
 import SwiftUI
 import KakaoSDKCommon
+import KakaoSDKAuth
 
 @main
 struct _025_UMC_iOSApp: App {
@@ -23,7 +24,7 @@ struct _025_UMC_iOSApp: App {
         
         WindowGroup {
             NavigationStack(path: $router.path) {
-                LoginView()
+                AppEntryView()
                     .environmentObject(router)
                     .environmentObject(detailViewModel)
                     .navigationDestination(for: Route.self) { route in
@@ -44,6 +45,12 @@ struct _025_UMC_iOSApp: App {
                         case .home:
                             HomeView()
                                 .environmentObject(router)
+                                .environmentObject(detailViewModel)
+                        }
+                    }
+                    .onOpenURL { url in
+                        if AuthApi.isKakaoTalkLoginUrl(url) {
+                            _ = AuthController.handleOpenUrl(url: url)
                         }
                     }
             }

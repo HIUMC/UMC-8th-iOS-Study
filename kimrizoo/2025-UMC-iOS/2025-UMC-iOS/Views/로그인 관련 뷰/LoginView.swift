@@ -59,7 +59,7 @@ struct LoginView: View {
                     Button {
                         kakaoLogin()
                     } label: {
-                        Image("kakaoLogin")
+                        Image("_카카오 로그인")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 306, height: 45)
@@ -79,27 +79,43 @@ struct LoginView: View {
 
     // MARK: - 카카오 로그인 함수 (안전하게 토큰 체크 및 에러 방지)
     func kakaoLogin() {
-            // 카카오톡 실행 가능 여부 확인
-            if UserApi.isKakaoTalkLoginAvailable() {
-               // 카카오톡 로그인
-                UserApi.shared.loginWithKakaoTalk { oauthToken, error in
-                    if let error = error {
-                        print(error)
-                    } else {
-                       print("카카오톡 로그인 success")
-                    }
-                 }
-             } else {
-                // 카카오계정 로그인
-                UserApi.shared.loginWithKakaoAccount { oauthToken, error in
-                    if let error = error {
-                        print(error)
-                    } else {
-                        print("카카오계정 로그인 success")
-                    }
+        if UserApi.isKakaoTalkLoginAvailable() {
+            // ✅ 카카오톡 로그인
+            UserApi.shared.loginWithKakaoTalk { oauthToken, error in
+                if let error = error {
+                    print("❌ 카카오톡 로그인 실패: \(error)")
+                } else {
+                    print("✅ 카카오톡 로그인 성공")
+                    fetchUserInfo() // 🔥 유저 정보 가져오기
+                }
+            }
+        } else {
+            // ✅ 카카오계정 로그인
+            UserApi.shared.loginWithKakaoAccount { oauthToken, error in
+                if let error = error {
+                    print("❌ 카카오계정 로그인 실패: \(error)")
+                } else {
+                    print("✅ 카카오계정 로그인 성공")
+                    fetchUserInfo() // 🔥 유저 정보 가져오기
                 }
             }
         }
+    }
+
+    func fetchUserInfo() {
+        UserApi.shared.me { user, error in
+            if let error = error {
+                print("❌ 사용자 정보 가져오기 실패: \(error)")
+            } else {
+                if let nickname = user?.kakaoAccount?.profile?.nickname {
+                    print("✅ 로그인된 사용자 닉네임: \(nickname)")
+                }
+                if let email = user?.kakaoAccount?.email {
+                    print("📧 이메일: \(email)")
+                }
+            }
+        }
+    }
 
 }
 
