@@ -6,17 +6,40 @@
 //
 
 import SwiftUI
+import MapKit
 
-struct FindMapView: View {
-    
+struct FindStoreView: View {
+    @State private var selectedTab: Int = 0
+    @StateObject var routeVM = RouteViewModel()
+
+    let start = CLLocationCoordinate2D(latitude: 37.5665, longitude: 126.9780)
+    let end = CLLocationCoordinate2D(latitude: 37.5700, longitude: 127.0010)
 
     var body: some View {
         VStack(spacing: 0) {
             TopFindBar()
-            MiddleFindBar()
+            MiddleFindBar(selectedTab: $selectedTab)
                 .padding(.bottom, 10)
-            MapView()
-            
+            if selectedTab == 0 {
+                VStack(spacing: 0) {
+                    //RouteMapView(viewModel: routeVM)
+                    MapView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .edgesIgnoringSafeArea(.all)
+
+                    if routeVM.isLoading {
+                        ProgressView("경로 불러오는 중...")
+                            .padding()
+                    }
+                }
+            } else if selectedTab == 1 {
+                FindMapView(selectedTab: $selectedTab)
+            } else if selectedTab == 2 {
+                RouteMapView(viewModel: routeVM)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .edgesIgnoringSafeArea(.all)
+
+            }
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
@@ -48,7 +71,7 @@ struct TopFindBar: View {
 }
 
 struct MiddleFindBar: View {
-    @State private var selectedTab: Int = 0
+    @Binding var selectedTab: Int
     @Namespace private var underlineAnimation
     
     var body: some View {
@@ -88,5 +111,5 @@ struct MiddleFindBar: View {
 
 
 #Preview {
-    FindMapView()
+    FindStoreView()
 }

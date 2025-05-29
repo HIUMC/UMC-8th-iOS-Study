@@ -37,6 +37,7 @@ class JSONParsingViewModel: ObservableObject {
             print("✅ features 개수: \(decoded.features.count)")
             if let firstFeature = decoded.features.first {
                 self.myProfile = firstFeature.properties
+                self.updatePhotoReferences() //loadMyProfile()에서 매장 데이터를 불러온 직후 updatePhotoReferences()가 자동으로 호출되도록 연결
                 print("✅ 첫 번째 매장 이름: \(firstFeature.properties.storeName ?? "없음")")
                 completion(.success(firstFeature.properties))
             } else {
@@ -59,6 +60,17 @@ class JSONParsingViewModel: ObservableObject {
             let loc1 = CLLocation(latitude: $0.properties.ycoordinate, longitude: $0.properties.xcoordinate)
             let loc2 = CLLocation(latitude: $1.properties.ycoordinate, longitude: $1.properties.xcoordinate)
             return loc1.distance(from: current) < loc2.distance(from: current)
+        }
+    }
+
+    func updatePhotoReferences() {
+        for index in allStores.indices {
+            let storeName = allStores[index].properties.storeName
+            GoogleAPIService.shared.fetchPhotoReference(for: storeName) { reference in
+                DispatchQueue.main.async {
+                    self.allStores[index].properties.photoReference = reference
+                }
+            }
         }
     }
 }

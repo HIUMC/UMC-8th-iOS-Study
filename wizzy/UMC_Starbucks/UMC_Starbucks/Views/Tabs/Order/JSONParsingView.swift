@@ -7,20 +7,25 @@
 
 import SwiftUI
 import CoreLocation
+import Kingfisher
 
 struct JSONParsingView: View {
     
     //var viewModel: JSONParsingViewModel = .init()
     @StateObject var viewModel = JSONParsingViewModel()
     @State var showSheet: Bool = false
-    let storeImage = Image("cakeIcon")
     
-    var sortedByDistance: [Feature] {
-        guard let userLocation = LocationManager.shared.currentLocation else {
+    var sortedByDistance: [Feature] { //거리순으로 정렬된 매장 배열을 반환하는 계산 속성
+
+        guard let userLocation =  LocationManager.shared.currentLocation else {
             return viewModel.allStores
+            //사용자 현재 위치가 없으면 정렬하지 않고 원래 매장 리스트 그대로 반환
+
         }
         
         return viewModel.allStores.sorted { //Gpt..
+            //매장 리스트를 사용자 위치로부터 가까운 순서로 정렬
+
             let loc1 = CLLocation(latitude: $0.properties.ycoordinate, longitude: $0.properties.xcoordinate)
             let loc2 = CLLocation(latitude: $1.properties.ycoordinate, longitude: $1.properties.xcoordinate)
             return loc1.distance(from: userLocation) < loc2.distance(from: userLocation)
@@ -28,50 +33,11 @@ struct JSONParsingView: View {
     }
     
     var body: some View {
-        
+        let stores: [Feature] = sortedByDistance
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
-                ForEach(sortedByDistance, id: \.properties.seq) { store in
-                    VStack(alignment: .leading, spacing: 4) {
-                        HStack(alignment: .top, spacing: 12) {
-                            storeImage
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                                .cornerRadius(8)
-                            
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(store.properties.storeName)
-                                    .font(.headline)
-                                
-                                Text(store.properties.address)
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
-                                    .padding(.bottom, 15)
-                                
-                                HStack {
-                                    if store.properties.category.contains("리저브") { //이거 enum으로 어떻게 만들지
-                                        Image("rIcon")
-                                            .resizable()
-                                            .frame(width: 20, height: 20)
-                                    }
-                                    
-                                    if store.properties.category.contains("DT") {
-                                        Image("dIcon")
-                                            .resizable()
-                                            .frame(width: 20, height: 20)
-                                    }
-                                    Spacer()
-                                    if let distance = store.distanceFromUser {
-                                        Text(String(format: "%.1fkm", distance))
-                                            .font(.PretendardRegular12)
-                                            .foregroundStyle(Color.black03)
-                                        
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .padding(.horizontal, 23)
+                ForEach(stores) { store in
+                    StoreRow(store: store)
                 }
             }
         }
@@ -123,6 +89,74 @@ struct JSONParsingView: View {
         }
          */
 
+
+struct StoreRow: View {
+    let store: Feature
+
+    var imageUrl: String? {
+        guard let reference = store.properties.photoReference else { return nil }
+        let key = Bundle.main.object(forInfoDictionaryKey: "GOOGLE_API_KEY") as? String ?? ""
+        let url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=\(reference)&key=\(key)"
+        print("🔗 이미지 URL:", url)
+        return url
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            HStack(alignment: .top, spacing: 12) {
+                if let urlString = imageUrl, let url = URL(string: urlString) {
+                    KFImage(url)
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                        .cornerRadius(8)
+                } else {
+                    Image("cakeIcon")
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                        .cornerRadius(8)
+                }
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(store.properties.storeName)
+                        .font(.headline)
+
+                    Text(store.properties.address)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding(.bottom, 15)
+
+                    HStack {
+                        if store.properties.category.contains("리저브") {
+                            Image("rIcon")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        }
+
+                        if store.properties.category.contains("DT") {
+                            Image("dIcon")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        }
+
+                        Spacer()
+
+                        if let distance = store.distanceFromUser {
+                            Text(String(format: "%.1fkm", distance))
+                                .font(.PretendardRegular12)
+                                .foregroundStyle(Color.black03)
+                        }
+                    }
+                }
+            }
+            .onAppear {
+                print("🧾 StoreRow for:", store.properties.storeName)
+                print("🔗 photoReference:", store.properties.photoReference ?? "nil")
+                print("🔗 imageUrl:", imageUrl ?? "nil")
+            }
+        }
+        .padding(.horizontal, 23)
+    }
+}
 
 
 #Preview {

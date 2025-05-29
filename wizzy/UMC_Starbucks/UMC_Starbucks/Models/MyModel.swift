@@ -12,10 +12,11 @@ struct GeoJSONFile: Codable {
     let features: [Feature]
 }
 
-struct Feature: Codable {
+struct Feature: Codable, Identifiable {
     let type: String
     let geometry: Geometry
-    let properties: MyModel
+    var properties: MyModel
+    var id: String { properties.seq }
 
     struct Geometry: Codable {
         let type: String
@@ -32,6 +33,8 @@ struct MyModel: Codable {
     let ycoordinate: Double
     let xcoordinate: Double
     
+    var photoReference: String?
+    
     enum CodingKeys: String, CodingKey {
         case seq = "Seq"
         case address = "Address"
@@ -40,7 +43,7 @@ struct MyModel: Codable {
         case category = "Category"
         case ycoordinate = "Ycoordinate"
         case xcoordinate = "Xcoordinate"
-        
+        case photoReference = "photo_reference"
     }
 }
 

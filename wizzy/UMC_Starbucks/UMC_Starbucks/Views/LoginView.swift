@@ -24,13 +24,14 @@ struct LoginView: View {
     
     @Environment(\.openURL) private var openURL
 
+    /*
     private var kakaoLoginURL: URL? {
         let restAPIKey = "4f1fb1b08be15e4edf1d71003fb065ba"
         let redirectURI = "http://kakao4f1fb1b08be15e4edf1d71003fb065ba://oauth"
         let urlString = "https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=\(restAPIKey)&redirect_uri=\(redirectURI)"
         return URL(string: urlString)
     }
-    
+    */
     
     
     
@@ -66,16 +67,6 @@ struct LoginView: View {
                 }
             }
             .navigationBarBackButtonHidden(true)
-            .onOpenURL { url in
-                print("돌아온 URL: \(url)")
-                if url.scheme == "umcstarbucks", url.host == "oauth" {
-                    if let code = URLComponents(string: url.absoluteString)?
-                        .queryItems?.first(where: { $0.name == "code" })?.value {
-                        print("✅ 인가 코드 받음: \(code)")
-                        fetchToken(with: code)
-                    }
-                }
-            }
         }
     }
     
@@ -220,10 +211,8 @@ struct LoginView: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    if let url = kakaoLoginURL {
-                        openURL(url)
-                    } else {
-                        print("카카오 로그인 URL 생성 실패")
+                    viewModel.kakaoLogin {
+                        isLoginOK = true
                     }
                 }) {
                     Image("kakaoLogin")
@@ -251,64 +240,7 @@ struct LoginView: View {
         
     }
 
-    private func fetchToken(with code: String) {
-        let url = "https://kauth.kakao.com/oauth/token"
-        let parameters: [String: String] = [
-            "grant_type": "authorization_code",
-            "client_id": "4f1fb1b08be15e4edf1d71003fb065ba",
-            "redirect_uri": "http://kakao4f1fb1b08be15e4edf1d71003fb065ba://oauth",
-            "code": code
-        ]
 
-        AF.request(url, method: .post, parameters: parameters)
-            .validate(statusCode: 200..<300)
-            .responseDecodable(of: TokenResponse.self) { response in
-                switch response.result {
-                case .success(let token):
-                    print("Access Token: \(token.access_token)")
-
-                    let headers: HTTPHeaders = [
-                        "Authorization": "Bearer \(token.access_token)"
-                    ]
-
-                    AF.request("https://kapi.kakao.com/v2/user/me", headers: headers)
-                        .validate()
-                        .responseDecodable(of: KakaoUserResponse.self) { profileResponse in
-                            switch profileResponse.result {
-                            case .success(let user):
-                                let nickname = user.kakao_account.profile.nickname
-                                print("사용자 닉네임:", nickname)
-
-                                let tokenInfo = TokenInfo(
-                                    accessToken: token.access_token,
-                                    refreshToken: token.refresh_token,
-                                    nickname: nickname
-                                )
-                                KeychainService.shared.saveToken(tokenInfo)
-                                UserDefaults.standard.set(nickname, forKey: "nickname") //값을 저장/조회할 때 사용하는 이름표
-
-                                print("UserDefaults 저장된 닉네임:", UserDefaults.standard.string(forKey: "nickname") ?? "nil")
-
-                            case .failure(let error):
-                                print("사용자 정보 요청 실패:", error)
-                            }
-                        }
-                case .failure(let error):
-                    print("토큰 요청 실패:", error)
-                    if let data = response.data,
-                       let body = String(data: data, encoding: .utf8) {
-                        print("응답 본문:\n\(body)")
-                    }
-                }
-            }
-    }
-
-    private struct TokenResponse: Decodable {
-        let access_token: String
-        let token_type: String
-        let refresh_token: String
-        let expires_in: Int
-    }
 
 
 
@@ -324,20 +256,7 @@ struct SwiftUIView_Preview: PreviewProvider {
     }
 }
 
-// MARK: - Kakao User Info Models
 
-private struct KakaoUserResponse: Decodable {
-    let id: Int
-    let kakao_account: KakaoAccount
-}
-
-private struct KakaoAccount: Decodable {
-    let profile: KakaoProfile
-}
-
-private struct KakaoProfile: Decodable {
-    let nickname: String
-}
 
 
 // WebView 를 만들어서..?? 띄워봐라 ? 리다이렉트 핸들링 -> 사용하기?

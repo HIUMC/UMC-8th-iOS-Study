@@ -25,6 +25,13 @@ struct SplashView: View {
             .opacity(isActive ? 0 : 1)
             .animation(.easeOut(duration: 1), value: isActive)
             .onAppear {
+                // ✅ OSRM_BASE_URL 출력 확인
+                if let urlString = Bundle.main.object(forInfoDictionaryKey: "OSRM_BASE_URL") as? String {
+                    print("✅ SplashView에서 baseURL 확인됨: \(urlString)")
+                } else {
+                    print("❌ SplashView에서 baseURL을 못 찾음")
+                }
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     if let token = KeychainService.shared.loadTokenInfo() {
                         print("자동 로그인: \(token.accessToken)")

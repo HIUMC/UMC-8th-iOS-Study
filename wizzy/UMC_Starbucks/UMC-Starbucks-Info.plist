@@ -9,10 +9,31 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>http://kakao4f1fb1b08be15e4edf1d71003fb065ba://oauth</string>
+				<string>kakao167428c588d130f15e542296f73277f5</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kakao167428c588d130f15e542296f73277f5://oauth</string>
 			</array>
 		</dict>
 	</array>
+	<key>GOOGLE_API_KEY</key>
+	<string>$(GOOGLE_API_KEY)</string>
+	<key>KAKAO_NATIVE_APP_KEY</key>
+	<string>$(KAKAO_NATIVE_APP_KEY)</string>
+	<key>KAKAO_REST_API_KEY</key>
+	<string>$(REST_API_KEY)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>kakaokompassauth</string>
+		<string>kakaolink</string>
+	</array>
+	<key>OSRM_BASE_URL</key>
+	<string>$(OSRM_BASE_URL)</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Pretendard-Black.otf</string>
