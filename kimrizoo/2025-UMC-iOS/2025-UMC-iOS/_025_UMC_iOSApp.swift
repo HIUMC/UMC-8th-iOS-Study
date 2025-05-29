@@ -14,16 +14,16 @@ struct _025_UMC_iOSApp: App {
     
     init() {
             // kakao sdk 초기화
-            let kakaoAppKey = (Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] as? String) ?? ""
-            KakaoSDK.initSDK(appKey: kakaoAppKey)
-        }
+        let kakaoAppKey = (Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] as? String) ?? ""
+        KakaoSDK.initSDK(appKey: kakaoAppKey)
+    }
 
     var body: some Scene {
 
         
         WindowGroup {
             NavigationStack(path: $router.path) {
-                OrderSheetView()
+                LoginView()
                     .environmentObject(router)
                     .environmentObject(detailViewModel)
                     .navigationDestination(for: Route.self) { route in

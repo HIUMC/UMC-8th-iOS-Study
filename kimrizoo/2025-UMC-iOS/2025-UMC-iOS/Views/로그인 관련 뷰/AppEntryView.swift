@@ -1,4 +1,6 @@
 import SwiftUI
+import KakaoSDKUser
+import KakaoSDKAuth
 
 struct AppEntryView: View {
     @EnvironmentObject var router: NavigationRouter
@@ -26,10 +28,24 @@ struct AppEntryView: View {
             if let password = keychain.load(account: email, service: service) {
                 print("Keychain 자동 로그인 정보 발견: \(email) / \(password)")
 
-                // ✅ 서버 검증 없이 바로 홈 화면으로 이동
-                DispatchQueue.main.async {
-                    router.push(.home)
+                // ✅ Kakao 토큰이 있는지 검사
+                if AuthApi.hasToken() {
+                    UserApi.shared.accessTokenInfo { (_, error) in
+                        if error == nil {
+                            print("✅ 카카오 토큰 유효 → 홈으로 이동")
+                            DispatchQueue.main.async {
+                                router.push(.home)
+                            }
+                        } else {
+                            print("❌ 카카오 토큰 없음 또는 만료 → 로그인 화면")
+                            isChecking = false
+                        }
+                    }
+                } else {
+                    print("❌ 카카오 토큰 없음 → 로그인 화면")
+                    isChecking = false
                 }
+
                 return
             }
         }
@@ -37,5 +53,6 @@ struct AppEntryView: View {
         // 저장된 계정 없음 → 로그인 화면 보이게
         isChecking = false
     }
+
 
 }

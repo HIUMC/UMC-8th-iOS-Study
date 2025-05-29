@@ -1,7 +1,7 @@
 import SwiftUI
 import MapKit
 
-struct StoreMapView: View {
+struct MapSearchView: View {
     
     @Bindable private var locationManager = LocationManager.shared
     @Bindable var viewModel: MapViewModel
@@ -44,8 +44,8 @@ struct StoreMapView: View {
                     
                     Button(action: {
                         Task {
-                                await viewModel.searchStoresNearMapCenter()
-                            }
+                            await viewModel.searchStoresNearMapCenter()
+                        }
                     }) {
                         Text("이 지역 검색")
                             .font(.customPretend(.regular, size: 13))
@@ -65,5 +65,5 @@ struct StoreMapView: View {
 }
 
 #Preview {
-    StoreMapView(viewModel: MapViewModel())
+    MapSearchView(viewModel: MapViewModel())
 }
