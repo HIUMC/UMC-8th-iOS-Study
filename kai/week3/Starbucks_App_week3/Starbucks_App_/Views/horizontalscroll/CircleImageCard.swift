@@ -20,9 +20,9 @@ struct CircleImageCard: View {
                 .scaledToFill()
                 .frame(width: 130, height: 130)
                 .clipShape(Circle())
-
+            
             Spacer().frame(height: 10)
-
+            
             Text(coffee.title)
                 .font(.PretendardMedium16)
                 .foregroundStyle(.black)
@@ -32,12 +32,7 @@ struct CircleImageCard: View {
             viewModel.selectMenu(name: coffee.title)
             isActive = true
         }
-        .background(
-            NavigationLink(destination: CoffeeView(viewModel:CoffeeViewModel(), coffee:CoffeeCardModel),
-                                 isActive: $isActive) {
-                      EmptyView()
-                  }
-                  .hidden()
-              )
+        
+    
     }
 }

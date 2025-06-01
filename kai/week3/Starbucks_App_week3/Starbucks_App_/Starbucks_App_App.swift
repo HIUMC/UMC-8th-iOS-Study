@@ -11,7 +11,6 @@ import SwiftUI
 struct StarbucksApp: App {
     var body: some Scene {
         WindowGroup {
-            CircleImageCardView(viewModel: CardDataViewModel())
         }
     }
 }

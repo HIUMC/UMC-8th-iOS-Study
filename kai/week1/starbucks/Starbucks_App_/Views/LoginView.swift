@@ -19,8 +19,7 @@ struct LoginView: View {
                     .frame(width: 97, height: 95)
                 
                 Text("안녕하세요.\n스타벅스 입니다.")
-                    .font(.Bold)
-                    .fontWeight(.Bold)
+                   
                     .foregroundStyle(Color.회원서비스이용)
                 
                 Spacer().frame(height:104)

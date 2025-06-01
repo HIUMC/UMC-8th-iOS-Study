@@ -21,7 +21,7 @@ struct OrderView: View {
                     .font(.PretendardSemiBold24)
                     .padding(.horizontal, 23)
 
-                TopSegment(path: $path)
+                // TopSegment(path: $path)
 
                 Spacer()
 
@@ -78,7 +78,7 @@ struct OrderView: View {
     }
 }
 
-struct TopSegment: View {
+/* struct TopSegment: View {
     @State private var segment: menuSegmentOption = .first
     @Binding var path: [String]
 
@@ -119,6 +119,7 @@ struct TopSegment: View {
         }
     }
 }
+     */
 
 struct AllView: View {
     @State private var segment: categorySegmentOption = .drink

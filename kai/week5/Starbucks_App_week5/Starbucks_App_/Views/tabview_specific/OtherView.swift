@@ -101,14 +101,17 @@ struct OtherView: View {
                 FeatureItemView(imageName: "coupon_register", text: "쿠폰 등록"){
                     print("쿠폰 등록 버튼 클릭됨")
                 }
-                    
+                .padding(.leading, 15)
+
                     
                 Spacer()
                     .frame(width:35)
-                
+            
                 FeatureItemView(imageName: "coupon_history", text: "쿠폰 히스토리"){
                     print("쿠폰 히스토리 버튼 클릭됨")
                 }
+                .padding(.leading, 10)
+                
                 Spacer()
                     .frame(width:15)
                 

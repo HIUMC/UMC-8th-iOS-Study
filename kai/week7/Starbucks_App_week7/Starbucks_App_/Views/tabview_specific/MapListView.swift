@@ -5,6 +5,7 @@
 //  Created by 김지우 on 5/29/25.
 //
 
+/*
 import SwiftUI
 import Kingfisher
 
@@ -100,3 +101,4 @@ struct MapListView: View {
 #Preview {
     MapListView()
 }
+*/ 

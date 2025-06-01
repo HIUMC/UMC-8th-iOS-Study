@@ -15,6 +15,8 @@ struct OrderDrinkView: View {
             LazyView
         }
 
+        
+        
     }
     
     private var LazyView: some View {
