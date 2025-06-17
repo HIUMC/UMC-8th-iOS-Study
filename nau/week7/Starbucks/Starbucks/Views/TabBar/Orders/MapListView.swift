@@ -10,7 +10,7 @@ import Kingfisher
 
 struct MapListView: View {
     @Environment(MapListViewModel.self) var viewModel
-    @State private var imageURL: URL?
+    @State private var imageURL: [UUID: URL] = [:]
     
     var body: some View {
         VStack {

@@ -48,7 +48,7 @@ class WayFindViewModel {
                 let address = [
                     placemark.administrativeArea, // 시/도: 서울 특별시
                     placemark.locality, // 시/구 : 마포구
-                    placemark.subLocality, // 동 : 망원동
+                    //placemark.subLocality, // 동 : 망원동
                     placemark.name, // 전체 이름 : 망원동 382-33
                 ].compactMap { $0 }
                     .removingDuplicates() // 중복 제거

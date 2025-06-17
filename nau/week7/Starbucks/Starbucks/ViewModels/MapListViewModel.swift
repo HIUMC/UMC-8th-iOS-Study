@@ -18,7 +18,10 @@ final class MapListViewModel {
 
     var userLocation: CLLocation?
     
-    let provider: MoyaProvider<MapRouter> = .init()
+    var provider: MoyaProvider<MapRouter>
+    init(provider: MoyaProvider<MapRouter> = APIManager.shared.createProvider(for: MapRouter.self)) {
+        self.provider = provider
+    }
     
     var imageURL: [UUID: URL] = [:]
 
