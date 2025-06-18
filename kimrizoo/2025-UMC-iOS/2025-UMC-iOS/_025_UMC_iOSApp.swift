@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import SwiftData
 import KakaoSDKCommon
 import KakaoSDKAuth
 
@@ -24,7 +25,7 @@ struct _025_UMC_iOSApp: App {
         
         WindowGroup {
             NavigationStack(path: $router.path) {
-                AppEntryView()
+                StarbucksCardView()
                     .environmentObject(router)
                     .environmentObject(detailViewModel)
                     .navigationDestination(for: Route.self) { route in
@@ -55,5 +56,6 @@ struct _025_UMC_iOSApp: App {
                     }
             }
         }
+        .modelContainer(for: StarbucksCardModel.self)
     }
 }
