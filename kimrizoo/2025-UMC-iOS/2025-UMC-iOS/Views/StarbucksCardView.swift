@@ -12,33 +12,19 @@ struct StarbucksCardView: View {
     @Environment(\.modelContext) private var context
     @Query private var cards: [StarbucksCardModel]
     @State private var isPresentingSheet = false
-    /// Since my model ID type is UUID
     @State private var activeID: UUID?
-    
-    var cardImages: [UIImage] {
-        cards.compactMap { cardModel in
-            if let data = cardModel.cardPhoto, let image = UIImage(data: data) {
-                return image
-            } else {
-                return UIImage(named: "starbucksCard")
-            }
-        }
-    }
     
     var body: some View {
         NavigationStack {
             VStack {
                 CustomCarousel(
-                    config: .init(hasOpacity: true, hasScale: true, cardWidth: 200, minimumCardWidth: 30), selection: $activeID, data: cardImages.map { ImageItem(image: $0) }
-                ) { item in
-                    Image(uiImage: item.image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                    
-                    
+                    config: .init(hasOpacity: true, hasScale: true, cardWidth: 272, minimumCardWidth: 30),
+                    selection: $activeID,
+                    data: cards
+                ) { card in
+                    cardView(card)
                 }
-                .frame(height: 180)
-
+                .frame(height: 400)
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -46,7 +32,6 @@ struct StarbucksCardView: View {
                     Text("Pay")
                         .font(.customPretend(.medium, size: 24))
                 }
-                
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         isPresentingSheet = true
@@ -60,6 +45,58 @@ struct StarbucksCardView: View {
                 StarbucksCardCreatingView(isPresented: $isPresentingSheet, cardName: "", cardNumber: "")
             }
         }
+    }
+    
+    @ViewBuilder
+    private func cardView(_ card: StarbucksCardModel) -> some View {
+        VStack(spacing: 0) {
+            cardImage(for: card)
+                .frame(height: 143)
+                .cornerRadius(10)
+            
+            Spacer().frame(height: 23)
+            
+            cardInfo(for: card)
+                .opacity(card.id == activeID ? 1 : 0)
+                .animation(.easeIn(duration: 0.3), value: activeID)
+        }
+    }
+    
+    @ViewBuilder
+    private func cardImage(for card: StarbucksCardModel) -> some View {
+        if let data = card.cardPhoto, let uiImage = UIImage(data: data) {
+            Image(uiImage: uiImage)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+        } else {
+            Image("starbucksCard")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+        }
+    }
+    
+    @ViewBuilder
+    private func cardInfo(for card: StarbucksCardModel) -> some View {
+        Group {
+            Text(card.cardName)
+                .font(.customPretend(.medium, size: 13))
+                .foregroundStyle(.advertisementBlack)
+            
+            Text("잔액: \(card.balance)원")
+                .font(.customPretend(.medium, size: 18))
+            
+            Spacer().frame(height: 23)
+            
+            Text("카드번호: \(maskedCardNumber(card.cardNumber))")
+                .font(.customPretend(.medium, size: 12))
+                .foregroundColor(.customBlackColor)
+        }
+    }
+    
+    private func maskedCardNumber(_ number: Int) -> String {
+        let numberString = String(format: "%012d", number) // 항상 12자리로 포맷팅
+        let suffix = numberString.suffix(4)
+        return "****-****-\(suffix)"
     }
 }
 

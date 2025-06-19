@@ -10,8 +10,9 @@ import SwiftData
 import SwiftUI
 
 @Model
-class StarbucksCardModel {
+class StarbucksCardModel: Identifiable {
     // 카드이름, 잔액, 카드번호
+    var id = UUID()
     @Attribute(.unique) var cardName: String
     var balance: Int
     @Attribute(.unique) var cardNumber: Int
@@ -19,6 +20,7 @@ class StarbucksCardModel {
     
     init(cardName: String, cardNumber: Int, cardPhoto: Data? = nil)
     {
+        self.id = UUID()
         self.cardName = cardName
         self.cardNumber = cardNumber
         self.balance = Int.random(in: 0...100_000)
