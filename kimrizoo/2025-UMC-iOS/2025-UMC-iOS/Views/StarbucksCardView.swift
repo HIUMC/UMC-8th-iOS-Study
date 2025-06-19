@@ -15,13 +15,27 @@ struct StarbucksCardView: View {
     /// Since my model ID type is UUID
     @State private var activeID: UUID?
     
+    var cardImages: [UIImage] {
+        cards.compactMap { cardModel in
+            if let data = cardModel.cardPhoto, let image = UIImage(data: data) {
+                return image
+            } else {
+                return UIImage(named: "starbucksCard")
+            }
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             VStack {
-                CustomCarousel(config: .init(hasOpacity: true, hasScale: true, cardWidth: 200, minimumCardWidth: 30), selection: $activeID, data: images) { item in
-                    Image(item.image)
+                CustomCarousel(
+                    config: .init(hasOpacity: true, hasScale: true, cardWidth: 200, minimumCardWidth: 30), selection: $activeID, data: cardImages.map { ImageItem(image: $0) }
+                ) { item in
+                    Image(uiImage: item.image)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
+                    
+                    
                 }
                 .frame(height: 180)
 

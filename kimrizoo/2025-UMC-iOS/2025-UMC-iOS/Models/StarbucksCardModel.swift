@@ -32,3 +32,8 @@ class StarbucksCardModel {
         }
     }
 }
+
+struct ImageItem: Identifiable {
+    let id = UUID()
+    let image: UIImage
+}
