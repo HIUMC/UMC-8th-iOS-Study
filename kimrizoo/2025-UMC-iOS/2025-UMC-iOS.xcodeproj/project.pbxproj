@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		37005D7E2DE8920F001B6B0F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 37005D7D2DE8920F001B6B0F /* Kingfisher */; };
+		3795B0952E03D11E00802E98 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 3795B0942E03D11E00802E98 /* CombineMoya */; };
 		37A293F52DD0A5960012BC8C /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 37A293F42DD0A5960012BC8C /* KakaoSDK */; };
 		37A293F72DD0A5960012BC8C /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 37A293F62DD0A5960012BC8C /* KakaoSDKAuth */; };
 		37A293F92DD0A5960012BC8C /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 37A293F82DD0A5960012BC8C /* KakaoSDKCommon */; };
@@ -38,6 +39,7 @@
 				37005D7E2DE8920F001B6B0F /* Kingfisher in Frameworks */,
 				37A293F52DD0A5960012BC8C /* KakaoSDK in Frameworks */,
 				37A293F92DD0A5960012BC8C /* KakaoSDKCommon in Frameworks */,
+				3795B0952E03D11E00802E98 /* CombineMoya in Frameworks */,
 				37D768C72DE753AF001881C6 /* Moya in Frameworks */,
 				37A293F72DD0A5960012BC8C /* KakaoSDKAuth in Frameworks */,
 				A0C62191E30309A83A6A284F /* Pods_2025_UMC_iOS.framework in Frameworks */,
@@ -108,6 +110,7 @@
 				37A293F82DD0A5960012BC8C /* KakaoSDKCommon */,
 				37D768C62DE753AF001881C6 /* Moya */,
 				37005D7D2DE8920F001B6B0F /* Kingfisher */,
+				3795B0942E03D11E00802E98 /* CombineMoya */,
 			);
 			productName = "2025-UMC-iOS";
 			productReference = 37B578702D8A71F700A92C62 /* 2025-UMC-iOS.app */;
@@ -450,6 +453,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 37005D7C2DE8920F001B6B0F /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		3795B0942E03D11E00802E98 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37D768C52DE753AF001881C6 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
 		};
 		37A293F42DD0A5960012BC8C /* KakaoSDK */ = {
 			isa = XCSwiftPackageProductDependency;
