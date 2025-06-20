@@ -18,6 +18,7 @@
 		612107192DC5F15C00ED7FBE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612107182DC5F15C00ED7FBE /* MapViewModel.swift */; };
 		6121071B2DC5F20400ED7FBE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6121071A2DC5F20400ED7FBE /* LocationManager.swift */; };
 		612107292DC61C9C00ED7FBE /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612107282DC61C9B00ED7FBE /* Marker.swift */; };
+		612AEECD2E0540650044A9DF /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612AEECC2E0540650044A9DF /* CardModel.swift */; };
 		612FD6802DDB9B820094DA02 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 612FD67F2DDB9B820094DA02 /* Alamofire */; };
 		612FD69E2DDBA6F30094DA02 /* FindStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612FD69D2DDBA6F30094DA02 /* FindStoreModel.swift */; };
 		612FD6A02DDBAC2A0094DA02 /* KakaoAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612FD69F2DDBAC2A0094DA02 /* KakaoAPIService.swift */; };
@@ -128,6 +129,7 @@
 		612107182DC5F15C00ED7FBE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		6121071A2DC5F20400ED7FBE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		612107282DC61C9B00ED7FBE /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		612AEECC2E0540650044A9DF /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		612FD69D2DDBA6F30094DA02 /* FindStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindStoreModel.swift; sourceTree = "<group>"; };
 		612FD69F2DDBAC2A0094DA02 /* KakaoAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAPIService.swift; sourceTree = "<group>"; };
 		612FD6A12DDBAC430094DA02 /* KakaoInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoInterceptor.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				61AD1E562D9D66410047DF1B /* Tabs */,
 				61AD1DEB2D992BE70047DF1B /* LoginView.swift */,
 				61AD1E5F2D9D66AE0047DF1B /* PayAreaView.swift */,
+				61AD1E5D2D9D66770047DF1B /* PayView.swift */,
 				61AD1E102D9976CB0047DF1B /* TabBarView.swift */,
 				61AD1E0E2D995F750047DF1B /* PopupView.swift */,
 				61AD1DED2D992BF70047DF1B /* SplashView.swift */,
@@ -411,6 +414,7 @@
 				612FD69D2DDBA6F30094DA02 /* FindStoreModel.swift */,
 				612FD6A72DDC10500094DA02 /* StoreModel.swift */,
 				612FD6AB2DDC21940094DA02 /* StarbucksGeoStoreModel.swift */,
+				612AEECC2E0540650044A9DF /* CardModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -439,7 +443,6 @@
 				612107012DC2F64900ED7FBE /* Order */,
 				61E6BFA82DA271E0008CF8D8 /* Shop */,
 				61E6BF3D2D9DB319008CF8D8 /* Home */,
-				61AD1E5D2D9D66770047DF1B /* PayView.swift */,
 				618FA5E52DA4347B00F87301 /* Receipt */,
 				61AD1E612D9D66BA0047DF1B /* OtherButtonView.swift */,
 			);
@@ -593,6 +596,7 @@
 				61E6BFB02DA2D83C008CF8D8 /* BestItemViewModel.swift in Sources */,
 				61AD1E152D99A8430047DF1B /* OtherViewModel.swift in Sources */,
 				612FD6A62DDBAD3F0094DA02 /* KakaoBookAPIError.swift in Sources */,
+				612AEECD2E0540650044A9DF /* CardModel.swift in Sources */,
 				618FA5F52DA4DB7B00F87301 /* ContentView.swift in Sources */,
 				612FD6AC2DDC21940094DA02 /* StarbucksGeoStoreModel.swift in Sources */,
 				618FA5E72DA434F200F87301 /* ReceiptsModel.swift in Sources */,

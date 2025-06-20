@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
@@ -55,8 +56,43 @@ struct UMC_StarbucksApp: App {
                         _ = AuthController.handleOpenUrl(url: url)
                     }
                 }
-            
+                .modelContainer(for: [CardModel.self])
+                .onAppear {
+                    let container = try? ModelContainer(for: CardModel.self)
+                    let context = container?.mainContext
+
+                    guard let context else {
+                        print("❌ 모델 컨텍스트 로드 실패")
+                        return
+                    }
+
+                    let sampleCards = [
+                        CardModel(
+                            imageName: "cardImage",
+                            cardName: "스타벅스 카드 A",
+                            cardMoney: 10000,
+                            cardNumber: "1234-5678-9012-3456",
+                            activationDate: Date()
+                        ),
+                        CardModel(
+                            imageName: "cardImage",
+                            cardName: "스타벅스 카드 B",
+                            cardMoney: 20000,
+                            cardNumber: "2345-6789-0123-4567",
+                            activationDate: Date()
+                        ),
+                        CardModel(
+                            imageName: "cardImage",
+                            cardName: "스타벅스 카드 C",
+                            cardMoney: 30000,
+                            cardNumber: "3456-7890-1234-5678",
+                            activationDate: Date()
+                        )
+                    ]
+                    sampleCards.forEach { context.insert($0) }
+                    try? context.save()
+                    print("✅ 샘플 카드 3개 삽입 완료 (항상 새로 삽입)")
+                }
         }
-        
     }
 }

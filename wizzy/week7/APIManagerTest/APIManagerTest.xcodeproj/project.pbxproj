@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		612AEEAF2E0315C50044A9DF /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 612AEEAE2E0315C50044A9DF /* CombineMoya */; };
 		6180FB182DDADAC400014E97 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 6180FB172DDADAC400014E97 /* Moya */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				612AEEAF2E0315C50044A9DF /* CombineMoya in Frameworks */,
 				6180FB182DDADAC400014E97 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +73,7 @@
 			name = APIManagerTest;
 			packageProductDependencies = (
 				6180FB172DDADAC400014E97 /* Moya */,
+				612AEEAE2E0315C50044A9DF /* CombineMoya */,
 			);
 			productName = APIManagerTest;
 			productReference = 6180FAE02DDAD86400014E97 /* APIManagerTest.app */;
@@ -346,6 +349,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		612AEEAE2E0315C50044A9DF /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6180FB162DDADAC400014E97 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
 		6180FB172DDADAC400014E97 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6180FB162DDADAC400014E97 /* XCRemoteSwiftPackageReference "Moya" */;
