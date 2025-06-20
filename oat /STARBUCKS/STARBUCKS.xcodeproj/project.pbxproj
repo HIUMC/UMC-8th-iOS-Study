@@ -96,6 +96,12 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		6E71D4EA2E001C170076E253 /* 8주차 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			name = "8주차";
+			path = "8주차";
+			sourceTree = "<group>";
+		};
 		6EB7EBD82D901E0A00BAEBD8 /* STARBUCKS */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -163,6 +169,7 @@
 		6EB7EBCD2D901E0A00BAEBD8 = {
 			isa = PBXGroup;
 			children = (
+				6E71D4EA2E001C170076E253 /* 8주차 */,
 				6E15E1D02DE6AE2A00DFB672 /* Network */,
 				6E2B94CD2DDBA4A70050BEF4 /* 사용 X  */,
 				6E79B3F62DDA371100D176DF /* Secrets.xcconfig */,
@@ -234,6 +241,7 @@
 				6E15E1D02DE6AE2A00DFB672 /* Network */,
 				6E2B94CD2DDBA4A70050BEF4 /* 사용 X  */,
 				6E6B548E2D92F69D009945BC /* ViewModels */,
+				6E71D4EA2E001C170076E253 /* 8주차 */,
 				6EB7EBD82D901E0A00BAEBD8 /* STARBUCKS */,
 				6EB7EC322D901F0700BAEBD8 /* Font */,
 				6EB7EC4A2D901F5200BAEBD8 /* Views */,

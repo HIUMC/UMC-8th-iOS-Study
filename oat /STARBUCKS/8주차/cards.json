@@ -1,0 +1,24 @@
+//
+//  cards.json
+//  STARBUCKS
+//
+//  Created by 신민정 on 6/16/25.
+//
+
+import Foundation
+[
+  {
+    "id": "1E2D3C4B-5678-1234-ABCD-987654321000",
+    "name": "마이 스타벅스 카드",
+    "balance": 1200,
+    "cardNumber": "123456789012",
+    "imageName": "card1"
+  },
+  {
+    "id": "2A1B3D4C-9012-4321-DCBA-123456789000",
+    "name": "스타벅스 리워드",
+    "balance": 999,
+    "cardNumber": "987654321098",
+    "imageName": "card2"
+  }
+]
