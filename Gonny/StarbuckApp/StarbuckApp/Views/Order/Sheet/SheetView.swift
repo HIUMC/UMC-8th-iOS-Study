@@ -19,7 +19,7 @@ struct OrderSheetView: View {
     @State private var searchText = ""
     @State private var selectedTab: StoreTab = .nearby
     @StateObject var viewModel: OrderSheetViewModel = .init()
-    @Bindable var locationManager: LocationManager = .shared
+    @StateObject var locationManager: LocationManager = .shared
     @ObservedObject var mapViewModel: MapViewModel = .init()
     
     var body: some View {
@@ -127,24 +127,7 @@ struct OrderSheetView: View {
 struct OrderSheetView_Previews: PreviewProvider {
     static var previews: some View {
         OrderSheetView(viewModel: OrderSheetViewModel())
-            .environment(LocationManager()) // 환경 객체 명시
+            .environmentObject(LocationManager.shared) // 환경 객체 명시
     }
 }
 
-
-/*
-import SwiftUI
-
-struct OrderSheetView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
-
-*/

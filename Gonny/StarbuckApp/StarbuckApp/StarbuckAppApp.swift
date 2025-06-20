@@ -30,7 +30,7 @@ struct LoginHandlingView: View {
         @State private var isLoginComplete = false
 
         var body: some View {
-            Group {
+            
                 if !isLoginComplete {
                     Color.clear
                         .onAppear {
@@ -46,10 +46,10 @@ struct LoginHandlingView: View {
                     if isLoggedIn {
                         MyTabView()
                     } else {
-                        LoginView()
+                        LoginView(userInfo: LoginViewModel())
                     }
                 }
-            }
+            
         }
     }
 

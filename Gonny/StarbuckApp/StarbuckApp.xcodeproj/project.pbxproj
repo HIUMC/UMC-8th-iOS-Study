@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		788283472DDC536000C35CA9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 788283462DDC536000C35CA9 /* Moya */; };
 		78C989EE2DD323BB00E77697 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 78C989ED2DD323BB00E77697 /* KakaoSDK */; };
 		78C989F02DD323BB00E77697 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 78C989EF2DD323BB00E77697 /* KakaoSDKAuth */; };
 		78C989F22DD323BB00E77697 /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = 78C989F12DD323BB00E77697 /* KakaoSDKCert */; };
@@ -50,6 +51,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		78A00E042DE4F3EB0044D0EC /* Network */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Network;
+			sourceTree = "<group>";
+		};
 		78A4599B2D90F6D2007F42AD /* StarbuckApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -77,6 +83,7 @@
 			files = (
 				78C989F42DD323BB00E77697 /* KakaoSDKCertCore in Frameworks */,
 				78C989F22DD323BB00E77697 /* KakaoSDKCert in Frameworks */,
+				788283472DDC536000C35CA9 /* Moya in Frameworks */,
 				78C989EE2DD323BB00E77697 /* KakaoSDK in Frameworks */,
 				78C989F62DD323BB00E77697 /* KakaoSDKCommon in Frameworks */,
 				78C989F02DD323BB00E77697 /* KakaoSDKAuth in Frameworks */,
@@ -103,6 +110,7 @@
 		78A459902D90F6D2007F42AD = {
 			isa = PBXGroup;
 			children = (
+				78A00E042DE4F3EB0044D0EC /* Network */,
 				78C989F72DD324C000E77697 /* KakaoSDKFriendResources.bundle */,
 				78A4599B2D90F6D2007F42AD /* StarbuckApp */,
 				78A459AC2D90F6D3007F42AD /* StarbuckAppTests */,
@@ -137,6 +145,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				78A00E042DE4F3EB0044D0EC /* Network */,
 				78A4599B2D90F6D2007F42AD /* StarbuckApp */,
 			);
 			name = StarbuckApp;
@@ -146,6 +155,7 @@
 				78C989F12DD323BB00E77697 /* KakaoSDKCert */,
 				78C989F32DD323BB00E77697 /* KakaoSDKCertCore */,
 				78C989F52DD323BB00E77697 /* KakaoSDKCommon */,
+				788283462DDC536000C35CA9 /* Moya */,
 			);
 			productName = StarbuckApp;
 			productReference = 78A459992D90F6D2007F42AD /* StarbuckApp.app */;
@@ -231,6 +241,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				78C989EC2DD323BB00E77697 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				788283452DDC536000C35CA9 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 78A4599A2D90F6D2007F42AD /* Products */;
@@ -438,6 +449,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarbuckApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "지오펜스를 사용하려면 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "백그라운드에서도 지오펜스를 사용하기 위함입니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "이 앱은 현재 위치를 표시하기 위해 위치 정보가 필요합니다.";
@@ -471,6 +483,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarbuckApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "지오펜스를 사용하려면 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "백그라운드에서도 지오펜스를 사용하기 위함입니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "이 앱은 현재 위치를 표시하기 위해 위치 정보가 필요합니다.";
@@ -604,6 +617,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		788283452DDC536000C35CA9 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 		78C989EC2DD323BB00E77697 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
@@ -615,6 +636,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		788283462DDC536000C35CA9 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 788283452DDC536000C35CA9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
 		78C989ED2DD323BB00E77697 /* KakaoSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 78C989EC2DD323BB00E77697 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
