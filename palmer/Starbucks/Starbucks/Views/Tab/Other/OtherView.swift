@@ -12,6 +12,7 @@ import SwiftUI
 struct OtherView: View {
     @AppStorage("nickname") private var nickname: String = "(작성한 닉네임)"
     @EnvironmentObject var router: NavigationRouter
+    @EnvironmentObject var parsingViewModel: JSONParsingViewModel
     
     var body: some View {
         VStack {
@@ -46,7 +47,7 @@ struct OtherView: View {
             
             Spacer()
             
-            payView
+            otherPayView
             
             Spacer()
             
@@ -57,7 +58,6 @@ struct OtherView: View {
         .background(Color("white01"))
     }
     
-    //cotentView 코드
     private var infoView: some View {
         VStack {
             VStack(spacing: 5) {
@@ -83,7 +83,7 @@ struct OtherView: View {
         }
     }
     
-    private var payView: some View {
+    private var otherPayView: some View {
         VStack(alignment: .leading) {
             Text("Pay")
                 .font(.mainTextSemiBold18)
@@ -129,7 +129,10 @@ struct OtherView: View {
             .padding(.vertical, 16)
             
             HStack {
-                listItem(icon: Image("store_info"), title: "매장 정보")
+                listItem(icon: Image("store_info"), title: "매장 정보", action: {
+                    parsingViewModel.loadStores()
+                    self.router.push(.storeMap)
+                })
                 
                 Spacer()
                 
@@ -150,23 +153,21 @@ struct OtherView: View {
     struct InfoButton: View {
         let icon: Image
         let title: String
-        private var action: () -> Void
+        let action: () -> Void
         
-        init(icon: Image, title: String, action: @escaping () -> Void) {
+        init(icon: Image, title: String, action: @escaping () -> Void = {}) {
             self.icon = icon
             self.title = title
             self.action = action
         }
-
+        
         var body: some View {
-            Button(action: {
-                action()
-            }, label: {
+            Button(action: action) {  // action 직접 호출
                 RoundedRectangle(cornerRadius: 15)
-                    .fill(.white)
+                    .fill(Color.white)
                     .frame(width: 102, height: 108)
                     .shadow(radius: 2, x: 0, y: 0)
-                    .overlay(content: {
+                    .overlay {
                         VStack(spacing: 4) {
                             icon
                                 .resizable()
@@ -177,24 +178,24 @@ struct OtherView: View {
                                 .font(.mainTextSemiBold16)
                                 .foregroundStyle(Color("black03"))
                         }
-                    })
-            })
+                    }
+            }
         }
     }
     
     struct listItem: View {
         let icon: Image
         let title: String
+        private var action: () -> Void
         
-        init(icon: Image, title: String) {
+        init(icon: Image, title: String, action: @escaping () -> Void = {}) {
             self.icon = icon
             self.title = title
+            self.action = action
         }
         
         var body: some View {
-            Button(action: {
-                print(title)
-            }, label: {
+            Button(action: action, label: {
                 HStack(spacing: 6) {
                     icon
                         .resizable()
@@ -210,8 +211,9 @@ struct OtherView: View {
             .frame(width: 180, height: 32)
         }
     }
-    
 }
+    
+
 
 #Preview {
     OtherView()

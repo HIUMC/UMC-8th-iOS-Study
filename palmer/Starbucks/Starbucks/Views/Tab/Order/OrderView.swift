@@ -30,7 +30,7 @@ struct OrderView: View {
             selectStoreView
         }
         .sheet(isPresented: $showSheet) {
-            OrderSheetView(viewModel: JSONViewModel)
+            OrderSheetView(viewModel: JSONViewModel, locationManager: LocationManager())
         }
     }
     
@@ -112,7 +112,6 @@ struct OrderView: View {
                             viewModel.selectedBottomSegment = segment
                         }
                     }
-                
                 Image("new")
             }
             .padding(EdgeInsets(top: 18, leading: 6, bottom: 8, trailing: 6))

@@ -7,10 +7,18 @@
 
 import SwiftUI
 import SwiftData
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 @main
 struct StarbucksApp: App {
     @StateObject private var router = NavigationRouter()
+    
+    init() {
+        // kakao sdk 초기화
+        let kakaoNativeAppKey = (Bundle.main.infoDictionary?["d441e529f6c27f346f64387ae7b6ad92"] as? String) ?? ""
+        KakaoSDK.initSDK(appKey: kakaoNativeAppKey)
+    }
     
     var body: some Scene {
         WindowGroup {
@@ -33,11 +41,19 @@ struct StarbucksApp: App {
                         case .receipts:
                             ReceiptView()
                                 .navigationBarBackButtonHidden(true)
+                        case .storeMap:
+                            FindStoreView()
                         }
                     }
             }
             .environmentObject(router)
             .modelContainer(for: ReceiptModel.self)
+            //로그인 URL
+            .onOpenURL(perform: { url in
+                if AuthApi.isKakaoTalkLoginUrl(url) {
+                    _ = AuthController.handleOpenUrl(url: url)
+                }
+            })
         }
     }
 }

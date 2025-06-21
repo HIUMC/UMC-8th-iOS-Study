@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8865B6B02DD3552400035416 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8865B6AF2DD3552400035416 /* Alamofire */; };
+		88D09A452DD34CBB00A97D68 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 88D09A442DD34CBB00A97D68 /* KakaoSDK */; };
+		88D09A472DD34CBB00A97D68 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 88D09A462DD34CBB00A97D68 /* KakaoSDKAuth */; };
+		88D09A492DD34CBB00A97D68 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 88D09A482DD34CBB00A97D68 /* KakaoSDKCommon */; };
+		88D350BB2DDE643700FCD9BA /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 88D350BA2DDE643700FCD9BA /* Moya */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		88BB00862D9D24E6008AB9C1 /* Starbucks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Starbucks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +44,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88D09A452DD34CBB00A97D68 /* KakaoSDK in Frameworks */,
+				8865B6B02DD3552400035416 /* Alamofire in Frameworks */,
+				88D09A492DD34CBB00A97D68 /* KakaoSDKCommon in Frameworks */,
+				88D350BB2DDE643700FCD9BA /* Moya in Frameworks */,
+				88D09A472DD34CBB00A97D68 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +91,11 @@
 			);
 			name = Starbucks;
 			packageProductDependencies = (
+				88D09A442DD34CBB00A97D68 /* KakaoSDK */,
+				88D09A462DD34CBB00A97D68 /* KakaoSDKAuth */,
+				88D09A482DD34CBB00A97D68 /* KakaoSDKCommon */,
+				8865B6AF2DD3552400035416 /* Alamofire */,
+				88D350BA2DDE643700FCD9BA /* Moya */,
 			);
 			productName = Starbucks;
 			productReference = 88BB00862D9D24E6008AB9C1 /* Starbucks.app */;
@@ -107,6 +125,11 @@
 			);
 			mainGroup = 88BB007D2D9D24E5008AB9C1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				88D09A432DD34CBB00A97D68 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				8865B6AE2DD3552400035416 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				88D350B92DDE643700FCD9BA /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 88BB00872D9D24E6008AB9C1 /* Products */;
 			projectDirPath = "";
@@ -269,6 +292,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Starbucks/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보 사용";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 앨범 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -300,6 +325,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Starbucks/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 정보 사용";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 앨범 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -341,6 +368,61 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8865B6AE2DD3552400035416 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+		88D09A432DD34CBB00A97D68 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.24.2;
+			};
+		};
+		88D350B92DDE643700FCD9BA /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8865B6AF2DD3552400035416 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8865B6AE2DD3552400035416 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		88D09A442DD34CBB00A97D68 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88D09A432DD34CBB00A97D68 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		88D09A462DD34CBB00A97D68 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88D09A432DD34CBB00A97D68 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		88D09A482DD34CBB00A97D68 /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88D09A432DD34CBB00A97D68 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		88D350BA2DDE643700FCD9BA /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88D350B92DDE643700FCD9BA /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 88BB007E2D9D24E5008AB9C1 /* Project object */;
 }

@@ -30,11 +30,10 @@ class OrderSheetViewModel {
     var pinStores: [StoreFeature]?
     
     func loadStores() {
-        guard let url = Bundle.main.url(forResource: "Starbucks_2025_store_data", withExtension: "geojson") else {
+        guard let url = Bundle.main.url(forResource: "Starbucks_2025_data", withExtension: "geojson") else {
             print("geojson 파일 없음")
             return
         }
-        
         do {
             let data = try Data(contentsOf: url)
             let decoded = try JSONDecoder().decode(StoreResponse.self, from: data)
@@ -98,7 +97,6 @@ class OrderSheetViewModel {
                 default:
                     break
                 }
-                
                 updatedStores.append(updated)
             }
             
@@ -111,7 +109,6 @@ class OrderSheetViewModel {
                     latitude: $1.properties.Ycoordinate,
                     longitude: $1.properties.Xcoordinate
                 )
-                
                 return myLocation.distance(from: loc1) < myLocation.distance(from: loc2)
             }
             self.stores = sortedStores
