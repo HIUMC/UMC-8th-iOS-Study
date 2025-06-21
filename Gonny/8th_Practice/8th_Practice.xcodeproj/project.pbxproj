@@ -6,68 +6,63 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		78A00D1A2DE4D9390044D0EC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 78A00D192DE4D9390044D0EC /* Moya */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
-		78A00CF92DE4D8490044D0EC /* PBXContainerItemProxy */ = {
+		78A498E42E031F29007C6D79 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 78A00CE02DE4D8480044D0EC /* Project object */;
+			containerPortal = 78A498CB2E031F28007C6D79 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 78A00CE72DE4D8480044D0EC;
-			remoteInfo = MoyaTest;
+			remoteGlobalIDString = 78A498D22E031F28007C6D79;
+			remoteInfo = 8th_Practice;
 		};
-		78A00D032DE4D8490044D0EC /* PBXContainerItemProxy */ = {
+		78A498EE2E031F29007C6D79 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 78A00CE02DE4D8480044D0EC /* Project object */;
+			containerPortal = 78A498CB2E031F28007C6D79 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 78A00CE72DE4D8480044D0EC;
-			remoteInfo = MoyaTest;
+			remoteGlobalIDString = 78A498D22E031F28007C6D79;
+			remoteInfo = 8th_Practice;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		78A00CE82DE4D8480044D0EC /* MoyaTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoyaTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		78A00CF82DE4D8490044D0EC /* MoyaTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoyaTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		78A00D022DE4D8490044D0EC /* MoyaTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoyaTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		78A498D32E031F28007C6D79 /* 8th_Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 8th_Practice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		78A498E32E031F29007C6D79 /* 8th_PracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 8th_PracticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		78A498ED2E031F29007C6D79 /* 8th_PracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 8th_PracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		78A00CEA2DE4D8480044D0EC /* MoyaTest */ = {
+		78A498D52E031F28007C6D79 /* 8th_Practice */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MoyaTest;
+			path = 8th_Practice;
 			sourceTree = "<group>";
 		};
-		78A00CFB2DE4D8490044D0EC /* MoyaTestTests */ = {
+		78A498E62E031F29007C6D79 /* 8th_PracticeTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MoyaTestTests;
+			path = 8th_PracticeTests;
 			sourceTree = "<group>";
 		};
-		78A00D052DE4D8490044D0EC /* MoyaTestUITests */ = {
+		78A498F02E031F29007C6D79 /* 8th_PracticeUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MoyaTestUITests;
+			path = 8th_PracticeUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		78A00CE52DE4D8480044D0EC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				78A00D1A2DE4D9390044D0EC /* Moya in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		78A00CF52DE4D8490044D0EC /* Frameworks */ = {
+		78A498D02E031F28007C6D79 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		78A00CFF2DE4D8490044D0EC /* Frameworks */ = {
+		78A498E02E031F29007C6D79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78A498EA2E031F29007C6D79 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -77,22 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		78A00CDF2DE4D8480044D0EC = {
+		78A498CA2E031F28007C6D79 = {
 			isa = PBXGroup;
 			children = (
-				78A00CEA2DE4D8480044D0EC /* MoyaTest */,
-				78A00CFB2DE4D8490044D0EC /* MoyaTestTests */,
-				78A00D052DE4D8490044D0EC /* MoyaTestUITests */,
-				78A00CE92DE4D8480044D0EC /* Products */,
+				78A498D52E031F28007C6D79 /* 8th_Practice */,
+				78A498E62E031F29007C6D79 /* 8th_PracticeTests */,
+				78A498F02E031F29007C6D79 /* 8th_PracticeUITests */,
+				78A498D42E031F28007C6D79 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		78A00CE92DE4D8480044D0EC /* Products */ = {
+		78A498D42E031F28007C6D79 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				78A00CE82DE4D8480044D0EC /* MoyaTest.app */,
-				78A00CF82DE4D8490044D0EC /* MoyaTestTests.xctest */,
-				78A00D022DE4D8490044D0EC /* MoyaTestUITests.xctest */,
+				78A498D32E031F28007C6D79 /* 8th_Practice.app */,
+				78A498E32E031F29007C6D79 /* 8th_PracticeTests.xctest */,
+				78A498ED2E031F29007C6D79 /* 8th_PracticeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,138 +95,134 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		78A00CE72DE4D8480044D0EC /* MoyaTest */ = {
+		78A498D22E031F28007C6D79 /* 8th_Practice */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 78A00D0C2DE4D8490044D0EC /* Build configuration list for PBXNativeTarget "MoyaTest" */;
+			buildConfigurationList = 78A498F72E031F29007C6D79 /* Build configuration list for PBXNativeTarget "8th_Practice" */;
 			buildPhases = (
-				78A00CE42DE4D8480044D0EC /* Sources */,
-				78A00CE52DE4D8480044D0EC /* Frameworks */,
-				78A00CE62DE4D8480044D0EC /* Resources */,
+				78A498CF2E031F28007C6D79 /* Sources */,
+				78A498D02E031F28007C6D79 /* Frameworks */,
+				78A498D12E031F28007C6D79 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				78A00CEA2DE4D8480044D0EC /* MoyaTest */,
+				78A498D52E031F28007C6D79 /* 8th_Practice */,
 			);
-			name = MoyaTest;
+			name = 8th_Practice;
 			packageProductDependencies = (
-				78A00D192DE4D9390044D0EC /* Moya */,
 			);
-			productName = MoyaTest;
-			productReference = 78A00CE82DE4D8480044D0EC /* MoyaTest.app */;
+			productName = 8th_Practice;
+			productReference = 78A498D32E031F28007C6D79 /* 8th_Practice.app */;
 			productType = "com.apple.product-type.application";
 		};
-		78A00CF72DE4D8490044D0EC /* MoyaTestTests */ = {
+		78A498E22E031F29007C6D79 /* 8th_PracticeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 78A00D0F2DE4D8490044D0EC /* Build configuration list for PBXNativeTarget "MoyaTestTests" */;
+			buildConfigurationList = 78A498FA2E031F29007C6D79 /* Build configuration list for PBXNativeTarget "8th_PracticeTests" */;
 			buildPhases = (
-				78A00CF42DE4D8490044D0EC /* Sources */,
-				78A00CF52DE4D8490044D0EC /* Frameworks */,
-				78A00CF62DE4D8490044D0EC /* Resources */,
+				78A498DF2E031F29007C6D79 /* Sources */,
+				78A498E02E031F29007C6D79 /* Frameworks */,
+				78A498E12E031F29007C6D79 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				78A00CFA2DE4D8490044D0EC /* PBXTargetDependency */,
+				78A498E52E031F29007C6D79 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				78A00CFB2DE4D8490044D0EC /* MoyaTestTests */,
+				78A498E62E031F29007C6D79 /* 8th_PracticeTests */,
 			);
-			name = MoyaTestTests;
+			name = 8th_PracticeTests;
 			packageProductDependencies = (
 			);
-			productName = MoyaTestTests;
-			productReference = 78A00CF82DE4D8490044D0EC /* MoyaTestTests.xctest */;
+			productName = 8th_PracticeTests;
+			productReference = 78A498E32E031F29007C6D79 /* 8th_PracticeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		78A00D012DE4D8490044D0EC /* MoyaTestUITests */ = {
+		78A498EC2E031F29007C6D79 /* 8th_PracticeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 78A00D122DE4D8490044D0EC /* Build configuration list for PBXNativeTarget "MoyaTestUITests" */;
+			buildConfigurationList = 78A498FD2E031F29007C6D79 /* Build configuration list for PBXNativeTarget "8th_PracticeUITests" */;
 			buildPhases = (
-				78A00CFE2DE4D8490044D0EC /* Sources */,
-				78A00CFF2DE4D8490044D0EC /* Frameworks */,
-				78A00D002DE4D8490044D0EC /* Resources */,
+				78A498E92E031F29007C6D79 /* Sources */,
+				78A498EA2E031F29007C6D79 /* Frameworks */,
+				78A498EB2E031F29007C6D79 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				78A00D042DE4D8490044D0EC /* PBXTargetDependency */,
+				78A498EF2E031F29007C6D79 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				78A00D052DE4D8490044D0EC /* MoyaTestUITests */,
+				78A498F02E031F29007C6D79 /* 8th_PracticeUITests */,
 			);
-			name = MoyaTestUITests;
+			name = 8th_PracticeUITests;
 			packageProductDependencies = (
 			);
-			productName = MoyaTestUITests;
-			productReference = 78A00D022DE4D8490044D0EC /* MoyaTestUITests.xctest */;
+			productName = 8th_PracticeUITests;
+			productReference = 78A498ED2E031F29007C6D79 /* 8th_PracticeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		78A00CE02DE4D8480044D0EC /* Project object */ = {
+		78A498CB2E031F28007C6D79 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
-					78A00CE72DE4D8480044D0EC = {
+					78A498D22E031F28007C6D79 = {
 						CreatedOnToolsVersion = 16.1;
 					};
-					78A00CF72DE4D8490044D0EC = {
+					78A498E22E031F29007C6D79 = {
 						CreatedOnToolsVersion = 16.1;
-						TestTargetID = 78A00CE72DE4D8480044D0EC;
+						TestTargetID = 78A498D22E031F28007C6D79;
 					};
-					78A00D012DE4D8490044D0EC = {
+					78A498EC2E031F29007C6D79 = {
 						CreatedOnToolsVersion = 16.1;
-						TestTargetID = 78A00CE72DE4D8480044D0EC;
+						TestTargetID = 78A498D22E031F28007C6D79;
 					};
 				};
 			};
-			buildConfigurationList = 78A00CE32DE4D8480044D0EC /* Build configuration list for PBXProject "MoyaTest" */;
+			buildConfigurationList = 78A498CE2E031F28007C6D79 /* Build configuration list for PBXProject "8th_Practice" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 78A00CDF2DE4D8480044D0EC;
+			mainGroup = 78A498CA2E031F28007C6D79;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				78A00D182DE4D9390044D0EC /* XCRemoteSwiftPackageReference "Moya" */,
-			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 78A00CE92DE4D8480044D0EC /* Products */;
+			productRefGroup = 78A498D42E031F28007C6D79 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				78A00CE72DE4D8480044D0EC /* MoyaTest */,
-				78A00CF72DE4D8490044D0EC /* MoyaTestTests */,
-				78A00D012DE4D8490044D0EC /* MoyaTestUITests */,
+				78A498D22E031F28007C6D79 /* 8th_Practice */,
+				78A498E22E031F29007C6D79 /* 8th_PracticeTests */,
+				78A498EC2E031F29007C6D79 /* 8th_PracticeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		78A00CE62DE4D8480044D0EC /* Resources */ = {
+		78A498D12E031F28007C6D79 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		78A00CF62DE4D8490044D0EC /* Resources */ = {
+		78A498E12E031F29007C6D79 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		78A00D002DE4D8490044D0EC /* Resources */ = {
+		78A498EB2E031F29007C6D79 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -241,21 +232,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		78A00CE42DE4D8480044D0EC /* Sources */ = {
+		78A498CF2E031F28007C6D79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		78A00CF42DE4D8490044D0EC /* Sources */ = {
+		78A498DF2E031F29007C6D79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		78A00CFE2DE4D8490044D0EC /* Sources */ = {
+		78A498E92E031F29007C6D79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -265,20 +256,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		78A00CFA2DE4D8490044D0EC /* PBXTargetDependency */ = {
+		78A498E52E031F29007C6D79 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 78A00CE72DE4D8480044D0EC /* MoyaTest */;
-			targetProxy = 78A00CF92DE4D8490044D0EC /* PBXContainerItemProxy */;
+			target = 78A498D22E031F28007C6D79 /* 8th_Practice */;
+			targetProxy = 78A498E42E031F29007C6D79 /* PBXContainerItemProxy */;
 		};
-		78A00D042DE4D8490044D0EC /* PBXTargetDependency */ = {
+		78A498EF2E031F29007C6D79 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 78A00CE72DE4D8480044D0EC /* MoyaTest */;
-			targetProxy = 78A00D032DE4D8490044D0EC /* PBXContainerItemProxy */;
+			target = 78A498D22E031F28007C6D79 /* 8th_Practice */;
+			targetProxy = 78A498EE2E031F29007C6D79 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		78A00D0A2DE4D8490044D0EC /* Debug */ = {
+		78A498F52E031F29007C6D79 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -341,7 +332,7 @@
 			};
 			name = Debug;
 		};
-		78A00D0B2DE4D8490044D0EC /* Release */ = {
+		78A498F62E031F29007C6D79 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -397,14 +388,14 @@
 			};
 			name = Release;
 		};
-		78A00D0D2DE4D8490044D0EC /* Debug */ = {
+		78A498F82E031F29007C6D79 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MoyaTest/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"8th_Practice/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -417,7 +408,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = k.MoyaTest;
+				PRODUCT_BUNDLE_IDENTIFIER = "k.-th-Practice";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -425,14 +416,14 @@
 			};
 			name = Debug;
 		};
-		78A00D0E2DE4D8490044D0EC /* Release */ = {
+		78A498F92E031F29007C6D79 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MoyaTest/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"8th_Practice/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -445,7 +436,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = k.MoyaTest;
+				PRODUCT_BUNDLE_IDENTIFIER = "k.-th-Practice";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -453,7 +444,7 @@
 			};
 			name = Release;
 		};
-		78A00D102DE4D8490044D0EC /* Debug */ = {
+		78A498FB2E031F29007C6D79 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -462,16 +453,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = k.MoyaTestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "k.-th-PracticeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoyaTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MoyaTest";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/8th_Practice.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/8th_Practice";
 			};
 			name = Debug;
 		};
-		78A00D112DE4D8490044D0EC /* Release */ = {
+		78A498FC2E031F29007C6D79 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -480,106 +471,87 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = k.MoyaTestTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "k.-th-PracticeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoyaTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MoyaTest";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/8th_Practice.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/8th_Practice";
 			};
 			name = Release;
 		};
-		78A00D132DE4D8490044D0EC /* Debug */ = {
+		78A498FE2E031F29007C6D79 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = k.MoyaTestUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "k.-th-PracticeUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MoyaTest;
+				TEST_TARGET_NAME = 8th_Practice;
 			};
 			name = Debug;
 		};
-		78A00D142DE4D8490044D0EC /* Release */ = {
+		78A498FF2E031F29007C6D79 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = k.MoyaTestUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = "k.-th-PracticeUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MoyaTest;
+				TEST_TARGET_NAME = 8th_Practice;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		78A00CE32DE4D8480044D0EC /* Build configuration list for PBXProject "MoyaTest" */ = {
+		78A498CE2E031F28007C6D79 /* Build configuration list for PBXProject "8th_Practice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				78A00D0A2DE4D8490044D0EC /* Debug */,
-				78A00D0B2DE4D8490044D0EC /* Release */,
+				78A498F52E031F29007C6D79 /* Debug */,
+				78A498F62E031F29007C6D79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		78A00D0C2DE4D8490044D0EC /* Build configuration list for PBXNativeTarget "MoyaTest" */ = {
+		78A498F72E031F29007C6D79 /* Build configuration list for PBXNativeTarget "8th_Practice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				78A00D0D2DE4D8490044D0EC /* Debug */,
-				78A00D0E2DE4D8490044D0EC /* Release */,
+				78A498F82E031F29007C6D79 /* Debug */,
+				78A498F92E031F29007C6D79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		78A00D0F2DE4D8490044D0EC /* Build configuration list for PBXNativeTarget "MoyaTestTests" */ = {
+		78A498FA2E031F29007C6D79 /* Build configuration list for PBXNativeTarget "8th_PracticeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				78A00D102DE4D8490044D0EC /* Debug */,
-				78A00D112DE4D8490044D0EC /* Release */,
+				78A498FB2E031F29007C6D79 /* Debug */,
+				78A498FC2E031F29007C6D79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		78A00D122DE4D8490044D0EC /* Build configuration list for PBXNativeTarget "MoyaTestUITests" */ = {
+		78A498FD2E031F29007C6D79 /* Build configuration list for PBXNativeTarget "8th_PracticeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				78A00D132DE4D8490044D0EC /* Debug */,
-				78A00D142DE4D8490044D0EC /* Release */,
+				78A498FE2E031F29007C6D79 /* Debug */,
+				78A498FF2E031F29007C6D79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		78A00D182DE4D9390044D0EC /* XCRemoteSwiftPackageReference "Moya" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Moya/Moya";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 15.0.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		78A00D192DE4D9390044D0EC /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 78A00D182DE4D9390044D0EC /* XCRemoteSwiftPackageReference "Moya" */;
-			productName = Moya;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 78A00CE02DE4D8480044D0EC /* Project object */;
+	rootObject = 78A498CB2E031F28007C6D79 /* Project object */;
 }

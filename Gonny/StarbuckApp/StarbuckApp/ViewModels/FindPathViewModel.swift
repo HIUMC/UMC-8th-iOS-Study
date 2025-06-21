@@ -62,11 +62,17 @@ class PlaceSearchViewModel: ObservableObject {
     }
     
     func selectPlace(_ place: Place) {
-            self.selectedPlace = place
-            self.searchText = place.place_name
-            self.searchResults = [] // 리스트 숨기기
-        }
-    
-    func
+           self.selectedPlace = place
+           self.searchText = place.place_name
+           self.searchResults = [] // 리스트 숨기기
+       }
+       
+       // 검색창, 리스트 등에서 외부에서 포커스를 해제하거나 검색 상태를 초기화하고 싶을 때(옵션)
+       func clearSearch() {
+           self.searchText = ""
+           self.searchResults = []
+           self.selectedPlace = nil
+           self.isShowingNoResultAlert = false
+       }
     
 }

@@ -1,13 +1,13 @@
 //
-//  PayView.swift
-//  StarbuckApp
+//  ContentView.swift
+//  8th_Practice
 //
-//  Created by 박병선 on 3/31/25.
+//  Created by 박병선 on 6/19/25.
 //
 
 import SwiftUI
 
-struct PayView: View {
+struct ContentView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +20,5 @@ struct PayView: View {
 }
 
 #Preview {
-    PayView()
+    ContentView()
 }
