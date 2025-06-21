@@ -11,45 +11,47 @@ struct ShopView: View {
     let ItemColumns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible())]
     
     @State var currentPage = 0
+    @State private var headerOffsets: (CGFloat, CGFloat) = (0, 0)
     
     let viewModel: ShopViewModel = .init()
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 44) {
-                starbucksOnlineStore
-                
-                allProducts
-                
-                bestItems
-                
-                newProducts
+        ScrollView(.vertical) {
+            VStack(spacing: 0) {
+                headerView()
+
+                LazyVStack(alignment: .leading, spacing: 44, pinnedViews: [.sectionHeaders]) {
+                    Section(header: pinnedHeaderView()
+                                .modifier(OffsetModifier(offset: $headerOffsets.0, returnromStart: false))
+                                .modifier(OffsetModifier(offset: $headerOffsets.1))) {
+                        VStack(spacing: 44) {
+                            starbucksOnlineStore
+                            allProducts
+                            bestItems
+                            newProducts
+                        }
+                        .padding(.horizontal, 16)
+                    }
+                }
             }
         }
-        .padding(.horizontal, 16)
-        .background(.white01)
+        .coordinateSpace(name: "SCROLL")
+        .background(Color.white01)
     }
     
     // 스타벅스 온라인 샵 배너
     private var starbucksOnlineStore: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Starbucks Online Store")
-                .font(.mainTextBold24)
-                .foregroundStyle(.black)
-            
-            ScrollView(.horizontal, content: {
-                LazyHStack(spacing: 28, content: {
-                    ForEach(1...3, id: \.self) { rowIndex in
-                        Image("shopBanner\(rowIndex)")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 270, height: 215)
-                    }
-                })
+        ScrollView(.horizontal, content: {
+            LazyHStack(spacing: 28, content: {
+                ForEach(1...3, id: \.self) { rowIndex in
+                    Image("shopBanner\(rowIndex)")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 270, height: 215)
+                }
             })
-            .scrollIndicators(.hidden)
-        }
-        .padding(.top, 27)
+        })
+        .scrollIndicators(.hidden)
     }
     
     // 모든 상품(가로 스크롤)
@@ -114,8 +116,72 @@ struct ShopView: View {
             .frame(height: 450)
         }
     }
+    
+    private func headerView() -> some View {
+        GeometryReader { proxy in
+            let minY = proxy.frame(in: .named("SCROLL")).minY
+            let size = proxy.size
+            let height = max(0, size.height + minY)
+
+            Rectangle()
+                .fill(Color.white)
+                .frame(width: size.width, height: height, alignment: .top)
+                .offset(y: -minY)
+        }
+        .frame(height: 20)
+    }
+
+    private func pinnedHeaderView() -> some View {
+        let threshold = -(getScreenSize().height * 0.05)
+
+        return HStack {
+            if headerOffsets.0 < threshold {
+                Spacer()
+            }
+
+            Text("Starbucks Online Store")
+                .font(headerOffsets.0 < threshold ? .mainTextBold24 : .pretendardSemiBold(20))
+                .foregroundStyle(.black)
+                .animation(.easeInOut(duration: 0.4), value: headerOffsets.0)
+
+            Spacer()
+        }
+        .frame(height: 90, alignment: .bottomLeading)
+        .safeAreaPadding(.bottom, headerOffsets.0 < threshold ? 20 : 0)
+        .background(Color.white)
+    }
 }
 
 #Preview {
     ShopView()
+}
+
+struct OffsetModifier: ViewModifier {
+    @Binding var offset: CGFloat
+    var returnromStart: Bool = true
+
+    func body(content: Content) -> some View {
+        content
+            .overlay {
+                GeometryReader { proxy in
+                    let minY = proxy.frame(in: .named("SCROLL")).minY
+                    Color.clear
+                        .preference(key: OffsetKey.self, value: minY)
+                        .onPreferenceChange(OffsetKey.self) { value in
+                            offset = value
+                        }
+                }
+            }
+    }
+}
+
+struct OffsetKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
+    }
+}
+
+func getScreenSize() -> CGSize {
+    UIScreen.main.bounds.size
 }

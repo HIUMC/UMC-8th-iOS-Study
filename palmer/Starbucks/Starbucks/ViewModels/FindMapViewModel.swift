@@ -16,17 +16,14 @@ import SwiftUI
 import Moya
 import Foundation
 
-@Observable
-class FindMapViewModel {
+class FindMapViewModel: ObservableObject {
     let provider: MoyaProvider<MapRouter>
     
-    init(provider: MoyaProvider<MapRouter> = APIManager.shared.createProvider(for: MapRouter.self)) {
+    init(provider: MoyaProvider<MapRouter> = APIManager.shared.createProvider(for: MapRouter.self)) async {
         self.provider = provider
-        
         locationManager.startUpdatingLocation()
-        Task {
-            await reverseGeocoding()
-        }
+        
+        await reverseGeocoding()
     }
     
     var keywordResults: [Place] = []

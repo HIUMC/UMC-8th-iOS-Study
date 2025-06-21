@@ -10,6 +10,7 @@
 *.xcodeproj/project.xcworkspace/xcshareddata/
 *.xcodeproj/xcuserdata/
 *.xcodeproj/xcshareddata/
+*.xcconfig
 
 # Build products
 DerivedData/

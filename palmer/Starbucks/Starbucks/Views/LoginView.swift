@@ -12,17 +12,13 @@ import Foundation
 struct LoginView: View {
     @FocusState private var focusedField: LoginField?
     @EnvironmentObject var router: NavigationRouter
-    @Bindable var viewModel: LoginViewModel
+    @ObservedObject var viewModel: LoginViewModel = .init()
     
-    @AppStorage("storedEmail") private var storedEmail: String = ""
-    @AppStorage("storedPassword") private var storedPassword: String = ""
-    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
     
     enum LoginField {
         case id
         case password
     }
-    
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -35,6 +31,10 @@ struct LoginView: View {
             loginSelection
                 .frame(height: 144)
                 .padding(.bottom, 60)
+        }
+        .onAppear {
+            // 자동 로그인 체크
+            autoLogin()
         }
     }
     
@@ -69,7 +69,10 @@ struct LoginView: View {
                 .background(focusedField == .id ? Color("green01") : Color("gray00"))
                 .padding(.bottom, 47)
             
-            SecureField("비밀번호", text: $viewModel.password)
+            SecureField("비밀번호", text: Binding(
+                get: { viewModel.pwd },
+                set: { viewModel.pwd = $0 }
+            ))
                 .focused($focusedField, equals: .password)
             
             Divider()
@@ -79,12 +82,11 @@ struct LoginView: View {
             
             Button(action: {
                 print("로그인 버튼")
-                if viewModel.id == storedEmail && viewModel.password == storedPassword {
-                    print("성공적으로 로그인되었습니다!")
-                    router.push(.tabBar)
-                } else {
-                    print("이메일과 패스워드가 다릅니다.")
-                }
+                // 실제 로그인 성공 시 토큰 저장
+                let token = TokenInfo(accessToken: "abc123", refreshToken: "xyz456") // 실제 로그인 시 받은 값 사용
+                KeychainService.shared.saveToken(token)
+                print("토큰 저장 완료")
+                router.push(.tabBar)
             }) {
                 Text("로그인하기")
                     .font(.mainTextMedium16)
@@ -118,8 +120,17 @@ struct LoginView: View {
         }
         .frame(maxWidth: .infinity, alignment: .center)
     }
-}
     
+    private func autoLogin() {
+        if KeychainService.shared.loadToken() != nil {
+            print("자동 로그인 성공 - 토큰:", KeychainService.shared.loadToken())
+            router.push(.tabBar)
+        } else {
+            print("자동 로그인 실패 - 저장된 토큰 없음")
+        }
+    }
+}
+
 struct LoginView_Preview: PreviewProvider {
     static var devices = ["iPhone 11", "iPhone 16 Pro Max"]
 

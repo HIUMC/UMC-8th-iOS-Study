@@ -10,12 +10,9 @@ import Observation
 
 struct SignupView: View {
     @Environment(\.dismiss) var dismiss
-    @Bindable var signupViewModel: SignupViewModel
+    @ObservedObject var signupViewModel: SignupViewModel
     @State private var router = NavigationRouter()
     
-    @AppStorage("nickname") private var storedNickname = ""
-    @AppStorage("email") private var storedEmail = ""
-    @AppStorage("password") private var storedPassword = ""
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -25,7 +22,6 @@ struct SignupView: View {
                 TextField("닉네임", text: $signupViewModel.nickname)
                     .font(.mainTextRegular13)
                     .foregroundStyle(Color("black01"))
-                
                 Divider()
                 Spacer()
                 TextField("이메일", text: $signupViewModel.email)
@@ -34,7 +30,10 @@ struct SignupView: View {
                 
                 Divider()
                 Spacer()
-                TextField("비밀번호", text: $signupViewModel.password)
+                TextField("비밀번호", text: Binding(
+                    get: { signupViewModel.password },
+                    set: { signupViewModel.password = $0 }
+                ))
                     .font(.mainTextRegular13)
                     .foregroundStyle(Color("black01"))
                 
@@ -52,9 +51,12 @@ struct SignupView: View {
                     signupViewModel.email.count > 0 &&
                     signupViewModel.password.count > 0 {
                     
-                    storedNickname = signupViewModel.nickname
-                    storedEmail = signupViewModel.email
-                    storedPassword = signupViewModel.password
+                    // Keychain에 데이터 저장
+                    let token = TokenInfo(
+                        accessToken: signupViewModel.email,
+                        refreshToken: signupViewModel.password
+                    )
+                    KeychainService.shared.saveToken(token)
                     
                     dismiss()
                 } else {
@@ -76,7 +78,6 @@ struct SignupView: View {
         .navigationBarBackButtonHidden(true)
     }
 }
-
 
 #Preview {
     SignupView(signupViewModel: SignupViewModel())

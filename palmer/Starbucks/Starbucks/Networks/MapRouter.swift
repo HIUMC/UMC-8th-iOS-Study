@@ -1,5 +1,5 @@
 //
-//  MapRoute.swift
+//  MapRouter.swift
 //  Starbucks
 //
 //  Created by 박정환 on 5/22/25.
@@ -58,14 +58,14 @@ extension MapRouter : TargetType {
         case .getPhotoURL(let query):
             let parameters: [String: Any] = [
                 "place_id": query,
-                "key": BuildSetting.googleApiKey
+                //"key": BuildSetting.googleApiKey
             ]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         case .getPlaceId(query: let query):
             let parameters: [String: Any] = [
                 "input": query,
                 "inputtype": "textquery",
-                "key": BuildSetting.googleApiKey
+                //"key": BuildSetting.googleApiKey
             ]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
         }
@@ -77,7 +77,7 @@ extension MapRouter : TargetType {
             return ["Content-Type": "application/json"]
         case .getSearchAddress:
             return [
-                "Authorization": "KakaoAK \(BuildSetting.kakaoRestApiKey)",
+                //"Authorization": "KakaoAK \(BuildSetting.kakaoRestApiKey)",
                 "Content-Type": "application/json"
             ]
         }

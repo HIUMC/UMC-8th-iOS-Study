@@ -16,7 +16,7 @@ struct OrderSheetView: View {
     @State private var hasDraggedMap: Bool = false
     
     @Bindable var viewModel: JSONParsingViewModel
-    @Bindable private var locationManager: LocationManager = .shared
+    @Bindable var locationManager: LocationManager
         
     var body: some View {
         VStack {
@@ -33,7 +33,7 @@ struct OrderSheetView: View {
             
             if selectedTab == 0 {
                 if isMap {
-                    mapView
+                    MapView(viewModel: viewModel, hasDraggedMap: $hasDraggedMap)
                 } else {
                     storeListView
                 }
@@ -73,8 +73,8 @@ struct OrderSheetView: View {
     private var searchBar: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
+                .fill(Color("gray08"))
                 .frame(height: 28)
-                .foregroundStyle(Color("gray08"))
             
             TextField("검색", text: $searchText)
                 .font(.mainTextSemiBold13)
@@ -92,6 +92,7 @@ struct OrderSheetView: View {
 
                     HStack(spacing: 0) {
                         Text(segment.title)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundStyle(viewModel.selectedSegment == segment ? .black03 : .gray03)
                             .font(.pretendardSemiBold(13))
                             .onTapGesture {
@@ -124,61 +125,8 @@ struct OrderSheetView: View {
         .padding(.horizontal, 32.5)
     }
     
-    // 맵뷰
-    private var mapView: some View {
-        ZStack(alignment: .top) {
-            Map(position: $viewModel.cameraPosition) {
-                if let stores = viewModel.pinStores {
-                    ForEach(stores, id: \.properties.Seq, content: { store in
-                        let location = CLLocationCoordinate2D(
-                            latitude: store.properties.Ycoordinate,
-                            longitude: store.properties.Xcoordinate
-                        )
-                        
-                        Annotation(store.properties.Sotre_nm, coordinate: location, content: {
-                            ZStack {
-                                Circle()
-                                    .frame(width: 40, height: 40)
-                                    .foregroundStyle( .green02)
-                                
-                                Image("Starbucks")
-                                    .resizable()
-                                    .frame(width: 25, height: 25)
-                            }
-                        })
-                    })
-                    UserAnnotation(anchor: .center)
-                }
-            }
-            .onMapCameraChange { context in
-                viewModel.visibleRegion = context.region
-                hasDraggedMap = true
-            }
-            
-            if hasDraggedMap {
-                Button(action : {
-                    print("버튼 클릭")
-                    viewModel.calculateDistanceFromRegionCenter()
-                    hasDraggedMap = false
-                }) {
-                    Text("이 지역 검색")
-                        .font(.pretendardMedium(13))
-                        .foregroundStyle(.gray06)
-                        .background(
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(.white)
-                                .frame(width: 88, height: 36)
-                                .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 3)
-                        )
-                }
-                .offset(y: 25)
-            }
-        }
-    }
-    
 }
 
 #Preview {
-    var viewModel: JSONParsingViewModel = .init()
-    OrderSheetView(viewModel: viewModel)
+    OrderSheetView(viewModel: JSONParsingViewModel(), locationManager: LocationManager())
 }

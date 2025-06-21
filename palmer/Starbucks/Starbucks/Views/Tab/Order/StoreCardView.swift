@@ -44,7 +44,7 @@ struct StoreCardView: View {
                     }
                     
                     Spacer()
-                    
+                
                     Text("\(String(format: "%.1f km", model.properties.KM ?? 0.0))")
                         .font(.pretendardMedium(12))
                 }

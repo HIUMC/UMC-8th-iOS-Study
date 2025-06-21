@@ -10,7 +10,8 @@ import MapKit
 import Observation
 
 @Observable
-class JSONParsingViewModel {
+class JSONParsingViewModel: ObservableObject {
+    
     var searchKeyword: String = ""
     var selectedSegment: OrderSheetSegment = .first
     var cameraPosition: MapCameraPosition = .region(
@@ -28,8 +29,9 @@ class JSONParsingViewModel {
     var stores: [StoreFeature]?
     var pinStores: [StoreFeature]?
     
+    // 파싱
     func loadStores() {
-        guard let url = Bundle.main.url(forResource: "Starbucks_2025_store_data", withExtension: "geojson") else {
+        guard let url = Bundle.main.url(forResource: "Starbucks_2025_data", withExtension: "geojson") else {
             print("geojson 파일 없음")
             return
         }
@@ -38,6 +40,7 @@ class JSONParsingViewModel {
             let data = try Data(contentsOf: url)
             let decoded = try JSONDecoder().decode(StoreResponse.self, from: data)
 
+            // 모든 매장 데이터 메모리 저장
             self.allStores = decoded.features
             self.stores = decoded.features
             print("디코딩 성공")
@@ -46,6 +49,7 @@ class JSONParsingViewModel {
         }
     }
     
+    // 현재 위치랑 가까운 매장 필터링
     func calculateDistanceFromCurrentLocation() async {
         guard let current = location.currentLocation else {
             print("현재 위치없음")
@@ -117,6 +121,7 @@ class JSONParsingViewModel {
         }
     }
     
+    // 현재 지도 카메라 중심 필터링
     func calculateDistanceFromRegionCenter() {
         guard let allStores = self.allStores else { return }
         guard let base = visibleRegion?.center else { return }
