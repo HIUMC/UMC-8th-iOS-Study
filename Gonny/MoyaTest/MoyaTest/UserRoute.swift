@@ -1,0 +1,52 @@
+//
+//  UserRoute.swift
+//  MoyaTest
+//
+//  Created by 박병선 on 5/27/25.
+//
+import Foundation
+import Moya
+
+struct UserData: Codable {
+    let name: String
+    let age: Int
+    let address: String
+    let height: Double
+}
+
+struct UserPatchRequest: Codable {
+    let name: String?
+    let age: Int?
+    let address: String?
+    let height: Double?
+}
+
+
+enum UserRotuer {
+    case getPerson(name: String)
+    case postPerson(userData: UserData)
+    case patchPerson(patchData: UserPatchRequest)
+    case putPerson(userData: UserData)
+    case deletePerson(name: String)
+}
+
+extension UserRotuer: APITargetType {
+    var path: String {
+        return "/person"
+    }
+    
+    var method: Moya.Method {
+        switch self {
+        case .getPerson:
+            return .get
+        case .postPerson:
+            return .post
+        case .patchPerson:
+            return .patch
+        case .putPerson:
+            return .put
+        case .deletePerson:
+            return .delete
+        }
+    }
+}

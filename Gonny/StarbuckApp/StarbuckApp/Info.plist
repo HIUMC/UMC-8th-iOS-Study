@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>API_URL</key>
+	<string>$(API_URL)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -13,6 +15,8 @@
 			</array>
 		</dict>
 	</array>
+	<key>Image_URL</key>
+	<string>$(Image_URL)</string>
 	<key>KAKAO_REST_API_KEY</key>
 	<string>$(KAKAO_REST_API_KEY)
 a49b5fbb75b77d621e5e3b0680b5f321
@@ -33,5 +37,7 @@ a49b5fbb75b77d621e5e3b0680b5f321
 		<string>Pretendard-Regular.otf</string>
 		<string>Pretendard-SemiBold.otf</string>
 	</array>
+	<key>UIPrerenderedIcon</key>
+	<false/>
 </dict>
 </plist>

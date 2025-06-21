@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		788283472DDC536000C35CA9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 788283462DDC536000C35CA9 /* Moya */; };
+		78A499CD2E03E9C9007C6D79 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 78A499CC2E03E9C9007C6D79 /* CombineMoya */; };
 		78C989EE2DD323BB00E77697 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 78C989ED2DD323BB00E77697 /* KakaoSDK */; };
 		78C989F02DD323BB00E77697 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 78C989EF2DD323BB00E77697 /* KakaoSDKAuth */; };
 		78C989F22DD323BB00E77697 /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = 78C989F12DD323BB00E77697 /* KakaoSDKCert */; };
@@ -74,6 +75,11 @@
 			path = StarbuckAppUITests;
 			sourceTree = "<group>";
 		};
+		78A49A0B2E0490B1007C6D79 /* ImageGenerator */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ImageGenerator;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 				78C989F42DD323BB00E77697 /* KakaoSDKCertCore in Frameworks */,
 				78C989F22DD323BB00E77697 /* KakaoSDKCert in Frameworks */,
 				788283472DDC536000C35CA9 /* Moya in Frameworks */,
+				78A499CD2E03E9C9007C6D79 /* CombineMoya in Frameworks */,
 				78C989EE2DD323BB00E77697 /* KakaoSDK in Frameworks */,
 				78C989F62DD323BB00E77697 /* KakaoSDKCommon in Frameworks */,
 				78C989F02DD323BB00E77697 /* KakaoSDKAuth in Frameworks */,
@@ -110,6 +117,7 @@
 		78A459902D90F6D2007F42AD = {
 			isa = PBXGroup;
 			children = (
+				78A49A0B2E0490B1007C6D79 /* ImageGenerator */,
 				78A00E042DE4F3EB0044D0EC /* Network */,
 				78C989F72DD324C000E77697 /* KakaoSDKFriendResources.bundle */,
 				78A4599B2D90F6D2007F42AD /* StarbuckApp */,
@@ -147,6 +155,7 @@
 			fileSystemSynchronizedGroups = (
 				78A00E042DE4F3EB0044D0EC /* Network */,
 				78A4599B2D90F6D2007F42AD /* StarbuckApp */,
+				78A49A0B2E0490B1007C6D79 /* ImageGenerator */,
 			);
 			name = StarbuckApp;
 			packageProductDependencies = (
@@ -156,6 +165,7 @@
 				78C989F32DD323BB00E77697 /* KakaoSDKCertCore */,
 				78C989F52DD323BB00E77697 /* KakaoSDKCommon */,
 				788283462DDC536000C35CA9 /* Moya */,
+				78A499CC2E03E9C9007C6D79 /* CombineMoya */,
 			);
 			productName = StarbuckApp;
 			productReference = 78A459992D90F6D2007F42AD /* StarbuckApp.app */;
@@ -449,6 +459,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarbuckApp/Info.plist;
+				INFOPLIST_KEY_GCSupportsGameMode = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "지오펜스를 사용하려면 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "백그라운드에서도 지오펜스를 사용하기 위함입니다.";
@@ -483,6 +494,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarbuckApp/Info.plist;
+				INFOPLIST_KEY_GCSupportsGameMode = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "지오펜스를 사용하려면 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "백그라운드에서도 지오펜스를 사용하기 위함입니다.";
@@ -640,6 +652,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 788283452DDC536000C35CA9 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		78A499CC2E03E9C9007C6D79 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 788283452DDC536000C35CA9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
 		};
 		78C989ED2DD323BB00E77697 /* KakaoSDK */ = {
 			isa = XCSwiftPackageProductDependency;

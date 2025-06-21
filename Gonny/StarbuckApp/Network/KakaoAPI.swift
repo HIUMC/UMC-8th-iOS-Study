@@ -67,6 +67,4 @@ extension KakaoAPI: TargetType {
         }
 }
 
-struct FindRouteModel{
-    var 
-}
+
