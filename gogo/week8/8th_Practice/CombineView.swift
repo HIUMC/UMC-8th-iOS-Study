@@ -1,18 +1,18 @@
 //
-//  PayView.swift
-//  Starbucks_Week1_gogo
+//  CombineView.swift
+//  7st_Practice
 //
-//  Created by 고석현 on 4/1/25.
+
 //
 
 import SwiftUI
 
-struct PayView: View {
+struct CombineView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    PayView()
+    CombineView()
 }

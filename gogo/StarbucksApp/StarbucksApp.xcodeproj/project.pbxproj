@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7695BCE2E0315C4004E03C3 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = D7695BCD2E0315C4004E03C3 /* CombineMoya */; };
 		D77022CB2DE661FC000347CC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = D77022CA2DE661FC000347CC /* Moya */; };
 		D7EF95452DD2A933003A3C81 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D7EF95442DD2A933003A3C81 /* Alamofire */; };
 		D7EF95482DD2A9ED003A3C81 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D7EF95472DD2A9ED003A3C81 /* KakaoSDK */; };
@@ -99,6 +100,7 @@
 				D7EF954A2DD2A9ED003A3C81 /* KakaoSDKAuth in Frameworks */,
 				D7EF95502DD2A9ED003A3C81 /* KakaoSDKCommon in Frameworks */,
 				D77022CB2DE661FC000347CC /* Moya in Frameworks */,
+				D7695BCE2E0315C4004E03C3 /* CombineMoya in Frameworks */,
 				D7EF954C2DD2A9ED003A3C81 /* KakaoSDKCert in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,6 +170,7 @@
 				D7EF954D2DD2A9ED003A3C81 /* KakaoSDKCertCore */,
 				D7EF954F2DD2A9ED003A3C81 /* KakaoSDKCommon */,
 				D77022CA2DE661FC000347CC /* Moya */,
+				D7695BCD2E0315C4004E03C3 /* CombineMoya */,
 			);
 			productName = StarbucksApp;
 			productReference = D7D384092D9D153A0066E5D8 /* StarbucksApp.app */;
@@ -688,6 +691,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D7695BCD2E0315C4004E03C3 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D77022C92DE661FC000347CC /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
 		D77022CA2DE661FC000347CC /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D77022C92DE661FC000347CC /* XCRemoteSwiftPackageReference "Moya" */;
